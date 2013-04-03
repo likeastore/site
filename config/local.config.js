@@ -1,8 +1,6 @@
 var config = {
-	host: 'localhost',
-	port: 27017,
-	options: {auto_reconnect: true},
-	db: 'samplesDb'
+	connection: 'mongodb://localhost:27017/samplesDb',
+	options: {auto_reconnect: true}
 };
 
 module.exports = config;

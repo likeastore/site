@@ -9,10 +9,6 @@ var path = require('path');
 var mongo = require('mongodb');
 
 var config = require('./config')();
-console.log(config);
-var server = new mongo.Server(config.host, config.port, config.options);
-var db = new mongo.Db(config.db, server, {safe: true});
-
 var app = express();
 
 app.configure(function(){
@@ -34,9 +30,7 @@ app.configure('development', function(){
 
 var routes = require('./routes');
 
-db.open(function (err, db) {
-  console.log(err);
-
+mongo.MongoClient.connect(config.connection, config.options, function (err, db) {
   var exposeMongo = function (req, res, next) {
     req.mongo = db;
     return next();

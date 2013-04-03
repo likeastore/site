@@ -1,9 +1,14 @@
 var local = require('./production.config.js');
 
 function createConfig() {
-	console.log(local);
+	var env = process.env.NODE_ENV || 'development';
+	if (env === 'development') {
+		return require('./local.config.js');
+	}
 
-	return local;
+	if (env === 'production') {
+		return require('./production.config.js');
+	}
 }
 
 module.exports = createConfig;
