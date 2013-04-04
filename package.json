@@ -1,6 +1,6 @@
 {
   "name": "notify-me",
-  "version": "0.0.1-5",
+  "version": "0.0.1-6",
   "private": true,
   "scripts": {
     "start": "node app.js"
@@ -9,7 +9,9 @@
     "express": "3.0.0rc4",
     "ejs": "*",
     "underscore": "~1.4.4",
-    "mongodb": "~1.2.14"
+    "mongodb": "~1.2.14",
+    "node-mandrill": "~1.0.1",
+    "async": "~0.2.6"
   },
   "subdomain": "likeastore-notify-me",
   "engines": {

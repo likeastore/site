@@ -1,8 +1,6 @@
 {
 	"predef": [
-		"_",
 		"after",
-		"async",
 		"afterEach",
 		"afterEach",
 		"Backbone",
