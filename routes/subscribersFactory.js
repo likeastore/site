@@ -13,15 +13,14 @@ var db = require('../utils/dbConnector.js').db;
  */
 function save (req, callback) {
 	var message = 'Buddy called ' + req.email + ' just subscribed and waiting for likeastore. Hurry up guys!';
-	var data = req.body;
 
-	var record = _.extend(data, {
+	var record = _.extend(req.body, {
 		date: new Date(),
 		ip: req.ip
 	});
 
 	// using 'upsert' flag to update doc if it exists 
-	db.subscribers.update({ email: record.email }, record, { upsert: true }, addedDocument);
+	db.subscribers.update({ email: req.email }, record, { upsert: true }, addedDocument);
 
 	function addedDocument (err, saved) {
 		if (err || !saved) {
@@ -43,4 +42,3 @@ function save (req, callback) {
 module.exports = {
 	save: save
 };
-
