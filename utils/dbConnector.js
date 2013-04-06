@@ -6,7 +6,7 @@ var config = require('../config')();
 var mongo = require('mongojs');
 
 // specify app collections here
-var collections = ['subscribers'];
+var collections = ['subscribers', 'users'];
 
 // get db with default collections list
 var db = mongo.connect(config.connection, collections);
