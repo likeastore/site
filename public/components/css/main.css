@@ -139,12 +139,14 @@ textarea {
     padding:0;
     width: 210px;
 }
+
 .step-description h2 {
     margin: 0;
     font-size: 1.1em;
     letter-spacing: 1px;
     font-weight: 600;
 }
+
 .step-description p {
     font-size: .8em;
     margin: 0;
@@ -169,6 +171,7 @@ textarea {
     vertical-align: top;
     font-size: 14px;
 }
+
 .notifyme-deck input[type=text]:focus {
      border:2px solid rgba(36,130,196,.8);
 }
@@ -200,13 +203,13 @@ textarea {
     padding: 10px;
     margin: 20px 0 0;
     color: #fff;
-    transition: background 2s;
-    -moz-transition: background 2s; /* Firefox 4 */
     -webkit-transition: background 2s; /* Safari and Chrome */
+    -moz-transition: background 2s; /* Firefox 4 */
     -o-transition: background 2s; /* Opera */
+    transition: background 2s;
 }
+
 .success-message {
-    display: none;
     background: rgba(55,181,21,.7);
 }
 

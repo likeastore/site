@@ -4,11 +4,11 @@
 var subscribers = require('./subscribersFactory');
 
 var index = function (req, res) {
-	if (req.session.auth) {
+	/*if (req.session.auth) {
 		res.render('master');
-	} else {
+	} else {*/
 		res.render('index');
-	}
+	//}
 };
 
 var notify = function (req, res) {
