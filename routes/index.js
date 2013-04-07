@@ -3,8 +3,12 @@
  */
 var subscribers = require('./subscribersFactory');
 
-var index = function(req, res){
-	res.render('index');
+var index = function (req, res) {
+	if (req.session.auth) {
+		res.render('master');
+	} else {
+		res.render('index');
+	}
 };
 
 var notify = function (req, res) {

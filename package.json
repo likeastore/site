@@ -11,7 +11,8 @@
     "underscore": "~1.4.4",
     "mongodb": "~1.2.14",
     "node-mandrill": "~1.0.1",
-    "async": "~0.2.6"
+    "async": "~0.2.6",
+    "everyauth": "~0.3.1"
   },
   "subdomain": "likeastore-notify-me",
   "engines": {

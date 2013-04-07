@@ -1,7 +1,6 @@
 /**
  * Mongodb connector
  */
-var url = require('url');
 var config = require('../config')();
 var mongo = require('mongojs');
 
@@ -18,8 +17,10 @@ var db = mongo.connect(config.connection, collections);
  * e.g. { url: username:password@host:port/dbname?params), collections: ['name', 'name2' ...] }
  */
 var setDb = function (options) {
-	var url = options.url ? options.url : config.connection;
-	return mongo.connect(url, options.collections);
+	var url = options.url ? options.url : config.connection,
+		list = options.collections ? options.collections : collections;
+
+	return mongo.connect(url, list);
 };
 
 module.exports = {
