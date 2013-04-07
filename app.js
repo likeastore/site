@@ -6,9 +6,8 @@
 var express = require('express');
 var http = require('http');
 var path = require('path');
-var mongo = require('mongodb');
+var routes = require('./routes');
 
-var config = require('./config')();
 var app = express();
 
 app.configure(function(){
@@ -28,18 +27,8 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-var routes = require('./routes');
-
-mongo.MongoClient.connect(config.connection, config.options, function (err, db) {
-  var exposeMongo = function (req, res, next) {
-    req.mongo = db;
-    return next();
-  };
-
-  app.get('/', exposeMongo, routes.index);
-  app.post('/notify', exposeMongo, routes.notify);
-});
-
+app.get('/', routes.index);
+app.post('/notify', routes.notify);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

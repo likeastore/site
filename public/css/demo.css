@@ -1,0 +1,213 @@
+/*
+ * Demo notifier page css
+ */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans|Montserrat+Alternates);
+
+body {
+	color: #FFF;
+	background: #7DD4BA;
+	font: 14px/18px 'Open Sans', Arial, sans-serif;
+}
+
+.wrap {
+	width: 600px;
+	margin: 100px auto;
+}
+
+.logo {
+	color: #FFF;
+	font-family: 'Montserrat Alternates', Arial, sans-serif;
+	font-size: 46px;
+	font-weight: 800;
+	line-height: 50px;
+	text-align: center;
+}
+
+.description {
+	font-family: 'Montserrat Alternates', Arial, sans-serif;
+	font-size: 14px;
+	text-align: center;
+}
+
+/*
+ * Form
+ */
+.notify-me-form {
+	width: 400px;
+	margin: 20px auto;
+	position: relative;
+}
+
+.notify-me-form input[type="text"] {
+	display: inline-block;
+	color: #A7A7A7;
+	background: #FFF;
+	padding: 8px 12px;
+	font-size: 16px;
+	width: 280px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	box-shadow: inset 0 7px 5px -5px #e1e8f5,0 1px 0 #26ae90;
+}
+
+.notify-me-form input[type="submit"] {
+	cursor: pointer;
+	color: #FFF;
+	background: #F05045;
+	font-size: 16px;
+	padding: 8px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-transition: background .3s ease-out;
+	-moz-transition: background .3s ease-out;
+	-ms-transition: background .3s ease-out;
+	transition: background .3s ease-out;
+	box-shadow: inset 0 7px 5px -5px #fa6055,0 1px 0 #d4261a;
+}
+
+.notify-me-form input[type="submit"]:hover {
+	background: #d62e22;
+}
+
+.notify-me-form span {
+	display: block;
+	font-size: 16px;
+	font-family: 'Montserrat Alternates', Arial, sans-serif;
+	margin: 0 0 10px;
+	text-align: center;
+}
+
+.notify-me-form.error {
+	-webkit-animation: tilt 500ms linear;
+	-moz-animation: tilt 500ms linear;
+	-ms-animation: tilt 500ms linear;
+	animation: tilt 500ms linear;
+}
+
+@-webkit-keyframes tilt {
+	0% {
+		-webkit-transform: rotate(-2deg);
+	}
+
+	30% {
+		-webkit-transform: rotate(2deg);
+	}
+
+	60% {
+		-webkit-transform: rotate(-1deg);
+	}
+}
+
+@-moz-keyframes tilt {
+	0% {
+		-moz-transform: rotate(-2deg);
+	}
+
+	30% {
+		-moz-transform: rotate(2deg);
+	}
+
+	60% {
+		-moz-transform: rotate(-1deg);
+	}
+}
+
+@-ms-keyframes tilt {
+	0% {
+		-ms-transform: rotate(-2deg);
+	}
+
+	30% {
+		-ms-transform: rotate(2deg);
+	}
+
+	60% {
+		-ms-transform: rotate(-1deg);
+	}
+}
+
+@keyframes tilt {
+	0% {
+		transform: rotate(-2deg);
+	}
+
+	30% {
+		transform: rotate(2deg);
+	}
+
+	60% {
+		transform: rotate(-1deg);
+	}
+}
+
+/*
+ * Spinner
+ */
+.spinner {
+	width: 30px;
+	height: 30px;
+	margin: 30px auto 40px;
+	position: relative;
+	border: 3px solid #FFF; /*#26ae90;*/
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+}
+
+.spinner:before,
+.spinner:after {
+	display: block;
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 14px;
+	width: 3px;
+	background-color: #FFF;
+}
+
+.spinner:before {
+	height: 9px;
+	-webkit-animation: spin 8000ms linear infinite;
+	-moz-animation: spin 8000ms linear infinite;
+	-ms-animation: spin 8000ms linear infinite;
+	animation: spin 8000ms linear infinite;
+	-webkit-transform-origin: center top;
+	-moz-transform-origin: center top;
+	-ms-transform-origin: center top;
+	transform-origin: center top;
+}
+
+.spinner:after {
+	height: 12px;
+	-webkit-animation: spin 2000ms linear infinite;
+	-moz-animation: spin 2000ms linear infinite;
+	-ms-animation: spin 2000ms linear infinite;
+	animation: spin 2000ms linear infinite;
+	-webkit-transform-origin: center top;
+	-moz-transform-origin: center top;
+	-ms-transform-origin: center top;
+	transform-origin: center top;
+}
+
+@-webkit-keyframes spin {
+	to {
+		-webkit-transform: rotate(360deg);
+	}
+}
+@-moz-keyframes spin {
+	to {
+		-moz-transform: rotate(360deg);
+	}
+}
+@-ms-keyframes spin {
+	to {
+		-ms-transform: rotate(360deg);
+	}
+}
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
