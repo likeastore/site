@@ -12,7 +12,6 @@
     "mongodb": "~1.2.14",
     "node-mandrill": "~1.0.1",
     "async": "~0.2.6",
-    "everyauth": "~0.3.1",
     "mongojs": "~0.7.3"
   },
   "subdomain": "likeastore-notify-me",
