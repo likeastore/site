@@ -11,8 +11,9 @@
 </head>
 <body>
   <section class="wrap">
-    <div class="logo">likeastore.</div>
-    <div class="description">We are currently working on amazingly cool application and ready to share it with you very soon. Please stay in touch and we'll let you know as sool as we are live. Put you email and click "Notify me" button, just few steps ahead :)</div>
+    <div class="logo">likeastore</div>
+    <div class="spinner"></div>
+    <div class="description">Store every byte of your social activity. Opening soon..</div>
 
     <form class="notify-me-form" action="/notify" method="post">
       <input type="text" class="email" placeholder="your@email.com">
@@ -34,15 +35,19 @@
         $form.removeClass('error');
         $form.find('span').remove();
 
+        $email.keydown(function (e) {
+          $form.removeClass('error');
+        });
+
         if (!validateEmail(email)) {
           $form.addClass('error');
-          $email.before('<span class="help-inline">Your email looks strange, please correct!</span>');
           return;
         }
 
         $.post('/notify', { email: email }, 
           function () {
-            $email.before('<span class="success-message">You\'ve been subscribed!</span>');
+            $form.addClass('success');
+            $email.before('<span class="success-message">Congrats! You will be notified!</span>');
           });
       });
 
