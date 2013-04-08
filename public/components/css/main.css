@@ -182,6 +182,7 @@ textarea {
 
 .notifyme-deck button {
     height: 36px;
+    width: 110px;
     line-height: 36px;
     background-color: rgba(36,130,196,.6);
     padding:0 15px;
