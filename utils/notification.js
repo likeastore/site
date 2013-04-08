@@ -1,6 +1,10 @@
-var mandrill = require('node-mandrill')(process.env.MANDRILL_TOKEN);
-
 function sendEmail(text, callback) {
+	if (!process.env.MANDRILL_TOKEN) {
+		return callback(null);
+	}
+
+	var mandrill = require('node-mandrill')(process.env.MANDRILL_TOKEN);
+
 	var developers = [
 		{email: 'alexander.beletsky@gmail.com'},
 		{email: 'anton.mamant@gmail.com'},
