@@ -25,7 +25,7 @@ function save (req, callback) {
 			return callback('User is not saved');
 		}
 
-		var message = 'Buddy ' + request.email + ' just subscribed and waiting for @likeastore.\n\n Hurry up guys!';
+		var message = 'Buddy ' + request.email + ' just subscribed and waiting for @likeastore.\n\nHurry up, guys!';
 		notificationUtil.email(message, function (err) {
 			if (err) {
 				console.info('Error while sending mandrill notification!');
