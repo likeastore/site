@@ -22,7 +22,7 @@ body {
     font-size: 1em;
     line-height: 1.4;
     font-family: 'Open Sans', sans-serif;
-    background:#87c6d8;
+    background:#87c6d8 url(../img/bg.png);
 }
 
 /*
@@ -196,6 +196,10 @@ textarea {
 .notifyme-deck button:hover {
      background-color: rgba(36,130,196,1);
 }
+.notifyme-deck button.loading-btn {
+    background:#2482c4 url(../img/loader.gif) no-repeat 5px center;
+    padding-left: 36px;
+}
 
 .notification {
     text-shadow:1px 0 1px rgba(0,0,0,.2);
@@ -215,6 +219,69 @@ textarea {
 
 .help-inline {
     background: rgba(252,52,6,.8);
+}
+
+.notify-me.error {
+    -webkit-animation: tilt 500ms linear;
+    -moz-animation: tilt 500ms linear;
+    -ms-animation: tilt 500ms linear;
+    animation: tilt 500ms linear;
+}
+
+@-webkit-keyframes tilt {
+    0% {
+        -webkit-transform: rotate(-2deg);
+    }
+
+    30% {
+        -webkit-transform: rotate(2deg);
+    }
+
+    60% {
+        -webkit-transform: rotate(-1deg);
+    }
+}
+
+@-moz-keyframes tilt {
+    0% {
+        -moz-transform: rotate(-2deg);
+    }
+
+    30% {
+        -moz-transform: rotate(2deg);
+    }
+
+    60% {
+        -moz-transform: rotate(-1deg);
+    }
+}
+
+@-ms-keyframes tilt {
+    0% {
+        -ms-transform: rotate(-2deg);
+    }
+
+    30% {
+        -ms-transform: rotate(2deg);
+    }
+
+    60% {
+        -ms-transform: rotate(-1deg);
+    }
+}
+
+@keyframes tilt {
+    0% {
+        transform: rotate(-2deg);
+    }
+
+    30% {
+        transform: rotate(2deg);
+    }
+
+    60% {
+        transform: rotate(-1deg);
+    }
 }
 
 

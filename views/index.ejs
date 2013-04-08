@@ -42,9 +42,9 @@
         </div>
 
         <div class="notifyme-deck">
-          <form class="notify-me form-inline" action="/notify" method="post">
+          <form class="notify-me" action="/notify" method="post">
               <input type="text" class="email" placeholder="your@email.com">
-              <button type="submit">Notify me</button>
+              <button class="sbm-btn" type="submit">Notify me</button>
           </form>
         </div>
     </div>
@@ -54,6 +54,7 @@
       $(function () {
        $('.notify-me').on('submit', function (e) {
           e.preventDefault();
+          $('.sbm-btn').addClass('loading-btn').text('Sending...');
 
           var $form = $(e.target);
           var $email = $form.find('.email');
@@ -64,12 +65,14 @@
 
           if (!validateEmail(email)) {
             $form.addClass('error');
+            $('.sbm-btn').removeClass('loading-btn').text('Notify me');
             $form.append('<div class="notification help-inline">Your email looks strange, please correct</div>');
 
             return;
           }
 
           $.post('/notify', {email: email}, function () {
+            $('.sbm-btn').removeClass('loading-btn').text('Notify me');
             $form.append('<div class="notification success-message">You\'ve been subscribed!</div>');
           });
         });
