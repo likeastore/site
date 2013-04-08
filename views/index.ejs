@@ -56,25 +56,25 @@
           e.preventDefault();
           $('.sbm-btn').addClass('loading-btn');
 
-          // var $form = $(e.target);
-          // var $email = $form.find('.email');
-          // var email = $email.val();
+          var $form = $(e.target);
+          var $email = $form.find('.email');
+          var email = $email.val();
 
-          // $form.removeClass('error');
-          // $form.find('.notification').remove();
+          $form.removeClass('error');
+          $form.find('.notification').remove();
 
-          // if (!validateEmail(email)) {
-          //   $form.addClass('error');
-          //   $('.sbm-btn').removeClass('loading-btn').text('Notify me');
-          //   $form.append('<div class="notification help-inline">Your email looks strange, please correct</div>');
+          if (!validateEmail(email)) {
+            $form.addClass('error');
+            $('.sbm-btn').removeClass('loading-btn').text('Notify me');
+            $form.append('<div class="notification help-inline">Your email looks strange, please correct</div>');
 
-          //   return;
-          // }
+            return;
+          }
 
-          // $.post('/notify', {email: email}, function () {
-          //   $('.sbm-btn').removeClass('loading-btn').text('Notify me');
-          //   $form.append('<div class="notification success-message">You\'ve been subscribed!</div>');
-          // });
+          $.post('/notify', {email: email}, function () {
+            $('.sbm-btn').removeClass('loading-btn').text('Notify me');
+            $form.append('<div class="notification success-message">You\'ve been subscribed!</div>');
+          });
         });
 
         function validateEmail(email) {
