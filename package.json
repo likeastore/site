@@ -1,7 +1,11 @@
 {
   "name": "notify-me",
-  "version": "0.0.1-7",
+  "version": "0.0.1-8",
   "private": true,
+  "domains": [
+    "likeastore.com",
+    "www.likeastore.com"
+  ],
   "scripts": {
     "start": "node app.js"
   },
