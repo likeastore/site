@@ -1,3 +1,5 @@
+var subscribers = require('./db/subscribers');
+
 module.exports = function (app) {
 	app.get('/', index);
 	app.get('/welcome', welcome);
@@ -15,7 +17,21 @@ module.exports = function (app) {
 			return res.redirect('commingsoon');
 		}
 
-		res.redirect('http://localhost:3001');
+		subscribers.findOne({email: user, inviteId: inviteId}, function (err, subscription) {
+			if (err || !subscription) {
+				return res.redirect('commingsoon');
+			}
+
+			subscribers.activate(subscription, function (err) {
+				if (err) {
+					return res.send(500);
+				}
+
+				res.cookie('likeastore_invite_id', subscription.inviteId);
+
+				return res.redirect('http://localhost:3001');
+			});
+		});
 	}
 
 	function commingSoon(req, res) {
