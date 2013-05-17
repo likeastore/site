@@ -1,3 +1,4 @@
+var config = require('./../config')();
 var subscribers = require('./db/subscribers');
 
 module.exports = function (app) {
@@ -27,9 +28,9 @@ module.exports = function (app) {
 					return res.send(500);
 				}
 
-				res.cookie('likeastore_invite_id', subscription.inviteId);
+				res.cookie('likeastore_invite_id', subscription.inviteId, { domain: config.domain });
 
-				return res.redirect('http://localhost:3001');
+				return res.redirect(config.applicationUrl);
 			});
 		});
 	}
