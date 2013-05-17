@@ -4,7 +4,7 @@
 
 var _ = require('underscore');
 var notificationUtil = require('../utils/notification');
-var db = require('../utils/dbConnector.js').db;
+var subscribers = require('../db/Subscribers');
 var inviteUtil = require('./../utils/invite');
 
 /*
@@ -20,18 +20,17 @@ function save (req, callback) {
 		inviteId: inviteUtil.createId(request.email, req.ip)
 	});
 
-	db.subscribers.update({ email: request.email }, record, { upsert: true }, addedDocument);
+	subscribers.update(record, saved);
 
-	function addedDocument (err, saved) {
-		if (err || !saved) {
-			return callback('User is not saved');
+	function saved (err, subscription) {
+		if (err || !subscription) {
+			return callback('subscription is not saved');
 		}
 
 		var message = 'Buddy ' + request.email + ' just subscribed and waiting for @likeastore.\n\nHurry up, guys!';
 		notificationUtil.email(message, function (err) {
 			if (err) {
 				console.info(err);
-				return callback(null);
 			}
 		});
 
