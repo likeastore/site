@@ -5,7 +5,7 @@
 var express = require('express');
 var http = require('http');
 var path = require('path');
-
+var invite = require('./source/utils/invite');
 var app = express();
 
 app.configure(function(){
@@ -26,6 +26,13 @@ app.configure('development', function(){
 require('./source/router.js')(app);
 require('./source/api.js')(app);
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log("Express server listening on port " + app.get('port'));
+invite.ensureInvites(function (err) {
+  if (err) {
+    return console.log(err);
+  }
+
+  http.createServer(app).listen(app.get('port'), function(){
+    console.log("Express server listening on port " + app.get('port'));
+  });
 });
+
