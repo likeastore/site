@@ -1,6 +1,6 @@
 function sendEmail(text, callback) {
 	if (!process.env.MANDRILL_TOKEN) {
-		return callback(null);
+		return callback('no mandrill token. ok for development mode, fail for production mode');
 	}
 
 	var mandrill = require('node-mandrill')(process.env.MANDRILL_TOKEN);

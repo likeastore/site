@@ -5,6 +5,7 @@
 var _ = require('underscore');
 var notificationUtil = require('../utils/notification');
 var db = require('../utils/dbConnector.js').db;
+var inviteUtil = require('./../utils/invite');
 
 /*
  * Save user to subscribers list
@@ -15,7 +16,8 @@ function save (req, callback) {
 	var request = req.body;
 	var record = _.extend(request, {
 		date: new Date(),
-		ip: req.ip
+		ip: req.ip,
+		inviteId: inviteUtil.createId(request.email, req.ip)
 	});
 
 	db.subscribers.update({ email: request.email }, record, { upsert: true }, addedDocument);
@@ -28,12 +30,12 @@ function save (req, callback) {
 		var message = 'Buddy ' + request.email + ' just subscribed and waiting for @likeastore.\n\nHurry up, guys!';
 		notificationUtil.email(message, function (err) {
 			if (err) {
-				console.info('Error while sending mandrill notification!');
-				return callback('Error while sending mandrill notification');
+				console.info(err);
+				return callback(null);
 			}
-			console.info('Mandrill notification sent!');
-			return callback(null, saved);
 		});
+
+		return callback(null, saved);
 	}
 }
 
