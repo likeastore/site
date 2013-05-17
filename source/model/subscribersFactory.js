@@ -4,7 +4,7 @@
 
 var _ = require('underscore');
 var notificationUtil = require('../utils/notification');
-var subscribers = require('../db/Subscribers');
+var subscribers = require('../db/subscribers');
 var inviteUtil = require('./../utils/invite');
 
 /*
