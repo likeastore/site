@@ -28,7 +28,7 @@ module.exports = function (app) {
 					return res.send(500);
 				}
 
-				res.cookie('likeastore_invite_id', subscription.inviteId, { domain: config.domain });
+				res.cookie('likeastore_invite_id', subscription.inviteId, { domain: config.domain, path: '/welcome' });
 
 				return res.redirect(config.applicationUrl);
 			});
