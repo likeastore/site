@@ -12,7 +12,7 @@ module.exports = function (app) {
 
 	function welcome(req, res) {
 		var user = req.query.user;
-		var inviteId = req.query.inviteId;
+		var inviteId = req.query.invite;
 
 		if (!user || !inviteId) {
 			return res.redirect('commingsoon');
@@ -28,7 +28,7 @@ module.exports = function (app) {
 					return res.send(500);
 				}
 
-				res.cookie('likeastore_invite_id', subscription.inviteId, { domain: config.domain, path: '/welcome' });
+				res.cookie('likeastoreInviteId', subscription.inviteId, { domain: config.domain });
 
 				return res.redirect(config.applicationUrl);
 			});
