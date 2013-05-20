@@ -1,6 +1,8 @@
 var config = require('./../config')();
 var subscribers = require('./db/subscribers');
 
+var oneMonth = 2678400000;
+
 module.exports = function (app) {
 	app.get('/', index);
 	app.get('/welcome', welcome);
@@ -28,7 +30,7 @@ module.exports = function (app) {
 					return res.send(500);
 				}
 
-				res.cookie('likeastoreInviteId', subscription.inviteId, { domain: config.domain });
+				res.cookie('likeastoreInviteId', subscription.inviteId, { domain: config.domain, maxAge: oneMonth});
 
 				return res.redirect(config.applicationUrl);
 			});
