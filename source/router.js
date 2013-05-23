@@ -1,4 +1,4 @@
-var config = require('./../config')();
+var config = require('likeastore-config');
 var subscribers = require('./db/subscribers');
 
 var oneMonth = 2678400000;
