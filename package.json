@@ -17,7 +17,7 @@
     "node-mandrill": "~1.0.1",
     "async": "~0.2.6",
     "mongojs": "~0.7.3",
-    "config": "git+ssh://git@github.com:likeastore/config.git"
+    "config": "git://github.com/likeastore/config.git"
   },
   "subdomain": "likeastore-notify-me",
   "engines": {
