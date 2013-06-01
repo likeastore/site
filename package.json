@@ -1,5 +1,5 @@
 {
-  "name": "likeastore-site",
+  "name": "likeastore-marketing-site",
   "version": "0.0.1-20",
   "private": true,
   "domains": [
@@ -19,7 +19,7 @@
     "mongojs": "~0.7.3",
     "config": "git://github.com/likeastore/config.git"
   },
-  "subdomain": "likeastore-site",
+  "subdomain": "likeastore-marketing-site",
   "engines": {
     "node": "0.8.x"
   }
