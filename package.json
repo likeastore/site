@@ -1,6 +1,6 @@
 {
   "name": "likeastore-marketing-site",
-  "version": "0.0.1-20",
+  "version": "0.0.5-5",
   "private": true,
   "domains": [
     "likeastore.com",
@@ -17,10 +17,10 @@
     "node-mandrill": "~1.0.1",
     "async": "~0.2.6",
     "mongojs": "~0.7.3",
-    "config": "git://github.com/likeastore/config.git"
+    "likeastore-config": "git://github.com/likeastore/config.git"
   },
   "subdomain": "likeastore-marketing-site",
   "engines": {
-    "node": "0.8.x"
+    "node": "~0.8.x"
   }
 }
