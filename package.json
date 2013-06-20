@@ -17,7 +17,8 @@
     "node-mandrill": "~1.0.1",
     "async": "~0.2.6",
     "mongojs": "~0.7.3",
-    "likeastore-config": "git://github.com/likeastore/config.git"
+    "likeastore-config": "git://github.com/likeastore/config.git",
+    "ejs-locals": "~1.0.2"
   },
   "subdomain": "likeastore-marketing-site",
   "engines": {

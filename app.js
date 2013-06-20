@@ -5,11 +5,13 @@
 var express = require('express');
 var http = require('http');
 var path = require('path');
+var engine = require('ejs-locals');
 var invite = require('./source/utils/invite');
 var app = express();
 
 app.configure(function(){
   app.set('port', process.env.VCAP_APP_PORT || 3000);
+  app.engine('ejs', engine);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'ejs');
   app.use(express.logger('dev'));
