@@ -1,11 +1,15 @@
 <% layout('layout') -%>
 <h2>Register page</h2>
 
-<form action="/register" class="auth" method="post" accept-charset="utf-8">
+<form action="/auth/local/register" class="auth" method="post" accept-charset="utf-8" novalidate>
 	<input type="text" name="username" class="field username" placeholder="Username">
-	<input type="text" name="email" class="field email" placeholder="email@exampl.com">
+	<input type="email" name="email" class="field email" placeholder="email@exampl.com">
 	<input type="password" name="password" class="field password" placeholder="Password">
 	<button type="submit" class="btn">Register</button>
 </form>
+
+<a class="" href="/auth/facebook">Sign in with facebook</a>
+<a class="" href="/auth/twitter">Sign in with twitter</a>
+<a class="" href="/auth/github">Sign in with github</a>
 
 <% script('js/auth.js') -%>

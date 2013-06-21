@@ -21,6 +21,8 @@ app.configure(function(){
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
+  app.use(express.cookieParser('likeastore_secret7'));
+  app.use(express.cookieSession({ secret: 'likeastore_secret', cookie: { maxAge: 3600000 }}));
   app.use(passport.initialize());
   app.use(passport.session());
   app.use(app.router);

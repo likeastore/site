@@ -48,7 +48,6 @@ ls.auth = {
 			$form.append('<div class="msg error-msg">' + msg + '</div>');
 		}
 	}
-
 };
 
 $(function () {
