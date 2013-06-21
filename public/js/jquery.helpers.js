@@ -1,4 +1,8 @@
 (function ($) {
+	if (typeof window.ls === 'undefined') {
+		window.ls = {};
+	}
+
 	$.Event.prototype.stop = function () {
 		this.stopPropagation();
 		this.preventDefault();

@@ -1,2 +1,10 @@
 <% layout('layout') -%>
 <h2>Login page</h2>
+
+<form action="/login" class="auth" method="post" accept-charset="utf-8">
+	<input type="text" name="username" class="field username" placeholder="Username">
+	<input type="password" name="password" class="field password" placeholder="Password">
+	<button type="submit" class="btn">Login</button>
+</form>
+
+<% script('js/auth.js') -%>

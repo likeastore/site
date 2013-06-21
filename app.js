@@ -6,7 +6,11 @@ var express = require('express');
 var http = require('http');
 var path = require('path');
 var engine = require('ejs-locals');
-var invite = require('./source/utils/invite');
+var passport = require('passport');
+var authorizeInit = require('./source/utils/auth.js');
+
+// (!) auth init should be ALWAYS before app
+authorizeInit(passport);
 var app = express();
 
 app.configure(function(){
@@ -17,6 +21,8 @@ app.configure(function(){
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
+  app.use(passport.initialize());
+  app.use(passport.session());
   app.use(app.router);
   app.use(express.static(path.join(__dirname, 'public')));
 });
@@ -25,16 +31,9 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
+require('./source/api.js')(app, passport);
 require('./source/router.js')(app);
-require('./source/api.js')(app);
 
-invite.ensureInvites(function (err) {
-  if (err) {
-    return console.log(err);
-  }
-
-  http.createServer(app).listen(app.get('port'), function(){
-    console.log("Express server listening on port " + app.get('port'));
-  });
+http.createServer(app).listen(app.get('port'), function(){
+  console.log("Express server listening on port " + app.get('port'));
 });
-
