@@ -19,10 +19,10 @@ app.configure(function(){
   app.set('views', __dirname + '/views');
   app.set('view engine', 'ejs');
   app.use(express.logger('dev'));
+  app.use(express.cookieParser());
   app.use(express.bodyParser());
   app.use(express.methodOverride());
-  app.use(express.cookieParser('likeastore_secret7'));
-  app.use(express.cookieSession({ secret: 'likeastore_secret', cookie: { maxAge: 3600000 }}));
+  app.use(express.session({ secret: 'likeastore_marketing' }));
   app.use(passport.initialize());
   app.use(passport.session());
   app.use(app.router);

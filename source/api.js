@@ -1,6 +1,7 @@
 var config = require('likeastore-config');
 var users = require('./db/users.js');
 var subscribers = require('./db/subscribers.js');
+var networks = require('./db/networks.js');
 
 module.exports = function (app, passport) {
 
@@ -35,7 +36,18 @@ module.exports = function (app, passport) {
 				return res.send(500, err);
 			}
 
-			res.json({ applicationUrl: config.applicationUrl });
+			// we don't store facebook as network for now
+			if (req.user.provider === 'facebook') {
+				return res.json({ applicationUrl: config.applicationUrl });
+			}
+
+			networks.save(req.user, function (err, net) {
+				if (err) {
+					return res.send(500, err);
+				}
+
+				return res.json({ applicationUrl: config.applicationUrl });
+			});
 		});
 	};
 
@@ -49,4 +61,5 @@ module.exports = function (app, passport) {
 	app.get('/auth/github/callback', passport.authenticate('github', authRedirect));
 	app.get('/auth/facebook', passport.authenticate('facebook'));
 	app.get('/auth/facebook/callback', passport.authenticate('facebook', authRedirect));
+
 };

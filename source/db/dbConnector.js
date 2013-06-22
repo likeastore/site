@@ -5,7 +5,7 @@ var config = require('likeastore-config');
 var mongo = require('mongojs');
 
 // specify app collections here
-var collections = ['subscribers', 'users'];
+var collections = ['subscribers', 'users', 'networks'];
 
 // get db with default collections list
 var db = mongo.connect(config.connection, collections);
