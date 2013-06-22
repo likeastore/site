@@ -1,6 +1,6 @@
 var config = require('likeastore-config');
 var users = require('./db/users.js');
-var subscribers = require('./model/subscribersFactory');
+var subscribers = require('./db/subscribers.js');
 
 module.exports = function (app, passport) {
 
@@ -10,7 +10,7 @@ module.exports = function (app, passport) {
 	};
 
 	var notify = function (req, res) {
-		subscribers.save(req, function (err, saved) {
+		subscribers.save(req, function (err) {
 			if (err) {
 				return res.send(500);
 			}

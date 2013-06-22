@@ -26,7 +26,7 @@ ls.welcomePage = {
 		$.post($form.attr('action'), { email: email })
 			.done(function () {
 				$form.removeClass('error');
-				$form.append('<div class="msm success-msg">You have been subscribed successfully!</div>');
+				$form.append('<div class="msg success-msg">You have been subscribed successfully!</div>');
 			})
 			.fail(function () {
 				$form.addClass('error');

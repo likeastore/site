@@ -1,3 +1,7 @@
+/**
+ * (!) Already deprecated, let's leave it for history 'cause it's cool peace of code ;)
+ */
+
 var crypto = require('crypto');
 var subscribers = require('./../db/subscribers');
 
@@ -20,13 +24,12 @@ module.exports = {
 		function update (subscriber) {
 			if (!subscriber.inviteId) {
 				subscriber.inviteId = me.createId(subscriber.email, subscriber.id);
-				subscribers.update(subscriber, function (err) {
+				subscribers.save(subscriber, function (err) {
 					if (err) {
 						return callback(err);
 					}
 				});
 			}
 		}
-
 	}
 };

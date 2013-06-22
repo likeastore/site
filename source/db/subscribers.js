@@ -1,24 +1,40 @@
+var _ = require('underscore');
 var db = require('./dbConnector').db;
+var notificationUtil = require('../utils/notification');
 
-module.exports = {
-	update: function (subscriber, callback) {
-		return db.subscribers.update({email: subscriber.email}, subscriber, {upsert: true}, callback);
-	},
+/**
+ * (!) NOTA BENE: (remove when we'll enable schema)
+ * {
+ *   "email" : "a@a.co",          - valid email string (unique);
+ *   "date" : ISODate(".."),      - date of subscribtion;
+ *   "ip" : "127.0.0.1",          - ip of subscribtion;
+ *   "inviteId" : 'SHA-1'         - DEPRECATED (used for private beta);
+ *   "_id" : ObjectId("100")      - mongodb object id;
+ * }
+ */
 
-	find: function (query, callback) {
-		return db.subscribers.find(query, callback);
-	},
+exports.save = function (req, callback) {
+	var subscriber = _.extend(req.body, {
+		date: new Date(),
+		ip: req.ip
+	});
 
-	findOne: function (query, callback) {
-		return db.subscribers.findOne(query, callback);
-	},
+	db.subscribers.update({ email: subscriber.email }, subscriber, { upsert: true }, function (err, subscription) {
+		if (err || !subscription) {
+			return callback('subscription is not saved');
+		}
 
-	activate: function (subscriber, callback) {
-		subscriber.activated = true;
-		return this.update(subscriber, callback);
-	},
+		var message = 'Buddy ' + subscriber.email + ' just subscribed and waiting for @likeastore.\n\nHurry up, guys!';
+		notificationUtil.email(message, function (err) {
+			if (err) {
+				console.error(err);
+			}
 
-	stream: function () {
-		return db.subscribers.find({});
-	}
+			return callback(null);
+		});
+	});
+};
+
+exports.stream = function () {
+	return db.subscribers.find({});
 };
