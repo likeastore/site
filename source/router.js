@@ -18,7 +18,6 @@ module.exports = function (app) {
 		if (req.user.email) {
 			return res.redirect(config.applicationUrl);
 		}
-
 		res.render('setup', { title: 'Setup | likeastore.', user: req.user });
 	};
 
@@ -26,7 +25,6 @@ module.exports = function (app) {
 		if (req.isAuthenticated()) {
 			return next();
 		}
-
 		res.redirect('/register');
 	};
 
@@ -34,5 +32,4 @@ module.exports = function (app) {
 	app.get('/login', login);
 	app.get('/register', register);
 	app.get('/setup', checkAuth, setup);
-
 };
