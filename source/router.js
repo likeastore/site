@@ -15,7 +15,7 @@ module.exports = function (app) {
 	};
 
 	var setup = function (req, res) {
-		if (req.user.email) {
+		if (!req.user.firstTimeUser) {
 			return res.redirect(config.applicationUrl);
 		}
 		res.render('setup', { title: 'Setup | likeastore.', user: req.user });

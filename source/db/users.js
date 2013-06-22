@@ -52,36 +52,43 @@ exports.findOrCreateByService = function (token, tokenSecret, profile, callback)
 			if (err || !saved) {
 				return callback(err);
 			}
-
 			callback(null, saved);
 		});
 	});
 };
 
 exports.findOrCreateLocal = function (data, callback) {
-	db.users.findOne({ name: data.username, email: data.email, provider: 'local' }, function (err, user) {
+	db.users.findOne({ $or: [{ name: data.username }, { email: data.email }] }, function (err, user) {
 		if (err) {
 			return callback(err);
 		}
 
 		if (user) {
-			bcrypt.compare(data.password, user.password, function (err, result) {
+			if (user.provider !== 'local') {
+				return callback({ field: 'username', message: 'Sorry, such username is already registered via ' + user.provider + ' .' });
+			}
+
+			bcrypt.compare(data.password, user.password, function (err, valid) {
 				if (err) {
 					return(err);
 				}
 
-				if (!result) {
-					return callback({ field: 'password', message: 'Sorry, your password doesn\'t match username'});
+				if (!valid) {
+					return callback({ field: 'password', message: 'Sorry, this password does not match another fields.' });
 				}
 
 				return callback(null, user);
 			});
 		} else {
-			var gravatar_url = grvtr.create(data.email, { defaultImage: 'mm' });
+			if (!data.email) {
+				return callback({ field: 'username', message: 'Sorry, there is no user with such username.' });
+			}
+
+			var avatar = grvtr.create(data.email, { defaultImage: 'mm' });
 			var record = {
 				name: data.username,
 				email: data.email,
-				avatar: gravatar_url,
+				avatar: avatar,
 				provider: 'local',
 				registered: new Date()
 			};
@@ -101,8 +108,7 @@ exports.findOrCreateLocal = function (data, callback) {
 						if (err) {
 							return callback(err);
 						}
-
-						callback(null, saved);
+						return callback(null, saved);
 					});
 				});
 			});
@@ -117,11 +123,11 @@ exports.setupServiceUser = function (userId, data, callback) {
 		}
 
 		if (user && user.name === data.username) {
-			return callback({field: 'username',  message: 'User with such username already exists.'});
+			return callback({ field: 'username', message: 'User with such username already exists.' });
 		}
 
 		if (user && user.email === data.email) {
-			return callback({field: 'email', message:'User with such email already exists.'});
+			return callback({ field: 'email', message: 'User with such email already exists.' });
 		}
 
 		db.users.update(
@@ -133,7 +139,6 @@ exports.setupServiceUser = function (userId, data, callback) {
 			if (err) {
 				return callback(err);
 			}
-
 			callback(null);
 		}
 	});

@@ -18,7 +18,7 @@ ls.auth = {
 		$form.find('.msg').remove();
 
 		if (!$name.validate()) {
-			handleErrors($name, 'Username contains not allowed symbols!');
+			handleErrors($name, 'Username is empty or contains not allowed symbols!');
 			return;
 		}
 
@@ -28,7 +28,7 @@ ls.auth = {
 		}
 
 		if (!$pass.validate()) {
-			handleErrors($pass, 'Password contains not allowed symbols!');
+			handleErrors($pass, 'Password is empty or contains not allowed symbols!');
 			return;
 		}
 
@@ -36,16 +36,14 @@ ls.auth = {
 			.done(function (res) {
 				window.location = res.applicationUrl;
 			})
-			.fail(function (err, response) {
-				handleErrors($('.' + err.field), err.message);
+			.error(function (err) {
+				var data = $.parseJSON(err.responseText);
+				handleErrors($('.' + data.field), data.message);
 			});
 
 		function handleErrors ($field, message) {
-			var value = $field.val();
-			var msg = value.length < 1 ? 'This field is empty..' : message;
-
 			$field.addClass('error');
-			$form.append('<div class="msg error-msg">' + msg + '</div>');
+			$form.append('<div class="msg error-msg">' + message + '</div>');
 		}
 	}
 };

@@ -19,6 +19,16 @@ module.exports = function (app, passport) {
 		});
 	};
 
+	var localAuth = function (req, res) {
+		users.findOrCreateLocal(req.body, function (err, user) {
+			if (err) {
+				return res.send(500, err);
+			}
+
+			res.json({ applicationUrl: config.applicationUrl });
+		});
+	};
+
 	var setupServiceUser = function (req, res) {
 		users.setupServiceUser(req.user._id, req.body, function (err) {
 			if (err) {
@@ -31,8 +41,8 @@ module.exports = function (app, passport) {
 
 	app.post('/notify', notify);
 	app.post('/auth/setup', setupServiceUser);
-	app.post('/auth/local/login', passport.authenticate('local', authRedirect));
-	app.post('/auth/local/register', passport.authenticate('local', authRedirect));
+	app.post('/auth/local/login', localAuth);
+	app.post('/auth/local/register', localAuth);
 	app.get('/auth/twitter', passport.authenticate('twitter'));
 	app.get('/auth/twitter/callback', passport.authenticate('twitter', authRedirect));
 	app.get('/auth/github', passport.authenticate('github'));

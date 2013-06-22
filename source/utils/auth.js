@@ -1,10 +1,9 @@
-var services = require('likeastore-config').services;
+var config = require('likeastore-config');
+var services = config.services;
 var users = require('../db/users.js');
 var TwitterAuth = require('passport-twitter').Strategy;
 var GithubAuth = require('passport-github').Strategy;
 var FacebookAuth = require('passport-facebook').Strategy;
-var StackAuth = require('passport-stackexchange').Strategy;
-var LocalAuth = require('passport-local').Strategy;
 
 module.exports = function (passport) {
 
@@ -13,15 +12,7 @@ module.exports = function (passport) {
 			if (err) {
 				return done(err);
 			}
-			done(null, user);
-		});
-	};
 
-	var findOrCreateLocalUser = function (req, name, pass, done) {
-		users.findOrCreateLocal(req.body, function (err, user) {
-			if (err) {
-				return done(err);
-			}
 			done(null, user);
 		});
 	};
@@ -37,23 +28,20 @@ module.exports = function (passport) {
 	passport.use(new TwitterAuth({
 		consumerKey: services.twitter.consumerKey,
 		consumerSecret: services.twitter.consumerSecret,
-		callbackURL: '/auth/twitter/callback'
+		callbackURL: config.siteUrl + '/auth/twitter/callback'
 	}, findOrCreateServiceUser));
 
 	passport.use(new GithubAuth({
 		clientID: services.github.appId,
 		clientSecret: services.github.appSecret,
-		callbackURL: '/auth/github/callback',
+		callbackURL: config.siteUrl + '/auth/github/callback',
 		customHeaders: { 'User-Agent': 'likeastore' }
 	}, findOrCreateServiceUser));
 
 	passport.use(new FacebookAuth({
 		clientID: services.facebook.appId,
 		clientSecret: services.facebook.appSecret,
-		callbackURL: '/auth/facebook/callback'
+		callbackURL: config.siteUrl + '/auth/facebook/callback'
 	}, findOrCreateServiceUser));
 
-	passport.use(new LocalAuth({
-		passReqToCallback: true
-	}, findOrCreateLocalUser));
 };

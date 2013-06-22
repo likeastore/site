@@ -1,5 +1,5 @@
 /**
- * Module dependencies.
+ * Main app
  */
 
 var express = require('express');
