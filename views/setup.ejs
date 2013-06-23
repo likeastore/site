@@ -1,10 +1,12 @@
 <% layout('layout') -%>
-<h2>First time setup for service auths</h2>
+<div class="wrap setup-page">
+	<h2>First time setup for service auths</h2>
 
-<form action="/auth/setup" method="post" accept-charset="utf-8" class="auth" novalidate>
-	<input type="text" name="username" class="field username" placeholder="Username" value="<%= user.username %>">
-	<input type="email" name="email" class="field email" placeholder="email@example.com">
-	<button type="submit" class="btn">Send</button>
-</form>
+	<form action="/auth/setup" method="post" accept-charset="utf-8" class="auth setup" novalidate>
+		<input type="text" name="username" class="field username" placeholder="Username" value="<%= user.username %>">
+		<input type="email" name="email" class="field email" placeholder="email@example.com">
+		<button type="submit" class="btn">Send</button>
+	</form>
+</div>
 
 <% script('js/auth.js') -%>

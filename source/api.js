@@ -15,7 +15,6 @@ module.exports = function (app, passport) {
 			if (err) {
 				return res.send(500);
 			}
-
 			res.send(200);
 		});
 	};
@@ -25,7 +24,6 @@ module.exports = function (app, passport) {
 			if (err) {
 				return res.send(500, err);
 			}
-
 			res.json({ applicationUrl: config.applicationUrl });
 		});
 	};
@@ -45,7 +43,6 @@ module.exports = function (app, passport) {
 				if (err) {
 					return res.send(500, err);
 				}
-
 				return res.json({ applicationUrl: config.applicationUrl });
 			});
 		});

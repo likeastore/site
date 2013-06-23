@@ -1,13 +1,14 @@
 {
   "name": "likeastore-marketing-site",
-  "version": "0.0.5-5",
+  "version": "0.1.0",
   "private": true,
   "domains": [
     "likeastore.com",
     "www.likeastore.com"
   ],
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "test": "node ./tests/e2eRunner.js -R nyan"
   },
   "dependencies": {
     "express": "3.0.0rc4",
@@ -25,6 +26,11 @@
     "passport-facebook": "~0.1.5",
     "bcrypt-nodejs": "0.0.3",
     "grvtr": "~0.1.2"
+  },
+  "devDependencies": {
+    "zombie": "~2.0.0-alpha19",
+    "mocha": "~1.11.0",
+    "should": "~1.2.2"
   },
   "subdomain": "likeastore-marketing-site",
   "engines": {

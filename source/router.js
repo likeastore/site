@@ -32,4 +32,5 @@ module.exports = function (app) {
 	app.get('/login', login);
 	app.get('/register', register);
 	app.get('/setup', checkAuth, setup);
+
 };

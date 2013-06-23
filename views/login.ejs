@@ -1,14 +1,17 @@
 <% layout('layout') -%>
-<h2>Login page</h2>
 
-<form action="/auth/local/login" class="auth" method="post" accept-charset="utf-8">
-	<input type="text" name="username" class="field username" placeholder="Username">
-	<input type="password" name="password" class="field password" placeholder="Password">
-	<button type="submit" class="btn">Login</button>
-</form>
+<div class="login-page">
+	<h2>Login page</h2>
 
-<a class="" href="/auth/facebook">Sign in with facebook</a>
-<a class="" href="/auth/twitter">Sign in with twitter</a>
-<a class="" href="/auth/github">Sign in with github</a>
+	<form action="/auth/local/login" class="auth login" method="post" accept-charset="utf-8">
+		<input type="text" name="username" class="field username" placeholder="Username">
+		<input type="password" name="password" class="field password" placeholder="Password">
+		<button type="submit" class="btn do-login-btn">Login</button>
+	</form>
+
+	<a class="" href="/auth/facebook">Sign in with facebook</a>
+	<a class="" href="/auth/twitter">Sign in with twitter</a>
+	<a class="" href="/auth/github">Sign in with github</a>
+</div>
 
 <% script('js/auth.js') -%>

@@ -58,13 +58,13 @@ exports.findOrCreateByService = function (token, tokenSecret, profile, callback)
 };
 
 exports.findOrCreateLocal = function (data, callback) {
-	db.users.findOne({ $or: [{ name: data.username }, { email: data.email }] }, function (err, user) {
+	db.users.findOne({ name: data.username }, function (err, user) {
 		if (err) {
 			return callback(err);
 		}
 
 		if (user) {
-			if (user.provider !== 'local') {
+			if (user.provider && user.provider !== 'local') {
 				return callback({ field: 'username', message: 'Sorry, such username is already registered via ' + user.provider + ' .' });
 			}
 
