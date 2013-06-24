@@ -1,7 +1,7 @@
 /**
  * e2e tests runner
  *
- * e.g. node tests/e2eRunner.js
+ * before changes to runner better to use 'npm test'
  */
 
 require('../app');

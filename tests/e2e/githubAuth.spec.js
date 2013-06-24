@@ -1,37 +1,60 @@
+describe('github authenticate flow #github #e2e', function () {
+	var config = require('likeastore-config');
+	var should = require('should');
+	var Browser = require('zombie');
+	var browser;
 
-xdescribe('github authenticate flow', function () {
 	before(function () {
-		// get spooky for current spec context
-		// get valid config (url from cli, prod or dev, maybe screenshots activation)
+		browser = new Browser();
+		browser.silent = true;
 	});
 
 	describe('when user is on login page', function () {
-
-		it('should have github auth link');
-
-		describe('when user clicks github auth link', function () {
-			it('should redirect to github login site');
-
-			describe('when user submits valid github credentials', function () {
-				it('should redirect to the app');
+		before(function (done) {
+			browser.visit(config.siteUrl, function () {
+				done();
 			});
 		});
-	});
 
-	describe('when user is on register page', function () {
+		before(function (done) {
+			browser.clickLink('.login-btn', function () {
+				done();
+			});
+		});
 
-		it('should have github auth link');
+		it('should have github auth link', function () {
+			browser.query('.github').should.be.ok;
+		});
 
 		describe('when user clicks github auth link', function () {
-			it('should redirect to github login site');
+			before(function (done) {
+				browser.clickLink('.github', function () {
+					done();
+				});
+			});
+
+			it('should redirect to github login site', function () {
+				browser.location.href.should.include('https://github.com/login');
+			});
 
 			describe('when user submits valid github credentials', function () {
-				it('should redirect to the app');
+				before(function (done) {
+					browser
+						.fill('login', 'likeman')
+						.fill('password', 'likeman7')
+						.pressButton('commit', function () {
+							done();
+						});
+				});
+
+				it('should redirect to setup', function () {
+					browser.location.href.should.include(config.siteUrl + '/setup');
+				});
 			});
 		});
 	});
 
 	after(function () {
-		// destroy spooky
+		browser.close();
 	});
 });
