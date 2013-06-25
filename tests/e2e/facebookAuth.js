@@ -17,7 +17,7 @@ describe('facebook authenticate flow #facebook #e2e', function () {
 		});
 
 		before(function (done) {
-			browser.clickLink('.login-btn', function () {
+			browser.clickLink('.go-to-login', function () {
 				done();
 			});
 		});

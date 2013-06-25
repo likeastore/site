@@ -226,8 +226,8 @@ input.field:focus {
 }
 
 /* Login page */
-
-.login-page {
+.login-page,
+.register-page {
 	width: 650px;
 	margin-top: 60px;
 }
@@ -236,17 +236,23 @@ input.field:focus {
 	color: #1abc9c;
 }
 
-.login {
+.register-page .logo {
+	color: #e74c3c;
+}
+
+.login,
+.register {
 	float: left;
 	border-right: 1px solid #f2f2f2;
 	padding: 0 25px 0 0;
 	margin: 30px 0 0;
 }
 
-.login input.field {
+.login input.field,
+.register input.field {
 	width: 280px;
 	height: 30px;
-	margin-bottom: 15px;
+	margin-bottom: 19px;
 }
 
 .login .btn {
@@ -256,13 +262,22 @@ input.field:focus {
 	margin-top: 10px;
 }
 
-.login .auth-help {
+.register .btn {
+	color: #fff;
+	background: #2ecc71;
+	border-color: #27ae60;
+	margin-top: 10px;
+}
+
+.login .auth-help,
+.register .auth-help {
 	display: inline-block;
 	margin: 10px 0 0 15px;
 	font-size: 13px;
 	line-height: 43px;
 }
 
+/* Social buttons */
 .social {
 	float: left;
 	margin: 30px 0 0;
@@ -272,14 +287,12 @@ input.field:focus {
 .auth-btn {
 	display: block;
 	color: #fff;
-	border-bottom: 3px solid;
 	font-size: 13px;
-	padding: 14px 20px;
+	padding: 14px 10px 14px 30px;
 	margin-bottom: 18px;
 	width: 235px;
 	position: relative;
 	text-transform: uppercase;
-	text-align: center;
 	-webkit-transition: opacity .3s ease-in;
 	-moz-transition: opacity .3s ease-in;
 	-ms-transition: opacity .3s ease-in;
@@ -291,17 +304,14 @@ input.field:focus {
 	opacity: .9;
 }
 .auth-btn.facebook {
-	background: #3498db;
-	border-color: #2980b9;
+	background: #0f66aa;
 }
 
 .auth-btn.twitter {
-	background: #7ccce6;
-	border-color: #57abc7;
+	background: #28b9dd;
 }
 
 .auth-btn.github {
 	background: #bdc3c7;
-	border-color: #aaa;
 }
 

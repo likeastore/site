@@ -16,11 +16,7 @@
 		<div class="auth-help">Don't have an account? <a href="/register">Register.</a></div>
 	</form>
 
-	<div class="social">
-		<a class="facebook auth-btn" href="/auth/facebook">Login via facebook</a>
-		<a class="twitter auth-btn" href="/auth/twitter">Login via twitter</a>
-		<a class="github auth-btn" href="/auth/github">Login via github</a>
-	</div>
+	<%- partial('socials') %>
 </div>
 
 <% script('js/auth.js') -%>

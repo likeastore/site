@@ -5,7 +5,7 @@ describe('local user auth flow #auth #e2e', function () {
 	var browser;
 
 	var classes = {
-		homePageLoginBtn: '.login-btn',
+		homePageLoginBtn: '.go-to-login',
 		homePageRegisterBtn: '.register-btn',
 		loginPage: '.login-page',
 		registerPage: '.register-page',

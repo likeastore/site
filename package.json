@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "start": "node app.js",
-    "test": "node ./tests/e2eRunner.js -R nyan ./tests/e2e -t 10000"
+    "test": "node ./tests/e2eRunner.js -R spec ./tests/e2e -t 10000"
   },
   "dependencies": {
     "express": "3.0.0rc4",
