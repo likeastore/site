@@ -1,9 +1,9 @@
 <% layout('layout') -%>
 
-<a href="/login" class="login-btn">Login</a>
+<a href="/login" class="go-to-login">Login</a>
 
 <div class="wrap welcome-page">
-	<h2 class="logo">likeastore.</h2>
+	<h2 class="logo big">likeastore.</h2>
 	<div class="desc">An easy way to keep all your likes in one place.</div>
 
 	<div class="image-container">
@@ -28,7 +28,7 @@
 			<p>Don't you want another service to connect in your feed? Get notified when updates are on their way. Actually no spam, we promise!</p>
 
 			<form class="subscribe" action="/notify" method="post" accept-charset="utf-8" novalidate>
-				<input type="email" name="email" class="email" placeholder="youremail@example.com">
+				<input type="email" name="email" class="field email" placeholder="youremail@example.com">
 				<button type="submit" class="do-subscribe-btn notify-btn">Notify me</button>
 			</form>
 		</div>
