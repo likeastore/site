@@ -1,7 +1,4 @@
 describe('twitter authenticate flow #twitter #e2e', function () {
-	var config = require('likeastore-config');
-	var should = require('should');
-	var Browser = require('zombie');
 	var browser;
 
 	before(function () {
