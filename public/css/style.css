@@ -1,5 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
 
+@charset "UTF-8";
+
 @font-face {
 	font-family: 'NovecentowideLightBold';
 	src: url('../fonts/Novecentowide-DemiBold-webfont.eot');
@@ -20,6 +22,28 @@
 		 url('../fonts/proximanova-bold-webfont.svg#proxima_nova_rgbold') format('svg');
 	font-weight: normal;
 	font-style: normal;
+}
+
+@font-face {
+	font-family: "icon-font";
+	src: url("../fonts/untitled-font-2.eot");
+	src: url("../fonts/untitled-font-2.eot?#iefix") format("embedded-opentype"),
+		 url("../fonts/untitled-font-2.ttf") format("truetype"),
+		 url("../fonts/untitled-font-2.svg#untitled-font-2") format("svg"),
+		 url("../fonts/untitled-font-2.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
+
+[data-icon]:before {
+	font-family: "icon-font";
+	content: attr(data-icon);
+	font-style: normal;
+	font-weight: normal;
+	speak: none;
+	line-height: 1;
+	text-transform: none;
+	-webkit-font-smoothing: antialiased;
 }
 
 ::selection {
@@ -232,6 +256,11 @@ input.field:focus {
 	margin-top: 60px;
 }
 
+.login-page h3,
+.register-page h3 {
+	font-size: 20px;
+}
+
 .login-page .logo {
 	color: #1abc9c;
 }
@@ -313,5 +342,10 @@ input.field:focus {
 
 .auth-btn.github {
 	background: #bdc3c7;
+}
+
+.auth-btn i,
+.auth-btn span {
+	display: inline-block;
 }
 

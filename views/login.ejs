@@ -3,20 +3,22 @@
 <div class="wrap login-page">
 	<h2 class="logo small"><a href="/">likeastore.</a></h2>
 
-	<h3>Start using your account now</h3>
+	<h3>Login into your account</h3>
 
-	<form action="/auth/local/login" class="auth login" method="post" accept-charset="utf-8" autocomplete="off">
-		<div>
-			<input type="text" name="username" class="field username" placeholder="Username">
-		</div>
-		<div>
-			<input type="password" name="password" class="field password" placeholder="Password">
-		</div>
-		<button type="submit" class="btn do-login-btn">Login</button>
-		<div class="auth-help">Don't have an account? <a href="/register">Register.</a></div>
-	</form>
+	<div class="auth-block">
+		<form action="/auth/local/login" class="auth login" method="post" accept-charset="utf-8" autocomplete="off">
+			<div>
+				<input type="text" name="username" class="field username" placeholder="Username">
+			</div>
+			<div>
+				<input type="password" name="password" class="field password" placeholder="Password">
+			</div>
+			<button type="submit" class="btn do-login-btn">Login</button>
+			<div class="auth-help">Don't have an account? <a href="/register">Register.</a></div>
+		</form>
 
-	<%- partial('socials') %>
+		<%- partial('socials') %>
+	</div>
 </div>
 
 <% script('js/auth.js') -%>
