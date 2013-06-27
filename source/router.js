@@ -7,18 +7,18 @@ module.exports = function (app) {
 	};
 
 	var login = function (req, res) {
-		res.render('login', { title: 'Login | likeastore.' });
+		res.render('login', { title: 'Login @ likeastore.' });
 	};
 
 	var register = function (req, res) {
-		res.render('register', { title: 'Register | likeastore.' });
+		res.render('register', { title: 'Register @ likeastore.' });
 	};
 
 	var setup = function (req, res) {
 		if (!req.user.firstTimeUser) {
 			return res.redirect(config.applicationUrl);
 		}
-		res.render('setup', { title: 'Setup | likeastore.', username: req.user.username || 'Your username' });
+		res.render('setup', { title: 'Setup @ likeastore.', username: req.user.username || 'Your username' });
 	};
 
 	var checkAuth = function (req, res, next) {

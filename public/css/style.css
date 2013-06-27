@@ -62,6 +62,7 @@ body {
 	border-top: 5px solid #ecf0f1;
 	width: 100%;
 	overflow-x: hidden;
+	overflow-y: scroll;
 }
 
 h2, h3, h4 {
@@ -154,7 +155,7 @@ input.field:focus {
 	margin: 0 auto 100px;
 }
 
-.welcome-page {
+.welcome-page .wrap {
 	text-align: center;
 }
 
@@ -252,7 +253,7 @@ input.field:focus {
 /* Login && register pages */
 .login-page,
 .register-page {
-	background: #f7f7f7;
+	background-color: #f7f7f7;
 	border-color: #fff;
 }
 
@@ -291,6 +292,7 @@ input.field:focus {
 	border-right: 1px solid #f2f2f2;
 	padding: 0 25px 0 0;
 	width: 296px;
+	position: relative;
 }
 
 .login input.field,
@@ -324,8 +326,7 @@ input.field:focus {
 	border-color: #1e944f;
 }
 
-.login .auth-help,
-.register .auth-help {
+.auth-help {
 	display: inline-block;
 	margin: 10px 0 0 10px;
 	font-size: 13px;
@@ -344,7 +345,7 @@ input.field:focus {
 	color: #fff;
 	font-size: 13px;
 	padding: 7px 10px 7px 30px;
-	margin-bottom: 18px;
+	margin-bottom: 19px;
 	width: 235px;
 	position: relative;
 	text-transform: uppercase;
@@ -382,5 +383,69 @@ input.field:focus {
 }
 
 .auth-btn span {
+	margin-left: 5px;
+}
+
+/* Setup page */
+.setup-page {
+
+}
+
+.setup input.field {
+	width: 300px;
+	height: 30px;
+	margin-bottom: 15px;
+}
+
+.setup .btn {
+
+}
+
+/* Errors */
+.error.field,
+.error.field:focus {
+	background: #e35454;
+	color: #fff;
+}
+
+.error.field::-webkit-input-placeholder { /* WebKit browsers */
+	color: #fff;
+}
+
+.error.field:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	color: #fff;
+}
+
+.error.field::-moz-placeholder { /* Mozilla Firefox 19+ */
+	color: #fff;
+}
+
+.error.field:-ms-input-placeholder { /* Internet Explorer 10+ */
+	color: #fff;
+}
+
+.error-msg {
+	color: #e74c3c;
+	font-size: 14px;
+	position: absolute;
+	top: -75px;
+	left: -10000px;
+	-webkit-transition: all .5s ease-in-out;
+	-moz-transition: all .5s ease-in-out;
+	-ms-transition: all .5s ease-in-out;
+	transition: all .5s ease-in-out;
+}
+
+.error-msg.on {
+	left: -23px;
+}
+
+.error-msg .icon {
+	font-size: 20px;
+}
+
+.error-msg .msg-text {
+	vertical-align: top;
+	line-height: 24px;
 	margin-left: 5px;
 }

@@ -14,8 +14,8 @@ ls.auth = {
 		var $email = $form.find('.email');
 		var $pass = $form.find('.password');
 
-		$form.removeClass('error');
-		$form.find('.msg').remove();
+		$form.find('.error').removeClass('error');
+		$form.find('.error-msg').removeClass('on');
 
 		if (!$name.validate()) {
 			handleErrors($name, 'Username is empty or contains not allowed symbols!');
@@ -36,14 +36,20 @@ ls.auth = {
 			.done(function (res) {
 				window.location = res.applicationUrl;
 			})
-			.error(function (err) {
+			.fail(function (err) {
 				var data = $.parseJSON(err.responseText);
 				handleErrors($('.' + data.field), data.message);
 			});
 
 		function handleErrors ($field, message) {
+			var msg = $form.find('.error-msg'), hide;
+
 			$field.addClass('error');
-			$form.append('<div class="msg error-msg">' + message + '</div>');
+			msg.addClass('on').end().find('.msg-text').text(message);
+
+			hide = setTimeout(function () {
+				msg.removeClass('on');
+			}, 4000);
 		}
 	}
 };

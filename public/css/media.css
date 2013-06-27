@@ -1,0 +1,97 @@
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (max-device-width: 420px) {
+
+	body {
+		font-weight: 400;
+	}
+
+	.login-page,
+	.register-page {
+		background-color: #fff;
+	}
+
+	.login-page {
+		border-color: #1abc9c;
+	}
+
+	.register-page {
+		border-color: #e74c3c;
+	}
+
+	.login-page .wrap,
+	.register-page .wrap {
+		width: 315px;
+		margin: 10px auto 50px;
+		overflow: hidden;
+	}
+
+	.login-page .logo,
+	.register-page .logo {
+		margin: 20px;
+	}
+
+	.login-page .auth-block,
+	.register-page .auth-block {
+		padding: 20px;
+		margin-top: 10px;
+	}
+
+	.login,
+	.register {
+		border: 0;
+		padding: 0;
+		width: 276px;
+	}
+
+	.login input.field,
+	.register input.field {
+		width: 245px;
+		font-weight: 400;
+	}
+
+	.login .btn,
+	.register .btn {
+		display: block;
+		width: 276px;
+		font-weight: 400;
+	}
+
+	.auth-help {
+		display: block;
+		font-size: 14px;
+		margin: 20px auto 0;
+		text-align: center;
+	}
+
+	.social {
+		border-top: 1px solid #f2f2f2;
+		margin-top: 10px;
+		padding: 30px 0 0;
+		width: 276px;
+	}
+
+	.error-msg {
+		top: -35px;
+	}
+
+	.error-msg.on {
+		left: 0px;
+		font-size: 11px;
+	}
+
+	.error-msg .icon {
+		font-size: 16px;
+	}
+
+	.error-msg .msg-text {
+		line-height: 18px;
+	}
+
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+}

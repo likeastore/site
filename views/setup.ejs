@@ -1,12 +1,18 @@
 <% layout('layout') -%>
+<% block('bodyClass', 'setup-page') -%>
 
-<div class="wrap setup-page">
-	<h2>First time setup for service auths</h2>
+<div class="wrap">
+	<h3>Finish registration</h3>
 
 	<form action="/auth/setup" method="post" accept-charset="utf-8" class="auth setup" novalidate>
-		<input type="text" name="username" class="field username" placeholder="Username" value="<%= username %>">
-		<input type="email" name="email" class="field email" placeholder="email@example.com">
+		<div>
+			<input type="text" name="username" class="field username" placeholder="Username" value="<%= username %>" autocomplete="off">
+		</div>
+		<div>
+			<input type="email" name="email" class="field email" placeholder="email@example.com" autocomplete="off">
+		</div>
 		<button type="submit" class="do-setup-btn btn">Send</button>
+		<%- partial('error-modal') %>
 	</form>
 </div>
 

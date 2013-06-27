@@ -58,7 +58,9 @@ exports.findOrCreateByService = function (token, tokenSecret, profile, callback)
 };
 
 exports.findOrCreateLocal = function (data, callback) {
-	db.users.findOne({ name: data.username }, function (err, user) {
+	var query = data.email ? { name: data.username, email: data.email } : { name: data.username };
+
+	db.users.findOne(query, function (err, user) {
 		if (err) {
 			return callback(err);
 		}
