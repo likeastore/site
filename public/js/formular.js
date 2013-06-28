@@ -1,9 +1,11 @@
-/* global ls: true */
+/* global ls: true
+ * Common forms module (registration, login, subscription)
+ */
 
 ls.auth = {
 
 	init: function () {
-		$('.auth').submit(this.send.bind(this));
+		$('.formular').submit(this.send.bind(this));
 	},
 
 	send: function (e) {
@@ -42,13 +44,16 @@ ls.auth = {
 			});
 
 		function handleErrors ($field, message) {
-			var msg = $form.find('.error-msg'), hide;
+			var $msg = $form.find('.error-msg');
 
 			$field.addClass('error');
-			msg.addClass('on').end().find('.msg-text').text(message);
+			$msg.addClass('on')
+				.end()
+				.find('.msg-text')
+				.text(message);
 
-			hide = setTimeout(function () {
-				msg.removeClass('on');
+			setTimeout(function () {
+				$msg.removeClass('on');
 			}, 4000);
 		}
 	}

@@ -1,4 +1,4 @@
-describe('email subscribtion flow #notify #e2e', function () {
+describe.only('email subscribtion flow #notify #e2e', function () {
 	var browser;
 
 	var classes = {
@@ -25,6 +25,7 @@ describe('email subscribtion flow #notify #e2e', function () {
 			describe('when field is empty', function () {
 				before(function (done) {
 					browser.pressButton(classes.notifySubmitBtn, function () {
+						console.log(browser.html());
 						done();
 					});
 				});

@@ -1,8 +1,64 @@
-/* Smartphones (portrait and landscape) ----------- */
-@media only screen and (max-device-width: 420px) {
+/* Smartphones (landscape) ----------- */
+@media only screen and (max-device-width: 640px) {
 
 	body {
 		font-weight: 400;
+	}
+
+	.go-to-login {
+		font-size: 10px;
+		padding: 3px 8px;
+		right: 10px;
+	}
+
+	.welcome-page .wrap {
+		width: 100%;
+		margin-bottom: 10px;
+		overflow: hidden;
+	}
+
+	.welcome-page .logo.big {
+		font-size: 1.5em;
+		margin-bottom: 0;
+	}
+
+	.welcome-page .desc {
+		font-size: .6em;
+		margin-bottom: 30px;
+	}
+
+	.register-btn {
+		font-size: 16px;
+	}
+
+	.promo-wrap {
+		border-width: 1px;
+		width: auto;
+		margin: 50px 15px;
+		padding: 20px 0;
+	}
+
+	.pr {
+		margin-bottom: 25px;
+	}
+
+	.pr h4,
+	.pr p {
+		font-size: 12px;
+		line-height: 22px;
+	}
+
+	.pr h4 {
+		font-size: 16px;
+	}
+
+	.subscribe input.email {
+		width: 165px;
+	}
+
+	.notify-btn {
+		margin-left: 1px;
+		width: 90px;
 	}
 
 	.login-page,
@@ -87,11 +143,34 @@
 		line-height: 18px;
 	}
 
+	.subscribe .error-msg.on {
+		left: 80px;
+	}
+
 }
 
-/* iPads (portrait and landscape) ----------- */
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-device-width: 420px) {
+
+	.subscribe .error-msg {
+		top: -30px;
+	}
+
+	.subscribe .error-msg.on {
+		left: 3px;
+	}
+
+}
+
+/* iPads (portrait) ----------- */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+	.welcome-page .wrap {
+		width: 100%;
+		margin-bottom: 30px;
+		overflow: hidden;
+	}
 }
 
+/* iPads (landscape) ----------- */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
 }

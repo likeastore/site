@@ -196,7 +196,6 @@ input.field:focus {
 
 .pr {
 	line-height: 26px;
-	font-size: 16px;
 	margin-bottom: 60px;
 }
 
@@ -215,6 +214,7 @@ input.field:focus {
 /* Notify form */
 .subscribe {
 	margin-top: 65px;
+	position: relative;
 }
 
 .subscribe input.email {
@@ -448,4 +448,12 @@ input.field:focus {
 	vertical-align: top;
 	line-height: 24px;
 	margin-left: 5px;
+}
+
+.subscribe .error-msg {
+	top: -35px;
+}
+
+.subscribe .error-msg.on {
+	left: 50px;
 }

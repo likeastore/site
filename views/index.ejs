@@ -28,12 +28,13 @@
 			<h4>Subscribe for new features</h4>
 			<p>Don't you want another service to connect in your feed? Get notified when updates are on their way. Actually no spam, we promise!</p>
 
-			<form class="subscribe" action="/notify" method="post" accept-charset="utf-8" novalidate>
+			<form class="formular subscribe" action="/notify" method="post" accept-charset="utf-8" novalidate>
 				<input type="email" name="email" class="field email" placeholder="youremail@example.com">
 				<button type="submit" class="do-subscribe-btn notify-btn btn">Notify me</button>
+				<%- partial('error-modal') %>
 			</form>
 		</div>
 	</section>
 </div>
 
-<% script('js/welcome.js') -%>
+<% script('js/formular.js') -%>
