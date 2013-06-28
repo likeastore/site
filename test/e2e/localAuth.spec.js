@@ -1,15 +1,6 @@
 describe('local user auth flow #auth #e2e', function () {
 	var browser;
 
-	var classes = {
-		homePageLoginBtn: '.go-to-login',
-		homePageRegisterBtn: '.register-btn',
-		loginPage: '.login-page',
-		registerPage: '.register-page',
-		loginSubmitBtn: '.do-login-btn',
-		registerSubmitBtn: '.do-register-btn'
-	};
-
 	before(function () {
 		browser = new Browser();
 		browser.silent = true;
@@ -54,7 +45,7 @@ describe('local user auth flow #auth #e2e', function () {
 					});
 
 					it('should show error message', function () {
-						browser.query('form.register .error-msg').should.be.ok;
+						browser.text('form.register .msg').should.include(texts.username);
 					});
 				});
 
@@ -72,7 +63,7 @@ describe('local user auth flow #auth #e2e', function () {
 					});
 
 					it('should show error message', function () {
-						browser.query('form.register .error-msg').should.be.ok;
+						browser.text('form.register .msg').should.include(texts.username);
 					});
 				});
 
@@ -91,7 +82,7 @@ describe('local user auth flow #auth #e2e', function () {
 					});
 
 					it('should show error message', function () {
-						browser.query('form.register .error-msg').should.be.ok;
+						browser.text('form.register .msg').should.include(texts.email);
 					});
 				});
 
@@ -111,7 +102,7 @@ describe('local user auth flow #auth #e2e', function () {
 					});
 
 					it('should show error message', function () {
-						browser.query('form.register .error-msg').should.be.ok;
+						browser.text('form.register .msg').should.include(texts.password);
 					});
 				});
 			});
@@ -161,7 +152,7 @@ describe('local user auth flow #auth #e2e', function () {
 							});
 
 							it('should show error message', function () {
-								browser.query('form.login .error-msg').should.be.ok;
+								browser.text('form.login .msg').should.include(texts.username);
 							});
 						});
 
@@ -179,7 +170,7 @@ describe('local user auth flow #auth #e2e', function () {
 							});
 
 							it('should show error message', function () {
-								browser.query('form.login .error-msg').should.be.ok;
+								browser.text('form.login .msg').should.include(texts.username);
 							});
 						});
 
@@ -198,7 +189,7 @@ describe('local user auth flow #auth #e2e', function () {
 							});
 
 							it('should show error message', function () {
-								browser.query('form.login .error-msg').should.be.ok;
+								browser.text('form.login .msg').should.include(texts.password);
 							});
 						});
 					});
@@ -218,7 +209,7 @@ describe('local user auth flow #auth #e2e', function () {
 						});
 
 						it('should show error message', function () {
-							browser.query('form.login .error-msg').should.be.ok;
+							browser.text('form.login .msg').should.include(texts.passwordServerError);
 						});
 					});
 

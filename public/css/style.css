@@ -401,7 +401,7 @@ input.field:focus {
 
 }
 
-/* Errors */
+/* Flash success && error messages */
 .error.field,
 .error.field:focus {
 	background: #e35454;
@@ -424,8 +424,7 @@ input.field:focus {
 	color: #fff;
 }
 
-.error-msg {
-	color: #e74c3c;
+.msg {
 	font-size: 14px;
 	position: absolute;
 	top: -75px;
@@ -436,24 +435,40 @@ input.field:focus {
 	transition: all .5s ease-in-out;
 }
 
-.error-msg.on {
+.msg.on {
 	left: -23px;
 }
 
-.error-msg .icon {
+.msg .icon {
 	font-size: 20px;
 }
 
-.error-msg .msg-text {
+.msg .msg-text {
 	vertical-align: top;
 	line-height: 24px;
 	margin-left: 5px;
 }
 
-.subscribe .error-msg {
+.subscribe .msg {
 	top: -35px;
 }
 
-.subscribe .error-msg.on {
+.subscribe .msg.on {
 	left: 50px;
+}
+
+.error-msg {
+	color: #e74c3c;
+}
+
+.success-msg {
+	color: #27ae60;
+}
+
+.success-msg i.icon:before {
+	content: 'h';
+}
+
+.error-msg i.icon:before {
+	content: 'i';
 }

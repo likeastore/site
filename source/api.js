@@ -15,7 +15,7 @@ module.exports = function (app, passport) {
 			if (err) {
 				return res.send(500);
 			}
-			res.send(200);
+			res.json({ message: 'You have been subscribed successfully!' });
 		});
 	};
 

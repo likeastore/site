@@ -1,9 +1,5 @@
-describe.only('email subscribtion flow #notify #e2e', function () {
+describe('email subscribtion flow #notify #e2e', function () {
 	var browser;
-
-	var classes = {
-		notifySubmitBtn: '.do-subscribe-btn'
-	};
 
 	before(function () {
 		browser = new Browser();
@@ -25,17 +21,16 @@ describe.only('email subscribtion flow #notify #e2e', function () {
 			describe('when field is empty', function () {
 				before(function (done) {
 					browser.pressButton(classes.notifySubmitBtn, function () {
-						console.log(browser.html());
 						done();
 					});
 				});
 
-				it('should add error class on form', function () {
-					browser.query('form.subscribe').className.should.include('error');
+				it('should add error class on email field', function () {
+					browser.query('form.subscribe .email').className.should.include('error');
 				});
 
 				it('should show error message', function () {
-					browser.query('form.subscribe .error-msg').should.be.ok;
+					browser.text('form.subscribe .msg').should.include(texts.email);
 				});
 			});
 
@@ -48,12 +43,12 @@ describe.only('email subscribtion flow #notify #e2e', function () {
 						});
 				});
 
-				it('should add error class on form', function () {
-					browser.query('form.subscribe').className.should.include('error');
+				it('should add error class on email field', function () {
+					browser.query('form.subscribe .email').className.should.include('error');
 				});
 
 				it('should show error message', function () {
-					browser.query('form.subscribe .error-msg').should.be.ok;
+					browser.text('form.subscribe .msg').should.include(texts.email);
 				});
 			});
 		});
@@ -67,12 +62,12 @@ describe.only('email subscribtion flow #notify #e2e', function () {
 					});
 			});
 
-			it('should add error class on form', function () {
+			it('should not add error class on email field', function () {
 				browser.query('form.subscribe').className.should.not.include('error');
 			});
 
 			it('should show success message', function () {
-				browser.query('form.subscribe .success-msg').should.be.ok;
+				browser.text('form.subscribe .msg').should.include(texts.subscribeSuccess);
 			});
 		});
 	});

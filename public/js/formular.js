@@ -20,40 +20,48 @@ ls.auth = {
 		$form.find('.error-msg').removeClass('on');
 
 		if (!$name.validate()) {
-			handleErrors($name, 'Username is empty or contains not allowed symbols!');
+			handleResponse('error', 'Username is empty or contains not allowed symbols!', $name);
 			return;
 		}
 
 		if (!$email.validate()) {
-			handleErrors($email, 'Your email looks incorrect!');
+			handleResponse('error', 'Your email looks incorrect!', $email);
 			return;
 		}
 
 		if (!$pass.validate()) {
-			handleErrors($pass, 'Password is empty or contains not allowed symbols!');
+			handleResponse('error', 'Password is empty or contains not allowed symbols!', $pass);
 			return;
 		}
 
 		$.post($form.attr('action'), $form.serializeObject())
 			.done(function (res) {
-				window.location = res.applicationUrl;
+				if (res.applicationUrl) {
+					window.location = res.applicationUrl;
+				}
+				$form.find('.error').removeClass('error');
+				handleResponse('success', res.message, $('.' + res.field));
+
 			})
 			.fail(function (err) {
 				var data = $.parseJSON(err.responseText);
-				handleErrors($('.' + data.field), data.message);
+				handleResponse('error',  data.message, $('.' + data.field));
 			});
 
-		function handleErrors ($field, message) {
-			var $msg = $form.find('.error-msg');
+		function handleResponse (type, message, $field) {
+			var $msg = $form.find('.msg');
 
-			$field.addClass('error');
-			$msg.addClass('on')
+			if (type === 'error') {
+				$field.addClass(type);
+			}
+
+			$msg.addClass(type + '-msg on')
 				.end()
 				.find('.msg-text')
 				.text(message);
 
 			setTimeout(function () {
-				$msg.removeClass('on');
+				$msg.removeClass(type + '-msg on');
 			}, 4000);
 		}
 	}
