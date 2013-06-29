@@ -250,9 +250,10 @@ input.field:focus {
 	text-decoration: none;
 }
 
-/* Login && register pages */
+/* Login, register && setup pages */
 .login-page,
-.register-page {
+.register-page,
+.setup-page {
 	background-color: #f7f7f7;
 	border-color: #fff;
 }
@@ -261,6 +262,11 @@ input.field:focus {
 .register-page .wrap {
 	width: 685px;
 	margin-top: 60px;
+}
+
+.setup-page .wrap {
+	width: 393px;
+	margin-top: 60px
 }
 
 .login-page h3,
@@ -272,11 +278,13 @@ input.field:focus {
 	color: #1abc9c;
 }
 
-.register-page .logo {
+.register-page .logo,
+.setup-page .logo {
 	color: #e74c3c;
 }
 
-.auth-block {
+.auth-block,
+.setup-page .setup {
 	background: #fff;
 	padding: 40px 30px;
 	margin-top: 50px;
@@ -295,11 +303,21 @@ input.field:focus {
 	position: relative;
 }
 
+.setup {
+	position: relative;
+}
+
 .login input.field,
 .register input.field {
 	width: 265px;
 	height: 30px;
 	margin-bottom: 19px;
+}
+
+.setup input.field {
+	width: 300px;
+	height: 30px;
+	margin-bottom: 15px;
 }
 
 .login .btn {
@@ -314,14 +332,20 @@ input.field:focus {
 	border-bottom: 6px solid #cc2e2e;
 }
 
-.register .btn {
+.register .btn,
+.setup .btn {
 	color: #fff;
 	background: #2ecc71;
 	border-color: #27ae60;
 	margin-top: 10px;
 }
 
-.register .btn:hover {
+.setup .btn {
+	width: 160px;
+}
+
+.register .btn:hover,
+.setup .btn:hover {
 	background-color: #2ebf6a;
 	border-color: #1e944f;
 }
@@ -359,6 +383,7 @@ input.field:focus {
 	text-decoration: none;
 	opacity: .9;
 }
+
 .auth-btn.facebook {
 	background: #0f66aa;
 }
@@ -384,21 +409,6 @@ input.field:focus {
 
 .auth-btn span {
 	margin-left: 5px;
-}
-
-/* Setup page */
-.setup-page {
-
-}
-
-.setup input.field {
-	width: 300px;
-	height: 30px;
-	margin-bottom: 15px;
-}
-
-.setup .btn {
-
 }
 
 /* Flash success && error messages */
@@ -455,6 +465,14 @@ input.field:focus {
 
 .subscribe .msg.on {
 	left: 50px;
+}
+
+.setup .msg {
+	top: -30px;
+}
+
+.setup .msg.on {
+	left: 3px;
 }
 
 .error-msg {

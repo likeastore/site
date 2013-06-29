@@ -2,7 +2,7 @@
 <% block('bodyClass', 'setup-page') -%>
 
 <div class="wrap">
-	<h3>Finish registration</h3>
+	<h2 class="logo small"><a href="/">likeastore.</a></h2>
 
 	<form action="/auth/setup" method="post" accept-charset="utf-8" class="formular setup" novalidate>
 		<div>
@@ -11,7 +11,7 @@
 		<div>
 			<input type="email" name="email" class="field email" placeholder="email@example.com" autocomplete="off">
 		</div>
-		<button type="submit" class="do-setup-btn btn">Send</button>
+		<button type="submit" class="do-setup-btn btn">Finish registration</button>
 		<%- partial('flash-modal') %>
 	</form>
 </div>

@@ -62,11 +62,13 @@
 	}
 
 	.login-page,
-	.register-page {
+	.register-page,
+	.setup-page {
 		background-color: #fff;
 	}
 
-	.login-page {
+	.login-page,
+	.setup-page {
 		border-color: #1abc9c;
 	}
 
@@ -75,19 +77,22 @@
 	}
 
 	.login-page .wrap,
-	.register-page .wrap {
+	.register-page .wrap,
+	.setup-page .wrap {
 		width: 315px;
 		margin: 10px auto 50px;
 		overflow: hidden;
 	}
 
 	.login-page .logo,
-	.register-page .logo {
+	.register-page .logo,
+	.setup-page .logo {
 		margin: 20px;
 	}
 
 	.login-page .auth-block,
-	.register-page .auth-block {
+	.register-page .auth-block,
+	.setup-page .setup {
 		padding: 20px;
 		margin-top: 10px;
 	}
@@ -100,13 +105,15 @@
 	}
 
 	.login input.field,
-	.register input.field {
+	.register input.field,
+	.setup input.field {
 		width: 245px;
 		font-weight: 400;
 	}
 
 	.login .btn,
-	.register .btn {
+	.register .btn,
+	.setup .btn {
 		display: block;
 		width: 276px;
 		font-weight: 400;
@@ -145,6 +152,14 @@
 
 	.subscribe .error-msg.on {
 		left: 80px;
+	}
+
+	.setup .msg {
+		top: -10px;
+	}
+
+	.setup .msg.on {
+		left: 20px;
 	}
 
 }
