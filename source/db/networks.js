@@ -5,12 +5,10 @@ var db = require('./dbConnector').db;
 
 exports.save = function (user, callback) {
 	var network = {
-		userId: user._id,
-		username: user.username,
+		user: user.email,
 		accessToken: user.token,
 		accessTokenSecret: user.tokenSecret,
-		service: user.provider,
-		quotas: services[user.provider].quotas
+		service: user.provider
 	};
 
 	db.networks.update({ userId: user._id, service: user.provider }, network, { upsert: true }, function (err, net) {
