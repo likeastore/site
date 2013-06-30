@@ -4,6 +4,7 @@ var util = require('util');
 var bcrypt = require('bcrypt-nodejs');
 var ObjectId = require('mongojs').ObjectId;
 var db = require('./dbConnector').db;
+var tokens = require('../utils/tokens');
 
 /**
  * (!) NOTA BENE: (remove when we'll enable schema)
@@ -45,6 +46,7 @@ exports.findOrCreateByService = function (token, tokenSecret, profile, callback)
 			tokenSecret: tokenSecret,
 			avatar: avatar,
 			registered: new Date(),
+			apiToken: tokens.generateApiToken(meta.username),
 			firstTimeUser: true
 		});
 
@@ -92,6 +94,7 @@ exports.findOrCreateLocal = function (data, callback) {
 				email: data.email,
 				avatar: avatar,
 				provider: 'local',
+				apiToken: tokens.generateApiToken(data.username),
 				registered: new Date()
 			};
 
