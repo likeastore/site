@@ -119,7 +119,7 @@ describe('local user auth flow #auth #e2e', function () {
 				});
 
 				it('should register new user and redirect to the app', function () {
-					browser.location.href.should.equal(config.applicationUrl + '/');
+					browser.location.href.indexOf(config.applicationUrl + '/').should.equal(0);
 				});
 
 				describe('when start to login user clicks on login button', function () {
@@ -224,7 +224,7 @@ describe('local user auth flow #auth #e2e', function () {
 						});
 
 						it('should redirect to the app', function () {
-							browser.location.href.should.equal(config.applicationUrl + '/');
+							browser.location.href.indexOf(config.applicationUrl + '/').should.equal(0);
 						});
 					});
 				});

@@ -15,10 +15,16 @@ module.exports = function (app) {
 	};
 
 	var setup = function (req, res) {
-		if (!req.user.firstTimeUser) {
-			return res.redirect(config.applicationUrl);
-		}
 		res.render('setup', { title: 'Setup @ likeastore.', username: req.user.username || 'Your username' });
+	};
+
+	var checkFirstTime = function (req, res, next) {
+		if (req.user.firstTimeUser) {
+			return next();
+		}
+
+		var appRedirectUrl = config.applicationUrl + '?email=' + req.user.email + '&apiToken=' + req.user.apiToken;
+		res.redirect(appRedirectUrl);
 	};
 
 	var checkAuth = function (req, res, next) {
@@ -31,6 +37,6 @@ module.exports = function (app) {
 	app.get('/', index);
 	app.get('/login', login);
 	app.get('/register', register);
-	app.get('/setup', checkAuth, setup);
+	app.get('/setup', checkAuth, checkFirstTime, setup);
 
 };

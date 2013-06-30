@@ -24,7 +24,10 @@ module.exports = function (app, passport) {
 			if (err) {
 				return res.send(500, err);
 			}
-			res.json({ applicationUrl: config.applicationUrl });
+
+			var appRedirectUrl = config.applicationUrl + '?email=' + user.email + '&apiToken=' + user.apiToken;
+
+			res.json({ applicationUrl: appRedirectUrl });
 		});
 	};
 
@@ -34,16 +37,18 @@ module.exports = function (app, passport) {
 				return res.send(500, err);
 			}
 
+			var appRedirectUrl = config.applicationUrl + '?email=' + req.body.email + '&apiToken=' + req.user.apiToken;
+
 			// we don't store facebook as network for now
 			if (req.user.provider === 'facebook') {
-				return res.json({ applicationUrl: config.applicationUrl });
+				return res.json({ applicationUrl: appRedirectUrl });
 			}
 
 			networks.save(req.user, function (err, net) {
 				if (err) {
 					return res.send(500, err);
 				}
-				return res.json({ applicationUrl: config.applicationUrl });
+				return res.json({ applicationUrl: appRedirectUrl });
 			});
 		});
 	};
