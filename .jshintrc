@@ -3,6 +3,7 @@
 		"after",
 		"afterEach",
 		"afterEach",
+		"angular",
 		"Backbone",
 		"before",
 		"beforeEach",
@@ -15,11 +16,13 @@
 		"moment",
 		"runs",
 		"sinon",
+		"should",
 		"spyOn",
 		"waits",
 		"waitsFor",
 		"xit",
 		"xdescribe"
+		"Zombie"
 	],
 
 	"asi" : false,

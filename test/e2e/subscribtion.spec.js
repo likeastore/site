@@ -1,8 +1,11 @@
 describe('email subscribtion flow #notify #e2e', function () {
+	var config = require('likeastore-config');
+	var classes = require('../classesAndTexts').classes();
+	var texts = require('../classesAndTexts').texts();
 	var browser;
 
 	before(function () {
-		browser = new Browser();
+		browser = new Zombie();
 		browser.silent = true;
 	});
 

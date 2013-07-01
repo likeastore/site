@@ -1,8 +1,9 @@
 describe('github authenticate flow #github #e2e', function () {
+	var config = require('likeastore-config');
 	var browser;
 
 	before(function () {
-		browser = new Browser();
+		browser = new Zombie();
 		browser.silent = true;
 	});
 
