@@ -31,7 +31,8 @@
     "zombie": "~2.0.0-alpha19",
     "mocha": "~1.11.0",
     "should": "~1.2.2",
-    "grunt": "~0.4.1"
+    "grunt": "~0.4.1",
+    "grunt-contrib-cssmin": "~0.6.1"
   },
   "subdomain": "likeastore-marketing-site",
   "engines": {
