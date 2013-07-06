@@ -3,9 +3,9 @@ var config = require('likeastore-config');
 var services = config.services;
 var db = require('./dbConnector').db;
 
-exports.save = function (user, callback) {
+exports.save = function (email, user, callback) {
 	var network = {
-		user: user.email,
+		user: email,
 		accessToken: user.token,
 		accessTokenSecret: user.tokenSecret,
 		service: user.provider
