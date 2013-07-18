@@ -7,10 +7,10 @@ var http = require('http');
 var path = require('path');
 var engine = require('ejs-locals');
 var passport = require('passport');
-var authorizeInit = require('./source/utils/auth.js');
+var authorize = require('./source/utils/auth.js');
 
 // (!) auth init should be ALWAYS before app
-authorizeInit(passport);
+authorize.init(passport);
 var app = express();
 
 app.configure(function(){
@@ -24,6 +24,7 @@ app.configure(function(){
   app.use(express.session({ secret: 'likeastore_marketing' }));
   app.use(passport.initialize());
   app.use(passport.session());
+  app.use(authorize.localUserSession);
   app.use(app.router);
   app.use(express.static(path.join(__dirname, 'public')));
 });

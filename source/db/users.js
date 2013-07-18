@@ -60,16 +60,14 @@ exports.findOrCreateByService = function (token, tokenSecret, profile, callback)
 };
 
 exports.findOrCreateLocal = function (data, callback) {
-	var query = data.email ? { name: data.username, email: data.email } : { name: data.username };
-
-	db.users.findOne(query, function (err, user) {
+	db.users.findOne({ email: data.email }, function (err, user) {
 		if (err) {
 			return callback(err);
 		}
 
 		if (user) {
-			if (user.provider && user.provider !== 'local') {
-				return callback({ field: 'username', message: 'Sorry, such username is already registered via ' + user.provider + ' .' });
+			if (!user.password) {
+				return callback({ field: 'email', message: 'Sorry, this email is already registered.' });
 			}
 
 			bcrypt.compare(data.password, user.password, function (err, valid) {
@@ -78,24 +76,20 @@ exports.findOrCreateLocal = function (data, callback) {
 				}
 
 				if (!valid) {
-					return callback({ field: 'password', message: 'Sorry, this password does not match another fields.' });
+					return callback({ field: 'password', message: 'Sorry, this password does not match email field.' });
 				}
 
 				return callback(null, user);
 			});
 		} else {
-			if (!data.email) {
-				return callback({ field: 'username', message: 'Sorry, there is no user with such username.' });
-			}
-
 			var avatar = grvtr.create(data.email, { defaultImage: 'mm' });
 			var record = {
-				name: data.username,
 				email: data.email,
 				avatar: avatar,
 				provider: 'local',
 				apiToken: tokens.generateApiToken(data.username),
-				registered: new Date()
+				registered: new Date(),
+				firstTimeUser: true
 			};
 
 			bcrypt.genSalt(10, function (err, salt) {
@@ -121,7 +115,7 @@ exports.findOrCreateLocal = function (data, callback) {
 	});
 };
 
-exports.setupServiceUser = function (userId, data, callback) {
+exports.finishUserSetup = function (userId, data, callback) {
 	db.users.findOne({ _id: { $ne: new ObjectId(userId) }, $or: [{ name: data.username }, { email: data.email }] }, function (err, user) {
 		if (err) {
 			return callback(err);
@@ -135,9 +129,10 @@ exports.setupServiceUser = function (userId, data, callback) {
 			return callback({ field: 'email', message: 'User with such email already exists.' });
 		}
 
+		var updateQuery = data.email ? { name: data.username, email: data.email } : { name: data.username };
 		db.users.update(
 			{ _id: new ObjectId(userId) },
-			{ $set: { name: data.username, email: data.email }, $unset: { firstTimeUser: 1 }},
+			{ $set: updateQuery, $unset: { firstTimeUser: 1 }},
 			updatedUser);
 
 		function updatedUser (err) {

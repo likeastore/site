@@ -6,11 +6,13 @@
 
 	<form action="/auth/setup" method="post" accept-charset="utf-8" class="formular setup" novalidate>
 		<div>
-			<input type="text" name="username" class="field username" placeholder="Username" value="<%= username %>" autocomplete="off">
+			<input type="text" name="username" class="field username" value="<%= user.username %>" autocomplete="off">
 		</div>
+		<% if (user.provider !== 'local') { %>
 		<div>
 			<input type="email" name="email" class="field email" placeholder="email@example.com" autocomplete="off">
 		</div>
+		<% } %>
 		<button type="submit" class="do-setup-btn btn">Finish registration</button>
 		<%- partial('flash-modal') %>
 	</form>

@@ -5,14 +5,13 @@ var TwitterAuth = require('passport-twitter').Strategy;
 var GithubAuth = require('passport-github').Strategy;
 var FacebookAuth = require('passport-facebook').Strategy;
 
-module.exports = function (passport) {
+exports.init = function (passport) {
 
 	var findOrCreateServiceUser = function (token, tokenSecret, profile, done) {
 		users.findOrCreateByService(token, tokenSecret, profile, function (err, user) {
 			if (err) {
 				return done(err);
 			}
-
 			done(null, user);
 		});
 	};
@@ -44,4 +43,11 @@ module.exports = function (passport) {
 		callbackURL: config.siteUrl + '/auth/facebook/callback'
 	}, findOrCreateServiceUser));
 
+};
+
+exports.localUserSession = function (req, res, next) {
+	if (req.session.localUser) {
+		req.user = req.session.localUser;
+	}
+	next();
 };

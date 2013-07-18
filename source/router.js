@@ -15,7 +15,7 @@ module.exports = function (app) {
 	};
 
 	var setup = function (req, res) {
-		res.render('setup', { title: 'Setup @ likeastore.', username: req.user.username || 'Your username' });
+		res.render('setup', { title: 'Setup @ likeastore.', user: req.user });
 	};
 
 	var checkFirstTime = function (req, res, next) {
