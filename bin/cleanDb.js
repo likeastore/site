@@ -1,3 +1,5 @@
+process.env.NODE_ENV = process.env.NODE_ENV || process.argv[2] || 'development';
+
 var db = require('./../source/db/dbConnector').db;
 
 console.log('cleaning up likestore db...');
@@ -7,5 +9,5 @@ db.close(function (err) {
 		return console.log('clean up failed: %s', err);
 	}
 
-	return console.log('likestore db is clean now!');
+	return console.log('%s db is clean now!', process.env.NODE_ENV);
 });

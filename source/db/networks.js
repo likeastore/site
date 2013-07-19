@@ -1,5 +1,5 @@
 var _ = require('underscore');
-var config = require('likeastore-config');
+var config = require('../../config');
 var services = config.services;
 var db = require('./dbConnector').db;
 

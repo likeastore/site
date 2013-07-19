@@ -1,4 +1,4 @@
-var config = require('likeastore-config');
+var config = require('../../config');
 var services = config.services;
 var users = require('../db/users.js');
 var TwitterAuth = require('passport-twitter').Strategy;

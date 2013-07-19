@@ -1,5 +1,5 @@
 describe('local user auth flow #auth #e2e', function () {
-	var config = require('likeastore-config');
+	var config = require('../../config');
 	var classes = require('../classesAndTexts').classes();
 	var texts = require('../classesAndTexts').texts();
 	var browser;

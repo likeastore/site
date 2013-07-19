@@ -1,5 +1,5 @@
 var _ = require('underscore');
-var config = require('likeastore-config');
+var config = require('../config');
 var users = require('./db/users.js');
 var subscribers = require('./db/subscribers.js');
 var networks = require('./db/networks.js');

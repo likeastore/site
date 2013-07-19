@@ -1,4 +1,4 @@
-var config = require('likeastore-config');
+var config = require('../config');
 
 module.exports = function (app) {
 
