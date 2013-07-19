@@ -11,7 +11,8 @@ exports.classes = function () {
 		registerPage: '.register-page',
 		loginSubmitBtn: '.do-login-btn',
 		registerSubmitBtn: '.do-register-btn',
-		notifySubmitBtn: '.do-subscribe-btn'
+		notifySubmitBtn: '.do-subscribe-btn',
+		setupSubmitBtn: '.do-setup-btn'
 	};
 };
 
@@ -20,7 +21,7 @@ exports.texts = function () {
 		username: 'Username is empty or contains not allowed symbols!',
 		email: 'Your email looks incorrect!',
 		password: 'Password is empty or contains not allowed symbols!',
-		passwordServerError: 'Sorry, this password does not match another fields.',
+		passwordServerError: 'Sorry, this password does not match email field.',
 		subscribeSuccess: 'You have been subscribed successfully!'
 	};
 };

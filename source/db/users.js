@@ -116,7 +116,7 @@ exports.findOrCreateLocal = function (data, callback) {
 };
 
 exports.finishUserSetup = function (userId, data, callback) {
-	db.users.findOne({ _id: { $ne: new ObjectId(userId) }, $or: [{ name: data.username }, { email: data.email }] }, function (err, user) {
+	db.users.findOne({ _id: { $ne: new ObjectId(userId) }, name: data.username }, function (err, user) {
 		if (err) {
 			return callback(err);
 		}
@@ -125,21 +125,34 @@ exports.finishUserSetup = function (userId, data, callback) {
 			return callback({ field: 'username', message: 'User with such username already exists.' });
 		}
 
-		if (user && user.email === data.email) {
-			return callback({ field: 'email', message: 'User with such email already exists.' });
+		if (data.email) {
+			db.users.findOne({ _id: { $ne: new ObjectId(userId) }, email: data.email }, function (err, user) {
+				if (err) {
+					return callback(err);
+				}
+
+				if (user && user.email === data.email) {
+					return callback({ field: 'email', message: 'User with such email already exists.' });
+				}
+
+				saveUser();
+			});
+		} else {
+			saveUser();
 		}
 
-		var updateQuery = data.email ? { name: data.username, email: data.email } : { name: data.username };
-		db.users.update(
-			{ _id: new ObjectId(userId) },
-			{ $set: updateQuery, $unset: { firstTimeUser: 1 }},
-			updatedUser);
+		function saveUser () {
+			var updateQuery = data.email ? { name: data.username, email: data.email } : { name: data.username };
 
-		function updatedUser (err) {
-			if (err) {
-				return callback(err);
-			}
-			callback(null);
+			db.users.update(
+				{ _id: new ObjectId(userId) },
+				{ $set: updateQuery, $unset: { firstTimeUser: 1 }},
+				function (err) {
+					if (err) {
+						return callback(err);
+					}
+					callback(null);
+				});
 		}
 	});
 };

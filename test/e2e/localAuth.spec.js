@@ -44,36 +44,35 @@ describe('local user auth flow #auth #e2e', function () {
 					});
 
 					it('should add error class on first form field', function () {
-						browser.query('form.register .username').className.should.include('error');
+						browser.query('form.register .email').className.should.include('error');
 					});
 
 					it('should show error message', function () {
-						browser.text('form.register .msg').should.include(texts.username);
+						browser.text('form.register .msg').should.include(texts.email);
 					});
 				});
 
-				describe('when username contains not allowed symbols', function () {
+				describe('when email contains not allowed symbols', function () {
 					before(function (done) {
 						browser
-							.fill('username', 'текст')
+							.fill('email', 'текст')
 							.pressButton(classes.registerSubmitBtn, function () {
 								done();
 							});
 					});
 
-					it('should add error class on username field', function () {
-						browser.query('form.register .username').className.should.include('error');
+					it('should add error class on email field', function () {
+						browser.query('form.register .email').className.should.include('error');
 					});
 
 					it('should show error message', function () {
-						browser.text('form.register .msg').should.include(texts.username);
+						browser.text('form.register .msg').should.include(texts.email);
 					});
 				});
 
 				describe('when email is not correct', function () {
 					before(function (done) {
 						browser
-							.fill('username', 'tester1')
 							.fill('email', 'aaa@')
 							.pressButton(classes.registerSubmitBtn, function () {
 								done();
@@ -92,7 +91,6 @@ describe('local user auth flow #auth #e2e', function () {
 				describe('when password contains not allowed symbols', function () {
 					before(function (done) {
 						browser
-							.fill('username', 'tester1')
 							.fill('email', 'tester1@likeastore.com')
 							.fill('password', 'текст')
 							.pressButton(classes.registerSubmitBtn, function () {
@@ -113,7 +111,6 @@ describe('local user auth flow #auth #e2e', function () {
 			describe('when user submits valid data', function () {
 				before(function (done) {
 					browser
-						.fill('username', 'tester1')
 						.fill('email', 'tester1@likeastore.com')
 						.fill('password', 'qwerty')
 						.pressButton(classes.registerSubmitBtn, function () {
@@ -121,8 +118,44 @@ describe('local user auth flow #auth #e2e', function () {
 						});
 				});
 
-				it('should register new user and redirect to the app', function () {
-					browser.location.href.indexOf(config.applicationUrl + '/').should.equal(0);
+				it('should register new user and redirect to setup', function () {
+					browser.location.href.indexOf(config.siteUrl + '/setup').should.equal(0);
+				});
+
+				it('should suggest username with email account name', function () {
+					browser.query('.username').value.should.equal('tester1');
+				});
+
+				describe('when setup incorrect data', function () {
+					before(function (done) {
+						browser
+							.fill('username', 'текст')
+							.pressButton(classes.setupSubmitBtn, function () {
+								done();
+							});
+					});
+
+					it('should add error class on username field', function () {
+						browser.query('form.setup .username').className.should.include('error');
+					});
+
+					it('should show error message', function () {
+						browser.text('form.setup .msg').should.include(texts.username);
+					});
+				});
+
+				describe('when setup valid data', function () {
+					before(function (done) {
+						browser
+							.fill('username', 'tester-local')
+							.pressButton(classes.setupSubmitBtn, function () {
+								done();
+							});
+					});
+
+					it('should redirect to the app', function () {
+						browser.location.href.indexOf(config.applicationUrl + '/').should.equal(0);
+					});
 				});
 
 				describe('when start to login user clicks on login button', function () {
@@ -151,36 +184,36 @@ describe('local user auth flow #auth #e2e', function () {
 							});
 
 							it('should add error class on first form field', function () {
-								browser.query('form.login .username').className.should.include('error');
+								browser.query('form.login .email').className.should.include('error');
 							});
 
 							it('should show error message', function () {
-								browser.text('form.login .msg').should.include(texts.username);
+								browser.text('form.login .msg').should.include(texts.email);
 							});
 						});
 
-						describe('when username contains not allowed symbols', function () {
+						describe('when email contains not allowed symbols', function () {
 							before(function (done) {
 								browser
-									.fill('username', 'текст')
+									.fill('email', 'текст')
 									.pressButton(classes.loginSubmitBtn, function () {
 										done();
 									});
 							});
 
-							it('should add error class on username field', function () {
-								browser.query('form.login .username').className.should.include('error');
+							it('should add error class on email field', function () {
+								browser.query('form.login .email').className.should.include('error');
 							});
 
 							it('should show error message', function () {
-								browser.text('form.login .msg').should.include(texts.username);
+								browser.text('form.login .msg').should.include(texts.email);
 							});
 						});
 
 						describe('when password contains not allowed symbols', function () {
 							before(function (done) {
 								browser
-									.fill('username', 'tester1')
+									.fill('email', 'tester1@likeastore.com')
 									.fill('password', 'текст')
 									.pressButton(classes.loginSubmitBtn, function () {
 										done();
@@ -200,7 +233,7 @@ describe('local user auth flow #auth #e2e', function () {
 					describe('when user logins with wrong credentials', function () {
 						before(function (done) {
 							browser
-								.fill('username', 'tester1')
+								.fill('email', 'tester1@likeastore.com')
 								.fill('password', 'qwertywrong')
 								.pressButton(classes.loginSubmitBtn, function () {
 									done();
@@ -219,7 +252,7 @@ describe('local user auth flow #auth #e2e', function () {
 					describe('when user submits valid data', function () {
 						before(function (done) {
 							browser
-								.fill('username', 'tester1')
+								.fill('email', 'tester1@likeastore.com')
 								.fill('password', 'qwerty')
 								.pressButton(classes.loginSubmitBtn, function () {
 									done();
