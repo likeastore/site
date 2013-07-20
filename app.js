@@ -14,7 +14,7 @@ authorize.init(passport);
 var app = express();
 
 app.configure(function(){
-  app.set('port', process.env.VCAP_APP_PORT || 3000);
+  app.set('port', process.env.PORT || 3000);
   app.engine('ejs', engine);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'ejs');
