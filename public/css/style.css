@@ -248,6 +248,22 @@ input.field:focus {
 	text-decoration: none;
 }
 
+.social-buttons {
+	text-align: center;
+	padding: 26px 0;
+	vertical-align: middle;
+}
+
+footer {
+	padding: 26px 0;
+	color: #999;
+}
+
+footer p {
+	font-size: 13px;
+	text-align: center;
+}
+
 /* Login, register && setup pages */
 .login-page,
 .register-page,
