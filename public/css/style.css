@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@charset 'UTF-8';
 
 @font-face {
 	font-family: 'NovecentowideLightBold';
@@ -23,18 +23,18 @@
 }
 
 @font-face {
-	font-family: "icon-font";
-	src: url("../fonts/untitled-font-2.eot");
-	src: url("../fonts/untitled-font-2.eot?#iefix") format("embedded-opentype"),
-		 url("../fonts/untitled-font-2.ttf") format("truetype"),
-		 url("../fonts/untitled-font-2.svg#untitled-font-2") format("svg"),
-		 url("../fonts/untitled-font-2.woff") format("woff");
+	font-family: 'icon-font';
+	src: url('../fonts/likeastore-icon-font.eot');
+	src: url('../fonts/likeastore-icon-font.eot?#iefix') format('embedded-opentype'),
+		 url('../fonts/likeastore-icon-font.ttf') format('truetype'),
+		 url('../fonts/likeastore-icon-font.svg#untitled-font-2') format('svg'),
+		 url('../fonts/likeastore-icon-font.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
 }
 
 [data-icon]:before {
-	font-family: "icon-font";
+	font-family: 'icon-font';
 	content: attr(data-icon);
 	font-style: normal;
 	font-weight: normal;
@@ -64,7 +64,7 @@ body {
 }
 
 h2, h3, h4 {
-	font-family: 'NovecentowideLightBold', "Helvetica", "Arial", sans-serif;
+	font-family: 'NovecentowideLightBold', 'Helvetica', 'Arial', sans-serif;
 	font-weight: normal;
 	padding: 15px 0;
 }
@@ -93,7 +93,7 @@ a:hover {
 input.field {
 	background: #ecf0f1;
 	border: 0;
-	font: 14px 'Lato', 'Open Sans', "Helvetica", "Arial", sans-serif;
+	font: 14px 'Lato', 'Open Sans', 'Helvetica', 'Arial', sans-serif;
 	font-weight: 300;
 	padding: 5px 15px;
 	border-radius: 0;
@@ -112,7 +112,7 @@ input.field:focus {
 
 .logo {
 	margin: 60px auto 15px;
-	font-family: 'proxima_nova_rgbold', "Helvetica", "Arial", sans-serif;
+	font-family: 'proxima_nova_rgbold', 'Helvetica', 'Arial', sans-serif;
 	font-weight: normal;
 	text-transform: lowercase;
 }
@@ -150,7 +150,7 @@ input.field:focus {
 
 .wrap {
 	width: 1000px;
-	margin: 0 auto 100px;
+	margin: 0 auto;
 }
 
 .welcome-page .wrap {
@@ -188,8 +188,8 @@ input.field:focus {
 .promo-wrap {
 	border-top: 2px dotted #eee;
 	width: 550px;
-	margin: 65px auto;
-	padding: 45px 40px 30px;
+	margin: 65px auto 45px;
+	padding: 45px 40px 0;
 }
 
 .pr {
@@ -235,7 +235,7 @@ input.field:focus {
 	display: inline-block;
 	border: 2px solid #333;
 	color: #333;
-	font: 12px 'NovecentowideLightBold', "Helvetica", "Arial", sans-serif;;
+	font: 12px 'NovecentowideLightBold', 'Helvetica', 'Arial', sans-serif;;
 	padding: 5px 10px;
 	position: fixed;
 	top: 15px;
@@ -249,19 +249,27 @@ input.field:focus {
 }
 
 .social-buttons {
-	text-align: center;
+	width: 300px;
+	margin: 0 auto;
 	padding: 26px 0;
 	vertical-align: middle;
+	text-align: center;
+	overflow: hidden;
 }
 
 footer {
-	padding: 26px 0;
+	padding: 25px 0;
 	color: #999;
 }
 
 footer p {
 	font-size: 13px;
 	text-align: center;
+}
+
+footer .icon {
+	font-size: 16px;
+	vertical-align: middle;
 }
 
 /* Login, register && setup pages */
@@ -498,9 +506,9 @@ footer p {
 }
 
 .success-msg i.icon:before {
-	content: 'h';
+	content: 'w';
 }
 
 .error-msg i.icon:before {
-	content: 'i';
+	content: 'x';
 }

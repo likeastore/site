@@ -15,4 +15,3 @@ var clean = function () {
 };
 
 clean();
-module.exports = clean;
