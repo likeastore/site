@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "start": "node app.js",
-    "test": "node ./test/e2eRunner.js ./test/e2e ./bin/cleanDb.js"
+    "test": "node ./test/e2eRunner.js ./test/e2e"
   },
   "dependencies": {
     "express": "3.0.0rc4",
