@@ -4,8 +4,8 @@ var config = {
 		auto_reconnect: true
 	},
 
-	applicationUrl: 'http://stage.likeastore.com',
-	siteUrl: 'http://app.stage.likeastore.com',
+	applicationUrl: 'http://app.stage.likeastore.com',
+	siteUrl: 'http://stage.likeastore.com',
 
 	// api keys
 	services: {
