@@ -1,7 +1,3 @@
-/**
- * Main app
- */
-
 var express = require('express');
 var http = require('http');
 var path = require('path');
@@ -29,12 +25,18 @@ app.configure(function(){
   app.use(express.static(path.join(__dirname, 'public')));
 });
 
-app.configure('development', function(){
+app.configure('development', function() {
   app.use(express.logger('dev'));
   app.use(express.errorHandler());
 });
 
-app.configure('production', function(){
+app.configure('staging', function () {
+  app.use(express.basicAuth(config.access.user, config.access.password));
+  app.use(express.logger('dev'));
+  app.use(express.errorHandler());
+});
+
+app.configure('production', function() {
   app.use(express.logger('short'));
   app.use(express.errorHandler());
 });
