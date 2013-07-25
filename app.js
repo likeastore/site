@@ -4,6 +4,7 @@ var path = require('path');
 var engine = require('ejs-locals');
 var passport = require('passport');
 var authorize = require('./source/utils/auth.js');
+var config = require('./config');
 
 // (!) auth init should be ALWAYS before app
 authorize.init(passport);
