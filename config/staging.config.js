@@ -15,42 +15,24 @@ var config = {
 	// api keys
 	services: {
 		github: {
-			appId: '3a3bd66d4ddb7b38588c',
-			appSecret: '07c869fe1c19c0278b7481acf4d8e988421fed06',
-			quotas: {
-				requests: {
-					perMinute: 1
-				},
-				repeatAfterMinutes: 15
-			}
+			appId: '47974c5d6fefbe07881e',
+			appSecret: 'f1008ace415b3892bd36ef97443452a39dd7c29f'
 		},
 
 		twitter: {
-			consumerKey: 'dgwuxgGb07ymueGJF0ug',
-			consumerSecret: 'eusoZYiUldYqtI2SwK9MJNbiygCWOp9lQX7i5gnpWU',
-			quotas: {
-				requests: {
-					perMinute: 1
-				},
-				repeatAfterMinutes: 15
-			}
+			consumerKey: 'XDCQAahVo1EjhFqGoh5c2Q',
+			consumerSecret: 'LppQuUU5FDTRwFJRwnlhfGj3IMDDTKmVCUm1JTHkA'
 		},
 
 		facebook: {
-			appId: '686544048039071',
-			appSecret: '8f5bc7d56d319bb6f285a568cf82b608'
+			appId: '554634024574376',
+			appSecret: 'a8d2c5e643b67cdf80ed8b8832634b2c'
 		},
 
 		stackoverflow: {
-			clientId: '1533',
-			clientKey: 'J2wyheThU5jYFiOpGG22Eg((',
-			clientSecret: 'KOCBFY4OUP6OE7Q1xNw1wA((',
-			quotas: {
-				requests: {
-					perMinute: 1
-				},
-				repeatAfterMinutes: 15
-			}
+			clientId: '1801',
+			clientKey: 'DadJ5kAh3YWlj0wv7EHqDg((',
+			clientSecret: 'L)KUpw85QEW105j43oik8g(('
 		}
 	},
 
