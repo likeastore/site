@@ -288,7 +288,7 @@ footer .icon {
 
 .setup-page .wrap {
 	width: 393px;
-	margin-top: 60px
+	margin: 60px auto 30px;
 }
 
 .login-page h3,
@@ -327,6 +327,11 @@ footer .icon {
 
 .setup {
 	position: relative;
+}
+
+.setup-welcome-text {
+	line-height: 25px;
+	margin-bottom: 30px;
 }
 
 .login input.field,

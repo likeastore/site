@@ -5,6 +5,9 @@
 	<h2 class="logo small"><a href="/">likeastore.</a></h2>
 
 	<form action="/auth/setup" method="post" accept-charset="utf-8" class="formular setup" novalidate>
+		<div class="setup-welcome-text">
+			You're almost inside likeastore app, just type your <% if (user.provider !== 'local') { %>credentials<% } else { %>username<% } %> and welcome on board!
+		</div>
 		<div>
 			<input type="text" name="username" class="field username" value="<%= user.username %>" autocomplete="off">
 		</div>

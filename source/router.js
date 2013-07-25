@@ -1,21 +1,22 @@
 var config = require('../config');
+var mode = process.env.NODE_ENV || development;
 
 module.exports = function (app) {
 
 	var index = function (req, res) {
-		res.render('index', { title: 'likeastore.' });
+		res.render('index', { title: 'likeastore.', mode: mode });
 	};
 
 	var login = function (req, res) {
-		res.render('login', { title: 'Login @ likeastore.' });
+		res.render('login', { title: 'Login @ likeastore.', mode: mode });
 	};
 
 	var register = function (req, res) {
-		res.render('register', { title: 'Register @ likeastore.' });
+		res.render('register', { title: 'Register @ likeastore.', mode: mode });
 	};
 
 	var setup = function (req, res) {
-		res.render('setup', { title: 'Setup @ likeastore.', user: req.user });
+		res.render('setup', { title: 'Setup @ likeastore.', mode: mode, user: req.user });
 	};
 
 	var checkFirstTime = function (req, res, next) {

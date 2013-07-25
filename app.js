@@ -27,8 +27,8 @@ app.configure(function(){
 
 app.configure('development', function() {
   app.use(express.logger('dev'));
-  app.use(express.errorHandler());
   app.use(express.static(path.join(__dirname, 'public')));
+  app.use(express.errorHandler());
 });
 
 app.configure('staging', function () {
@@ -43,6 +43,11 @@ app.configure('staging', function () {
 app.configure('production', function() {
   app.use(express.logger('short'));
   app.use(express.compress());
+  app.use(express.static(path.join(__dirname, 'public')));
+  app.use(express.errorHandler());
+});
+
+app.configure('test', function() {
   app.use(express.static(path.join(__dirname, 'public')));
   app.use(express.errorHandler());
 });
