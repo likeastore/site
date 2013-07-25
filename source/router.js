@@ -1,5 +1,5 @@
 var config = require('../config');
-var mode = process.env.NODE_ENV || development;
+var mode = process.env.NODE_ENV || 'development';
 
 module.exports = function (app) {
 
