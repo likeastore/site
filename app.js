@@ -32,6 +32,7 @@ app.configure('development', function() {
 });
 
 app.configure('staging', function () {
+  console.log(config.access.user + ' ' + config.access.password);
   app.use(express.basicAuth(config.access.user, config.access.password));
   app.use(express.logger('short'));
   app.use(express.compress());
