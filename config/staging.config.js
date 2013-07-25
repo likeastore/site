@@ -7,6 +7,11 @@ var config = {
 	applicationUrl: 'http://app.stage.likeastore.com',
 	siteUrl: 'http://stage.likeastore.com',
 
+	access: {
+		user: process.env.BASICAUTH_USER,
+		password: process.env.BASICAUTH_PASSWORD
+	},
+
 	// api keys
 	services: {
 		github: {
