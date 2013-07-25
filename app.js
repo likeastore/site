@@ -23,12 +23,12 @@ app.configure(function(){
   app.use(passport.session());
   app.use(authorize.localUserSession);
   app.use(app.router);
-  app.use(express.static(path.join(__dirname, 'public')));
 });
 
 app.configure('development', function() {
   app.use(express.logger('dev'));
   app.use(express.errorHandler());
+  app.use(express.static(path.join(__dirname, 'public')));
 });
 
 app.configure('staging', function () {
@@ -36,12 +36,14 @@ app.configure('staging', function () {
   app.use(express.basicAuth(config.access.user, config.access.password));
   app.use(express.logger('short'));
   app.use(express.compress());
-  app.use(express.static(path.join(__dirname, 'public'), { maxAge: oneMonth }));
+  app.use(express.static(path.join(__dirname, 'public')));
   app.use(express.errorHandler());
 });
 
 app.configure('production', function() {
   app.use(express.logger('short'));
+  app.use(express.compress());
+  app.use(express.static(path.join(__dirname, 'public')));
   app.use(express.errorHandler());
 });
 
