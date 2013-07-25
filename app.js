@@ -33,7 +33,9 @@ app.configure('development', function() {
 
 app.configure('staging', function () {
   app.use(express.basicAuth(config.access.user, config.access.password));
-  app.use(express.logger('dev'));
+  app.use(express.logger('short'));
+  app.use(express.compress());
+  app.use(express.static(path.join(__dirname, 'public'), { maxAge: oneMonth }));
   app.use(express.errorHandler());
 });
 
