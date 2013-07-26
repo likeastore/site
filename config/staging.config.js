@@ -4,7 +4,7 @@ var config = {
 		auto_reconnect: true
 	},
 
-	applicationUrl: 'http://app.stage.likeastore.com',
+	applicationUrl: 'http://app-stage.likeastore.com',
 	siteUrl: 'http://stage.likeastore.com',
 
 	access: {
