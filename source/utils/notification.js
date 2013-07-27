@@ -1,7 +1,7 @@
 var config = require('../../config');
 
 function sendEmail(subject, text, callback) {
-	var mandrill = require('node-mandrill')(config.mandrill.MANDRILL_TOKEN);
+	var mandrill = require('node-mandrill')(config.mandrill.token);
 
 	var developers = [
 		{email: 'devs@likeastore.com'},
