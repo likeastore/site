@@ -1,26 +1,22 @@
-function sendEmail(text, callback) {
-	if (!process.env.MANDRILL_TOKEN) {
-		return callback('no mandrill token. ok for development mode, fail for production mode');
-	}
+var config = require('../../config');
 
-	var mandrill = require('node-mandrill')(process.env.MANDRILL_TOKEN);
+function sendEmail(subject, text, callback) {
+	var mandrill = require('node-mandrill')(config.mandrill.MANDRILL_TOKEN);
 
 	var developers = [
-		{email: 'alexander.beletsky@gmail.com'},
-		{email: 'anton.mamant@gmail.com'},
-		{email: 'dmitri.voronianski@gmail.com'}
+		{email: 'devs@likeastore.com'},
 	];
 
 	return mandrill('/messages/send', {
 		message: {
 			text: text,
 			from_email: 'app@likeastore.com',
-			subject: 'New user waiting for release!',
+			subject: subject,
 			to: developers
 		}
 	}, callback);
 }
 
 module.exports = {
-	email: sendEmail
+	sendEmail: sendEmail
 };

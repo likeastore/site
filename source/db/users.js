@@ -5,6 +5,14 @@ var bcrypt = require('bcrypt-nodejs');
 var ObjectId = require('mongojs').ObjectId;
 var db = require('./dbConnector').db;
 var tokens = require('../utils/tokens');
+var notificationUtil = require('../utils/notification');
+
+
+function sendUserCreatedNotification (user) {
+	var title = '[likeastore] New user registered!';
+	var message = 'Congrats!\n\nNew user ' + user.email + ' just registered for likeastore. Impress him!';
+	notificationUtil.sendEmail(title, message, function () {});
+}
 
 /**
  * (!) NOTA BENE: (remove when we'll enable schema)
@@ -54,6 +62,9 @@ exports.findOrCreateByService = function (token, tokenSecret, profile, callback)
 			if (err || !saved) {
 				return callback(err);
 			}
+
+			sendUserCreatedNotification (saved);
+
 			callback(null, saved);
 		});
 	});
@@ -111,6 +122,9 @@ exports.findOrCreateLocal = function (data, callback) {
 						if (err) {
 							return callback(err);
 						}
+
+						sendUserCreatedNotification (saved);
+
 						return callback(null, saved);
 					});
 				});

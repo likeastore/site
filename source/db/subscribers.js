@@ -24,8 +24,9 @@ exports.save = function (req, callback) {
 			return callback('subscription is not saved');
 		}
 
-		var message = 'Buddy ' + subscriber.email + ' just subscribed and waiting for @likeastore.\n\nHurry up, guys!';
-		notificationUtil.email(message, function (err) {
+		var title = '[likeastore] New user subscribed for notifications!';
+		var message = 'Buddy ' + subscriber.email + ' just subscribed for notifications!';
+		notificationUtil.sendEmail(title, message, function (err) {
 			if (err) {
 				console.error(err);
 			}
