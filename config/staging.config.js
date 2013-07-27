@@ -4,8 +4,8 @@ var config = {
 		auto_reconnect: true
 	},
 
-	applicationUrl: 'http://app-stage.likeastore.com',
-	siteUrl: 'http://stage.likeastore.com',
+	applicationUrl: 'https://app-stage.likeastore.com',
+	siteUrl: 'https://stage.likeastore.com',
 
 	access: {
 		user: process.env.BASICAUTH_USER,
