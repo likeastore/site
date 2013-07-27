@@ -82,7 +82,11 @@ exports.findOrCreateLocal = function (data, callback) {
 				return callback(null, user);
 			});
 		} else {
-			var avatar = grvtr.create(data.email, { defaultImage: 'mm' });
+			var avatar = grvtr.create(data.email, {
+				defaultImage: 'mm',
+				secure: true
+			});
+
 			var record = {
 				email: data.email,
 				avatar: avatar,
