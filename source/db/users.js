@@ -173,6 +173,6 @@ exports.finishUserSetup = function (userId, data, callback) {
  */
 function sendUserCreatedNotification (user) {
 	var title = '[likeastore] New user registered!';
-	var message = 'Congrats!\n\nNew user ' + user.email || user.username + ' just registered for likeastore via ' + user.provider + ' registration. Impress him!';
+	var message = 'Congrats!\n\nNew user ' + (user.email || user.username) + ' just registered for likeastore via ' + user.provider + ' registration. Impress him!';
 	notificationUtil.sendEmail(title, message, function () {});
 }
