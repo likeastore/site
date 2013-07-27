@@ -7,13 +7,6 @@ var db = require('./dbConnector').db;
 var tokens = require('../utils/tokens');
 var notificationUtil = require('../utils/notification');
 
-
-function sendUserCreatedNotification (user) {
-	var title = '[likeastore] New user registered!';
-	var message = 'Congrats!\n\nNew user ' + user.email + ' just registered for likeastore. Impress him!';
-	notificationUtil.sendEmail(title, message, function () {});
-}
-
 /**
  * (!) NOTA BENE: (remove when we'll enable schema)
  * Differences between third-party user and local one:
@@ -63,7 +56,7 @@ exports.findOrCreateByService = function (token, tokenSecret, profile, callback)
 				return callback(err);
 			}
 
-			sendUserCreatedNotification (saved);
+			sendUserCreatedNotification(saved);
 
 			callback(null, saved);
 		});
@@ -123,7 +116,7 @@ exports.findOrCreateLocal = function (data, callback) {
 							return callback(err);
 						}
 
-						sendUserCreatedNotification (saved);
+						sendUserCreatedNotification(saved);
 
 						return callback(null, saved);
 					});
@@ -174,3 +167,12 @@ exports.finishUserSetup = function (userId, data, callback) {
 		}
 	});
 };
+
+/*
+ * Notification about registered user helper
+ */
+function sendUserCreatedNotification (user) {
+	var title = '[likeastore] New user registered!';
+	var message = 'Congrats!\n\nNew user ' + user.email || user.username + ' just registered for likeastore via ' + user.provider + ' registration. Impress him!';
+	notificationUtil.sendEmail(title, message, function () {});
+}
