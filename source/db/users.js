@@ -15,7 +15,7 @@ var tokens = require('../utils/tokens');
  *   "displayName" : "Alan Smith",    - third-party full name string;
  *   "token" : "250538..",            - string number provided by third-party service;
  *   "tokenSecret" : "uTedLDT..",     - additional and optional string number provided by third-party service;
- *   "firstTimeUser" : true,          - checks third-party service user added email and name (!, not username);
+ *   "firstTimeUser" : true,          - checks user added email and name or only email for local users (!, not username);
  *   "avatar" : "http://twim.png",    - avatar url string;
  *   "email": "a@a.co"                - valid email string (unique, third-party users specify on setup);
  *   "name" : "smithy",               - likeastore app name (unique, third-party users specify on setup);
@@ -39,7 +39,7 @@ exports.findOrCreateByService = function (token, tokenSecret, profile, callback)
 		}
 
 		var meta = _.pick(profile, metaFromServices);
-		var avatar = profile._json.avatar_url || profile._json.profile_image_url || util.format('http://graph.facebook.com/%s/picture', meta.id);
+		var avatar = profile._json.avatar_url || profile._json.profile_image_url_https || util.format('https://graph.facebook.com/%s/picture', meta.id);
 
 		var record = _.extend(meta, {
 			token: token,
