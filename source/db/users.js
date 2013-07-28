@@ -30,13 +30,17 @@ var notificationUtil = require('../utils/notification');
 exports.findOrCreateByService = function (token, tokenSecret, profile, callback) {
 	var metaFromServices = ['id', 'provider', 'username', 'displayName'];
 
-	db.users.findOne({ id: profile.id, username: profile.username, provider: profile.provider }, function (err, user) {
+	db.users.findOne({ id: profile.id, provider: profile.provider }, function (err, user) {
 		if (err) {
 			return callback(err);
 		}
 
 		if (user) {
 			return callback(null, user);
+		}
+
+		if (!profile.username && profile.provider === 'facebook') {
+			profile.username = (profile._json.last_name || profile.name.familyName).toLowerCase();
 		}
 
 		var meta = _.pick(profile, metaFromServices);
