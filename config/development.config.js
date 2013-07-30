@@ -50,7 +50,11 @@ var config = {
 	},
 
 	mandrill: {
-		token: null //'2kXX0stV1Hf56y9DYZts3A'
+		token: null
+	},
+
+	keen: {
+		writeKey: '078a70b71c9f32587ae49fb155abb45e172cdf47072ee6879d846f0eb7c4a8dc23990ad0ed1b0ce6258f08bd9324fc283ef12e242f3dca21f758bb8b6d362dc512d4d5e52c6690200ca72d7b779688ddc7091fae69d84af714ba82f6044131b64e1808626b3a6dd4c220cfd7aff83e66'
 	},
 
 	collector: {

@@ -53,6 +53,10 @@ var config = {
 		token: null
 	},
 
+	keen: {
+		writeKey: null
+	},
+
 	collector: {
 		engineRestartInterval: 65000
 	}

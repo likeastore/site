@@ -1,4 +1,6 @@
 var config = require('../config');
+var keen = require('./utils/keen');
+
 var mode = process.env.NODE_ENV || 'development';
 
 module.exports = function (app) {
@@ -23,6 +25,8 @@ module.exports = function (app) {
 		if (req.user.firstTimeUser) {
 			return next();
 		}
+
+		keen.addEvent('User sigin', { user: req.user.email || req.user.name });
 
 		var appRedirectUrl = config.applicationUrl + '?email=' + req.user.email + '&apiToken=' + req.user.apiToken;
 		res.redirect(appRedirectUrl);

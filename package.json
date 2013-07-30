@@ -23,7 +23,8 @@
     "passport-github": "~0.1.4",
     "passport-facebook": "~0.1.5",
     "bcrypt-nodejs": "0.0.3",
-    "grvtr": "~0.1.2"
+    "grvtr": "~0.1.2",
+    "keen.io": "0.0.3"
   },
   "devDependencies": {
     "zombie": "~2.0.0-alpha19",

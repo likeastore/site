@@ -40,6 +40,10 @@ var config = {
 		token: '2kXX0stV1Hf56y9DYZts3A'
 	},
 
+	keen: {
+		writeKey: null
+	},
+
 	collector: {
 		engineRestartInterval: 65000
 	}

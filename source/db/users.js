@@ -5,7 +5,7 @@ var bcrypt = require('bcrypt-nodejs');
 var ObjectId = require('mongojs').ObjectId;
 var db = require('./dbConnector').db;
 var tokens = require('../utils/tokens');
-var notificationUtil = require('../utils/notification');
+var keen = require('../utils/keen');
 
 /**
  * (!) NOTA BENE: (remove when we'll enable schema)
@@ -55,14 +55,14 @@ exports.findOrCreateByService = function (token, tokenSecret, profile, callback)
 			firstTimeUser: true
 		});
 
-		db.users.save(record, function (err, saved) {
+		db.users.save(record, function (err, user) {
 			if (err || !saved) {
 				return callback(err);
 			}
 
-			sendUserCreatedNotification(saved);
+			keen.addEvent('User signup', { user: user.email || user.username, via: user.provider});
 
-			callback(null, saved);
+			callback(null, user);
 		});
 	});
 };
@@ -115,14 +115,14 @@ exports.findOrCreateLocal = function (data, callback) {
 					}
 
 					record.password = hash;
-					db.users.save(record, function (err, saved) {
+					db.users.save(record, function (err, user) {
 						if (err) {
 							return callback(err);
 						}
 
-						sendUserCreatedNotification(saved);
+						keen.addEvent('User signup', { user: user.email || user.username, via: user.provider});
 
-						return callback(null, saved);
+						return callback(null, user);
 					});
 				});
 			});
@@ -162,21 +162,16 @@ exports.finishUserSetup = function (userId, data, callback) {
 			db.users.update(
 				{ _id: new ObjectId(userId) },
 				{ $set: updateQuery, $unset: { firstTimeUser: 1 }},
-				function (err) {
+				{ 'new': true },
+				function (err, user) {
 					if (err) {
 						return callback(err);
 					}
+
+					keen.addEvent('User setup', { user: user.email || user.username });
+
 					callback(null);
 				});
 		}
 	});
 };
-
-/*
- * Notification about registered user helper
- */
-function sendUserCreatedNotification (user) {
-	var title = '[likeastore] New user registered!';
-	var message = 'Congrats!\n\nNew user ' + (user.email || user.username) + ' just registered for likeastore via ' + user.provider + ' registration. Impress him!';
-	notificationUtil.sendEmail(title, message, function () {});
-}
