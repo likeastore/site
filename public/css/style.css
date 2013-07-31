@@ -149,8 +149,9 @@ input.field:focus {
 }
 
 .wrap {
-	width: 1000px;
+	width: 100%;
 	margin: 0 auto;
+	overflow: hidden;
 }
 
 .welcome-page .wrap {
@@ -160,6 +161,11 @@ input.field:focus {
 .image-container {
 	max-width: 1000px;
 	margin: 15px auto 35px;
+	position: relative;
+	-webkit-animation: macvis .3s linear;
+	-moz-animation: macvis .3s linear;
+	-ms-animation: macvis .3s linear;
+	animation: macvis .3s linear;
 }
 
 .image-container .mac-img {
@@ -167,6 +173,36 @@ input.field:focus {
 	height: auto;
 	max-width: 100%;
 	vertical-align: middle;
+}
+
+@-webkit-keyframes macvis {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@-moz-keyframes macvis {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes macvis {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
 }
 
 .register-btn {

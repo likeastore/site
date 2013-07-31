@@ -1,0 +1,120 @@
+.image-container .marker {
+	width: 24px;
+	height: 24px;
+	box-shadow: inset 0 0 0 3px rgba(255,255,255,0.6), 0 1px 2px rgba(0,0,0,0.1);
+	position: absolute;
+	opacity: .8;
+	cursor: pointer;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	-webkit-transition: all .3s ease-in-out;
+	-moz-transition: all .3s ease-in-out;
+	-ms-transition: all .3s ease-in-out;
+	transition: all .3s ease-in-out;
+}
+
+.image-container .marker:hover {
+	box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1), 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.marker .marker-text {
+	font-size: 12px;
+	font-weight: 400;
+	position: absolute;
+	line-height: 22px;
+	width: 276px;
+	-webkit-transition: all .4s ease-in;
+	-moz-transition: all .4s ease-in;
+	-ms-transition: all .4s ease-in;
+	transition: all .4s ease-in;
+}
+
+.marker .marker-line {
+	position: absolute;
+	height: 3px;
+	width: 0px;
+	opacity: .8;
+	-webkit-transition: all .3s ease-in;
+	-moz-transition: all .3s ease-in;
+	-ms-transition: all .3s ease-in;
+	transition: all .3s ease-in;
+}
+
+.image-container .marker-search {
+	background: #f39c12;
+	top: 116px;
+	left: 341px;
+}
+
+.marker-search .marker-text {
+	left: -2380px;
+	top: -16px;
+	text-align: left;
+}
+
+.marker-search:hover .marker-text {
+	left: -380px;
+}
+
+.marker-search .marker-line {
+	background: #f39c12;
+	right: 24px;
+	top: 11px;
+}
+
+.marker-search:hover .marker-line {
+	width: 380px;
+}
+
+.image-container .marker-account {
+	background: #3cb6de;
+	top: 60px;
+	right: 270px;
+}
+
+.marker-account .marker-text {
+	right: -2380px;
+	top: -16px;
+	text-align: right;
+}
+
+.marker-account:hover .marker-text {
+	right: -320px;
+}
+
+.marker-account .marker-line {
+	background: #3cb6de;
+	left: 24px;
+	top: 11px;
+}
+
+.marker-account:hover .marker-line {
+	width: 320px;
+}
+
+.image-container .marker-item {
+	background: #72b62d;
+	top: 295px;
+	right: 350px;
+}
+
+.marker-item .marker-text {
+	right: -2380px;
+	top: -16px;
+	text-align: right;
+}
+
+.marker-item:hover .marker-text {
+	right: -400px;
+}
+
+.marker-item .marker-line {
+	background: #72b62d;
+	left: 24px;
+	top: 11px;
+}
+
+.marker-item:hover .marker-line {
+	width: 400px;
+}
