@@ -19,15 +19,17 @@
 }
 
 .marker .marker-text {
-	font-size: 12px;
-	font-weight: 400;
+	color: #333;
+	font: 15px 'NovecentowideLightBold', 'Helvetica', 'Arial', sans-serif;
 	position: absolute;
 	line-height: 22px;
 	width: 276px;
-	-webkit-transition: all .4s ease-in;
-	-moz-transition: all .4s ease-in;
-	-ms-transition: all .4s ease-in;
-	transition: all .4s ease-in;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: all .3s ease-in-out;
+	-moz-transition: all .3s ease-in-out;
+	-ms-transition: all .3s ease-in-out;
+	transition: all .3s ease-in-out;
 }
 
 .marker .marker-line {
@@ -48,13 +50,14 @@
 }
 
 .marker-search .marker-text {
-	left: -2380px;
-	top: -16px;
+	left: -380px;
+	top: -38px;
 	text-align: left;
 }
 
 .marker-search:hover .marker-text {
-	left: -380px;
+	opacity: 1;
+	visibility: visible;
 }
 
 .marker-search .marker-line {
@@ -76,13 +79,14 @@
 }
 
 .marker-account .marker-text {
-	right: -2380px;
-	top: -16px;
+	right: -320px;
+	top: -18px;
 	text-align: right;
 }
 
 .marker-account:hover .marker-text {
-	right: -320px;
+	opacity: 1;
+	visibility: visible;
 }
 
 .marker-account .marker-line {
@@ -105,13 +109,14 @@
 }
 
 .marker-item .marker-text {
-	right: -2380px;
-	top: -10px;
+	right: -402px;
+	top: -32px;
 	text-align: right;
 }
 
 .marker-item:hover .marker-text {
-	right: -402px;
+	opacity: 1;
+	visibility: visible;
 }
 
 .marker-item .marker-line {

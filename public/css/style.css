@@ -162,10 +162,10 @@ input.field:focus {
 	max-width: 1000px;
 	margin: 15px auto 35px;
 	position: relative;
-	-webkit-animation: macvis .3s linear;
-	-moz-animation: macvis .3s linear;
-	-ms-animation: macvis .3s linear;
-	animation: macvis .3s linear;
+	-webkit-animation: macvis .3s ease-in-out;
+	-moz-animation: macvis .3s ease-in-out;
+	-ms-animation: macvis .3s ease-in-out;
+	animation: macvis .3s ease-in-out;
 }
 
 .image-container .mac-img {
