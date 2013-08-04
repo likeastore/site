@@ -8,7 +8,8 @@
   ],
   "scripts": {
     "start": "node app.js",
-    "test": "node ./test/e2eRunner.js ./test/e2e"
+    "test": "node ./test/e2eRunner.js ./test/e2e",
+    "watch": "nodemon --watch source --watch config app.js"
   },
   "dependencies": {
     "express": "3.0.0rc4",
