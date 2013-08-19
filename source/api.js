@@ -47,11 +47,6 @@ module.exports = function (app, passport) {
 			var email = req.body.email || req.user.email;
 			var appRedirectUrl = config.applicationUrl + '?email=' + email + '&apiToken=' + req.user.apiToken;
 
-			// we don't store facebook as network for now
-			if (req.user.provider === 'facebook') {
-				return res.json({ applicationUrl: appRedirectUrl });
-			}
-
 			if (req.user.provider === 'local') {
 				delete req.session.localUser;
 				return res.json({ applicationUrl: appRedirectUrl });
