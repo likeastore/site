@@ -24,7 +24,8 @@
     "passport-github": "~0.1.5",
     "passport-facebook": "~0.1.6",
     "bcrypt-nodejs": "0.0.3",
-    "grvtr": "~0.1.3"
+    "grvtr": "~0.1.3",
+    "analytics": "git://github.com/likeastore/analytics.git"
   },
   "devDependencies": {
     "zombie": "~2.0.0-alpha19",

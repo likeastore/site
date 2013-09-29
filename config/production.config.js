@@ -49,6 +49,10 @@ var config = {
 		}
 	},
 
+	analytics: {
+		url: 'https://analytics.likeastore.com'
+	},
+
 	mandrill: {
 		token: process.env.MANDRILL_TOKEN
 	},

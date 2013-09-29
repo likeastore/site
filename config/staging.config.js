@@ -36,6 +36,10 @@ var config = {
 		}
 	},
 
+	analytics: {
+		url: 'http://analytics.stage.likeastore.com'
+	},
+
 	mandrill: {
 		token: '2kXX0stV1Hf56y9DYZts3A'
 	},
