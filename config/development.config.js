@@ -49,6 +49,10 @@ var config = {
 		}
 	},
 
+	analytics: {
+		url: 'http://localhost:3005'
+	},
+
 	mandrill: {
 		token: null //'2kXX0stV1Hf56y9DYZts3A'
 	},
