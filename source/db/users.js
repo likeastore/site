@@ -6,6 +6,7 @@ var ObjectId = require('mongojs').ObjectId;
 var db = require('./dbConnector').db;
 var tokens = require('../utils/tokens');
 var notificationUtil = require('../utils/notification');
+var analytics = require('../utils/analytics');
 
 /**
  * (!) NOTA BENE: (remove when we'll enable schema)
@@ -62,7 +63,9 @@ exports.findOrCreateByService = function (token, tokenSecret, profile, callback)
 
 			sendUserCreatedNotification(saved);
 
-			callback(null, saved);
+			analytics('user registered', {service: profile.provider}, function (err) {
+				callback(null, saved);
+			});
 		});
 	});
 };
@@ -122,7 +125,9 @@ exports.findOrCreateLocal = function (data, callback) {
 
 						sendUserCreatedNotification(saved);
 
-						return callback(null, saved);
+						analytics('user registered', {service: 'local'}, function (err) {
+							callback(null, saved);
+						});
 					});
 				});
 			});
@@ -166,7 +171,10 @@ exports.finishUserSetup = function (userId, data, callback) {
 					if (err) {
 						return callback(err);
 					}
-					callback(null);
+
+					analytics('user setup account', function (err) {
+						callback(null);
+					});
 				});
 		}
 	});
