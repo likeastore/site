@@ -285,7 +285,7 @@ input.field:focus {
 }
 
 .social-buttons {
-	width: 300px;
+	width: 500px;
 	margin: 0 auto;
 	padding: 26px 0;
 	vertical-align: middle;
@@ -551,4 +551,8 @@ footer .icon {
 
 .error-msg i.icon:before {
 	content: 'x';
+}
+
+.hn-button {
+	margin-left: 25px;
 }
