@@ -1,8 +1,9 @@
 var _ = require('underscore');
 var config = require('../config');
-var users = require('./db/users.js');
-var subscribers = require('./db/subscribers.js');
-var networks = require('./db/networks.js');
+var users = require('./db/users');
+var subscribers = require('./db/subscribers');
+var networks = require('./db/networks');
+var schemas = require('./schemas');
 
 module.exports = function (app, passport) {
 
@@ -66,9 +67,20 @@ module.exports = function (app, passport) {
 		return next();
 	};
 
-	app.post('/notify', notify);
-	app.post('/auth/setup', setupUser);
-	app.post('/auth/local/login', localAuth);
+	var validate = function (model) {
+		return function (req, res, next) {
+			schemas.validate(req.body, model, function (err) {
+				if (err) {
+					return res.send(412, err);
+				}
+				return next();
+			});
+		};
+	}
+
+	app.post('/notify', validate('subscribeSchema'), notify);
+	app.post('/auth/setup', validate('setupUserSchema'), setupUser);
+	app.post('/auth/local/login', validate('findOrCreateUserSchema'), localAuth);
 	app.get('/auth/twitter', cleanSession, passport.authenticate('twitter'));
 	app.get('/auth/twitter/callback', passport.authenticate('twitter', authRedirect));
 	app.get('/auth/github', cleanSession, passport.authenticate('github'));
