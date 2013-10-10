@@ -30,7 +30,8 @@ exports.schemas = {
 				required: true,
 				maxLength: 30
 			}
-		}
+		},
+		additionalProperties: false
 	},
 	setupUserSchema: {
 		description: 'Common user setup',
@@ -46,8 +47,8 @@ exports.schemas = {
 				required: true,
 				maxLength: 250
 			},
-			additionalProperties: false
-		}
+		},
+		additionalProperties: false
 	}
 };
 

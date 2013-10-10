@@ -76,7 +76,7 @@ module.exports = function (app, passport) {
 				return next();
 			});
 		};
-	}
+	};
 
 	app.post('/notify', validate('subscribeSchema'), notify);
 	app.post('/auth/setup', validate('setupUserSchema'), setupUser);
