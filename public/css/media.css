@@ -1,4 +1,21 @@
-/* Smartphones (landscape) ----------- */
+@media (max-width: 1024px) {
+
+	.image-container .marker {
+		display: none;
+	}
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+	.welcome-page .wrap {
+		width: 100%;
+		margin-bottom: 30px;
+		overflow: hidden;
+	}
+
+}
+
 @media (max-width: 640px) {
 
 	body {
@@ -168,7 +185,6 @@
 
 }
 
-/* Smartphones (portrait) ----------- */
 @media (max-width: 420px) {
 
 	.subscribe .error-msg {
@@ -177,25 +193,6 @@
 
 	.subscribe .error-msg.on {
 		left: 3px;
-	}
-
-	.image-container .marker {
-		display: none;
-	}
-
-}
-
-/* iPads (portrait) ----------- */
-@media (min-width : 768px) and (max-width : 1024px) {
-
-	.welcome-page .wrap {
-		width: 100%;
-		margin-bottom: 30px;
-		overflow: hidden;
-	}
-
-	.image-container .marker {
-		display: none;
 	}
 
 }
