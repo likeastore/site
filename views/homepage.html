@@ -1,16 +1,14 @@
-<% layout('layout') -%>
-<% block('bodyClass', 'welcome-page') -%>
+{% extends 'base.html' %}
+{% block bodyClass %}welcome-page{% endblock %}
 
+{% block content %}
 <a href="/login" class="go-to-login">Login</a>
 
 <div class="wrap">
 	<h2 class="logo big">likeastore.</h2>
 	<div class="desc">An easy way to keep all your likes in one place.</div>
 
-	<div class="image-container">
-		<img class="mac-img" src="../img/likemac-clean@2x.png">
-		<%- partial('mac-notes') %>
-	</div>
+	{% include './partials/mac-notes.html' %}
 
 	<a href="/register" class="register-btn">Registration</a>
 
@@ -32,7 +30,8 @@
 			<form class="formular subscribe" action="/notify" method="post" accept-charset="utf-8" novalidate>
 				<input type="email" name="email" class="field email" placeholder="youremail@example.com">
 				<button type="submit" class="do-subscribe-btn notify-btn btn">Notify me</button>
-				<%- partial('flash-modal') %>
+
+				{% include './partials/flash-modal.html' %}
 			</form>
 		</div>
 	</section>
@@ -46,10 +45,6 @@
 </div>
 
 <footer>
-	<p>
-		<i data-icon="m" class="icon"></i>
-		Handcrafted with love in Kiev
-	</p>
+	<p><i data-icon="m" class="icon"></i>Handcrafted with love in Kiev</p>
 </footer>
-
-<% script('js/formular.js') -%>
+{% endblock %}

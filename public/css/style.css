@@ -151,11 +151,11 @@ input.field:focus {
 .wrap {
 	width: 100%;
 	margin: 0 auto;
-	overflow: hidden;
 }
 
 .welcome-page .wrap {
 	text-align: center;
+	overflow: hidden;
 }
 
 .image-container {

@@ -1,6 +1,7 @@
-<% layout('layout') -%>
-<% block('bodyClass', 'login-page') -%>
+{% extends 'base.html' %}
+{% block bodyClass %}login-page{% endblock %}
 
+{% block content %}
 <div class="wrap">
 	<h2 class="logo small"><a href="/">likeastore.</a></h2>
 
@@ -14,11 +15,10 @@
 			</div>
 			<button type="submit" class="btn do-login-btn">Login</button>
 			<div class="auth-help">Don't have an account? <a href="/register">Register.</a></div>
-			<%- partial('flash-modal') %>
+			{% include './partials/flash-modal.html' %}
 		</form>
 
-		<%- partial('socials') %>
+		{% include './partials/socials.html' %}
 	</div>
 </div>
-
-<% script('js/formular.js') -%>
+{% endblock %}

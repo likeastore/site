@@ -4,7 +4,7 @@ var mode = process.env.NODE_ENV || 'development';
 module.exports = function (app) {
 
 	var index = function (req, res) {
-		res.render('index', { title: 'likeastore.', mode: mode });
+		res.render('homepage', { title: 'likeastore.', mode: mode });
 	};
 
 	var login = function (req, res) {
