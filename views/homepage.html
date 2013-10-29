@@ -1,7 +1,86 @@
 {% extends 'base.html' %}
 {% block bodyClass %}welcome-page{% endblock %}
 
+{% block styles %}
+<style>
+.main {
+	background-size: 1920px 1350px;
+	background-position: -242px -600px;
+	background-image: url('/img/bokeh.jpg');
+	width: 100%;
+	height: 750px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.welcome-block {
+	width: 520px;
+	margin: 150px auto 15px;
+	text-align: center;
+}
+
+.words {
+	color: #fff;
+	font: 4.5em/1em 'proxima_nova_rgbold', 'Helvetica', 'Arial', sans-serif;
+	font-weight: normal;
+	text-transform: capitalize;
+}
+
+.try-btn {
+	display: block;
+	background: #fff;
+	color: #2c3e50;
+	font: 20px/46px 'proxima_nova_rgbold', 'Helvetica', 'Arial', sans-serif;
+	margin: 50px auto 0;
+	width: 183px;
+	height: 44px;
+	text-decoration: none;
+	text-transform: uppercase;
+	position: relative;
+	cursor: pointer;
+	-webkit-border-radius: 30px;
+	border-radius: 30px;
+}
+
+.try-btn:hover {
+	background: #2ecc71;
+	text-decoration: none;
+}
+
+.try-btn .icon {
+	display: inline-block;
+	font-size: 22px;
+	line-height: 50px;
+	vertical-align: top;
+	margin-right: 5px;
+}
+
+.small-fixed {
+	font-size: 26px;
+	padding: 0;
+	position: absolute;
+	top: 30px;
+	left: 35px;
+	z-index: 100;
+}
+</style>
+{% endblock %}
+
 {% block content %}
+<h2 class="logo small-fixed"><a href="/">likeastore.</a></h2>
+<a href="/login" class="go-to-login">Sign in</a>
+
+<div class="main">
+	<div class="welcome-block">
+		<h1 class="words">Store all likes in one account</h1>
+		<div class="desc">The most safe way to keep all pieces of your information together.</div>
+		<a href="#" class="try-btn"><i data-icon="j" class="icon"></i> Try it now</a>
+	</div>
+</div>
+{% endblock %}
+
+{#% block content %}
 <a href="/login" class="go-to-login">Login</a>
 
 <div class="wrap">
@@ -47,4 +126,13 @@
 <footer>
 	<p><i data-icon="m" class="icon"></i>Handcrafted with love in Kiev</p>
 </footer>
+{% endblock %#}
+
+{% block scripts %}
+<script src="components/jquery.stellar/jquery.stellar.min.js"></script>
+<script>
+$(function () {
+	$.stellar();
+});
+</script>
 {% endblock %}

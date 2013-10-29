@@ -57,7 +57,7 @@ body {
 	background: #fff;
 	font-family: 'Lato', 'Open Sans', Arial, sans-serif;
 	font-weight: 300;
-	border-top: 5px solid #ecf0f1;
+	/*border-top: 5px solid #ecf0f1;*/
 	width: 100%;
 	overflow-x: hidden;
 	overflow-y: scroll;
@@ -84,6 +84,10 @@ h4 {
 a {
 	color: #ff3535;
 	text-decoration: none;
+	-webkit-transition: all .2s ease-out;
+	-moz-transition: all .2s ease-out;
+	-ms-transition: all .2s ease-out;
+	transition: all .2s ease-out;
 }
 
 a:hover {
@@ -111,7 +115,7 @@ input.field:focus {
 }
 
 .logo {
-	margin: 60px auto 15px;
+	color: #fff;
 	font-family: 'proxima_nova_rgbold', 'Helvetica', 'Arial', sans-serif;
 	font-weight: normal;
 	text-transform: lowercase;
@@ -143,9 +147,10 @@ input.field:focus {
 }
 
 .desc {
+	color: #fff;
 	font-weight: 300;
-	text-transform: uppercase;
 	font-size: 18px;
+	margin: 15px 0 0;
 }
 
 .wrap {
@@ -269,21 +274,27 @@ input.field:focus {
 
 .go-to-login {
 	display: inline-block;
-	background: #fff;
-	border: 2px solid #333;
-	color: #333;
-	font: 12px 'NovecentowideLightBold', 'Helvetica', 'Arial', sans-serif;;
-	padding: 5px 10px;
-	position: fixed;
-	top: 15px;
+	background: transparent;
+	color: #fff;
+	font: 14px 'proxima_nova_rgbold', 'Helvetica', 'Arial', sans-serif;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	padding: 10px 25px;
+	width: 60px;
+	text-align: center;
+	position: absolute;
+	top: 30px;
 	right: 30px;
 	z-index: 1000;
+	-webkit-border-radius: 30px;
+	border-radius: 30px;
+	box-shadow: inset 0 0 0 1px #aaa;
 }
 
 .go-to-login:hover {
-	border-color: #999;
-	color: #999;
+	color: #2ecc71;
 	text-decoration: none;
+	box-shadow: inset 0 0 0 1px #2ecc71;
 }
 
 .social-buttons {
