@@ -41,7 +41,7 @@ exports.findOrCreateByService = function (token, tokenSecret, profile, callback)
 		}
 
 		if (!profile.username && profile.provider === 'facebook') {
-			profile.username = (profile._json.last_name || profile.name.familyName).toLowerCase();
+			profile.username = (profile._json.last_name || profile.name.familyName || getRandomName()).toLowerCase();
 		}
 
 		var meta = _.pick(profile, metaFromServices);
@@ -68,6 +68,10 @@ exports.findOrCreateByService = function (token, tokenSecret, profile, callback)
 			});
 		});
 	});
+
+	function  getRandomName() {
+		return 'user' + Math.floor(Math.random()*500 + 1);
+	}
 };
 
 exports.findOrCreateLocal = function (data, callback) {
