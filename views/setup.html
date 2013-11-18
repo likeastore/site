@@ -1,24 +1,24 @@
-<% layout('layout') -%>
-<% block('bodyClass', 'setup-page') -%>
+{% extends 'base.html' %}
+{% block bodyClass %}setup-page{% endblock %}
 
+{% block content %}
 <div class="wrap">
 	<h2 class="logo small"><a href="/">likeastore.</a></h2>
 
 	<form action="/auth/setup" method="post" accept-charset="utf-8" class="formular setup" novalidate>
 		<div class="setup-welcome-text">
-			You're almost in, just type your <% if (user.provider !== 'local') { %>email<% } else { %>username<% } %> and welcome on board!
+			You're almost in, just type your {% if user.provider !== 'local' %}email{% else %}username{% endif %} and welcome on board!
 		</div>
 		<div>
-			<input type="text" name="username" class="field username" value="<%= user.username %>" autocomplete="off">
+			<input type="text" name="username" class="field username" value="{{user.username}}" autocomplete="off">
 		</div>
-		<% if (user.provider !== 'local') { %>
+		{% if user.provider !== 'local' %}
 		<div>
 			<input type="email" name="email" class="field email" placeholder="email@example.com" autocomplete="off">
 		</div>
-		<% } %>
+		{% endif %}
 		<button type="submit" class="do-setup-btn btn">Finish registration</button>
-		<%- partial('flash-modal') %>
+		{% include './partials/flash-modal.html' %}
 	</form>
 </div>
-
-<% script('js/formular.js') -%>
+{% endblock %}

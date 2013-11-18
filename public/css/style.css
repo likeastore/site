@@ -151,11 +151,11 @@ input.field:focus {
 .wrap {
 	width: 100%;
 	margin: 0 auto;
-	overflow: hidden;
 }
 
 .welcome-page .wrap {
 	text-align: center;
+	overflow: hidden;
 }
 
 .image-container {
@@ -269,6 +269,7 @@ input.field:focus {
 
 .go-to-login {
 	display: inline-block;
+	background: #fff;
 	border: 2px solid #333;
 	color: #333;
 	font: 12px 'NovecentowideLightBold', 'Helvetica', 'Arial', sans-serif;;
@@ -276,6 +277,7 @@ input.field:focus {
 	position: fixed;
 	top: 15px;
 	right: 30px;
+	z-index: 1000;
 }
 
 .go-to-login:hover {
@@ -285,7 +287,7 @@ input.field:focus {
 }
 
 .social-buttons {
-	width: 300px;
+	width: 500px;
 	margin: 0 auto;
 	padding: 26px 0;
 	vertical-align: middle;
@@ -551,4 +553,8 @@ footer .icon {
 
 .error-msg i.icon:before {
 	content: 'x';
+}
+
+.hn-button {
+	margin-left: 25px;
 }

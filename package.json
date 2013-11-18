@@ -1,6 +1,6 @@
 {
   "name": "likeastore-site",
-  "version": "0.0.18",
+  "version": "1.0.3",
   "private": true,
   "domains": [
     "likeastore.com",
@@ -12,20 +12,22 @@
     "watch": "nodemon --watch source --watch config app.js"
   },
   "dependencies": {
-    "express": "~3.0.0-rc4",
-    "ejs": "~0.8.4",
+    "express": "~3.0.6",
     "underscore": "~1.4.4",
     "node-mandrill": "~1.0.1",
     "async": "~0.2.9",
     "mongojs": "~0.7.16",
-    "ejs-locals": "~1.0.2",
     "passport": "~0.1.17",
     "passport-twitter": "~0.1.5",
     "passport-github": "~0.1.5",
     "passport-facebook": "~0.1.6",
     "bcrypt-nodejs": "0.0.3",
     "grvtr": "~0.1.3",
-    "analytics": "git://github.com/likeastore/analytics.git"
+    "analytics": "git://github.com/likeastore/analytics.git",
+    "json-schema": "~0.2.2",
+    "stylus": "~0.38.0",
+    "swig": "~1.1.0",
+    "dookie-css": "~0.1.5"
   },
   "devDependencies": {
     "zombie": "~2.0.0-alpha19",
