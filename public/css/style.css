@@ -45,11 +45,13 @@
 }
 
 ::selection {
-	background-color: #feffc3;
+	background-color: #1abc9c;
+	color: #fff;
 }
 
 ::-moz-selection {
-	background-color: #feffc3;
+	background-color: #1abc9c;
+	color: #fff;
 }
 
 body {
@@ -115,7 +117,7 @@ input.field:focus {
 }
 
 .logo {
-	color: #fff;
+	color: #1abc9c;
 	font-family: 'proxima_nova_rgbold', 'Helvetica', 'Arial', sans-serif;
 	font-weight: normal;
 	text-transform: lowercase;
@@ -147,10 +149,10 @@ input.field:focus {
 }
 
 .desc {
-	color: #fff;
+	color: #aaafb3;
 	font-weight: 300;
 	font-size: 18px;
-	margin: 15px 0 0;
+	margin: 20px 0 0;
 }
 
 .wrap {
@@ -274,27 +276,27 @@ input.field:focus {
 
 .go-to-login {
 	display: inline-block;
-	background: transparent;
-	color: #fff;
+	background: #fff;
+	color: #1f282d;
 	font: 14px 'proxima_nova_rgbold', 'Helvetica', 'Arial', sans-serif;
 	letter-spacing: 1px;
 	text-transform: uppercase;
-	padding: 10px 25px;
+	padding: 9px 22px;
 	width: 60px;
 	text-align: center;
-	position: absolute;
-	top: 30px;
-	right: 30px;
+	position: fixed;
+	top: 20px;
+	right: 20px;
 	z-index: 1000;
 	-webkit-border-radius: 30px;
 	border-radius: 30px;
-	box-shadow: inset 0 0 0 1px #aaa;
+	box-shadow: inset 0 0 0 1px #1f282d;
 }
 
 .go-to-login:hover {
-	color: #2ecc71;
+	color: #4fcfc4;
 	text-decoration: none;
-	box-shadow: inset 0 0 0 1px #2ecc71;
+	box-shadow: inset 0 0 0 1px #4fcfc4;
 }
 
 .social-buttons {

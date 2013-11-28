@@ -3,34 +3,26 @@
 
 {% block styles %}
 <style>
-.main {
-	background-size: 1920px 1350px;
-	background-position: -242px -600px;
-	background-image: url('/img/bokeh.jpg');
-	width: 100%;
-	height: 750px;
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-
 .welcome-block {
-	width: 520px;
-	margin: 150px auto 15px;
+	width: 530px;
+	margin: 0 auto;
+	padding: 60px 0 0;
 	text-align: center;
+	-webkit-animation: macvis .5s ease-in-out;
 }
 
 .words {
-	color: #fff;
-	font: 4.5em/1em 'proxima_nova_rgbold', 'Helvetica', 'Arial', sans-serif;
+	color: #1f282d;
+	font: 4em/1.1em 'proxima_nova_rgbold', 'Helvetica', 'Arial', sans-serif;
 	font-weight: normal;
 	text-transform: capitalize;
 }
 
 .try-btn {
 	display: block;
-	background: #fff;
-	color: #2c3e50;
+	background-color: transparent;
+	color: #fff;
+	border: 3px solid #fff;
 	font: 20px/46px 'proxima_nova_rgbold', 'Helvetica', 'Arial', sans-serif;
 	margin: 50px auto 0;
 	width: 183px;
@@ -39,12 +31,11 @@
 	text-transform: uppercase;
 	position: relative;
 	cursor: pointer;
-	-webkit-border-radius: 30px;
-	border-radius: 30px;
 }
 
 .try-btn:hover {
-	background: #2ecc71;
+	color: #1abc9c;
+	border-color: #1abc9c;
 	text-decoration: none;
 }
 
@@ -59,10 +50,133 @@
 .small-fixed {
 	font-size: 26px;
 	padding: 0;
-	position: absolute;
+	position: fixed;
 	top: 30px;
 	left: 35px;
 	z-index: 100;
+}
+
+
+.step1 {
+	position: relative;
+	height: 100%;
+	min-height: 100%;
+	z-index: 1;
+}
+
+.step2 {
+	background: #fff;
+	position: relative;
+	min-height: 710px;
+	z-index: 2;
+}
+
+.bars {
+	position: absolute;
+	height: 10px;
+	width: 100%;
+	top: 0;
+}
+
+.bars li {
+	float: left;
+	height: 10px;
+	width: 20%;
+}
+
+.bars li.black {
+	background: #1f282d;
+	-webkit-animation: linevis .5s ease-in-out;
+}
+
+.bars li.blue {
+	background: #4fcfc4;
+	-webkit-animation: linevis .2s ease-in-out;
+}
+
+.bars li.yellow {
+	background: #f39c12;
+	-webkit-animation: linevis .8s ease-in-out;
+}
+
+.bars li.red {
+	background: #e74c3c;
+	-webkit-animation: linevis .5s ease-in-out;
+}
+
+.bars li.grey {
+	background: #ecf0f1;
+	-webkit-animation: linevis .6s ease-in-out;
+}
+
+@-webkit-keyframes linevis {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+.image {
+	margin: 0 auto;
+	max-width: 860px;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	-webkit-animation: macmove 1s ease-in-out;
+}
+
+@-webkit-keyframes macmove {
+	from {
+		bottom: -500px;
+	}
+
+	to {
+		bottom: 0;
+	}
+}
+
+.image img {
+	width: 100%;
+	margin: 10px 0 -2px;
+}
+
+.find-out-more {
+	display: inline-block;
+	color: #1f282d;
+	border-bottom: 1px dotted #1f282d;
+	font-size: 13px;
+	margin: 30px 0 0;
+	padding-bottom: 3px;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+.find-out-more:hover {
+	color: #1abc9c;
+	border-color: #1abc9c;
+	text-decoration: none;
+}
+
+.title-block {
+	width: 530px;
+	margin: 0 auto;
+	padding: 100px 0 0;
+	text-align: center;
+}
+
+.title-block .words {
+	font-size: 3.5em;
+}
+
+.ads-desc {
+	font-size: 18px;
+	margin-top: 35px;
+	line-height: 24px;
+	text-align: justify;
 }
 </style>
 {% endblock %}
@@ -71,13 +185,56 @@
 <h2 class="logo small-fixed"><a href="/">likeastore.</a></h2>
 <a href="/login" class="go-to-login">Sign in</a>
 
-<div class="main">
+<div class="step1" data-stellar-background-ratio="0.5">
 	<div class="welcome-block">
-		<h1 class="words">Store all likes in one account</h1>
-		<div class="desc">The most safe way to keep all pieces of your information together.</div>
-		<a href="#" class="try-btn"><i data-icon="j" class="icon"></i> Try it now</a>
+		<h1 class="words">Save your likes in likeastore.</h1>
+		<div class="desc">Get every piece of your social activity on one page and in one account.</div>
+		<a href="#why" class="find-out-more">Check out more</a>
+	</div>
+
+	<div class="image">
+		<img src="img/likeastorescreen.png">
 	</div>
 </div>
+
+<div id="why" class="step2" data-stellar-background-ratio="0.5">
+	<ul class="bars">
+		<li class="black"></li>
+		<li class="blue"></li>
+		<li class="yellow"></li>
+		<li class="red"></li>
+		<li class="grey"></li>
+	</ul>
+
+	<div class="title-block">
+		<h1 class="words">We are Google of your interests</h1>
+		<div class="ads-desc">
+			Just imagine that you won't need to track all important from different services by yourself! Likeastore will do it for you. It has simple and intuitive interface which allows you to store resources safely and search for information.
+		</div>
+	</div>
+</div>
+
+<!--<a href="/login" class="go-to-login">Sign in</a>
+
+<div class="main">
+	<div class="welcome-block">
+		<h1 class="words">Keep All Likes In A Safe Place</h1>
+		<div class="desc">Every piece of your social activity on one page and in one account.</div>
+		<a href="#" class="try-btn"><i data-icon="i" class="icon"></i> Try it now</a>
+	</div>
+</div>
+
+<div class="about">
+	Nunc egestas egestas. Habitasse etiam integer diam nisi porttitor ut in mid. Mauris ut vut mauris nisi parturient mattis parturient augue mus scelerisque facilisis, amet hac platea, lorem penatibus sed! Urna, lectus! Ac ac, quis purus quis rhoncus ac diam facilisis risus porta, odio facilisis rhoncus? Nisi enim! In etiam, est facilisis odio magna cum dignissim augue porttitor rhoncus amet risus integer tortor tincidunt sed. Amet, vut scelerisque? Penatibus! A a tortor, ridiculus augue parturient enim scelerisque augue urna odio? Amet rhoncus! Vut tristique dis vut magna parturient? Cras nec, nisi egestas velit? Odio et mauris cursus purus enim, mattis, lorem tincidunt! Nisi nunc eros penatibus. Dignissim diam, augue mauris sagittis facilisis, dis sit rhoncus. Tempor etiam turpis, elementum elementum.
+
+Velit, dolor adipiscing augue facilisis! Nec ac augue porta aliquam facilisis. Sagittis odio! Pulvinar sed dignissim dolor. Penatibus et porta, urna elementum et, quis ut urna tristique, mid in turpis, ut a, magna dolor integer augue pellentesque lectus, nec mattis aliquam porttitor dolor magnis! Adipiscing, et enim, lectus, nec, elit? Phasellus a cursus, turpis et, mus, tincidunt vel sed platea aliquet quis pulvinar, quis vel, turpis mus amet proin sed mid scelerisque est velit, vel magna in aliquam mus dis, cum non? Lorem, parturient, sit augue porttitor elit pid? Sed auctor? Aliquet pulvinar? Porttitor ac egestas a eros sit penatibus magnis dignissim pulvinar, mid? Urna a scelerisque? Non ut mid lorem turpis elementum. Rhoncus ac scelerisque, eu? Rhoncus! Magna.
+
+Penatibus! Quis cursus augue et ac mus aliquam! Tristique scelerisque nisi hac odio odio, rhoncus, porttitor, dapibus! Odio scelerisque! Turpis. A nec pid egestas facilisis ultrices in tincidunt enim. Placerat dictumst amet placerat, cum lundium, urna platea scelerisque elementum in dis sed in nascetur sit ut elit a, massa. Rhoncus elit placerat turpis? Aenean egestas odio vel quis tristique? Velit tincidunt! Et proin urna rhoncus? Aenean adipiscing sagittis purus cursus magnis, vel facilisis, odio ac porta etiam proin adipiscing mauris massa, rhoncus, pulvinar, et etiam porta integer cras porttitor purus, enim aliquet turpis elementum nisi, et phasellus ac elementum nascetur, pellentesque eros magna proin, ut tortor amet, adipiscing vut et nisi sed porta nec dictumst duis rhoncus mid lundium.
+
+Turpis placerat, adipiscing aliquet augue platea et velit nisi enim tincidunt nunc turpis, velit cum turpis sed magna rhoncus, platea proin scelerisque ultrices ac turpis augue. Aliquam sed aliquet elementum. Amet, dolor dolor ac ultricies? Cum augue scelerisque integer turpis aenean magnis amet ultrices? In eu in? Odio dis! Ac eu. Dignissim, mauris vel in, pellentesque eu nisi mattis. Vel urna dolor lundium et non natoque nisi lectus ac facilisis natoque? Augue elit? Vel elit, mus aliquet dapibus! A? Platea, pulvinar, ridiculus risus, et integer augue scelerisque? Rhoncus odio adipiscing, in, rhoncus in turpis lacus tempor penatibus! Mus. Ut! Natoque scelerisque. Urna natoque ac, integer nisi egestas, dapibus tortor quis aliquet, diam, et? Etiam, dolor pid? Aliquam pulvinar parturient.
+
+Magna sed odio platea proin dictumst aliquet facilisis sagittis quis vut risus turpis. Placerat dolor? Magna dis risus a, ac odio eu scelerisque? Mauris elementum a ac nec nisi? Dapibus cras. Porttitor rhoncus aliquet ultricies, nascetur diam mauris porta. Magna, integer, ac ut augue. Nascetur in magna amet lorem lundium augue in et ac non lundium sed elementum, vel ac eros, mus facilisis turpis augue. Tristique duis sed porta platea turpis, dapibus, non cum! Turpis, porttitor augue, augue ultrices ac urna platea ac vel dolor a, a, sit turpis, hac ultrices, parturient turpis porta magna rhoncus porttitor, risus natoque. Sed! Et sed arcu enim mauris elit nec augue aliquet montes aliquam, auctor aliquam, auctor sit vel dapibus sagittis nunc.
+</div>-->
 {% endblock %}
 
 {#% block content %}
@@ -129,10 +286,15 @@
 {% endblock %#}
 
 {% block scripts %}
-<script src="components/jquery.stellar/jquery.stellar.min.js"></script>
+<script src="/components/jquery.stellar/jquery.stellar.min.js"></script>
 <script>
 $(function () {
-	$.stellar();
-});
+	$('.step1').css('height', $(window).height() - 10);
+	$('.image').css('margin-left', -$('.image img').width() / 2);
+
+	$(window).scroll(function () {
+		$('.step1').toggleClass('scrolling');
+	});
+})
 </script>
 {% endblock %}
