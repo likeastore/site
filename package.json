@@ -16,7 +16,7 @@
     "underscore": "~1.4.4",
     "node-mandrill": "~1.0.1",
     "async": "~0.2.9",
-    "mongojs": "~0.7.16",
+    "mongojs": "~0.9.8",
     "passport": "~0.1.17",
     "passport-twitter": "~0.1.5",
     "passport-github": "~0.1.5",
