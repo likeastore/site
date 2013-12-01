@@ -150,7 +150,7 @@ input.field:focus {
 
 .wrap {
 	width: 100%;
-	margin: 60px auto;
+	margin: 0px auto 120px;
 }
 
 .welcome-page .wrap {
