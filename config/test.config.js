@@ -51,7 +51,7 @@ var config = {
 
 	analytics: {
 		url: 'http://localhost:3005',
-		username: 'seismo',
+		username: 'likeastore',
 		password: 'mypass'
 	},
 
