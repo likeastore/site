@@ -37,7 +37,9 @@ var config = {
 	},
 
 	analytics: {
-		url: 'http://analytics.stage.likeastore.com'
+		url: 'http://analytics.stage.likeastore.com',
+		username: 'likeastore',
+		password: 'likeadmin7analitics'
 	},
 
 	mandrill: {

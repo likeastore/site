@@ -51,6 +51,8 @@ var config = {
 
 	analytics: {
 		url: 'https://analytics.likeastore.com'
+		username: 'likeastore',
+		password: 'likeadmin7analitics'
 	},
 
 	mandrill: {
