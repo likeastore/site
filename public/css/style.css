@@ -150,7 +150,7 @@ input.field:focus {
 
 .wrap {
 	width: 100%;
-	margin: 0 auto;
+	margin: 0px auto 120px;
 }
 
 .welcome-page .wrap {
@@ -320,7 +320,7 @@ footer .icon {
 .login-page .wrap,
 .register-page .wrap {
 	width: 685px;
-	margin-top: 60px;
+	margin-top: 120px;
 }
 
 .setup-page .wrap {
