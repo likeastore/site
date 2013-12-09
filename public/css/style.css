@@ -117,7 +117,7 @@ input.field:focus {
 }
 
 .logo {
-	color: #1abc9c;
+	color: #fff;
 	font-family: 'proxima_nova_rgbold', 'Helvetica', 'Arial', sans-serif;
 	font-weight: normal;
 	text-transform: lowercase;
@@ -276,8 +276,8 @@ input.field:focus {
 
 .go-to-login {
 	display: inline-block;
-	background: #fff;
-	color: #1f282d;
+	background: transparent;
+	color: #fff;
 	font: 14px 'proxima_nova_rgbold', 'Helvetica', 'Arial', sans-serif;
 	letter-spacing: 1px;
 	text-transform: uppercase;
@@ -290,13 +290,13 @@ input.field:focus {
 	z-index: 1000;
 	-webkit-border-radius: 30px;
 	border-radius: 30px;
-	box-shadow: inset 0 0 0 1px #1f282d;
+	box-shadow: inset 0 0 0 1px #fff;
 }
 
 .go-to-login:hover {
-	color: #4fcfc4;
+	color: #f7f779;
 	text-decoration: none;
-	box-shadow: inset 0 0 0 1px #4fcfc4;
+	box-shadow: inset 0 0 0 1px #f7f779;
 }
 
 .social-buttons {
