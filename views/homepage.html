@@ -75,7 +75,7 @@
 .step2 {
 	background: #fff;
 	position: relative;
-	min-height: 710px;
+	height: 1000px;
 	z-index: 2;
 }
 
@@ -203,6 +203,10 @@
 	color: #1f282d;
 	box-shadow: inset 0 0 0 1px #1f282d;
 }
+
+.stepper .bars {
+	position: fixed;
+}
 </style>
 {% endblock %}
 
@@ -214,7 +218,7 @@
 	<div class="welcome-block">
 		<h1 class="words">Save your likes in likeastore.</h1>
 		<div class="desc">Get every piece of your social activity on one page and in one account.</div>
-		<a href="#why" class="find-out-more">Find out more</a>
+		<a href="#why" class="find-out-more scrolly">Find out more</a>
 	</div>
 
 	<div class="image">
@@ -315,10 +319,24 @@ Magna sed odio platea proin dictumst aliquet facilisis sagittis quis vut risus t
 {% block scripts %}
 <script>
 $(function () {
+	$('.scrolly').on('click', function (e) {
+		e.stop();
+
+		var $anchor = $(this);
+		var href = $anchor.attr('href');
+
+		$('html, body').animate({
+			scrollTop: $(href).offset().top
+		}, 1000, function () {
+			$('body').addClass('stepper');
+		});
+
+	});
+
 	$('.step1').css('height', $(window).height() - 10);
 	$('.image').css('margin-left', -$('.image img').width() / 2);
 
-	var a = $('.bars').offset().top;
+	var bars = $('.bars').offset().top;
 	$(window).scroll(function () {
 		//$('.step1').css('opacity', 1 - ($(window).scrollTop() / 1000))
 		$('.overlay').css({
@@ -329,7 +347,7 @@ $(function () {
 		//console.log($('.image'))
 		$('.image').css('-webkit-transform', 'translateY(' + ($(window).scrollTop() / 7) + 'px)');
 
-		$('body').toggleClass('stepper', $(window).scrollTop() > a)
+		$('body').toggleClass('stepper', $(window).scrollTop() >= bars);
 
 		// if ($(window).scrollTop() > 400) {
 		// 	$('.step1').fadeIn();
