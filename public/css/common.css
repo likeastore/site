@@ -57,13 +57,12 @@ body {
 	background: #fff;
 	font-family: 'Lato', 'Open Sans', Arial, sans-serif;
 	font-weight: 300;
-	border-top: 5px solid #ecf0f1;
 	width: 100%;
 	overflow-x: hidden;
 	overflow-y: scroll;
 }
 
-h2, h3, h4 {
+/*h2, h3, h4 {
 	font-family: 'NovecentowideLightBold', 'Helvetica', 'Arial', sans-serif;
 	font-weight: normal;
 	padding: 15px 0;
@@ -79,7 +78,7 @@ h3 {
 
 h4 {
 	font-size: 1.2em;
-}
+}*/
 
 a {
 	color: #ff3535;
