@@ -45,12 +45,12 @@
 }
 
 ::selection {
-	background-color: #1abc9c;
+	background-color: #e74c3c;
 	color: #fff;
 }
 
 ::-moz-selection {
-	background-color: #1abc9c;
+	background-color: #e74c3c;
 	color: #fff;
 }
 

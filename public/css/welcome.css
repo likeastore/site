@@ -66,27 +66,6 @@
 	font-size: 3.5em;
 }
 
-.try-btn {
-	display: block;
-	background-color: transparent;
-	color: #fff;
-	border: 3px solid #fff;
-	font: 20px/46px 'proxima_nova_rgbold', 'Helvetica', 'Arial', sans-serif;
-	margin: 50px auto 0;
-	width: 183px;
-	height: 44px;
-	text-decoration: none;
-	text-transform: uppercase;
-	position: relative;
-	cursor: pointer;
-}
-
-.try-btn:hover {
-	color: #1abc9c;
-	border-color: #1abc9c;
-	text-decoration: none;
-}
-
 .step1 {
 	background: #1abc9c;
 	position: relative;
@@ -212,19 +191,6 @@
 	visibility: hidden;
 }
 
-.stepper .logo {
-	color: #1abc9c;
-}
-
-.stepper .go-to-login {
-	color: #1f282d;
-	box-shadow: inset 0 0 0 1px #1f282d;
-}
-
-.stepper .bars {
-	position: fixed;
-}
-
 .go-to-login {
 	display: inline-block;
 	background: transparent;
@@ -250,25 +216,15 @@
 	box-shadow: inset 0 0 0 1px #f7f779;
 }
 
-/*.social-buttons {
-	width: 500px;
-	margin: 0 auto;
-	padding: 26px 0;
-	vertical-align: middle;
-	text-align: center;
+.stepfixer .go-to-login {
+	color: #1f282d;
+	box-shadow: inset 0 0 0 1px #1f282d;
 }
 
-footer {
-	padding: 25px 0;
-	color: #999;
+.stepfixer .logo {
+	color: #1abc9c;
 }
 
-footer p {
-	font-size: 13px;
-	text-align: center;
+.stepfixer .bars {
+	position: fixed;
 }
-
-footer .icon {
-	font-size: 16px;
-	vertical-align: middle;
-}*/

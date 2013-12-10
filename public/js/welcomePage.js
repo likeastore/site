@@ -40,9 +40,12 @@ ls.welcomePage = {
 		var barsTop = $('.bars').offset().top;
 
 		$window.scroll(function () {
-			$body.toggleClass('stepper', $window.scrollTop() >= barsTop);
-			$overlay.css({ 'visibility': 'visible', 'opacity': $window.scrollTop() / 1000 });
+			$overlay.css({
+				'visibility': 'visible',
+				'opacity': $window.scrollTop() / 1000
+			});
 			$image.css('-webkit-transform', 'translateY(' + $window.scrollTop() / 7 + 'px)');
+			$body.toggleClass('stepfixer', $window.scrollTop() >= barsTop);
 		});
 	}
 };
