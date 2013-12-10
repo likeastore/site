@@ -5,10 +5,16 @@
 ls.welcomePage = {
 
 	init: function () {
-		$('.step1').css('height', $(window).height() - 10);
-		$('.image').css('margin-left', -$('.image img').width() / 2);
+		this.setHeights();
 		this.initOnScroll();
 		this.initScrollParallax();
+	},
+
+	setHeights: function () {
+		var $image = $('.image');
+
+		$('.step1').css('height', $(window).height() - 10);
+		$image.css('margin-left', -$image.find('img').width() / 2);
 	},
 
 	initScrollParallax: function () {
@@ -28,12 +34,15 @@ ls.welcomePage = {
 
 	initOnScroll: function () {
 		var $window = $(window);
+		var $body = $('body');
+		var $image = $body.find('.image');
+		var $overlay = $body.find('.overlay');
 		var barsTop = $('.bars').offset().top;
 
 		$window.scroll(function () {
-			$('body').toggleClass('stepper', $window.scrollTop() >= barsTop);
-			$('.overlay').css({ 'visibility': 'visible', 'opacity': $window.scrollTop() / 1000 });
-			$('.image').css('-webkit-transform', 'translateY(' + $window.scrollTop() / 7 + 'px)');
+			$body.toggleClass('stepper', $window.scrollTop() >= barsTop);
+			$overlay.css({ 'visibility': 'visible', 'opacity': $window.scrollTop() / 1000 });
+			$image.css('-webkit-transform', 'translateY(' + $window.scrollTop() / 7 + 'px)');
 		});
 	}
 };

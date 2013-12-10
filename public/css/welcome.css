@@ -55,6 +55,13 @@
 	text-transform: capitalize;
 }
 
+.welcome-desc {
+	color: #ecf0f1;
+	font-weight: 300;
+	font-size: 18px;
+	margin: 20px 0 0;
+}
+
 .title-block .words {
 	font-size: 3.5em;
 }
