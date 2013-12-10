@@ -1,12 +1,48 @@
 {% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="/css/welcome.css">
+{% endblock %}
+
 {% block bodyClass %}welcome-page{% endblock %}
 
 {% block content %}
-<a href="http://stfalcon.github.io/euromaidan/" class="ua-ribbon" style="position: absolute; left:0; top:0; width: 90px; height: 90px; background: url('/img/ua-ribbon.png'); z-index: 2013; border: 0;" title="We proudly support our nation in the will to get honest government! Ukraine without Yanukovych! Ukraine is Europe!" target="_blank"></a>
+<h2 class="logo small-fixed"><a href="/">likeastore.</a></h2>
+<a href="/login" class="go-to-login">Sign in</a>
 
-<a href="/login" class="go-to-login">Login</a>
+<!-- Step one: welcome -->
+<div class="step1">
+	<div class="welcome-block box">
+		<h1 class="words">Save your likes in likeastore.</h1>
+		<div class="desc">Get every piece of your social activity on one page and in one account.</div>
+		<a href="#why" class="find-out-more scrolly">Find out more</a>
+	</div>
 
-<div class="wrap">
+	<div class="image"><img src="/img/likeastorescreen.png"></div>
+	<div class="overlay"></div>
+</div>
+<!-- End of step one -->
+
+<!-- Step two: features -->
+<div id="why" class="step2">
+
+	<!-- Multicolored bar -->
+	<ul class="bars">
+		<li class="black"></li>
+		<li class="blue"></li>
+		<li class="yellow"></li>
+		<li class="red"></li>
+		<li class="grey"></li>
+	</ul>
+	<!-- End multicolored bar -->
+
+	<div class="title-block box">
+		<h1 class="words">We are Google of your interests</h1>
+	</div>
+</div>
+<!-- End of step two -->
+
+{#<div class="wrap">
 	<h2 class="logo big">likeastore.</h2>
 	<div class="desc">An easy way to keep all your likes in one place.</div>
 
@@ -48,5 +84,9 @@
 
 <footer>
 	<p><i data-icon="m" class="icon"></i>Handcrafted with love in Kiev</p>
-</footer>
+</footer>#}
+{% endblock %}
+
+{% block scripts %}
+<script src="/js/welcomePage.js"></script>
 {% endblock %}

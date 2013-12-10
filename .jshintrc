@@ -10,6 +10,7 @@
 		"expect",
 		"it",
 		"jasmine",
+		"ls",
 		"moment",
 		"runs",
 		"sinon",
