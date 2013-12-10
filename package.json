@@ -23,11 +23,11 @@
     "passport-facebook": "~0.1.6",
     "bcrypt-nodejs": "0.0.3",
     "grvtr": "~0.1.3",
-    "analytics": "git://github.com/likeastore/analytics.git",
     "json-schema": "~0.2.2",
     "stylus": "~0.38.0",
     "swig": "~1.1.0",
-    "dookie-css": "~0.1.5"
+    "dookie-css": "~0.1.5",
+    "seismo-client": "0.0.4"
   },
   "devDependencies": {
     "zombie": "~2.0.0-alpha19",
