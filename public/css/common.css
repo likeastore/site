@@ -45,15 +45,17 @@
 }
 
 ::selection {
-	background-color: #feffc3;
+	background-color: #1abc9c;
+	color: #fff;
 }
 
 ::-moz-selection {
-	background-color: #feffc3;
+	background-color: #1abc9c;
+	color: #fff;
 }
 
 body {
-	color: #333;
+	color: #1f282d;
 	background: #fff;
 	font-family: 'Lato', 'Open Sans', Arial, sans-serif;
 	font-weight: 300;
@@ -62,7 +64,7 @@ body {
 	overflow-y: scroll;
 }
 
-/*h2, h3, h4 {
+h2, h3, h4 {
 	font-family: 'NovecentowideLightBold', 'Helvetica', 'Arial', sans-serif;
 	font-weight: normal;
 	padding: 15px 0;
@@ -78,11 +80,15 @@ h3 {
 
 h4 {
 	font-size: 1.2em;
-}*/
+}
 
 a {
 	color: #ff3535;
 	text-decoration: none;
+	-webkit-transition: all .2s ease-out;
+	-moz-transition: all .2s ease-out;
+	-ms-transition: all .2s ease-out;
+	transition: all .2s ease-out;
 }
 
 a:hover {
@@ -110,7 +116,7 @@ input.field:focus {
 }
 
 .logo {
-	margin: 60px auto 15px;
+	color: #fff;
 	font-family: 'proxima_nova_rgbold', 'Helvetica', 'Arial', sans-serif;
 	font-weight: normal;
 	text-transform: lowercase;
@@ -125,7 +131,7 @@ input.field:focus {
 }
 
 .logo.small-fixed {
-	font-size: 1.6px;
+	font-size: 1.5em;
 	padding: 0;
 	position: fixed;
 	top: 30px;

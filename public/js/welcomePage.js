@@ -7,8 +7,8 @@ ls.welcomePage = {
 	init: function () {
 		$('.step1').css('height', $(window).height() - 10);
 		$('.image').css('margin-left', -$('.image img').width() / 2);
-		this.initScrollParallax();
 		this.initOnScroll();
+		this.initScrollParallax();
 	},
 
 	initScrollParallax: function () {
