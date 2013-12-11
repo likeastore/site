@@ -1,7 +1,11 @@
 .box {
-	width: 530px;
+	width: 630px;
 	margin: 0 auto;
 	text-align: center;
+}
+
+.box.welcome-block {
+	width: 530px;
 }
 
 .welcome-block {
@@ -45,7 +49,7 @@
 }
 
 .title-block {
-	padding: 100px 0 0;
+	padding: 50px 0 10px;
 }
 
 .words {
@@ -63,7 +67,8 @@
 }
 
 .title-block .words {
-	font-size: 3.5em;
+	font-size: 2.5em;
+	margin: 20px auto 30px;
 }
 
 .step1 {
@@ -82,7 +87,6 @@
 .step2 {
 	background: #fff;
 	position: relative;
-	height: 1000px;
 	z-index: 2;
 }
 
@@ -97,7 +101,14 @@
 	float: left;
 	height: 10px;
 	width: 20%;
+	-webkit-transition: all .2s ease-out;
+	-moz-transition: all .2s ease-out;
+	-ms-transition: all .2s ease-out;
+	transition: all .2s ease-out;
 	-webkit-animation: linevis 700ms ease-in-out;
+	-moz-animation: linevis 700ms ease-in-out;
+	-ms-animation: linevis 700ms ease-in-out;
+	animation: linevis 700ms ease-in-out;
 }
 
 .bars li.black {
@@ -227,4 +238,58 @@
 
 .stepfixer .bars {
 	position: fixed;
+	height: 5px;
+}
+
+.stepfixer .bars li {
+	height: 5px;
+}
+
+.screen {
+	box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.2);
+	margin: 35px auto;
+}
+
+.screen img {
+	width: 100%;
+	max-width: 750px;
+	display: block;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.info-desc {
+	color: #818181;
+	font-size: 14px;
+	line-height: 20px;
+	max-width: 410px;
+	margin: 10px auto;
+}
+
+.picto {
+	display: inline-block;
+	border: 3px solid #1abc9c;
+	color: #1abc9c;
+	font-size: 14px;
+	font-family: 'icon-font';
+	font-weight: 500;
+	text-align: center;
+	padding: 10px 12px;
+	margin: 20px auto;
+	cursor: default;
+}
+
+.about-block {
+	margin: 0 auto 20px;
+}
+
+.about-block h2 {
+	font: 1.5em 'proxima_nova_rgbold', 'Helvetica', 'Arial', sans-serif;
+	font-weight: normal;
+	margin: 0 auto;
+	text-transform: capitalize;
+}
+
+.about-block .info-desc {
+
 }
