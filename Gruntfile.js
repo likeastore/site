@@ -4,7 +4,8 @@ module.exports = function (grunt) {
 		cssmin: {
 			combine: {
 				files: {
-					'public/build/styles.min.css': ['public/css/main.css']
+					'public/build/welcome_merge.min.css': ['public/css/merge/welcome_main.css']
+					'public/build/register_merge.min.css': ['public/css/merge/register_main.css']
 				}
 			}
 		},
@@ -16,5 +17,8 @@ module.exports = function (grunt) {
 
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
+
+	grunt.registerTask('lint', ['jshint']);
+	grunt.registerTask('build', ['cssmin']);
 	grunt.registerTask('default', ['cssmin', 'jshint']);
 };

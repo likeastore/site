@@ -1,3 +1,25 @@
+.go-to-login {
+	display: inline-block;
+	background: transparent;
+	color: #fff;
+	font: 13px 'proxima_nova_rgbold', 'Helvetica', 'Arial', sans-serif;
+	border: 2px solid #fff;
+	padding: 6px 8px;
+	width: 60px;
+	text-align: center;
+	text-transform: capitalize;
+	position: fixed;
+	top: 23px;
+	right: 20px;
+	z-index: 1000;
+}
+
+.go-to-login:hover {
+	color: #1abc9c;
+	background: #fff;
+	text-decoration: none;
+}
+
 .box {
 	width: 630px;
 	margin: 0 auto;
@@ -16,36 +38,6 @@
 	-moz-animation: macvis .5s ease-in-out;
 	-ms-animation: macvis .5s ease-in-out;
 	animation: macvis .5s ease-in-out;
-}
-
-@-webkit-keyframes macvis {
-	from {
-		opacity: 0;
-	}
-
-	to {
-		opacity: 1;
-	}
-}
-
-@-moz-keyframes macvis {
-	from {
-		opacity: 0;
-	}
-
-	to {
-		opacity: 1;
-	}
-}
-
-@keyframes macvis {
-	from {
-		opacity: 0;
-	}
-
-	to {
-		opacity: 1;
-	}
 }
 
 .title-block {
@@ -132,16 +124,6 @@
 	background: #ecf0f1;
 }
 
-@-webkit-keyframes linevis {
-	from {
-		opacity: 0;
-	}
-
-	to {
-		opacity: 1;
-	}
-}
-
 .image {
 	margin: 0 auto;
 	max-width: 860px;
@@ -150,16 +132,9 @@
 	bottom: 0;
 	left: 50%;
 	-webkit-animation: macmove 1200ms ease-in-out;
-}
-
-@-webkit-keyframes macmove {
-	from {
-		bottom: -500px;
-	}
-
-	to {
-		bottom: 0;
-	}
+	-moz-animation: macmove 1200ms ease-in-out;
+	-ms-animation: macmove 1200ms ease-in-out;
+	-animation: macmove 1200ms ease-in-out;
 }
 
 .image img {
@@ -203,39 +178,14 @@
 	visibility: hidden;
 }
 
-.go-to-login {
-	display: inline-block;
-	background: transparent;
-	color: #fff;
-	font: 14px 'proxima_nova_rgbold', 'Helvetica', 'Arial', sans-serif;
-	border: 1px solid #fff;
-	text-transform: uppercase;
-	padding: 9px 22px;
-	width: 60px;
-	letter-spacing: 1px;
-	text-align: center;
-	position: fixed;
-	top: 20px;
-	right: 20px;
-	z-index: 1000;
-	-webkit-border-radius: 30px;
-	border-radius: 30px;
-}
-
-.go-to-login:hover {
-	color: #f7f779;
-	border-color: #f7f779;
-	text-decoration: none;
-}
-
 .stepfixer .go-to-login {
-	color: #1f282d;
-	border-color: #1f282d;
+	color: #34495e;
+	border-color: #34495e;
 }
 
 .stepfixer .go-to-login:hover {
-	color: #e74c3c;
-	border-color: #e74c3c;
+	background: #34495e;
+	color: #fff;
 }
 
 .stepfixer .logo {
@@ -298,8 +248,9 @@
 
 .collect-link {
 	display: block;
-	background: #1abc9c;
-	color: #fff;
+	background: #fff;
+	color: #1abc9c;
+	border: 3px solid #1abc9c;
 	font-size: 22px;
 	font-family: 'proxima_nova_rgbold', 'Helvetica', 'Arial', sans-serif;
 	width: 256px;
@@ -309,12 +260,11 @@
 	text-align: center;
 	text-transform: capitalize;
 	-webkit-tap-highlight-color: transparent;
-	-webkit-border-radius: 30px;
-	border-radius: 30px;
 }
 
 .collect-link:hover {
-	background: #16a085;
+	background: #1abc9c;
+	color: #fff;
 	text-decoration: none;
 }
 
@@ -326,6 +276,7 @@
 	text-transform: uppercase;
 }
 
+/* Footer */
 footer {
 	position: relative;
 	left: 0;
@@ -412,3 +363,96 @@ footer {
 .footer-block .bottom .tb:hover {
 	background: #2c3e50;
 }
+/* End of footer */
+
+/* Animations */
+@-webkit-keyframes macvis {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@-moz-keyframes macvis {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes macvis {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes linevis {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@-moz-keyframes linevis {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes linevis {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes macmove {
+	from {
+		bottom: -500px;
+	}
+
+	to {
+		bottom: 0;
+	}
+}
+
+@-moz-keyframes macmove {
+	from {
+		bottom: -500px;
+	}
+
+	to {
+		bottom: 0;
+	}
+}
+
+@keyframes macmove {
+	from {
+		bottom: -500px;
+	}
+
+	to {
+		bottom: 0;
+	}
+}
+/* End of animations */

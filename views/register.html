@@ -1,4 +1,13 @@
 {% extends 'base.html' %}
+
+{% block styles %}
+	{% if mode === 'production' %}
+		<link rel="stylesheet" href="/build/register_merge.min.css">
+	{% else %}
+		<link rel="stylesheet" href="/css/merge/register_main.css">
+	{% endif %}
+{% endblock %}
+
 {% block bodyClass %}register-page{% endblock %}
 
 {% block content %}
