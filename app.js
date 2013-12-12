@@ -15,6 +15,7 @@ app.configure(function(){
 	app.engine('html', swig.renderFile);
 	app.set('views', __dirname + '/views');
 	app.set('view engine', 'html');
+	app.use(express.favicon(path.join(__dirname, 'public/img/favicon.png')));
 	app.use(express.cookieParser());
 	app.use(express.json());
 	app.use(express.urlencoded());
@@ -23,6 +24,9 @@ app.configure(function(){
 	app.use(passport.initialize());
 	app.use(passport.session());
 	app.use(authorize.localUserSession);
+	app.use(express.compress());
+	app.use(express.errorHandler());
+	app.use(express.static(path.join(__dirname, 'public')));
 	app.use(app.router);
 });
 
@@ -30,8 +34,6 @@ app.configure('development', function() {
 	app.set('view cache', false);
 	swig.setDefaults({ cache: false });
 	app.use(express.logger('dev'));
-	app.use(express.static(path.join(__dirname, 'public')));
-	app.use(express.errorHandler());
 });
 
 app.configure('staging', function () {
@@ -39,28 +41,18 @@ app.configure('staging', function () {
 	swig.setDefaults({ cache: false });
 	app.use(express.basicAuth(config.access.user, config.access.password));
 	app.use(express.logger('short'));
-	app.use(express.compress());
-	app.use(express.static(path.join(__dirname, 'public')));
-	app.use(express.errorHandler());
 });
 
 app.configure('production', function() {
 	app.use(express.logger('short'));
-	app.use(express.compress());
-	app.use(express.static(path.join(__dirname, 'public')));
-	app.use(express.errorHandler());
-});
-
-app.configure('test', function() {
-	app.use(express.static(path.join(__dirname, 'public')));
-	app.use(express.errorHandler());
 });
 
 require('./source/api.js')(app, passport);
 require('./source/router.js')(app);
 
-http.createServer(app).listen(app.get('port'), function(){
-	console.log('Likeastore site listening on port ' + app.get('port'));
+http.createServer(app).listen(app.get('port'), function () {
+	var env = process.env.NODE_ENV || 'development';
+	console.log('Likeastore site listening on port ' + app.get('port')  + ' env: ' + env + ' mongo: ' + config.connection);
 });
 
 module.exports = app;
