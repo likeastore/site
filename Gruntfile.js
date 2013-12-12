@@ -4,8 +4,7 @@ module.exports = function (grunt) {
 		cssmin: {
 			combine: {
 				files: {
-					'public/build/welcome_merge.min.css': ['public/css/merge/welcome_main.css'],
-					'public/build/register_merge.min.css': ['public/css/merge/register_main.css']
+					'public/build/common_merge.min.css': ['public/css/merge/common_merge.css']
 				}
 			}
 		},

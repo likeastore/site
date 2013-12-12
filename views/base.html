@@ -13,6 +13,12 @@
 
 		<title>{{title}}</title>
 		<link rel="shortcut icon" href="/img/favicon.png" />
+		<link rel="apple-touch-icon" href="/img/favicon.png"/>
+		{% if mode === 'production' %}
+			<link rel="stylesheet" href="/build/common_merge.min.css">
+		{% else %}
+			<link rel="stylesheet" href="/css/merge/common_merge.css">
+		{% endif %}
 
 		{% block styles %}{% endblock %}
 	</head>

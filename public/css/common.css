@@ -144,9 +144,3 @@ input.field:focus {
 	vertical-align: top;
 	cursor: pointer;
 }
-
-.wrap {
-	width: 100%;
-	margin: 0px auto 120px;
-	overflow: hidden;
-}
