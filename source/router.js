@@ -31,14 +31,9 @@ module.exports = function (app) {
 		res.redirect('/register');
 	};
 
-	var redirectToHome = function (req, res, next) {
-		res.redirect('/');
-	};
-
 	app.get('/', index);
 	app.get('/join', register);
 	app.get('/login', register);
 	app.get('/register', register);
 	app.get('/setup', checkAuth, checkFirstTime, setup);
-	app.get('*', redirectToHome);
 };
