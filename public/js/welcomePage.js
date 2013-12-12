@@ -1,4 +1,4 @@
-/* global ls: true
+/*
  * Welcome page scripts (scroll effects and parallax)
  */
 

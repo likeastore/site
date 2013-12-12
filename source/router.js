@@ -33,7 +33,7 @@ module.exports = function (app) {
 
 	var redirectToHome = function (req, res, next) {
 		res.redirect('/');
-	}
+	};
 
 	app.get('/', index);
 	app.get('/join', register);
