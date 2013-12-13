@@ -85,13 +85,10 @@ a:hover {
 }
 
 .logo {
+	font-size: 28px;
 	font-family: 'proxima_nova_rgbold', 'Helvetica', 'Arial', sans-serif;
 	font-weight: normal;
 	text-transform: lowercase;
-}
-
-.logo.big {
-	font-size: 3.5em;
 }
 
 .logo.small {
@@ -99,7 +96,6 @@ a:hover {
 }
 
 .logo.fixed {
-	font-size: 1.5em;
 	padding: 0;
 	position: fixed;
 	top: 30px;

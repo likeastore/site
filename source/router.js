@@ -16,18 +16,18 @@ module.exports = function (app) {
 	};
 
 	var checkFirstTime = function (req, res, next) {
-		//if (req.user.firstTimeUser) {
+		if (req.user.firstTimeUser) {
 			return next();
-		//}
+		}
 
 		var appRedirectUrl = config.applicationUrl + '?email=' + req.user.email + '&apiToken=' + req.user.apiToken;
 		res.redirect(appRedirectUrl);
 	};
 
 	var checkAuth = function (req, res, next) {
-		//if (req.isAuthenticated()) {
+		if (req.isAuthenticated()) {
 			return next();
-		//}
+		}
 		res.redirect('/register');
 	};
 
