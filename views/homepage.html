@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block styles %}
-<link rel="stylesheet" href="/css/welcome.css">
+<link rel="stylesheet" href="/css/{% if mode === 'production' %}build/welcome_merge.min.css{% else %}merge/welcome_merge.css{% endif %}">
 {% endblock %}
 
 {% block bodyClass %}welcome-page{% endblock %}

@@ -46,7 +46,7 @@
 body {
 	color: #1f282d;
 	background: #fff;
-	font-family: 'Lato', 'Open Sans', Arial, sans-serif;
+	font-family: 'Lato', 'Helvetica', Arial, sans-serif;
 	font-weight: 300;
 	width: 100%;
 	overflow-x: hidden;
@@ -84,28 +84,6 @@ a:hover {
 	text-decoration: underline;
 }
 
-input.field {
-	background: #eee;
-	border: 0;
-	color: #545454;
-	font: 12px 'Lato', 'Open Sans', 'Helvetica', 'Arial', sans-serif;
-	font-weight: 400;
-	padding: 12px 15px;
-	border-radius: 0;
-	box-shadow: none;
-	outline: none;
-	-webkit-appearance: none;
-	-webkit-transition: background-color .3s ease-in;
-	-moz-transition: background-color .3s ease-in;
-	-ms-transition: background-color .3s ease-in;
-	transition: background-color color .3s ease-in;
-}
-
-input.field:focus {
-	background: #ddd;
-	color: #1f1f1f;
-}
-
 .logo {
 	font-family: 'proxima_nova_rgbold', 'Helvetica', 'Arial', sans-serif;
 	font-weight: normal;
@@ -134,9 +112,32 @@ input.field:focus {
 	text-decoration: none;
 }
 
-.btn {
+input.field {
+	background: #eee;
+	border: 0;
+	color: #545454;
+	font: 12px 'Lato', 'Helvetica', Arial, sans-serif;
+	font-weight: 400;
+	padding: 12px 15px;
+	border-radius: 0;
+	box-shadow: none;
+	outline: none;
+	-webkit-appearance: none;
+	-webkit-transition: background-color .3s ease-in;
+	-moz-transition: background-color .3s ease-in;
+	-ms-transition: background-color .3s ease-in;
+	transition: background-color color .3s ease-in;
+}
+
+input.field:focus {
+	background: #ddd;
+	color: #1f1f1f;
+}
+
+.btn,
+.btn:focus {
 	display: inline-block;
-	font: 13px 'proxima_nova_rgbold', 'Open Sans', Arial, sans-serif;
+	font: 13px 'proxima_nova_rgbold', 'Lato', 'Open Sans', 'Helvetica', Arial, sans-serif;
 	line-height: 32px;
 	vertical-align: top;
 	width: 300px;
@@ -171,4 +172,77 @@ input.field:focus {
 .red-btn:focus {
 	background: #fff;
 	color: #e74c3c;
+}
+
+/* Cool multicolored bar */
+.bars {
+	position: absolute;
+	height: 3px;
+	width: 100%;
+	top: 0;
+}
+
+.bars li {
+	float: left;
+	height: 3px;
+	width: 20%;
+	-webkit-transition: all .2s ease-out;
+	-moz-transition: all .2s ease-out;
+	-ms-transition: all .2s ease-out;
+	transition: all .2s ease-out;
+	-webkit-animation: vis 700ms ease-in-out;
+	-moz-animation: vis 700ms ease-in-out;
+	-ms-animation: vis 700ms ease-in-out;
+	animation: vis 700ms ease-in-out;
+}
+
+.bars li.black {
+	background: #1f282d;
+}
+
+.bars li.blue {
+	background: #4fcfc4;
+}
+
+.bars li.yellow {
+	background: #f39c12;
+}
+
+.bars li.red {
+	background: #e74c3c;
+}
+
+.bars li.grey {
+	background: #ecf0f1;
+}
+/* End of cool multicolored bar */
+
+@-webkit-keyframes vis {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@-moz-keyframes vis {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes vis {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
 }

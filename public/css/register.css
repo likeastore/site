@@ -2,52 +2,16 @@
 	width: 300px;
 	margin: 95px auto;
 	text-align: center;
+	position: relative;
+	-webkit-animation: vis .5s ease-in-out;
+	-moz-animation: vis .5s ease-in-out;
+	-ms-animation: vis .5s ease-in-out;
+	animation: vis .5s ease-in-out;
 }
 
 .register-page .logo {
 	color: #e74c3c;
 	font-size: 1.8em;
-}
-
-.bars {
-	position: fixed;
-	height: 3px;
-	width: 100%;
-	top: 0;
-}
-
-.bars li {
-	float: left;
-	height: 3px;
-	width: 20%;
-	-webkit-transition: all .2s ease-out;
-	-moz-transition: all .2s ease-out;
-	-ms-transition: all .2s ease-out;
-	transition: all .2s ease-out;
-	-webkit-animation: linevis 700ms ease-in-out;
-	-moz-animation: linevis 700ms ease-in-out;
-	-ms-animation: linevis 700ms ease-in-out;
-	animation: linevis 700ms ease-in-out;
-}
-
-.bars li.black {
-	background: #1f282d;
-}
-
-.bars li.blue {
-	background: #4fcfc4;
-}
-
-.bars li.yellow {
-	background: #f39c12;
-}
-
-.bars li.red {
-	background: #e74c3c;
-}
-
-.bars li.grey {
-	background: #ecf0f1;
 }
 
 .register-page .desc {
@@ -61,7 +25,7 @@
 .register-page .separator {
 	font-size: 20px;
 	color: #818181;
-	margin: 12px auto;
+	margin: 12px auto 0;
 }
 
 .register-page .terms {
@@ -92,7 +56,7 @@
 	display: block;
 	border: 2px solid;
 	color: #fff;
-	font: 13px 'proxima_nova_rgbold', 'Open Sans', Arial, sans-serif;
+	font: 13px 'proxima_nova_rgbold', 'Lato', 'Helvetica', Arial, sans-serif;
 	padding: 0;
 	margin-bottom: 12px;
 	text-align: left;
@@ -151,7 +115,7 @@
 }
 /* End of social auth buttons */
 
-/* Flash success && error messages */
+/* Error messages */
 .error.field,
 .error.field:focus {
 	background: #e35454;
@@ -175,44 +139,25 @@
 }
 
 .msg {
-	font-size: 14px;
-	position: absolute;
-	top: -75px;
-	left: -10000px;
+	font-size: 11px;
+	opacity: 0;
 	-webkit-transition: all .5s ease-in-out;
 	-moz-transition: all .5s ease-in-out;
 	-ms-transition: all .5s ease-in-out;
 	transition: all .5s ease-in-out;
 }
 
+.register-page .msg {
+	background: #fff;
+	height: 24px;
+	line-height: 5px;
+	margin-top: -12px;
+	position: relative;
+	z-index: 1;
+}
+
 .msg.on {
-	left: -23px;
-}
-
-.msg .icon {
-	font-size: 20px;
-}
-
-.msg .msg-text {
-	vertical-align: top;
-	line-height: 24px;
-	margin-left: 5px;
-}
-
-.subscribe .msg {
-	top: -35px;
-}
-
-.subscribe .msg.on {
-	left: 50px;
-}
-
-.setup .msg {
-	top: -30px;
-}
-
-.setup .msg.on {
-	left: 3px;
+	opacity: 1;
 }
 
 .error-msg {
@@ -222,11 +167,4 @@
 .success-msg {
 	color: #27ae60;
 }
-
-.success-msg i.icon:before {
-	content: 'w';
-}
-
-.error-msg i.icon:before {
-	content: 'x';
-}
+/* End of error messages */

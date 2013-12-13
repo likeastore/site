@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block styles %}
-<link rel="stylesheet" href="/css/register.css">
+<link rel="stylesheet" href="/css/{% if mode === 'production' %}build/register_merge.min.css{% else %}merge/register_merge.css{% endif %}">
 {% endblock %}
 
 {% block bodyClass %}register-page{% endblock %}
@@ -44,6 +44,7 @@
 
 		<!-- Login form -->
 		<form action="/auth/local/login" class="formular register" method="post" accept-charset="utf-8" novalidate>
+			<div class="msg"></div>
 			<div>
 				<input type="email" name="email" class="field email" placeholder="Email" autocomplete="off">
 			</div>
@@ -51,7 +52,6 @@
 				<input type="password" name="password" class="field password" placeholder="Password">
 			</div>
 			<button type="submit" class="btn green-btn do-register-btn">Sign in</button>
-			{% include './partials/flash-modal.html' %}
 		</form>
 		<!-- End of login form -->
 

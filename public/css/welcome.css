@@ -2,11 +2,15 @@
 	color: #fff;
 }
 
+.stepfixer .logo {
+	color: #1abc9c;
+}
+
 .go-to-login {
 	display: inline-block;
 	background: transparent;
 	color: #fff;
-	font: 13px 'proxima_nova_rgbold', 'Helvetica', 'Arial', sans-serif;
+	font: 13px 'proxima_nova_rgbold', 'Lato', 'Helvetica', 'Arial', sans-serif;
 	border: 2px solid #fff;
 	padding: 6px 8px;
 	width: 60px;
@@ -24,6 +28,16 @@
 	text-decoration: none;
 }
 
+.stepfixer .go-to-login {
+	color: #34495e;
+	border-color: #34495e;
+}
+
+.stepfixer .go-to-login:hover {
+	background: #34495e;
+	color: #fff;
+}
+
 .box {
 	width: 630px;
 	margin: 0 auto;
@@ -38,10 +52,10 @@
 	padding: 60px 0 0;
 	position: relative;
 	z-index: 101;
-	-webkit-animation: macvis .5s ease-in-out;
-	-moz-animation: macvis .5s ease-in-out;
-	-ms-animation: macvis .5s ease-in-out;
-	animation: macvis .5s ease-in-out;
+	-webkit-animation: vis .5s ease-in-out;
+	-moz-animation: vis .5s ease-in-out;
+	-ms-animation: vis .5s ease-in-out;
+	animation: vis .5s ease-in-out;
 }
 
 .title-block {
@@ -50,7 +64,7 @@
 
 .words {
 	color: #1f282d;
-	font: 4em/1.1em 'proxima_nova_rgbold', 'Helvetica', 'Arial', sans-serif;
+	font: 4em/1.1em 'proxima_nova_rgbold', 'Lato', 'Helvetica', 'Arial', sans-serif;
 	font-weight: normal;
 	text-transform: capitalize;
 }
@@ -87,45 +101,18 @@
 	margin-bottom: 30px;
 }
 
-.bars {
-	position: absolute;
+.welcome-page .bars,
+.welcome-page .bars li  {
 	height: 10px;
-	width: 100%;
-	top: 0;
 }
 
-.bars li {
-	float: left;
-	height: 10px;
-	width: 20%;
-	-webkit-transition: all .2s ease-out;
-	-moz-transition: all .2s ease-out;
-	-ms-transition: all .2s ease-out;
-	transition: all .2s ease-out;
-	-webkit-animation: linevis 700ms ease-in-out;
-	-moz-animation: linevis 700ms ease-in-out;
-	-ms-animation: linevis 700ms ease-in-out;
-	animation: linevis 700ms ease-in-out;
+.welcome-page.stepfixer .bars {
+	position: fixed;
 }
 
-.bars li.black {
-	background: #1f282d;
-}
-
-.bars li.blue {
-	background: #4fcfc4;
-}
-
-.bars li.yellow {
-	background: #f39c12;
-}
-
-.bars li.red {
-	background: #e74c3c;
-}
-
-.bars li.grey {
-	background: #ecf0f1;
+.welcome-page.stepfixer .bars,
+.welcome-page.stepfixer .bars li {
+	height: 3px;
 }
 
 .image {
@@ -182,29 +169,6 @@
 	visibility: hidden;
 }
 
-.stepfixer .go-to-login {
-	color: #34495e;
-	border-color: #34495e;
-}
-
-.stepfixer .go-to-login:hover {
-	background: #34495e;
-	color: #fff;
-}
-
-.stepfixer .logo {
-	color: #1abc9c;
-}
-
-.stepfixer .bars {
-	position: fixed;
-	height: 3px;
-}
-
-.stepfixer .bars li {
-	height: 3px;
-}
-
 .screen {
 	box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.2);
 	margin: 35px auto;
@@ -244,7 +208,7 @@
 }
 
 .about-block h2 {
-	font: 1.5em 'proxima_nova_rgbold', 'Helvetica', 'Arial', sans-serif;
+	font-size: 1.5em;
 	font-weight: normal;
 	margin: 0 auto;
 	text-transform: capitalize;
@@ -255,8 +219,7 @@
 	background: #fff;
 	color: #1abc9c;
 	border: 3px solid #1abc9c;
-	font-size: 22px;
-	font-family: 'proxima_nova_rgbold', 'Helvetica', 'Arial', sans-serif;
+	font: 22px 'proxima_nova_rgbold', 'Lato', 'Helvetica', 'Arial', sans-serif;
 	width: 256px;
 	height: 52px;
 	line-height: 52px;
@@ -273,7 +236,7 @@
 }
 
 .collect-tip {
-	font: 12px 'proxima_nova_rgbold', 'Helvetica', 'Arial', sans-serif;
+	font: 12px 'proxima_nova_rgbold', 'Lato', 'Helvetica', 'Arial', sans-serif;
 	margin: 10px auto 0;
 	width: 600px;
 	text-align: center;
@@ -317,11 +280,11 @@ footer {
 }
 
 .footer-block .bottom .inc {
-	font: 13px 'proxima_nova_rgbold', 'Helvetica', 'Arial', sans-serif;
+	font: 13px 'proxima_nova_rgbold', 'Lato', 'Helvetica', 'Arial', sans-serif;
 }
 
 .footer-block .bottom .faq {
-	font: 11px 'proxima_nova_rgbold', 'Helvetica', 'Arial', sans-serif;
+	font: 11px 'proxima_nova_rgbold', 'Lato', 'Helvetica', 'Arial', sans-serif;
 	text-transform: uppercase;
 }
 
@@ -370,66 +333,6 @@ footer {
 /* End of footer */
 
 /* Animations */
-@-webkit-keyframes macvis {
-	from {
-		opacity: 0;
-	}
-
-	to {
-		opacity: 1;
-	}
-}
-
-@-moz-keyframes macvis {
-	from {
-		opacity: 0;
-	}
-
-	to {
-		opacity: 1;
-	}
-}
-
-@keyframes macvis {
-	from {
-		opacity: 0;
-	}
-
-	to {
-		opacity: 1;
-	}
-}
-
-@-webkit-keyframes linevis {
-	from {
-		opacity: 0;
-	}
-
-	to {
-		opacity: 1;
-	}
-}
-
-@-moz-keyframes linevis {
-	from {
-		opacity: 0;
-	}
-
-	to {
-		opacity: 1;
-	}
-}
-
-@keyframes linevis {
-	from {
-		opacity: 0;
-	}
-
-	to {
-		opacity: 1;
-	}
-}
-
 @-webkit-keyframes macmove {
 	from {
 		bottom: -500px;

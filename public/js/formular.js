@@ -44,7 +44,6 @@ ls.auth = {
 					window.location = res.applicationUrl;
 				}
 				$form.find('.error').removeClass('error');
-				handleResponse('success', res.message, $('.' + res.field));
 
 			})
 			.fail(function (err) {
@@ -59,10 +58,8 @@ ls.auth = {
 				$field.addClass(type);
 			}
 
-			$msg.addClass(type + '-msg on')
-				.end()
-				.find('.msg-text')
-				.text(message);
+			$msg.addClass(type + '-msg on');
+			$msg.text(message);
 
 			setTimeout(function () {
 				$msg.removeClass(type + '-msg on');
