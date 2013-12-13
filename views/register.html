@@ -1,21 +1,15 @@
 {% extends 'base.html' %}
+{% import './snippets.html' as snippets %}
 
 {% block styles %}
-<link rel="stylesheet" href="/css/{% if mode === 'production' %}build/register_merge.min.css{% else %}merge/register_merge.css{% endif %}">
+<link rel="stylesheet" href="{% if mode === 'production' %}/build/register_merge.min.css{% else %}/css/merge/register_merge.css{% endif %}">
 {% endblock %}
 
 {% block bodyClass %}register-page{% endblock %}
 
 {% block content %}
-<!-- Multicolored bar -->
-<ul class="bars">
-	<li class="black"></li>
-	<li class="blue"></li>
-	<li class="yellow"></li>
-	<li class="red"></li>
-	<li class="grey"></li>
-</ul>
-<!-- End multicolored bar -->
+
+{{ snippets.multicolored_bar() }}
 
 <div class="wrap">
 	<h2 class="logo small"><a href="/">likeastore.</a></h2>
@@ -51,7 +45,7 @@
 			<div>
 				<input type="password" name="password" class="field password" placeholder="Password">
 			</div>
-			<button type="submit" class="btn green-btn do-register-btn">Sign in</button>
+			<button type="submit" class="do-register-btn btn green-btn">Sign in</button>
 		</form>
 		<!-- End of login form -->
 

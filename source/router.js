@@ -4,7 +4,7 @@ var env = process.env.NODE_ENV || 'development';
 module.exports = function (app) {
 
 	var index = function (req, res) {
-		res.render('homepage', { title: 'Likeastore', mode: env });
+		res.render('homepage', { title: 'Likeastore • Home', mode: env });
 	};
 
 	var register = function (req, res) {
@@ -12,22 +12,22 @@ module.exports = function (app) {
 	};
 
 	var setup = function (req, res) {
-		res.render('setup', { title: 'Likeastore • Finish registration', mode: env, user: req.user });
+		res.render('setup', { title: 'Likeastore • Setup', mode: env, user: req.user });
 	};
 
 	var checkFirstTime = function (req, res, next) {
-		if (req.user.firstTimeUser) {
+		//if (req.user.firstTimeUser) {
 			return next();
-		}
+		//}
 
 		var appRedirectUrl = config.applicationUrl + '?email=' + req.user.email + '&apiToken=' + req.user.apiToken;
 		res.redirect(appRedirectUrl);
 	};
 
 	var checkAuth = function (req, res, next) {
-		if (req.isAuthenticated()) {
+		//if (req.isAuthenticated()) {
 			return next();
-		}
+		//}
 		res.redirect('/register');
 	};
 

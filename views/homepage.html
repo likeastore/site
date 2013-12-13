@@ -1,7 +1,8 @@
-{% extends 'base.html' %}
+{% extends './base.html' %}
+{% import './snippets.html' as snippets %}
 
 {% block styles %}
-<link rel="stylesheet" href="/css/{% if mode === 'production' %}build/welcome_merge.min.css{% else %}merge/welcome_merge.css{% endif %}">
+<link rel="stylesheet" href="{% if mode === 'production' %}/build/welcome_merge.min.css{% else %}/css/merge/welcome_merge.css{% endif %}">
 {% endblock %}
 
 {% block bodyClass %}welcome-page{% endblock %}
@@ -26,15 +27,7 @@
 <!-- Step two: features -->
 <div id="why" class="step2">
 
-	<!-- Multicolored bar -->
-	<ul class="bars">
-		<li class="black"></li>
-		<li class="blue"></li>
-		<li class="yellow"></li>
-		<li class="red"></li>
-		<li class="grey"></li>
-	</ul>
-	<!-- End multicolored bar -->
+	{{ snippets.multicolored_bar() }}
 
 	<div class="title-block box">
 		<h1 class="words">What is likeastore?</h1>

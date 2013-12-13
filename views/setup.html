@@ -1,23 +1,37 @@
 {% extends 'base.html' %}
-{% block bodyClass %}setup-page{% endblock %}
+{% import './snippets.html' as snippets %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% if mode === 'production' %}/build/register_merge.min.css{% else %}/css/merge/register_merge.css{% endif %}">
+{% endblock %}
+
+{% block bodyClass %}register-page setup-page{% endblock %}
 
 {% block content %}
+
+{{ snippets.multicolored_bar() }}
+
 <div class="wrap">
 	<h2 class="logo small"><a href="/">likeastore.</a></h2>
 
 	<form action="/auth/setup" method="post" accept-charset="utf-8" class="formular setup" novalidate>
-		<div class="setup-welcome-text">
-			You're almost in, just type your {% if user.provider !== 'local' %}email{% else %}username{% endif %} and welcome on board!
+
+		<img src="{{user.avatar}}" class="avatar">
+
+		<div class="desc">
+			Please, just type your {% if user.provider !== 'local' %}email and username{% else %}username{% endif %} to finish registration and welcome on board!
 		</div>
+
+		<div class="msg"></div>
 		<div>
-			<input type="text" name="username" class="field username" value="{{user.username}}" autocomplete="off">
+			<input type="text" name="username" class="field username" value="{{user.username}}" placeholder="Your username" autocomplete="off">
 		</div>
 		{% if user.provider !== 'local' %}
 		<div>
 			<input type="email" name="email" class="field email" placeholder="Your email (only you can see it)" autocomplete="off">
 		</div>
 		{% endif %}
-		<button type="submit" class="do-setup-btn btn">Finish registration</button>
+		<button type="submit" class="do-setup-btn btn green-btn">Go to app</button>
 	</form>
 </div>
 {% endblock %}
