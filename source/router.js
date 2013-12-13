@@ -8,11 +8,11 @@ module.exports = function (app) {
 	};
 
 	var register = function (req, res) {
-		res.render('register', { title: 'Register likeastore account', mode: env });
+		res.render('register', { title: 'Likeastore • Join', mode: env });
 	};
 
 	var setup = function (req, res) {
-		res.render('setup', { title: 'Setup likeastore account', mode: env, user: req.user });
+		res.render('setup', { title: 'Likeastore • Finish registration', mode: env, user: req.user });
 	};
 
 	var checkFirstTime = function (req, res, next) {

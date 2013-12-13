@@ -1,0 +1,232 @@
+.wrap {
+	width: 300px;
+	margin: 95px auto;
+	text-align: center;
+}
+
+.register-page .logo {
+	color: #e74c3c;
+	font-size: 1.8em;
+}
+
+.bars {
+	position: fixed;
+	height: 3px;
+	width: 100%;
+	top: 0;
+}
+
+.bars li {
+	float: left;
+	height: 3px;
+	width: 20%;
+	-webkit-transition: all .2s ease-out;
+	-moz-transition: all .2s ease-out;
+	-ms-transition: all .2s ease-out;
+	transition: all .2s ease-out;
+	-webkit-animation: linevis 700ms ease-in-out;
+	-moz-animation: linevis 700ms ease-in-out;
+	-ms-animation: linevis 700ms ease-in-out;
+	animation: linevis 700ms ease-in-out;
+}
+
+.bars li.black {
+	background: #1f282d;
+}
+
+.bars li.blue {
+	background: #4fcfc4;
+}
+
+.bars li.yellow {
+	background: #f39c12;
+}
+
+.bars li.red {
+	background: #e74c3c;
+}
+
+.bars li.grey {
+	background: #ecf0f1;
+}
+
+.register-page .desc {
+	color: #818181;
+	font-size: 13px;
+	line-height: 20px;
+	margin: 0 auto 35px;
+	max-width: 290px;
+}
+
+.register-page .separator {
+	font-size: 20px;
+	color: #818181;
+	margin: 12px auto;
+}
+
+.register-page .terms {
+	color: #818181;
+	font-size: 11px;
+	line-height: 20px;
+	margin: 10px auto;
+}
+
+.register-page .terms a {
+	color: #818181;
+	text-decoration: underline;
+}
+
+.register-page .terms a:hover {
+	text-decoration: none;
+}
+
+.register-page input.field {
+	width: 270px;
+	margin-bottom: 11px;
+}
+
+/* Social auth buttons */
+.register-page .auth-btn,
+.register-page .auth-btn:hover,
+.register-page .auth-btn:focus {
+	display: block;
+	border: 2px solid;
+	color: #fff;
+	font: 13px 'proxima_nova_rgbold', 'Open Sans', Arial, sans-serif;
+	padding: 0;
+	margin-bottom: 12px;
+	text-align: left;
+	width: 296px;
+	height: 35px;
+	text-decoration: none;
+}
+
+.register-page .auth-btn .icon,
+.register-page .auth-btn span {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.register-page .auth-btn .icon {
+	line-height: 38px;
+	margin-left: 16px;
+}
+
+.register-page .auth-btn span {
+	line-height: 35px;
+	margin-left: 55px;
+}
+
+.register-page .auth-btn.facebook {
+	background: #0f66aa;
+	border-color: #0f66aa;
+}
+
+.register-page .auth-btn.facebook:hover,
+.register-page .auth-btn.facebook:focus {
+	background: #fff;
+	color: #0f66aa;
+}
+
+.register-page .auth-btn.twitter {
+	background: #28b9dd;
+	border-color: #28b9dd;
+}
+
+.register-page .auth-btn.twitter:hover,
+.register-page .auth-btn.twitter:focus  {
+	background: #fff;
+	color: #28b9dd;
+}
+
+.register-page .auth-btn.github {
+	background: #bdc3c7;
+	border-color: #bdc3c7;
+}
+
+.register-page .auth-btn.github:hover,
+.register-page .auth-btn.github:focus {
+	background: #fff;
+	color: #bdc3c7;
+}
+/* End of social auth buttons */
+
+/* Flash success && error messages */
+.error.field,
+.error.field:focus {
+	background: #e35454;
+	color: #fff;
+}
+
+.error.field::-webkit-input-placeholder { /* WebKit browsers */
+	color: #fff;
+}
+
+.error.field:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	color: #fff;
+}
+
+.error.field::-moz-placeholder { /* Mozilla Firefox 19+ */
+	color: #fff;
+}
+
+.error.field:-ms-input-placeholder { /* Internet Explorer 10+ */
+	color: #fff;
+}
+
+.msg {
+	font-size: 14px;
+	position: absolute;
+	top: -75px;
+	left: -10000px;
+	-webkit-transition: all .5s ease-in-out;
+	-moz-transition: all .5s ease-in-out;
+	-ms-transition: all .5s ease-in-out;
+	transition: all .5s ease-in-out;
+}
+
+.msg.on {
+	left: -23px;
+}
+
+.msg .icon {
+	font-size: 20px;
+}
+
+.msg .msg-text {
+	vertical-align: top;
+	line-height: 24px;
+	margin-left: 5px;
+}
+
+.subscribe .msg {
+	top: -35px;
+}
+
+.subscribe .msg.on {
+	left: 50px;
+}
+
+.setup .msg {
+	top: -30px;
+}
+
+.setup .msg.on {
+	left: 3px;
+}
+
+.error-msg {
+	color: #e74c3c;
+}
+
+.success-msg {
+	color: #27ae60;
+}
+
+.success-msg i.icon:before {
+	content: 'w';
+}
+
+.error-msg i.icon:before {
+	content: 'x';
+}

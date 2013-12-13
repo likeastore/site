@@ -1,3 +1,7 @@
+.logo {
+	color: #fff;
+}
+
 .go-to-login {
 	display: inline-block;
 	background: transparent;
@@ -194,11 +198,11 @@
 
 .stepfixer .bars {
 	position: fixed;
-	height: 5px;
+	height: 3px;
 }
 
 .stepfixer .bars li {
-	height: 5px;
+	height: 3px;
 }
 
 .screen {

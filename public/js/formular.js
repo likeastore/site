@@ -5,6 +5,10 @@
 ls.auth = {
 
 	init: function () {
+		$('.field').focus(function (e) {
+			$(e.target).removeClass('error');
+		});
+
 		$('.formular').submit(this.send.bind(this));
 	},
 

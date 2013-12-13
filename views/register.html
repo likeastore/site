@@ -7,10 +7,42 @@
 {% block bodyClass %}register-page{% endblock %}
 
 {% block content %}
+<!-- Multicolored bar -->
+<ul class="bars">
+	<li class="black"></li>
+	<li class="blue"></li>
+	<li class="yellow"></li>
+	<li class="red"></li>
+	<li class="grey"></li>
+</ul>
+<!-- End multicolored bar -->
+
 <div class="wrap">
 	<h2 class="logo small"><a href="/">likeastore.</a></h2>
 
 	<div class="auth-block clearfix">
+		<div class="desc">Open your existing account or automatically create a new one by choosing the way you like most.</div>
+
+		<!-- Social auth buttons -->
+		<div class="social-auth">
+			<a class="facebook auth-btn" href="/auth/facebook">
+				<i data-icon="g" class="icon"></i>
+				<span>Log in with facebook</span>
+			</a>
+			<a class="twitter auth-btn" href="/auth/twitter">
+				<i data-icon="b" class="icon"></i>
+				<span>Log in with twitter</span>
+			</a>
+			<a class="github auth-btn" href="/auth/github">
+				<i data-icon="d" class="icon"></i>
+				<span>Log in with github</span>
+			</a>
+		</div>
+		<!-- End of social auth buttons -->
+
+		<div class="separator">&#126;</div>
+
+		<!-- Login form -->
 		<form action="/auth/local/login" class="formular register" method="post" accept-charset="utf-8" novalidate>
 			<div>
 				<input type="email" name="email" class="field email" placeholder="Email" autocomplete="off">
@@ -18,24 +50,13 @@
 			<div>
 				<input type="password" name="password" class="field password" placeholder="Password">
 			</div>
-			<button type="submit" class="btn do-register-btn">Register</button>
-			<div class="auth-help">Already have an account? <a href="/login">Login.</a></div>
+			<button type="submit" class="btn green-btn do-register-btn">Sign in</button>
 			{% include './partials/flash-modal.html' %}
 		</form>
+		<!-- End of login form -->
 
-		<div class="social">
-			<a class="facebook auth-btn" href="/auth/facebook">
-				<i data-icon="g" class="icon"></i>
-				<span>Login with facebook</span>
-			</a>
-			<a class="twitter auth-btn" href="/auth/twitter">
-				<i data-icon="b" class="icon"></i>
-				<span>Login with twitter</span>
-			</a>
-			<a class="github auth-btn" href="/auth/github">
-				<i data-icon="d" class="icon"></i>
-				<span>Login with github</span>
-			</a>
+		<div class="terms">
+			By clicking you accept <a href="/terms-and-conditions" target="_blank">Terms &amp; Conditions</a> and <a href="/privacy-policy" target="_blank">Privacy Policy</a>.
 		</div>
 	</div>
 </div>
