@@ -184,8 +184,8 @@
 
 .info-desc {
 	color: #818181;
-	font-size: 14px;
-	line-height: 20px;
+	font-size: 15px;
+	line-height: 22px;
 	max-width: 425px;
 	margin: 10px auto;
 }
@@ -279,12 +279,11 @@ footer {
 	margin: 10px auto;
 }
 
-.footer-block .bottom .inc {
-	font: 13px 'proxima_nova_rgbold', 'Lato', 'Helvetica', 'Arial', sans-serif;
-}
-
+.footer-block .bottom .inc,
 .footer-block .bottom .faq {
-	font: 11px 'proxima_nova_rgbold', 'Lato', 'Helvetica', 'Arial', sans-serif;
+	color: #818181;
+	font: 11px 'Lato', 'Helvetica', 'Arial', sans-serif;
+	margin-bottom: 2px;
 	text-transform: uppercase;
 }
 
