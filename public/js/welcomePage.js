@@ -11,10 +11,19 @@ ls.welcomePage = {
 	},
 
 	setHeights: function () {
+		var $window = $(window);
 		var $image = $('.image');
 
-		$('.step1').css('height', $(window).height() - 10);
-		$image.css('margin-left', -$image.find('img').width() / 2);
+		alignImageAndBlock();
+
+		$window.resize(function () {
+			alignImageAndBlock();
+		});
+
+		function alignImageAndBlock () {
+			$('.step1').css('height', $window.height() - 10);
+			$image.css('margin-left', -$image.find('img').width() / 2);
+		}
 	},
 
 	initScrollParallax: function () {
