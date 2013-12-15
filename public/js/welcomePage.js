@@ -29,17 +29,22 @@ ls.welcomePage = {
 
 		function getBottomSize () {
 			var dynamicHeight = $window.height();
+			var dynamicWidth = $window.width();
 			var desktop = $.isDesktop();
 
-			if (desktop && dynamicHeight < 700 && dynamicHeight > 600) {
+			if (!desktop || dynamicWidth < 640) {
+				return { bottom: '0px' };
+			}
+
+			if (dynamicHeight <= 700 && dynamicHeight > 600) {
 				return { bottom: '-80px' };
 			}
 
-			if (desktop && dynamicHeight < 600 && dynamicHeight > 500) {
+			if (dynamicHeight <= 600 && dynamicHeight > 500) {
 				return { bottom: '-140px' };
 			}
 
-			if (desktop && dynamicHeight < 500) {
+			if (dynamicHeight <= 500) {
 				return { bottom: '-200px' };
 			}
 
