@@ -172,12 +172,13 @@
 .screen {
 	box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.2);
 	margin: 35px auto;
+	max-width: 750px;
+	width: 100%;
 }
 
 .screen img {
-	width: 100%;
-	max-width: 750px;
 	display: block;
+	width: 100%;
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
 }
@@ -238,7 +239,6 @@
 .collect-tip {
 	font: 12px 'proxima_nova_rgbold', 'Lato', 'Helvetica', 'Arial', sans-serif;
 	margin: 10px auto 0;
-	width: 600px;
 	text-align: center;
 	text-transform: uppercase;
 }
@@ -301,9 +301,11 @@ footer {
 	display: block;
 	color: #fff;
 	background: #bdc3c7;
-	font: 13px 'icon-font';
-	padding: 9px 10px;
+	font: 13px/32px 'icon-font';
 	margin: 0 2px;
+	width: 32px;
+	height: 32px;
+	text-align: center;
 	cursor: pointer;
 	text-decoration: none;
 	-webkit-border-radius: 100%;
@@ -362,3 +364,75 @@ footer {
 	}
 }
 /* End of animations */
+
+/* Media queries */
+@media (max-width: 768px) {
+	.image {
+		width: 95%;
+	}
+}
+
+/* smartphone landscape */
+@media (max-width: 640px) and (orientation:landscape) {
+	.step1 {
+		height: 560px !important;
+	}
+}
+
+@media (max-width: 640px) {
+	.logo.fixed {
+		position: absolute;
+		left: 20px;
+	}
+
+	.go-to-login {
+		position: absolute;
+	}
+
+	.welcome-block .welcome-desc {
+		font-size: 14px;
+	}
+
+	.box.welcome-block {
+		width: 90%;
+		padding-top: 90px;
+	}
+
+	.box {
+		width: 90%;
+	}
+}
+
+@media (max-width: 540px) {
+	.words {
+		font-size: 3.5em;
+	}
+}
+
+@media (max-width: 440px) {
+	.words {
+		font-size: 2.3em;
+	}
+
+	.welcome-block .welcome-desc {
+		font-size: 16px;
+		line-height: 22px;
+	}
+
+	.title-block .words {
+		font-size: 2em;
+	}
+
+	.footer-block .bottom .inc,
+	.footer-block .bottom .faq {
+		font-size: 8px;
+	}
+}
+
+/* 3.5 inch displays (iphone 3, 4, etc. */
+@media (device-height:480px) and (orientation:portrait) {
+	.step1 {
+		height: 600px !important;
+	}
+}
+/* End of media queries */

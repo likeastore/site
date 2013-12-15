@@ -50,7 +50,6 @@ body {
 	font-weight: 300;
 	width: 100%;
 	overflow-x: hidden;
-	overflow-y: scroll;
 }
 
 h2, h3, h4 {
@@ -111,6 +110,7 @@ a:hover {
 input.field {
 	background: #eee;
 	border: 0;
+	border-radius: 0;
 	color: #545454;
 	font: 12px 'Lato', 'Helvetica', Arial, sans-serif;
 	font-weight: 400;

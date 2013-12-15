@@ -166,3 +166,11 @@
 	color: #27ae60;
 }
 /* End of error messages */
+
+/* Media queries */
+@media (max-width: 440px) {
+	.wrap {
+		margin-top: 35px;
+	}
+}
+/* End of media queries */
