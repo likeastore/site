@@ -1,6 +1,16 @@
 /*
  * Media queries
  */
+@media (device-height: 1440px) {
+	.welcome-block {
+		padding-top: 120px;
+	}
+
+	.image {
+		max-width: 1200px;
+	}
+}
+
 @media (max-width: 768px) {
 	.image {
 		width: 95%;
