@@ -1,6 +1,24 @@
 /*
  * Media queries
  */
+
+/* ultra big displays */
+@media (min-device-height: 1440px) {
+	.welcome-block {
+		padding-top: 120px;
+	}
+
+	.image {
+		max-width: 1200px;
+	}
+}
+
+@media (min-width: 1400px) and (min-height: 800px) {
+	.welcome-block {
+		padding-top: 80px;
+	}
+}
+
 @media (max-width: 768px) {
 	.image {
 		width: 95%;
@@ -8,14 +26,20 @@
 }
 
 /* tablets */
-@media (min-width: 768px) and (max-width: 1024px) and (orientation:portrait) {
+@media (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
 	.welcome-block {
-		padding-top: 140px;
+		padding-top: 120px;
+	}
+}
+
+@media (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+	.welcome-block {
+		padding-top: 40px;
 	}
 }
 
 /* smartphones' landscape */
-@media (max-width: 640px) and (orientation:landscape) {
+@media (max-width: 640px) and (orientation: landscape) {
 	.step1 {
 		height: 560px !important;
 	}
@@ -72,25 +96,8 @@
 }
 
 /* 3.5 inch displays (iphone 3, 4, etc. */
-@media (device-height:480px) and (orientation:portrait) {
+@media (device-height:480px) and (orientation: portrait) {
 	.step1 {
 		height: 450px !important;
-	}
-}
-
-/* ultra big displays */
-@media (min-height: 1440px) {
-	.welcome-block {
-		padding-top: 120px;
-	}
-
-	.image {
-		max-width: 1200px;
-	}
-}
-
-@media (min-height: 800px) {
-	.welcome-block {
-		padding-top: 80px;
 	}
 }
