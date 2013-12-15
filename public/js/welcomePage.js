@@ -14,13 +14,28 @@ ls.welcomePage = {
 		var $window = $(window);
 		var $image = $('.image');
 
+		if ($window.height() <= 680) {
+			$image.animate({ bottom: '-120px' }, 1200);
+		} else {
+			$image.animate({ bottom: '0px' }, 1200);
+		}
+
 		alignImageAndBlock();
 
 		$window.resize(function () {
+			var dynamicHeight = $window.height();
+
+			if (dynamicHeight <= 680) {
+				$image.css({ bottom: '-120px' });
+			} else {
+				$image.css({ bottom: '0px' });
+			}
+
 			alignImageAndBlock();
 		});
 
 		function alignImageAndBlock () {
+
 			$('.step1').css('height', $window.height() - 10);
 			$image.css('margin-left', -$image.find('img').width() / 2);
 		}

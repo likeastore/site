@@ -123,12 +123,16 @@
 	max-width: 860px;
 	width: 100%;
 	position: absolute;
-	bottom: 0;
+	bottom: -500px;
 	left: 50%;
-	-webkit-animation: macmove 1200ms ease-in-out;
-	-moz-animation: macmove 1200ms ease-in-out;
-	-ms-animation: macmove 1200ms ease-in-out;
-	-animation: macmove 1200ms ease-in-out;
+}
+
+.no-js .image {
+	bottom: 0;
+	-webkit-animation: macmove 1.2s ease-in-out;
+	-moz-animation: macmove 1.2s ease-in-out;
+	-ms-animation: macmove 1.2s ease-in-out;
+	animation: macmove 1.2s ease-in-out;
 }
 
 .image img {

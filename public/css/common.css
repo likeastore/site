@@ -126,7 +126,7 @@ input.field {
 	-webkit-transition: background-color .3s ease-in;
 	-moz-transition: background-color .3s ease-in;
 	-ms-transition: background-color .3s ease-in;
-	transition: background-color color .3s ease-in;
+	transition: background-color .3s ease-in;
 }
 
 input.field:focus {
@@ -192,10 +192,10 @@ input.field:focus {
 	-moz-transition: all .2s ease-out;
 	-ms-transition: all .2s ease-out;
 	transition: all .2s ease-out;
-	-webkit-animation: vis 700ms ease-in-out;
-	-moz-animation: vis 700ms ease-in-out;
-	-ms-animation: vis 700ms ease-in-out;
-	animation: vis 700ms ease-in-out;
+	-webkit-animation: vis .7s ease-in-out;
+	-moz-animation: vis .7s ease-in-out;
+	-ms-animation: vis .7s ease-in-out;
+	animation: vis .7s ease-in-out;
 }
 
 .bars li.black {

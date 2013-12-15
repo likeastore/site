@@ -1,6 +1,8 @@
 (function ($) {
 	window.ls = window.ls || {};
 
+	$('html').removeClass('no-js').addClass('js');
+
 	if (window.location.hash === '#_=_') {
 		window.location.href = window.location.href.split('#')[0];
 	}
