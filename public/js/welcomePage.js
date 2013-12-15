@@ -14,30 +14,36 @@ ls.welcomePage = {
 		var $window = $(window);
 		var $image = $('.image');
 
-		if ($window.height() <= 680) {
-			$image.animate({ bottom: '-120px' }, 1200);
-		} else {
-			$image.animate({ bottom: '0px' }, 1200);
-		}
+		$image.animate(getBottomSize(), 1200)
 
 		alignImageAndBlock();
 
 		$window.resize(function () {
-			var dynamicHeight = $window.height();
-
-			if (dynamicHeight <= 680) {
-				$image.css({ bottom: '-120px' });
-			} else {
-				$image.css({ bottom: '0px' });
-			}
-
+			$image.css(getBottomSize());
 			alignImageAndBlock();
 		});
 
 		function alignImageAndBlock () {
-
 			$('.step1').css('height', $window.height() - 10);
 			$image.css('margin-left', -$image.find('img').width() / 2);
+		}
+
+		function getBottomSize () {
+			var dynamicHeight = $window.height();
+
+			if (dynamicHeight < 700 && dynamicHeight > 600) {
+				return { bottom: '-80px' };
+			}
+
+			if (dynamicHeight < 600 && dynamicHeight > 500) {
+				return { bottom: '-140px' };
+			}
+
+			if (dynamicHeight < 500 && dynamicHeight > 400) {
+				return { bottom: '-200px' };
+			}
+
+			return { bottom: '0px' };
 		}
 	},
 
