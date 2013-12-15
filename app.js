@@ -39,7 +39,7 @@ app.configure('development', function() {
 app.configure('staging', function () {
 	app.set('view cache', false);
 	swig.setDefaults({ cache: false });
-	app.use(express.basicAuth(config.access.user, config.access.password));
+	//app.use(express.basicAuth(config.access.user, config.access.password));
 	app.use(express.logger('short'));
 	app.use(express.compress());
 	app.use(express.static(path.join(__dirname, 'public')));
