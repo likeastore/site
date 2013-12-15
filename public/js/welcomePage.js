@@ -14,8 +14,7 @@ ls.welcomePage = {
 		var $window = $(window);
 		var $image = $('.image');
 
-		$image.animate(getBottomSize(), 1200)
-
+		$image.animate(getBottomSize(), 1200);
 		alignImageAndBlock();
 
 		$window.resize(function () {
@@ -30,16 +29,17 @@ ls.welcomePage = {
 
 		function getBottomSize () {
 			var dynamicHeight = $window.height();
+			var desktop = $.isDesktop();
 
-			if (dynamicHeight < 700 && dynamicHeight > 600) {
+			if (desktop && dynamicHeight < 700 && dynamicHeight > 600) {
 				return { bottom: '-80px' };
 			}
 
-			if (dynamicHeight < 600 && dynamicHeight > 500) {
+			if (desktop && dynamicHeight < 600 && dynamicHeight > 500) {
 				return { bottom: '-140px' };
 			}
 
-			if ($.isDesktop() && dynamicHeight < 500) {
+			if (desktop && dynamicHeight < 500) {
 				return { bottom: '-200px' };
 			}
 
