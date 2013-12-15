@@ -1,0 +1,72 @@
+/*
+ * Media queries
+ */
+@media (max-width: 768px) {
+	.image {
+		width: 95%;
+	}
+}
+
+/* smartphones' landscape */
+@media (max-width: 640px) and (orientation:landscape) {
+	.step1 {
+		height: 560px !important;
+	}
+}
+
+@media (max-width: 640px) {
+	.logo.fixed {
+		position: absolute;
+		left: 20px;
+	}
+
+	.go-to-login {
+		position: absolute;
+	}
+
+	.welcome-block .welcome-desc {
+		font-size: 14px;
+	}
+
+	.box.welcome-block {
+		width: 90%;
+		padding-top: 90px;
+	}
+
+	.box {
+		width: 90%;
+	}
+}
+
+@media (max-width: 540px) {
+	.words {
+		font-size: 3.5em;
+	}
+}
+
+@media (max-width: 440px) {
+	.words {
+		font-size: 2.3em;
+	}
+
+	.welcome-block .welcome-desc {
+		font-size: 16px;
+		line-height: 22px;
+	}
+
+	.title-block .words {
+		font-size: 2em;
+	}
+
+	.footer-block .bottom .inc,
+	.footer-block .bottom .faq {
+		font-size: 8px;
+	}
+}
+
+/* 3.5 inch displays (iphone 3, 4, etc. */
+@media (device-height:480px) and (orientation:portrait) {
+	.step1 {
+		height: 450px !important;
+	}
+}

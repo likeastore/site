@@ -3,6 +3,10 @@ module.exports = function (grunt) {
 	grunt.initConfig({
 		cssmin: {
 			combine: {
+				options: {
+					banner: '/* merged:' + new Date().toISOString() + ' */',
+					report: 'gzip'
+				},
 				files: {
 					'public/build/welcome_merge.min.css': ['public/css/merge/welcome_merge.css'],
 					'public/build/register_merge.min.css': ['public/css/merge/register_merge.css']
