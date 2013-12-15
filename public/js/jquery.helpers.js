@@ -12,6 +12,10 @@
 		this.preventDefault();
 	};
 
+	$.isDesktop = function () {
+		return window.screenX !== 0 && !('ontouchstart' in window || 'onmsgesturechange' in window);
+	};
+
 	$.fn.validate = function () {
 		var $target = $(this);
 		var regex = $target.hasClass('email') ?

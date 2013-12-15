@@ -39,6 +39,10 @@ ls.welcomePage = {
 				return { bottom: '-140px' };
 			}
 
+			if ($.isDesktop() && dynamicHeight < 500) {
+				return { bottom: '-200px' };
+			}
+
 			return { bottom: '0px' };
 		}
 	},

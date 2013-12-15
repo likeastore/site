@@ -2,7 +2,7 @@
  * Welcome page
  */
 .logo {
-	color: #fff;
+	color: #ecf0f1;
 }
 
 .stepfixer .logo {
@@ -12,7 +12,7 @@
 .go-to-login {
 	display: inline-block;
 	background: transparent;
-	color: #fff;
+	color: #ecf0f1;
 	font: 13px 'proxima_nova_rgbold', 'Lato', 'Helvetica', 'Arial', sans-serif;
 	border: 2px solid #fff;
 	padding: 6px 8px;
@@ -27,7 +27,7 @@
 
 .go-to-login:hover {
 	color: #1abc9c;
-	background: #fff;
+	background: #ecf0f1;
 	text-decoration: none;
 }
 

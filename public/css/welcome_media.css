@@ -1,7 +1,7 @@
 /*
  * Media queries
  */
-@media (device-height: 1440px) {
+@media (min-device-height: 1440px) {
 	.welcome-block {
 		padding-top: 120px;
 	}

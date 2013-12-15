@@ -84,21 +84,21 @@ a:hover {
 }
 
 .logo {
-	font-size: 28px;
+	font-size: 30px;
 	font-family: 'proxima_nova_rgbold', 'Helvetica', 'Arial', sans-serif;
 	font-weight: normal;
 	text-transform: lowercase;
 }
 
 .logo.small {
-	font-size: 1.5em;
+	font-size: 1.55em;
 }
 
 .logo.fixed {
 	padding: 0;
 	position: fixed;
 	top: 30px;
-	left: 35px;
+	left: 25px;
 	z-index: 100;
 }
 
