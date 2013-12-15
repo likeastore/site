@@ -39,10 +39,6 @@ ls.welcomePage = {
 				return { bottom: '-140px' };
 			}
 
-			if (dynamicHeight < 500 && dynamicHeight > 400) {
-				return { bottom: '-200px' };
-			}
-
 			return { bottom: '0px' };
 		}
 	},
