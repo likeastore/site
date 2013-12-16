@@ -1,59 +1,35 @@
 /*
- * Register page
+ * Register form
  */
-.wrap {
-	width: 300px;
-	margin: 95px auto;
-	text-align: center;
-	position: relative;
-	-webkit-animation: vis .5s ease-in-out;
-	-moz-animation: vis .5s ease-in-out;
-	-ms-animation: vis .5s ease-in-out;
-	animation: vis .5s ease-in-out;
-}
-
-.register-page .logo {
-	color: #e74c3c;
-}
-
-.register-page .desc {
-	color: #818181;
-	font-size: 13px;
-	line-height: 20px;
-	margin: 0 auto 35px;
-	max-width: 290px;
-}
-
-.register-page .separator {
+.separator {
 	font-size: 20px;
 	color: #818181;
-	margin: 12px auto 0;
 }
 
-.register-page .terms {
+.terms {
 	color: #818181;
 	font-size: 11px;
 	line-height: 20px;
 	margin: 10px auto;
 }
 
-.register-page .terms a {
+.terms a {
 	color: #818181;
 	text-decoration: underline;
 }
 
-.register-page .terms a:hover {
+.terms a:hover {
 	text-decoration: none;
 }
 
-.register-page input.field {
+input.field {
 	margin-bottom: 12px;
 }
 
 /* Social auth buttons */
-.register-page .auth-btn,
-.register-page .auth-btn:hover,
-.register-page .auth-btn:focus {
+.auth-btn,
+.auth-btn:hover,
+.auth-btn:focus {
 	display: block;
 	border: 2px solid;
 	color: #fff;
@@ -66,51 +42,51 @@
 	text-decoration: none;
 }
 
-.register-page .auth-btn .icon,
-.register-page .auth-btn span {
+.auth-btn .icon,
+.auth-btn span {
 	display: inline-block;
 	vertical-align: top;
 }
 
-.register-page .auth-btn .icon {
+.auth-btn .icon {
 	line-height: 38px;
 	margin-left: 16px;
 }
 
-.register-page .auth-btn span {
+.auth-btn span {
 	line-height: 35px;
 	margin-left: 55px;
 }
 
-.register-page .auth-btn.facebook {
+.auth-btn.facebook {
 	background: #0f66aa;
 	border-color: #0f66aa;
 }
 
-.register-page .auth-btn.facebook:hover,
-.register-page .auth-btn.facebook:focus {
+.auth-btn.facebook:hover,
+.auth-btn.facebook:focus {
 	background: #fff;
 	color: #0f66aa;
 }
 
-.register-page .auth-btn.twitter {
+.auth-btn.twitter {
 	background: #28b9dd;
 	border-color: #28b9dd;
 }
 
-.register-page .auth-btn.twitter:hover,
-.register-page .auth-btn.twitter:focus  {
+.auth-btn.twitter:hover,
+.auth-btn.twitter:focus  {
 	background: #fff;
 	color: #28b9dd;
 }
 
-.register-page .auth-btn.github {
+.auth-btn.github {
 	background: #bdc3c7;
 	border-color: #bdc3c7;
 }
 
-.register-page .auth-btn.github:hover,
-.register-page .auth-btn.github:focus {
+.auth-btn.github:hover,
+.auth-btn.github:focus {
 	background: #fff;
 	color: #bdc3c7;
 }
@@ -148,7 +124,7 @@
 	transition: all .5s ease-in-out;
 }
 
-.register-page .msg {
+.msg {
 	background: #fff;
 	height: 24px;
 	line-height: 5px;
@@ -169,11 +145,3 @@
 	color: #27ae60;
 }
 /* End of error messages */
-
-/* Media queries */
-@media (max-width: 440px) {
-	.wrap {
-		margin-top: 35px;
-	}
-}
-/* End of media queries */

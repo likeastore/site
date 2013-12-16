@@ -2,8 +2,6 @@
 	"predef": [
 		"after",
 		"afterEach",
-		"angular",
-		"Backbone",
 		"before",
 		"beforeEach",
 		"describe",
@@ -16,6 +14,7 @@
 		"sinon",
 		"should",
 		"spyOn",
+		"vex",
 		"waits",
 		"waitsFor",
 		"xit",

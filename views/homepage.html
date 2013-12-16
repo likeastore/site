@@ -2,14 +2,14 @@
 {% import './snippets.html' as snippets %}
 
 {% block styles %}
-<link rel="stylesheet" href="{% if mode === 'production' %}/build/welcome_merge.min.css{% else %}/css/merge/welcome_merge.css{% endif %}">
+<link rel="stylesheet" href="{% if mode === 'production' %}/build/homepage_merge.min.css{% else %}/css/merge/welcome_merge.css{% endif %}">
 {% endblock %}
 
 {% block bodyClass %}welcome-page{% endblock %}
 
 {% block content %}
 <h2 class="logo small fixed"><a href="/">likeastore.</a></h2>
-<a href="/join" class="go-to-login">Sign in</a>
+<a href="/join" class="go-to-login open-register-dialog">Sign in</a>
 
 <!-- Step one: welcome -->
 <div class="step1">
@@ -53,7 +53,7 @@
 	</div>
 
 	<!-- Register button block -->
-	<a href="/join" class="collect-link">Collect your likes</a>
+	<a href="/join" class="collect-link open-register-dialog">Collect your likes</a>
 	<div class="collect-tip">Sign up for free now</div>
 	<!-- End of register button block -->
 </div>
@@ -92,5 +92,6 @@
 {% endblock %}
 
 {% block scripts %}
-<script src="/js/welcomePage.js"></script>
+<script src="/components/vex/js/vex.combined.min.js"></script>
+<script src="/js/homepage.js"></script>
 {% endblock %}

@@ -1,0 +1,297 @@
+@keyframes vex-flipin-horizontal {
+	0% {
+		opacity: 0;
+		transform: rotateY(-90deg);
+		-webkit-transform: rotateY(-90deg);
+		-moz-transform: rotateY(-90deg);
+		-ms-transform: rotateY(-90deg);
+		-o-transform: rotateY(-90deg);
+	}
+
+	100% {
+		opacity: 1;
+		transform: rotateY(0deg);
+		-webkit-transform: rotateY(0deg);
+		-moz-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+	}
+}
+
+@-webkit-keyframes vex-flipin-horizontal {
+	0% {
+		opacity: 0;
+		transform: rotateY(-90deg);
+		-webkit-transform: rotateY(-90deg);
+		-moz-transform: rotateY(-90deg);
+		-ms-transform: rotateY(-90deg);
+		-o-transform: rotateY(-90deg);
+	}
+
+	100% {
+		opacity: 1;
+		transform: rotateY(0deg);
+		-webkit-transform: rotateY(0deg);
+		-moz-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+	}
+}
+
+@-moz-keyframes vex-flipin-horizontal {
+	0% {
+		opacity: 0;
+		transform: rotateY(-90deg);
+		-webkit-transform: rotateY(-90deg);
+		-moz-transform: rotateY(-90deg);
+		-ms-transform: rotateY(-90deg);
+		-o-transform: rotateY(-90deg);
+	}
+
+	100% {
+		opacity: 1;
+		transform: rotateY(0deg);
+		-webkit-transform: rotateY(0deg);
+		-moz-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+	}
+}
+
+@-ms-keyframes vex-flipin-horizontal {
+	0% {
+		opacity: 0;
+		transform: rotateY(-90deg);
+		-webkit-transform: rotateY(-90deg);
+		-moz-transform: rotateY(-90deg);
+		-ms-transform: rotateY(-90deg);
+		-o-transform: rotateY(-90deg);
+	}
+
+	100% {
+		opacity: 1;
+		transform: rotateY(0deg);
+		-webkit-transform: rotateY(0deg);
+		-moz-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+	}
+}
+
+@-o-keyframes vex-flipin-horizontal {
+	0% {
+		opacity: 0;
+		transform: rotateY(-90deg);
+		-webkit-transform: rotateY(-90deg);
+		-moz-transform: rotateY(-90deg);
+		-ms-transform: rotateY(-90deg);
+		-o-transform: rotateY(-90deg);
+	}
+
+	100% {
+		opacity: 1;
+		transform: rotateY(0deg);
+		-webkit-transform: rotateY(0deg);
+		-moz-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+	}
+}
+
+@keyframes vex-flipout-horizontal {
+	0% {
+		opacity: 1;
+		transform: rotateY(0deg);
+		-webkit-transform: rotateY(0deg);
+		-moz-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+	}
+
+	100% {
+		opacity: 0;
+		transform: rotateY(90deg);
+		-webkit-transform: rotateY(90deg);
+		-moz-transform: rotateY(90deg);
+		-ms-transform: rotateY(90deg);
+		-o-transform: rotateY(90deg);
+	}
+}
+
+@-webkit-keyframes vex-flipout-horizontal {
+	0% {
+		opacity: 1;
+		transform: rotateY(0deg);
+		-webkit-transform: rotateY(0deg);
+		-moz-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+	}
+
+	100% {
+		opacity: 0;
+		transform: rotateY(90deg);
+		-webkit-transform: rotateY(90deg);
+		-moz-transform: rotateY(90deg);
+		-ms-transform: rotateY(90deg);
+		-o-transform: rotateY(90deg);
+	}
+}
+
+@-moz-keyframes vex-flipout-horizontal {
+	0% {
+		opacity: 1;
+		transform: rotateY(0deg);
+		-webkit-transform: rotateY(0deg);
+		-moz-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+	}
+
+	100% {
+		opacity: 0;
+		transform: rotateY(90deg);
+		-webkit-transform: rotateY(90deg);
+		-moz-transform: rotateY(90deg);
+		-ms-transform: rotateY(90deg);
+		-o-transform: rotateY(90deg);
+	}
+}
+
+@-ms-keyframes vex-flipout-horizontal {
+	0% {
+		opacity: 1;
+		transform: rotateY(0deg);
+		-webkit-transform: rotateY(0deg);
+		-moz-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+	}
+
+	100% {
+		opacity: 0;
+		transform: rotateY(90deg);
+		-webkit-transform: rotateY(90deg);
+		-moz-transform: rotateY(90deg);
+		-ms-transform: rotateY(90deg);
+		-o-transform: rotateY(90deg);
+	}
+}
+
+@-o-keyframes vex-flipout-horizontal {
+	0% {
+		opacity: 1;
+		transform: rotateY(0deg);
+		-webkit-transform: rotateY(0deg);
+		-moz-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+	}
+
+	100% {
+		opacity: 0;
+		transform: rotateY(90deg);
+		-webkit-transform: rotateY(90deg);
+		-moz-transform: rotateY(90deg);
+		-ms-transform: rotateY(90deg);
+		-o-transform: rotateY(90deg);
+	}
+}
+
+.vex.vex-theme-likeastore {
+	-webkit-perspective: 1300px;
+	-moz-perspective: 1300px;
+	-ms-perspective: 1300px;
+	-o-perspective: 1300px;
+	perspective: 1300px;
+	-webkit-perspective-origin: 50% 150px;
+	-moz-perspective-origin: 50% 150px;
+	-ms-perspective-origin: 50% 150px;
+	-o-perspective-origin: 50% 150px;
+	perspective-origin: 50% 150px;
+	padding-top: 100px;
+	padding-bottom: 100px;
+	font-size: 1.5em;
+}
+
+.vex.vex-theme-likeastore.vex-closing .vex-content {
+	animation: vex-flipout-horizontal 0.5s;
+	-webkit-animation: vex-flipout-horizontal 0.5s;
+	-moz-animation: vex-flipout-horizontal 0.5s;
+	-ms-animation: vex-flipout-horizontal 0.5s;
+	-o-animation: vex-flipout-horizontal 0.5s;
+	-webkit-backface-visibility: hidden;
+}
+
+.vex.vex-theme-likeastore .vex-content {
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	animation: vex-flipin-horizontal 0.5s;
+	-webkit-animation: vex-flipin-horizontal 0.5s;
+	-moz-animation: vex-flipin-horizontal 0.5s;
+	-ms-animation: vex-flipin-horizontal 0.5s;
+	-o-animation: vex-flipin-horizontal 0.5s;
+	-webkit-backface-visibility: hidden;
+}
+
+.vex.vex-theme-likeastore .vex-overlay {
+	background: rgba(255, 255, 255, 0.6);
+	height: 20000px;
+}
+
+.vex.vex-theme-likeastore .vex-content {
+	font-weight: 300;
+	background: white;
+	border: 3px solid #1abc9c;
+	color: #818181;
+	padding: 1em 2em 1.4em 2em;
+	line-height: 1.5em;
+	text-align: center;
+	position: relative;
+	margin: 0 auto;
+	max-width: 100%;
+	width: 390px;
+}
+
+.vex.vex-theme-likeastore .vex-close {
+	position: absolute;
+	top: 0;
+	right: 0;
+	cursor: pointer;
+}
+
+.vex.vex-theme-likeastore .vex-close:before {
+	display: block;
+	color: #fff;
+	background: #1abc9c;
+	font-size: 26px;
+	text-indent: 2px;
+	line-height: 26px;
+	text-align: center;
+	overflow: hidden;
+	width: 28px;
+	height: 28px;
+}
+
+.vex .dialog-title {
+	color: #1f282d;
+	font-size: 1.6em;
+	margin-bottom: 12px;
+}
+
+.vex .auth-btn,
+.vex .auth-btn:hover,
+.vex .auth-btn:focus {
+	width: 100%;
+	height: 39px;
+}
+
+.vex .separator {
+	line-height: 16px;
+	height: 16px;
+}
+
+.vex .msg {
+	line-height: 12px;
+}

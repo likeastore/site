@@ -290,6 +290,7 @@ footer {
 .footer-block .bottom .faq {
 	color: #818181;
 	font: 11px 'Lato', 'Helvetica', 'Arial', sans-serif;
+	font-weight: 300;
 	margin-bottom: 2px;
 	text-transform: uppercase;
 }

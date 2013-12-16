@@ -13,7 +13,7 @@
 	};
 
 	$.isDesktop = function () {
-		return window.screenX !== 0 && !('ontouchstart' in window || 'onmsgesturechange' in window);
+		return window.screenX !== 0 || !('ontouchstart' in window || 'onmsgesturechange' in window);
 	};
 
 	$.fn.validate = function () {

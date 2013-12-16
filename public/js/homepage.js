@@ -1,3 +1,4 @@
+/* jshint multistr: true */
 /*
  * Welcome page scripts (scroll effects and parallax)
  */
@@ -8,6 +9,10 @@ ls.welcomePage = {
 		this.setHeights();
 		this.initOnScroll();
 		this.initScrollParallax();
+
+		if ($.isDesktop()) {
+			this.initRegisterDialog();
+		}
 	},
 
 	setHeights: function () {
@@ -50,6 +55,51 @@ ls.welcomePage = {
 
 			return { bottom: '0px' };
 		}
+	},
+
+	initRegisterDialog: function (e) {
+		$('.open-register-dialog').on('click', function (e) {
+			e.stop();
+
+			vex.open({
+				content: '\
+					<h2 class="dialog-title">Join</h2>\
+					<div class="social-auth">\
+						<a class="facebook auth-btn" href="/auth/facebook">\
+							<i data-icon="g" class="icon"></i>\
+							<span>Log in with facebook</span>\
+						</a>\
+						<a class="twitter auth-btn" href="/auth/twitter">\
+							<i data-icon="b" class="icon"></i>\
+							<span>Log in with twitter</span>\
+						</a>\
+						<a class="github auth-btn" href="/auth/github">\
+							<i data-icon="d" class="icon"></i>\
+							<span>Log in with github</span>\
+						</a>\
+					</div>\
+					<div class="separator">&#126;</div>\
+					<form action="/auth/local/login" class="formular register" method="post" accept-charset="utf-8" novalidate>\
+						<div class="msg"></div>\
+						<div>\
+							<input type="email" name="email" class="field email" placeholder="Email" autocomplete="off">\
+						</div>\
+						<div>\
+							<input type="password" name="password" class="field password" placeholder="Password">\
+						</div>\
+						<button type="submit" class="do-register-btn btn green-btn">Sign in</button>\
+					</form>\
+					<div class="terms">\
+						By clicking you accept <a href="/terms-and-conditions" target="_blank">Terms &amp; Conditions</a> and <a href="/privacy-policy" target="_blank">Privacy Policy</a>.\
+					</div>\
+				',
+				className: 'vex-theme-likeastore',
+				showCloseButton: true,
+				afterOpen: function () {
+					ls.auth.init();
+				}
+			});
+		});
 	},
 
 	initScrollParallax: function () {
