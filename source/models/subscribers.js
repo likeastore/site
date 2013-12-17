@@ -1,5 +1,6 @@
 var _ = require('underscore');
-var db = require('./dbConnector').db;
+var config = require('../../config');
+var db = require('../db')(config);
 var notificationUtil = require('../utils/notification');
 
 /**

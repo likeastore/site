@@ -1,8 +1,8 @@
 var _ = require('underscore');
 var config = require('../config');
-var users = require('./db/users');
-var subscribers = require('./db/subscribers');
-var networks = require('./db/networks');
+var users = require('./models/users');
+var subscribers = require('./models/subscribers');
+var networks = require('./models/networks');
 var schemas = require('./schemas');
 
 module.exports = function (app, passport) {
