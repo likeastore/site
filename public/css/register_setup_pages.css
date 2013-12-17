@@ -1,0 +1,56 @@
+/*
+ * Register & setup pages
+ */
+ .wrap {
+	width: 300px;
+	margin: 95px auto;
+	text-align: center;
+	position: relative;
+	-webkit-animation: vis .5s ease-in-out;
+	-moz-animation: vis .5s ease-in-out;
+	-ms-animation: vis .5s ease-in-out;
+	animation: vis .5s ease-in-out;
+}
+
+.register-page .logo {
+	color: #e74c3c;
+}
+
+.register-page .desc {
+	color: #818181;
+	font-size: 13px;
+	line-height: 20px;
+	margin: 0 auto 35px;
+	max-width: 290px;
+}
+
+.setup-page .avatar {
+	width: 50px;
+	height: 50px;
+	margin-bottom: 15px;
+	-webkit-border-radius: 60px;
+	border-radius: 60px;
+}
+
+.setup-page .desc {
+	max-width: 280px;
+	margin-bottom: 5px;
+}
+
+.setup-page form {
+	margin-top: 10px;
+}
+
+.setup-page .msg {
+	height: 25px;
+	line-height: 16px;
+	margin: 0;
+}
+
+/* Media queries */
+@media (max-width: 440px) {
+	.wrap {
+		margin-top: 35px;
+	}
+}
+/* End of media queries */

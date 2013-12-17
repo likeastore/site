@@ -1,6 +1,8 @@
 (function ($) {
 	window.ls = window.ls || {};
 
+	$('html').removeClass('no-js').addClass('js');
+
 	if (window.location.hash === '#_=_') {
 		window.location.href = window.location.href.split('#')[0];
 	}
@@ -8,6 +10,10 @@
 	$.Event.prototype.stop = function () {
 		this.stopPropagation();
 		this.preventDefault();
+	};
+
+	$.isDesktop = function () {
+		return window.screenX !== 0 || !('ontouchstart' in window || 'onmsgesturechange' in window);
 	};
 
 	$.fn.validate = function () {

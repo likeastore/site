@@ -1,52 +1,108 @@
-{% extends 'base.html' %}
+{% extends './base.html' %}
+{% import './snippets.html' as snippets %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% if mode === 'production' %}/build/homepage_merge.min.css{% else %}/css/merge/homepage_merge.css{% endif %}">
+{% endblock %}
+
 {% block bodyClass %}welcome-page{% endblock %}
 
 {% block content %}
-<a href="http://stfalcon.github.io/euromaidan/" class="ua-ribbon" style="position: absolute; left:0; top:0; width: 90px; height: 90px; background: url('/img/ua-ribbon.png'); z-index: 2013; border: 0;" title="We proudly support our nation in the will to get honest government! Ukraine without Yanukovych! Ukraine is Europe!" target="_blank"></a>
+<h2 class="logo small fixed"><a href="/">likeastore.</a></h2>
+<a href="/join" class="go-to-login open-register-dialog">Sign in</a>
 
-<a href="/login" class="go-to-login">Login</a>
+<!-- Step one: welcome -->
+<div class="step1">
+	<div class="welcome-block box">
+		<h1 class="words">Save your likes in likeastore.</h1>
+		<div class="welcome-desc">Get every piece of your social activity on one page and in one account.</div>
+		<a href="#why" class="find-out-more scrolly">Find out more</a>
+	</div>
 
-<div class="wrap">
-	<h2 class="logo big">likeastore.</h2>
-	<div class="desc">An easy way to keep all your likes in one place.</div>
-
-	{% include './partials/mac-notes.html' %}
-
-	<a href="/register" class="register-btn">Registration</a>
-
-	<section class="promo-wrap">
-		<div class="pr">
-			<h4>Never lose the things you like</h4>
-			<p>Keep every piece of your social activity on one page and in one account. Organize and search your likes and get all you need much faster with our service.</p>
-		</div>
-
-		<div class="pr">
-			<h4>But still 'work in progress'</h4>
-			<p>Our status is public beta now and we continue to add new services while getting better with existing features. Your <a href="mailto:info@likeastore.com">feedback</a> is highly appreciated.</p>
-		</div>
-
-		<div class="pr last">
-			<h4>Subscribe for new features</h4>
-			<p>Don't you want another service to connect in your feed? Get notified when updates are on their way. Actually no spam, we promise!</p>
-
-			<form class="formular subscribe" action="/notify" method="post" accept-charset="utf-8" novalidate>
-				<input type="email" name="email" class="field email" placeholder="youremail@example.com">
-				<button type="submit" class="do-subscribe-btn notify-btn btn">Notify me</button>
-
-				{% include './partials/flash-modal.html' %}
-			</form>
-		</div>
-	</section>
+	<div class="image"><img src="/img/likeastorescreen.png" alt="likeastore dashboard"></div>
+	<div class="overlay"></div>
 </div>
+<!-- End of step one -->
 
-<div class="social-buttons">
-	<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://likeastore.com" data-text="Never lose the things you like with" data-related="likeastore">Tweet</a>
-	<div class="fb-like" data-href="https://www.facebook.com/likeastore" data-width="450" data-layout="button_count" data-show-faces="false" data-send="false"></div>
-	<a href="https://news.ycombinator.com/submit" class="hn-button" data-title="likeastore" data-url="https://likeastore.com/" data-count="horizontal" data-style="facebook">Vote on Hacker News</a>
-	<script type="text/javascript">var HN=[];HN.factory=function(e){return function(){HN.push([e].concat(Array.prototype.slice.call(arguments,0)))};},HN.on=HN.factory("on"),HN.once=HN.factory("once"),HN.off=HN.factory("off"),HN.emit=HN.factory("emit"),HN.load=function(){var e="hn-button.js";if(document.getElementById(e))return;var t=document.createElement("script");t.id=e,t.src="//hn-button.herokuapp.com/hn-button.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n)},HN.load();</script>
+<!-- Step two: features -->
+<div id="why" class="step2">
+
+	{{ snippets.multicolored_bar() }}
+
+	<div class="title-block box">
+		<h1 class="words">What is likeastore?</h1>
+		<div class="info-desc">Likeastore makes it very easy to keep and share anything you like from different social services safely and all in one account. We help to store information organized, searchable and easy discoverable.</div>
+	</div>
+
+	<div class="about-block box">
+		<div class="picto">R</div>
+		<h2 class="subtitle">Search and dashboard</h2>
+		<div class="info-desc">Manage favorited tweets, likes on facebook or github stars with our dashboard that holds everything you were interested in.</div>
+		<div class="screen">
+			<img src="/img/dashboard-darkframe.png" alt="likeastore dashboard">
+		</div>
+	</div>
+
+	<div class="about-block box">
+		<div class="picto">Q</div>
+		<h2 class="subtitle">Popular services</h2>
+		<div class="info-desc">Enable networks to sync with your account. Our list includes such services as Facebook, Twitter or Youtube and still growing.</div>
+		<div class="screen">
+			<img src="/img/settings-darkframe.png" alt="likeastore account settings">
+		</div>
+	</div>
+
+	<!-- Register button block -->
+	<a href="/join" class="collect-link open-register-dialog">Collect your likes</a>
+	<div class="collect-tip">Sign up for free now</div>
+	<!-- End of register button block -->
+
+	<div class="newsletter-block box">
+		<h2 class="subtitle">Subscribe for newsletter</h2>
+		<div class="info-desc">Be amongst the first to know about upcoming features, news and job offers.</div>
+
+		<form class="formular subscribe" action="/notify" method="post" accept-charset="utf-8" novalidate>
+			<input type="email" name="email" class="field email" placeholder="Enter your email address">
+			<button type="submit" class="do-subscribe-btn subscribe-btn btn"><i data-icon="I"></i></button>
+			<div class="msg success"></div>
+		</form>
+	</div>
 </div>
+<!-- End of step two -->
 
+<!-- Footer -->
 <footer>
-	<p><i data-icon="m" class="icon"></i>Handcrafted with love in Kiev</p>
+	<div class="footer-block">
+		<div class="social">
+			<div class="twitter">
+				<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://likeastore.com" data-text="Never lose the things you like with" data-related="likeastore">Tweet</a>
+			</div>
+			<div class="facebook">
+				<div class="fb-like" data-href="https://www.facebook.com/likeastore" data-width="108" data-layout="button_count" data-show-faces="false" data-send="false"></div>
+			</div>
+		</div>
+
+		<div class="bottom">
+			<div class="left">
+				<div class="inc">&copy 2013 Likeastore Inc.</div>
+				<div class="faq">Got some questions? <a href="mailto:info@likeastore.com?subject=feedback">Send feedback.</a></div>
+				<div class="faq">Handcrafted with love in Kiev.</div>
+			</div>
+
+			<div class="right">
+				<ul>
+					<li><a href="https://facebook.com/likeastore" class="fb social-link" target="_blank">g</a></li>
+					<li><a href="https://twitter.com/likeastore" class="tw social-link" target="_blank">b</a></li>
+					<li><a href="http://blog.likeastore.com" class="tb social-link" target="_blank">T</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
 </footer>
+<!-- End of footer -->
+{% endblock %}
+
+{% block scripts %}
+<script src="/components/vex/js/vex.combined.min.js"></script>
+<script src="/js/homepage.js"></script>
 {% endblock %}

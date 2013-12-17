@@ -15,6 +15,7 @@ exports.schemas = {
 		},
 		additionalProperties: false
 	},
+
 	findOrCreateUserSchema: {
 		description: 'Local login and register',
 		type: 'object',
@@ -33,6 +34,7 @@ exports.schemas = {
 		},
 		additionalProperties: false
 	},
+
 	setupUserSchema: {
 		description: 'Common user setup',
 		type: 'object',

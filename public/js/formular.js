@@ -1,10 +1,14 @@
-/* global ls: true
+/*
  * Common forms module (registration, login, subscription)
  */
 
 ls.auth = {
 
 	init: function () {
+		$('.field').focus(function (e) {
+			$(e.target).removeClass('error');
+		});
+
 		$('.formular').submit(this.send.bind(this));
 	},
 
@@ -41,7 +45,6 @@ ls.auth = {
 				}
 				$form.find('.error').removeClass('error');
 				handleResponse('success', res.message, $('.' + res.field));
-
 			})
 			.fail(function (err) {
 				var data = $.parseJSON(err.responseText);
@@ -51,14 +54,16 @@ ls.auth = {
 		function handleResponse (type, message, $field) {
 			var $msg = $form.find('.msg');
 
+			if (type === 'success' && !$msg.hasClass('success')) {
+				return;
+			}
+
 			if (type === 'error') {
 				$field.addClass(type);
 			}
 
-			$msg.addClass(type + '-msg on')
-				.end()
-				.find('.msg-text')
-				.text(message);
+			$msg.addClass(type + '-msg on');
+			$msg.text(message);
 
 			setTimeout(function () {
 				$msg.removeClass(type + '-msg on');

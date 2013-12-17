@@ -51,3 +51,8 @@ exports.localUserSession = function (req, res, next) {
 	}
 	next();
 };
+
+// include it only as last middleware
+exports.notFound = function (req, res, next) {
+	res.status(404).redirect('/');
+};

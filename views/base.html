@@ -8,16 +8,12 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<meta property="og:title" content="likeastore. keep your likes in a safe place" />
-		<meta property="og:image" content="/img/likemac-clean@2x.png" />
+		<meta property="og:title" content="likeastore.com: keep all your likes in a safe place" />
+		<meta property="og:image" content="/img/likeastorescreen.png" />
 
 		<title>{{title}}</title>
 		<link rel="shortcut icon" href="/img/favicon.png" />
-		{% if mode === 'production' %}
-			<link rel="stylesheet" href="/build/styles.min.css">
-		{% else %}
-			<link rel="stylesheet" href="/css/main.css">
-		{% endif %}
+		<link rel="apple-touch-icon" href="/img/favicon.png"/>
 
 		{% block styles %}{% endblock %}
 	</head>
@@ -43,11 +39,11 @@
 		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 		<div id="fb-root"></div>
 		<script>(function(d, s, id) {
-		  var js, fjs = d.getElementsByTagName(s)[0];
-		  if (d.getElementById(id)) return;
-		  js = d.createElement(s); js.id = id;
-		  js.src = "//connect.facebook.net/ru_RU/all.js#xfbml=1&appId=139549419567276";
-		  fjs.parentNode.insertBefore(js, fjs);
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/ru_RU/all.js#xfbml=1&appId=139549419567276";
+			fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));</script>
 	</body>
 </html>
