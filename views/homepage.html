@@ -36,7 +36,7 @@
 
 	<div class="about-block box">
 		<div class="picto">R</div>
-		<h2>Search and dashboard</h2>
+		<h2 class="subtitle">Search and dashboard</h2>
 		<div class="info-desc">Manage favorited tweets, likes on facebook or github stars with our dashboard that holds everything you were interested in.</div>
 		<div class="screen">
 			<img src="/img/dashboard-darkframe.png" alt="likeastore dashboard">
@@ -45,7 +45,7 @@
 
 	<div class="about-block box">
 		<div class="picto">Q</div>
-		<h2>Popular services</h2>
+		<h2 class="subtitle">Popular services</h2>
 		<div class="info-desc">Enable networks to sync with your account. Our list includes such services as Facebook, Twitter or Youtube and still growing.</div>
 		<div class="screen">
 			<img src="/img/settings-darkframe.png" alt="likeastore account settings">
@@ -56,6 +56,17 @@
 	<a href="/join" class="collect-link open-register-dialog">Collect your likes</a>
 	<div class="collect-tip">Sign up for free now</div>
 	<!-- End of register button block -->
+
+	<div class="newsletter-block box">
+		<h2 class="subtitle">Subscribe for newsletter</h2>
+		<div class="info-desc">Be amongst the first to know about upcoming features, news and job offers.</div>
+
+		<form class="formular subscribe" action="/notify" method="post" accept-charset="utf-8" novalidate>
+			<input type="email" name="email" class="field email" placeholder="Enter your email address">
+			<button type="submit" class="do-subscribe-btn subscribe-btn btn"><i data-icon="I"></i></button>
+			<div class="msg success"></div>
+		</form>
+	</div>
 </div>
 <!-- End of step two -->
 

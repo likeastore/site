@@ -44,7 +44,7 @@ ls.auth = {
 					window.location = res.applicationUrl;
 				}
 				$form.find('.error').removeClass('error');
-
+				handleResponse('success', res.message, $('.' + res.field));
 			})
 			.fail(function (err) {
 				var data = $.parseJSON(err.responseText);
@@ -53,6 +53,10 @@ ls.auth = {
 
 		function handleResponse (type, message, $field) {
 			var $msg = $form.find('.msg');
+
+			if (type === 'success' && !$msg.hasClass('success')) {
+				return;
+			}
 
 			if (type === 'error') {
 				$field.addClass(type);
