@@ -259,7 +259,7 @@ h2.subtitle {
 }
 
 .newsletter-block form.subscribe {
-	width: 350px;
+	max-width: 350px;
 	margin: 20px auto 0;
 	text-align: left;
 	position: relative;

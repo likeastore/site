@@ -1,0 +1,33 @@
+/*
+ * Terms and privacy pages
+ */
+.bars {
+	position: fixed;
+}
+
+.long-text-page .logo {
+	color: #e74c3c;
+}
+
+.long-text-wrapper ol,
+.long-text-wrapper ul {
+	padding-left: 20px;
+}
+
+.long-text-wrapper {
+	font-size: 16px;
+	margin: 50px auto 100px;
+	line-height: 24px;
+	text-align: justify;
+	width: 600px;
+	max-width: 600px;
+}
+
+.long-text-wrapper h2 {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.long-text-wrapper h3 {
+	margin: 25px auto 10px;
+}

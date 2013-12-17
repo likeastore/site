@@ -1,3 +1,5 @@
-@import url(common_merge.css);
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
+@import url(../reset.css);
+@import url(../common.css);
 @import url(../register_form.css);
 @import url(../register_setup_pages.css);
