@@ -8,6 +8,7 @@ module.exports = function (grunt) {
 					report: 'gzip'
 				},
 				files: {
+					'public/build/common_merge.min.css': ['public/css/merge/common_merge.css'],
 					'public/build/homepage_merge.min.css': ['public/css/merge/homepage_merge.css'],
 					'public/build/register_merge.min.css': ['public/css/merge/register_merge.css']
 				}
