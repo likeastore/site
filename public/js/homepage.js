@@ -90,7 +90,7 @@ ls.welcomePage = {
 						<button type="submit" class="do-register-btn btn green-btn">Sign in</button>\
 					</form>\
 					<div class="terms">\
-						By clicking you accept <a href="/terms-and-conditions" target="_blank">Terms &amp; Conditions</a> and <a href="/privacy-policy" target="_blank">Privacy Policy</a>.\
+						By clicking you accept <a href="/terms" target="_blank">Terms &amp; Conditions</a> and <a href="/privacy" target="_blank">Privacy Policy</a>.\
 					</div>\
 				',
 				className: 'vex-theme-likeastore',

@@ -15,6 +15,14 @@ module.exports = function (app) {
 		res.render('setup', { title: 'Likeastore • Setup', mode: env, user: req.user });
 	};
 
+	var termsOfUse = function (req, res) {
+		res.render('terms_of_use',  { title: 'Likeastore • Terms and Conditions of Use', mode: env });
+	};
+
+	var privacyPolicy = function (req, res) {
+		res.render('privacy',  { title: 'Likeastore • Privacy Policy', mode: env });
+	};
+
 	var checkFirstTime = function (req, res, next) {
 		if (req.user.firstTimeUser) {
 			return next();
@@ -36,4 +44,6 @@ module.exports = function (app) {
 	app.get('/login', register);
 	app.get('/register', register);
 	app.get('/setup', checkAuth, checkFirstTime, setup);
+	app.get('/terms', termsOfUse);
+	app.get('/privacy', privacyPolicy);
 };
