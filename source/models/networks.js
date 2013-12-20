@@ -1,7 +1,5 @@
-var _ = require('underscore');
 var config = require('../../config');
-var services = config.services;
-var db = require('./dbConnector').db;
+var db = require('../db')(config);
 
 exports.save = function (email, user, callback) {
 	var network = {

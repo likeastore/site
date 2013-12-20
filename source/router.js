@@ -4,7 +4,7 @@ var env = process.env.NODE_ENV || 'development';
 module.exports = function (app) {
 
 	var index = function (req, res) {
-		res.render('homepage', { title: 'Likeastore • Home', mode: env });
+		res.render('homepage', { title: 'Likeastore • Saves your likes & social activity', mode: env });
 	};
 
 	var register = function (req, res) {

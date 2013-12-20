@@ -1,6 +1,6 @@
 var config = require('../../config');
 var services = config.services;
-var users = require('../db/users.js');
+var users = require('../models/users');
 var TwitterAuth = require('passport-twitter').Strategy;
 var GithubAuth = require('passport-github').Strategy;
 var FacebookAuth = require('passport-facebook').Strategy;
