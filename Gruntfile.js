@@ -9,7 +9,8 @@ module.exports = function (grunt) {
 				},
 				files: {
 					'public/build/homepage_merge.min.css': ['public/css/merge/homepage_merge.css'],
-					'public/build/register_merge.min.css': ['public/css/merge/register_merge.css']
+					'public/build/register_merge.min.css': ['public/css/merge/register_merge.css'],
+					'public/build/terms_merge.min.css': ['public/css/merge/terms_merge.css']
 				}
 			}
 		},
