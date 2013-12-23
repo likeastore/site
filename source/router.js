@@ -12,7 +12,7 @@ module.exports = function (app) {
 	};
 
 	var forgotPassword = function (req, res) {
-		res.render('forgot-password', { title: 'Likeastore • Forgot Password?', mode: env });
+		res.render('forgot_password', { title: 'Likeastore • Forgot password?', mode: env });
 	};
 
 	var resetPassword = function (req, res) {
@@ -20,7 +20,7 @@ module.exports = function (app) {
 			return res.redirect(config.siteUrl);
 		}
 
-		res.render('reset-password', { title: 'Likeastore • Forgot Password?', mode: env, email: req.query.email, request: req.query.request});
+		res.render('reset_password', { title: 'Likeastore • Reset password', mode: env, email: req.query.email, request: req.query.request});
 	};
 
 	var setup = function (req, res) {

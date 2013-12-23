@@ -26,6 +26,17 @@ input.field {
 	margin-bottom: 12px;
 }
 
+input.field.password {
+	margin-bottom: 3px;
+}
+
+.forgot-password {
+	display: inline-block;
+	color: #818181;
+	font-size: 11px;
+	margin: 0 5px 15px 0;
+}
+
 /* Social auth buttons */
 .auth-btn,
 .auth-btn:hover,
@@ -116,7 +127,7 @@ input.field {
 }
 
 .msg {
-	font-size: 11px;
+	font-size: 12px;
 	opacity: 0;
 	-webkit-transition: all .5s ease-in-out;
 	-moz-transition: all .5s ease-in-out;

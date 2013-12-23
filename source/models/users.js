@@ -262,7 +262,7 @@ function changePassword(email, request, password, callback) {
 
 function sendUserCreatedNotification (user) {
 	var title = '[likeastore] New user registered!';
-	var message = 'Congrats!\n\nNew user ' + (user.email || user.username) + ' just registered for likeastore via ' + user.provider + ' registration. Impress him!';
+	var message = 'Congrats!\n\nNew user ' + (user.email || user.username) + ' just registered for likeastore via ' + user.provider + ' registration on' + (process.env.NODE_ENV || 'development') + '. Impress him!';
 	notificationUtil.sendEmail(title, message, function () {});
 }
 

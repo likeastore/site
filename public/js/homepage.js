@@ -63,7 +63,6 @@ ls.welcomePage = {
 
 			vex.open({
 				content: '\
-					<a href="/forgot-password">Forgot password?</a>\
 					<h2 class="dialog-title">Join</h2>\
 					<div class="social-auth">\
 						<a class="facebook auth-btn" href="/auth/facebook">\
@@ -87,6 +86,9 @@ ls.welcomePage = {
 						</div>\
 						<div>\
 							<input type="password" name="password" class="field password" placeholder="Password">\
+						</div>\
+						<div class="align-right forget-password-wrap">\
+							<a href="/forgot-password" class="forgot-password">Forgot password?</a>\
 						</div>\
 						<button type="submit" class="do-register-btn btn green-btn">Sign in</button>\
 					</form>\
