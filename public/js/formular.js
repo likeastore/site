@@ -40,9 +40,7 @@ ls.auth = {
 			return;
 		}
 
-		setTimeout(function () {
-			$button.text(($button.data('progress-text') || 'Sending'));
-		}, 1000);
+		$button.text(($button.data('progress-text') || 'Sending'));
 
 		$.post($form.attr('action'), $form.serializeObject())
 			.done(function (res) {
