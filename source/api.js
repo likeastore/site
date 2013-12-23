@@ -81,7 +81,7 @@ module.exports = function (app, passport) {
 					return res.send(500, err);
 				}
 
-				res.send(200, {message: 'Thanks, email with further instuctions just went to your inbox.'});
+				res.send(200, {message: 'Thanks, email with instuctions just went to your inbox.'});
 			});
 		});
 	};

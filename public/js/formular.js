@@ -67,7 +67,7 @@ ls.auth = {
 
 			setTimeout(function () {
 				$msg.removeClass(type + '-msg on');
-			}, 4000);
+			}, 8000);
 		}
 	}
 };
