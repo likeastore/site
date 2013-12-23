@@ -63,6 +63,7 @@ ls.welcomePage = {
 
 			vex.open({
 				content: '\
+					<a href="/forgot-password">Forgot password?</a>\
 					<h2 class="dialog-title">Join</h2>\
 					<div class="social-auth">\
 						<a class="facebook auth-btn" href="/auth/facebook">\
