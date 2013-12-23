@@ -30,6 +30,16 @@ var analytics = require('../utils/analytics');
  * }
  */
 
+function findByEmail(email, callback) {
+	db.users.findOne({email: email}, function (err, user) {
+		if (err || !user) {
+			return callback({message: 'No user with such email found.'});
+		}
+
+		callback(null, user);
+	});
+}
+
 function findOrCreateByService(token, tokenSecret, profile, callback) {
 	var metaFromServices = ['id', 'provider', 'username', 'displayName'];
 
@@ -220,16 +230,6 @@ function resetPasswordRequest(email, callback) {
 	});
 }
 
-function findByEmail(email, callback) {
-	db.users.findOne({email: email}, function (err, user) {
-		if (err || !user) {
-			return callback({message: 'No user with such email found.'});
-		}
-
-		callback(null, user);
-	});
-}
-
 function changePassword(email, request, password, callback) {
 	findByEmail(email, function (err, user) {
 		if (err) {
@@ -252,7 +252,7 @@ function changePassword(email, request, password, callback) {
 
 				db.users.findAndModify({
 					query: { email: email },
-					update: { $set: {password: hash} },
+					update: { $set: {password: hash}, $unset: {resetPasswordRequest: 1} },
 					'new': true
 				}, callback);
 			});
