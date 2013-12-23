@@ -11,6 +11,18 @@ module.exports = function (app) {
 		res.render('register', { title: 'Likeastore • Join', mode: env });
 	};
 
+	var forgotPassword = function (req, res) {
+		res.render('forgot-password', { title: 'Likeastore • Forgot Password?', mode: env });
+	};
+
+	var resetPassword = function (req, res) {
+		if (!req.query.email || !req.query.request) {
+			return res.redirect(config.siteUrl);
+		}
+
+		res.render('reset-password', { title: 'Likeastore • Forgot Password?', mode: env, email: req.query.email, request: req.query.request});
+	};
+
 	var setup = function (req, res) {
 		res.render('setup', { title: 'Likeastore • Setup', mode: env, user: req.user });
 	};
@@ -43,6 +55,8 @@ module.exports = function (app) {
 	app.get('/join', register);
 	app.get('/login', register);
 	app.get('/register', register);
+	app.get('/forgot-password', forgotPassword);
+	app.get('/reset-password', resetPassword);
 	app.get('/setup', checkAuth, checkFirstTime, setup);
 	app.get('/terms', termsOfUse);
 	app.get('/privacy', privacyPolicy);

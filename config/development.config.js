@@ -56,7 +56,7 @@ var config = {
 	},
 
 	mandrill: {
-		token: null //'2kXX0stV1Hf56y9DYZts3A'
+		token: '2kXX0stV1Hf56y9DYZts3A'
 	},
 
 	collector: {
