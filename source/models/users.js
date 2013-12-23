@@ -237,7 +237,7 @@ function changePassword(email, request, password, callback) {
 		}
 
 		if (!user.resetPasswordRequest || user.resetPasswordRequest.id !== request) {
-			return callback({message: 'Failed to reset password due to wrong request'});
+			return callback({message: 'Reset password request is wrong or outdated.'});
 		}
 
 		bcrypt.genSalt(10, function (err, salt) {
