@@ -295,3 +295,8 @@
 .vex .msg {
 	line-height: 12px;
 }
+
+.vex .forget-password-wrap {
+	height: 30px;
+	line-height: 10px;
+}

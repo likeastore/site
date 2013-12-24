@@ -3,12 +3,13 @@ var grvtr = require('grvtr');
 var util = require('util');
 var bcrypt = require('bcrypt-nodejs');
 var ObjectId = require('mongojs').ObjectId;
+var crypto = require('crypto');
+
 var config = require('../../config');
 var db = require('../db')(config);
 var tokens = require('../utils/tokens');
 var notificationUtil = require('../utils/notification');
 var analytics = require('../utils/analytics');
-
 /**
  * (!) NOTA BENE: (remove when we'll enable schema)
  * Differences between third-party user and local one:
@@ -29,7 +30,17 @@ var analytics = require('../utils/analytics');
  * }
  */
 
-exports.findOrCreateByService = function (token, tokenSecret, profile, callback) {
+function findByEmail(email, callback) {
+	db.users.findOne({email: email}, function (err, user) {
+		if (err || !user) {
+			return callback({message: 'No user with such email found.'});
+		}
+
+		callback(null, user);
+	});
+}
+
+function findOrCreateByService(token, tokenSecret, profile, callback) {
 	var metaFromServices = ['id', 'provider', 'username', 'displayName'];
 
 	db.users.findOne({ id: profile.id, provider: profile.provider }, function (err, user) {
@@ -73,9 +84,9 @@ exports.findOrCreateByService = function (token, tokenSecret, profile, callback)
 	function  getRandomName() {
 		return 'user' + Math.floor(Math.random()*500 + 1);
 	}
-};
+}
 
-exports.findOrCreateLocal = function (data, callback) {
+ function findOrCreateLocal(data, callback) {
 	db.users.findOne({ email: data.email }, function (err, user) {
 		if (err) {
 			return callback(err);
@@ -138,9 +149,9 @@ exports.findOrCreateLocal = function (data, callback) {
 			});
 		}
 	});
-};
+}
 
-exports.finishUserSetup = function (userId, data, callback) {
+function finishUserSetup(userId, data, callback) {
 	db.users.findOne({ _id: { $ne: new ObjectId(userId) }, name: data.username }, function (err, user) {
 		if (err) {
 			return callback(err);
@@ -183,13 +194,83 @@ exports.finishUserSetup = function (userId, data, callback) {
 				});
 		}
 	});
-};
+}
 
-/*
- * Notification about registered user helper
- */
+function resetPasswordRequest(email, callback) {
+	var current = new Date();
+	var id = crypto.createHash('sha256').update(email + ':' + current.getTime()).digest('hex');
+	var request = {id: id, timestamp: current};
+
+	findByEmail(email, function (err, user) {
+		if (!user) {
+			return callback({message: 'No user with such email found.'});
+		}
+
+		if (user.provider !== 'local') {
+			return callback({message: 'You used ' + user.provider + ' during registration. Please use it for login.'});
+		}
+
+		db.users.findAndModify({
+			query: { email: email },
+			update: { $set: {resetPasswordRequest: request} },
+			'new': true
+		}, deleteRequestedPushed);
+
+		function deleteRequestedPushed(err, user) {
+			if (err) {
+				return callback(err);
+			}
+
+			if (!user) {
+				return callback({message: 'No user with such email found.'});
+			}
+
+			callback(null, request);
+		}
+	});
+}
+
+function changePassword(email, request, password, callback) {
+	findByEmail(email, function (err, user) {
+		if (err) {
+			return callback(err);
+		}
+
+		if (!user.resetPasswordRequest || user.resetPasswordRequest.id !== request) {
+			return callback({message: 'Reset password request is wrong or outdated.'});
+		}
+
+		bcrypt.genSalt(10, function (err, salt) {
+			if (err) {
+				return callback(err);
+			}
+
+			bcrypt.hash(password, salt, null, function (err, hash) {
+				if (err) {
+					return callback(err);
+				}
+
+				db.users.findAndModify({
+					query: { email: email },
+					update: { $set: {password: hash}, $unset: {resetPasswordRequest: 1} },
+					'new': true
+				}, callback);
+			});
+		});
+	});
+}
+
 function sendUserCreatedNotification (user) {
 	var title = '[likeastore] New user registered!';
-	var message = 'Congrats!\n\nNew user ' + (user.email || user.username) + ' just registered for likeastore via ' + user.provider + ' registration. Impress him!';
+	var message = 'Congrats!\n\nNew user ' + (user.email || user.username) + ' just registered for likeastore via ' + user.provider + ' registration on ' + (process.env.NODE_ENV || 'development') + '. Impress him!';
 	notificationUtil.sendEmail(title, message, function () {});
 }
+
+module.exports = {
+	findOrCreateByService: findOrCreateByService,
+	findOrCreateLocal: findOrCreateLocal,
+	finishUserSetup: finishUserSetup,
+	resetPasswordRequest: resetPasswordRequest,
+	findByEmail: findByEmail,
+	changePassword: changePassword
+};

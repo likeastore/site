@@ -19,6 +19,8 @@ ls.auth = {
 		var $name = $form.find('.username');
 		var $email = $form.find('.email');
 		var $pass = $form.find('.password');
+		var $button = $form.find('button[type="submit"]');
+		var originalBtnText = $button.text();
 
 		$form.find('.error').removeClass('error');
 		$form.find('.error-msg').removeClass('on');
@@ -38,6 +40,8 @@ ls.auth = {
 			return;
 		}
 
+		$button.text(($button.data('progress-text') || 'Sending'));
+
 		$.post($form.attr('action'), $form.serializeObject())
 			.done(function (res) {
 				if (res.applicationUrl) {
@@ -54,6 +58,8 @@ ls.auth = {
 		function handleResponse (type, message, $field) {
 			var $msg = $form.find('.msg');
 
+			$button.text(originalBtnText);
+
 			if (type === 'success' && !$msg.hasClass('success')) {
 				return;
 			}
@@ -67,7 +73,7 @@ ls.auth = {
 
 			setTimeout(function () {
 				$msg.removeClass(type + '-msg on');
-			}, 4000);
+			}, 8000);
 		}
 	}
 };

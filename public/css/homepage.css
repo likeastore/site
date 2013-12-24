@@ -292,6 +292,38 @@ form.subscribe .msg {
 	text-align: center;
 }
 
+.featured-block {
+	margin: 55px auto 0;
+}
+
+.featured-block .info-desc {
+	color: #ccc;
+	font: 12px 'proxima_nova_rgbold', 'Lato', 'Helvetica', 'Arial', sans-serif;
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 15px;
+}
+
+.featured-block .featured-logo {
+	display: inline-block;
+	background: url('../img/featured-logos-sprite.png') no-repeat transparent;
+	width: 200px;
+	height: 51px;
+	opacity: .8;
+}
+
+.featured-logo.smashingmag {
+	background-position: 0 5px;
+	background-size: 180px;
+	margin-right: 15px;
+	margin-left: 55px;
+}
+
+.featured-logo.codrops {
+	background-position: 0 -44px;
+	background-size: 160px;
+}
+
 /* Footer */
 footer {
 	position: relative;

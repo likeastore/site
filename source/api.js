@@ -1,6 +1,8 @@
 var _ = require('underscore');
+
 var config = require('../config');
 var users = require('./models/users');
+var emails = require('./models/emails');
 var subscribers = require('./models/subscribers');
 var networks = require('./models/networks');
 var schemas = require('./schemas');
@@ -62,6 +64,46 @@ module.exports = function (app, passport) {
 		});
 	};
 
+	var createResetPasswordRequest = function (req, res) {
+		var email = req.body.email;
+		if (!email) {
+			res.json({message: 'Email is required', status: 412});
+		}
+
+		users.resetPasswordRequest(email, function (err, request) {
+			if (err) {
+				return res.send(403, err);
+			}
+
+			var url = config.siteUrl + '/reset-password?email=' + email + '&request=' + request.id;
+			emails.sendTemplate([{email: email}], 'reset-password', [{name: 'URL', content: url}], function (err) {
+				if (err) {
+					return res.send(500, err);
+				}
+
+				res.send(200, {message: 'Thanks, email with instuctions just went to your inbox.'});
+			});
+		});
+	};
+
+	var resetPassword = function (req, res) {
+		var request = req.body.request;
+		var email = req.body.email;
+		var password = req.body.password;
+
+		if (!password) {
+			return res.json({message: 'Password is required', status: 412});
+		}
+
+		users.changePassword(email, request, password, function (err) {
+			if (err) {
+				return res.send(500, err);
+			}
+
+			res.send(200, {message: 'Your password has been reset. Please re-login.'});
+		});
+	};
+
 	var cleanSession = function (req, res, next) {
 		delete req.session.localUser;
 		return next();
@@ -87,5 +129,6 @@ module.exports = function (app, passport) {
 	app.get('/auth/github/callback', passport.authenticate('github', authRedirect));
 	app.get('/auth/facebook', cleanSession, passport.authenticate('facebook'));
 	app.get('/auth/facebook/callback', passport.authenticate('facebook', authRedirect));
-
+	app.post('/resetpassword/request', createResetPasswordRequest);
+	app.post('/resetpassword', resetPassword);
 };
