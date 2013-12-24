@@ -94,6 +94,22 @@
 		line-height: 22px;
 	}
 
+	.newsletter-block {
+		background: transparent;
+		border: 0;
+		padding: 0;
+	}
+
+	.featured-block .featured-logo {
+		width: 170px;
+	}
+
+	.featured-logo.smashingmag {
+		background-size: 165px;
+		margin-right: 0;
+		margin-left: 10px;
+	}
+
 	.footer-block .bottom .inc,
 	.footer-block .bottom .faq {
 		font-size: 8px;

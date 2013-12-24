@@ -34,7 +34,7 @@ form.register input.password {
 	display: inline-block;
 	color: #818181;
 	font-size: 11px;
-	margin: 0 5px 15px 0;
+	margin: 0 2px 15px 0;
 }
 
 /* Social auth buttons */
