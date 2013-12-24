@@ -15,6 +15,7 @@ ls.auth = {
 	send: function (e) {
 		e.stop();
 
+		var self = this;
 		var $form = $(e.target);
 		var $name = $form.find('.username');
 		var $email = $form.find('.email');
@@ -48,11 +49,15 @@ ls.auth = {
 					window.location = res.applicationUrl;
 				}
 				$form.find('.error').removeClass('error');
+
 				handleResponse('success', res.message, $('.' + res.field));
+				self.successInterceptor(res, $form);
 			})
 			.fail(function (err) {
 				var data = $.parseJSON(err.responseText);
+
 				handleResponse('error',  data.message, $('.' + data.field));
+				self.errorInterceptor(data, $form);
 			});
 
 		function handleResponse (type, message, $field) {

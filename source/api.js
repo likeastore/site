@@ -100,7 +100,7 @@ module.exports = function (app, passport) {
 				return res.send(500, err);
 			}
 
-			res.send(200, {message: 'Your password has been reset. Please re-login.'});
+			res.send(200, {message: 'Your password has been reset.'});
 		});
 	};
 
