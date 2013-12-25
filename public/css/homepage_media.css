@@ -100,14 +100,28 @@
 		padding: 0;
 	}
 
+	.counter-block .counter {
+		font-size: 3.5em;
+	}
+
+	.counter-block .counter-text {
+		font-size: 12px;
+	}
+
 	.featured-block .featured-logo {
-		width: 170px;
+		width: 120px;
+		height: 40px;
 	}
 
 	.featured-logo.smashingmag {
-		background-size: 165px;
-		margin-right: 0;
-		margin-left: 10px;
+		background-size: 125px;
+		margin-right: 10px;
+		margin-left: 0;
+	}
+
+	.featured-logo.codrops {
+		background-position: 0 -34px;
+		background-size: 120px;
 	}
 
 	.footer-block .bottom .inc,
