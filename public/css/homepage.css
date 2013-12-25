@@ -222,6 +222,22 @@ h2.subtitle {
 	text-transform: capitalize;
 }
 
+.counter-block {
+	margin: 80px auto 0;
+}
+
+.counter-block .counter {
+	font: 5em 'proxima_nova_rgbold', 'Lato', 'Helvetica', 'Arial', sans-serif;
+}
+
+.counter-block .counter-text {
+	color: #818181;
+	font-size: 16px;
+	font-weight: 300;
+	margin: 0 0 35px;
+	text-transform: uppercase;
+}
+
 .collect-link {
 	display: block;
 	background: #fff;
@@ -231,7 +247,7 @@ h2.subtitle {
 	width: 256px;
 	height: 52px;
 	line-height: 52px;
-	margin: 80px auto 0;
+	margin: 20px auto 0;
 	text-align: center;
 	text-transform: capitalize;
 	-webkit-tap-highlight-color: transparent;
@@ -251,7 +267,10 @@ h2.subtitle {
 }
 
 .newsletter-block {
+	background: rgba(0,0,0,.02);
+	border-bottom: 1px solid #eee;
 	margin: 80px auto 0;
+	padding: 25px 0 35px;
 }
 
 .newsletter-block .info-desc {
@@ -307,7 +326,7 @@ form.subscribe .msg {
 .featured-block .featured-logo {
 	display: inline-block;
 	background: url('../img/featured-logos-sprite.png') no-repeat transparent;
-	width: 200px;
+	width: 175px;
 	height: 51px;
 	opacity: .8;
 }
@@ -316,7 +335,7 @@ form.subscribe .msg {
 	background-position: 0 5px;
 	background-size: 180px;
 	margin-right: 15px;
-	margin-left: 55px;
+	margin-left: 35px;
 }
 
 .featured-logo.codrops {

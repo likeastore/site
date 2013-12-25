@@ -1,4 +1,5 @@
 var _ = require('underscore');
+var request = require('request');
 
 var config = require('../config');
 var users = require('./models/users');
@@ -104,6 +105,16 @@ module.exports = function (app, passport) {
 		});
 	};
 
+	var getLikesCount = function (req, res, next) {
+		request(config.applicationUrl + '/api/items/count', function (err, resp, body) {
+			if (err) {
+				return res.send(500, err);
+			}
+
+			res.send(200, body);
+		});
+	};
+
 	var cleanSession = function (req, res, next) {
 		delete req.session.localUser;
 		return next();
@@ -131,4 +142,5 @@ module.exports = function (app, passport) {
 	app.get('/auth/facebook/callback', passport.authenticate('facebook', authRedirect));
 	app.post('/resetpassword/request', createResetPasswordRequest);
 	app.post('/resetpassword', resetPassword);
+	app.get('/likescount', getLikesCount);
 };

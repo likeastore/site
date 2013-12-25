@@ -13,6 +13,8 @@ ls.welcomePage = {
 		if ($.isDesktop()) {
 			this.initRegisterDialog();
 		}
+
+		this.initLikeCounter();
 	},
 
 	setHeights: function () {
@@ -135,6 +137,29 @@ ls.welcomePage = {
 			$image.css('-webkit-transform', 'translateY(' + $window.scrollTop() / 7 + 'px)');
 			$body.toggleClass('stepfixer', $window.scrollTop() >= barsTop);
 		});
+	},
+
+	initLikeCounter: function () {
+		$.get('/likescount').done(function (res) {
+			$('.counter').text(res.replace(/\B(?=(\d{3})+(?!\d))/g, ' '));
+		});
+	},
+
+	// currently not used
+	autoCoutner: function ($counter, start) {
+		var num = parseInt(start, 10);
+
+		setInterval(setCounter, 1000);
+		setCounter();
+
+		function setCounter () {
+			num = num + getRandomInt(1, 15);
+			$counter.text(num);
+		}
+
+		function getRandomInt (min, max) {
+			return Math.floor(Math.random() * (max - min + 1)) + min;
+		}
 	}
 };
 
