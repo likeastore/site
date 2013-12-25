@@ -16,6 +16,10 @@
 		return window.screenX !== 0 || !('ontouchstart' in window || 'onmsgesturechange' in window);
 	};
 
+	$.isIOS = function () {
+		return (/(ipad|iphone|ipod)/g).test(navigator.userAgent.toLowerCase());
+	};
+
 	$.fn.validate = function () {
 		var $target = $(this);
 		var regex = $target.hasClass('email') ?
