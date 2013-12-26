@@ -47,6 +47,35 @@
 	margin: 0;
 }
 
+.setup-page .msg.user-suggest {
+	text-align: left;
+	padding-top: 20px;
+	overflow: hidden;
+	margin-bottom: 20px;
+	height: 35px;
+}
+
+.setup-page .msg.user-suggest img {
+	width: 30px;
+	height: 30px;
+	padding-top: 3px;
+	-webkit-border-radius: 100%;
+	border-radius: 100%;
+}
+
+.setup-page .msg.user-suggest span {
+	display: inline-block;
+	font-size: 13px;
+	vertical-align: top;
+	padding-left: 6px;
+	width: 260px;
+	line-height: 18px;
+}
+
+.setup-page .msg.user-suggest span b {
+	font-weight: bold;
+}
+
 /* Media queries */
 @media (max-width: 440px) {
 	.wrap {
