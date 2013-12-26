@@ -158,7 +158,7 @@ function finishUserSetup(userId, data, callback) {
 		}
 
 		if (user && user.name === data.username) {
-			return callback({ field: 'username', message: 'User with such username already exists.' });
+			return callback({ field: 'username', message: 'User with such username already exists.', user: user });
 		}
 
 		if (data.email) {
