@@ -1,6 +1,7 @@
 var config = require('../config');
 var Hashids = require('hashids');
 var items = require('./models/items');
+var users = require('./models/users');
 
 var hashids = new Hashids(config.hashids.salt);
 var env = process.env.NODE_ENV || 'development';
@@ -55,7 +56,14 @@ module.exports = function (app) {
 				return res.redirect(config.siteUrl);
 			}
 
-			res.render('share_like', { title: 'Likeastore • Title of item', like: item, mode: env });
+			users.findByEmail(item.user, function (err, user) {
+				if (err || !user) {
+					return res.redirect(config.siteUrl);
+				}
+
+				res.render('share_like', { title: 'Likeastore • Title of item', like: item, user: user, mode: env });
+			});
+
 		});
 	};
 
