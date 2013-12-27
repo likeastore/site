@@ -1,4 +1,8 @@
 var config = require('../config');
+var Hashids = require('hashids');
+var items = require('./models/items');
+
+var hashids = new Hashids(config.hashids.salt);
 var env = process.env.NODE_ENV || 'development';
 
 module.exports = function (app) {
@@ -36,25 +40,23 @@ module.exports = function (app) {
 	};
 
 	var shareLike = function (req, res) {
-		var example = {
-			_id: "52bacd42aa23aae315c0d40d",
-			authorGravatar: "0555151f9123f67ea9a0cff1d78dfbf6",
-			authorName: "adamalex",
-			authorUrl: "https://github.com/adamalex",
-			avatarUrl: "https://www.gravatar.com/avatar/0555151f9123f67ea9a0cff1d78dfbf6?d=mm",
-			created: "2013-11-10T23:07:22.000Z",
-			date: "2013-12-25T12:19:13.852Z",
-			description: "An example of using Docker to package a Node.js script with all its dependencies, including Node.  The example logic saves a URL response to Amazon S3",
-			idInt: 14286406,
-			itemId: "14286406",
-			name: "adamalex/docker-urlarchiver",
-			repo: "docker-urlarchiver",
-			source: "https://github.com/adamalex/docker-urlarchiver",
-			type: "github",
-			user: "git+dmitri.voronianski@gmail.com"
-		};
+		var hash = req.params.id;
+		if (!hash) {
+			return res.redirect(config.siteUrl);
+		}
 
-		res.render('share_like', { title: 'Likeastore • Title of item', like: example, mode: env });
+		var id = hashids.decryptHex(hash);
+		if (!id || id === '') {
+			return res.redirect(config.siteUrl);
+		}
+
+		items.findById(id, function (err, item) {
+			if (err || !item) {
+				return res.redirect(config.siteUrl);
+			}
+
+			res.render('share_like', { title: 'Likeastore • Title of item', like: item, mode: env });
+		});
 	};
 
 	var checkFirstTime = function (req, res, next) {
