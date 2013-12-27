@@ -40,8 +40,8 @@
 .like-white-board {
 	background: #fff;
 	width: 100%;
-	min-height: 305px;
-	padding: 20px 0 15px;
+	min-height: 180px;
+	padding: 20px 0 10px;
 	margin-bottom: 50px;
 	overflow: hidden;
 }
@@ -137,14 +137,15 @@
 	color: #818181;
 	font-size: 16px;
 	width: 75%;
-	min-height: 270px;
+	min-height: 155px;
+	padding-bottom: 35px;
 	line-height: 24px;
 	overflow: hidden;
 }
 
 .like-wrap.thumbed .desc {
 	min-height: 100px;
-	padding-bottom: 20px;
+	padding-bottom: 15px;
 }
 
 .like-wrap .desc canvas {
@@ -175,7 +176,7 @@
 	font-size: 100px;
 	position: absolute;
 	right: -8px;
-	bottom: -50px;
+	bottom: -45px;
 }
 
 .author-like,
@@ -318,17 +319,13 @@
 		width: 300px;
 	}
 
-	.like-wrap .desc {
-		width: 100%;
-	}
-
 	.like-wrap img {
 		margin: 2px 15px 15px 0px;
 	}
 
 	.like-wrap {
 		width: 100%;
-		padding: 0 10px;
+		padding: 0 20px;
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
 		box-sizing: border-box;
@@ -380,6 +377,10 @@
 }
 
 @media (max-width: 480px) {
+	.like-wrap .desc {
+		width: 60%;
+	}
+
 	.share-register-wrap .auth-btn,
 	.share-register-wrap .auth-btn:hover,
 	.share-register-wrap .auth-btn:focus {
