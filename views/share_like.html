@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% import './snippets.html' as snippets %}
 
+{% block fbmeta %}{% endblock %}
+
 {% block styles %}
-<link rel="stylesheet" href="/css/merge/terms_merge.css">
-<link rel="stylesheet" href="/css/register_form.css">
-<link rel="stylesheet" href="/css/share_like.css">
+<link rel="stylesheet" href="{% if mode === 'production' %}/build/share_merge.min.css{% else %}/css/merge/share_merge.css{% endif %}">
 {% endblock %}
 
 {% block bodyClass %}share-like-page{% endblock %}

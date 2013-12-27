@@ -61,7 +61,12 @@ module.exports = function (app) {
 					return res.redirect(config.siteUrl);
 				}
 
-				res.render('share_like', { title: 'Likeastore • Title of item', like: item, user: user, mode: env });
+				res.render('share_like', {
+					title: 'Likeastore • ' + (user.displayName || user.name) + ' liked on ' + item.type,
+					like: item,
+					user: user,
+					mode: env
+				});
 			});
 
 		});
