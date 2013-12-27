@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% import './snippets.html' as snippets %}
+
+{% block styles %}
+<link rel="stylesheet" href="/css/merge/terms_merge.css">
+<link rel="stylesheet" href="/css/share_like.css">
+{% endblock %}
+
+{% block bodyClass %}share-like-page{% endblock %}
+
+{% block content %}
+	{{ snippets.multicolored_bar() }}
+
+	<h2 class="logo small fixed">
+		<a href="/">likeastore.</a>
+	</h2>
+
+	<div class="like-wrap {{like.type}}">
+		<img src="{{like.avatarUrl}}">
+
+		{% if like.repo %}
+		<div class="repo">{{like.repo}}</div>
+		{% endif %}
+
+		<div class="desc">
+			{% if like.description %}
+				<div class="desc-text">{{like.description}}</div>
+			{% else %}
+				<div class="empty-desc">This item has no description :(</div>
+			{% endif %}
+
+			<div class="autor-like">by @{{like.authorName}}</div>
+		</div>
+
+		<div class="like-date">{{like.type}} &#8226; {{like.created}}</div>
+		<i class="like-type font-icon {{like.type}}-icon"></i>
+	</div>
+{% endblock %}

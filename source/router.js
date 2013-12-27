@@ -35,6 +35,28 @@ module.exports = function (app) {
 		res.render('privacy',  { title: 'Likeastore • Privacy Policy', mode: env });
 	};
 
+	var shareLike = function (req, res) {
+		var example = {
+			_id: "52bacd42aa23aae315c0d40d",
+			authorGravatar: "0555151f9123f67ea9a0cff1d78dfbf6",
+			authorName: "adamalex",
+			authorUrl: "https://github.com/adamalex",
+			avatarUrl: "https://www.gravatar.com/avatar/0555151f9123f67ea9a0cff1d78dfbf6?d=mm",
+			created: "2013-11-10T23:07:22.000Z",
+			date: "2013-12-25T12:19:13.852Z",
+			description: "An example of using Docker to package a Node.js script with all its dependencies, including Node.  The example logic saves a URL response to Amazon S3",
+			idInt: 14286406,
+			itemId: "14286406",
+			name: "adamalex/docker-urlarchiver",
+			repo: "docker-urlarchiver",
+			source: "https://github.com/adamalex/docker-urlarchiver",
+			type: "github",
+			user: "git+dmitri.voronianski@gmail.com"
+		};
+
+		res.render('share_like', { title: 'Likeastore • Title of item', like: example, mode: env });
+	};
+
 	var checkFirstTime = function (req, res, next) {
 		if (req.user.firstTimeUser) {
 			return next();
@@ -60,4 +82,5 @@ module.exports = function (app) {
 	app.get('/setup', checkAuth, checkFirstTime, setup);
 	app.get('/terms', termsOfUse);
 	app.get('/privacy', privacyPolicy);
+	app.get('/s/:id', shareLike);
 };

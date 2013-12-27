@@ -4,7 +4,6 @@ module.exports = function (grunt) {
 		cssmin: {
 			combine: {
 				options: {
-					banner: '/* merged:' + new Date().toISOString() + ' */',
 					report: 'gzip'
 				},
 				files: {
