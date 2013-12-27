@@ -3,6 +3,7 @@
 
 {% block styles %}
 <link rel="stylesheet" href="/css/merge/terms_merge.css">
+<link rel="stylesheet" href="/css/register_form.css">
 <link rel="stylesheet" href="/css/share_like.css">
 {% endblock %}
 
@@ -16,27 +17,86 @@
 	</h2>
 
 	<div class="user-info">
-		<img src="{{user.avatarUrl}}"> {{user.displayName or user.name}} saved
+		<img src="{{user.avatar}}">
+		<span><span class="name">{{user.displayName or user.name}}</span> liked via <span class="name">{{like.type|capitalize}}</span> service:</span>
 	</div>
 
-	<div class="like-wrap {{like.type}}">
-		<img src="{{like.avatarUrl}}">
-
-		{% if like.repo %}
-		<div class="repo">{{like.repo}}</div>
-		{% endif %}
-
-		<div class="desc">
-			{% if like.description %}
-				<div class="desc-text">{{like.description}}</div>
+	<div class="like-white-board">
+		<div class="like-wrap {{like.type}}{% if like.thumbnail %} thumbed{% endif %}">
+			{% if like.thumbnail %}
+				<div class="like-thumb-wrap">
+					<a href="{{like.source}}" class="source-link" target="_blank"></a>
+					<div class="like-bg" style="background-image: url({{like.thumbnail}})"></div>
+					<div class="like-bg-info">
+						<i class="font-icon play-icon"></i>
+						<h2 class="title">{{like.title}}</h2>
+					</div>
+				</div>
 			{% else %}
-				<div class="empty-desc">This item has no description :(</div>
+				{% if like.avatarUrl %}
+					{% if like.authorUrl %}<a href="{{like.authorUrl}}" target="blank">{% endif %}
+					<img src="{{like.avatarUrl}}">
+					{% if like.authorUrl %}</a>{% endif %}
+				{% endif %}
+
+				{% if like.repo %}
+					<div class="repo">{{like.repo}}</div>
+				{% endif %}
 			{% endif %}
 
-			<div class="autor-like">by @{{like.authorName}}</div>
-		</div>
+			<div class="desc">
+				{% if like.description %}
+					{{like.description}}
+				{% else %}
+					This item has no description :(
+				{% endif %}
 
-		<div class="like-date">{{like.type}} &#8226; {{like.created|date('F d, Y')}}</div>
-		<i class="like-type font-icon {{like.type}}-icon"></i>
+				{% if like.authorName %}
+					<div class="author-like">
+					{% if like.authorUrl %}<a href="{{like.authorUrl}}" target="blank">{% endif %}
+					by @{{like.authorName}}
+					{% if like.authorUrl %}</a>{% endif %}
+				</div>
+				{% endif %}
+			</div>
+
+			<div class="like-date">
+				<a href="{{like.source}}" target="_blank"><i data-icon="2" class="link-icon"></i></a>
+				<span>Created at {{like.type}} on {{like.created|date('F d, Y')}}</span>
+			</div>
+
+			<i class="like-type font-icon {{like.type}}-icon"></i>
+		</div>
+	</div>
+
+	<div class="share-register-wrap">
+		<h3>Don’t miss any updates from {{user.displayName or user.name}}</h3>
+		<div class="desc">Join Likeastore today and see what interests you!</div>
+
+		<form action="/auth/local/login" class="formular register" method="post" accept-charset="utf-8" novalidate>
+			<div class="msg"></div>
+			<div class="field-wrap">
+				<input type="email" name="email" class="field email" placeholder="Email" autocomplete="off">
+			</div>
+			<div class="field-wrap">
+				<input type="password" name="password" class="field password" placeholder="Password">
+			</div>
+			<button type="submit" class="do-register-btn btn green-btn">Sign in</button>
+		</form>
+
+		<div class="social-auth">
+			<a class="facebook auth-btn" href="/auth/facebook">
+				<i data-icon="g" class="icon"></i>
+				<span>Facebook</span>
+			</a>
+			<a class="twitter auth-btn" href="/auth/twitter">
+				<i data-icon="b" class="icon"></i>
+				<span>Twitter</span>
+			</a>
+			<a class="github auth-btn" href="/auth/github">
+				<i data-icon="d" class="icon"></i>
+				<span>Github</span>
+			</a>
+		</div>
 	</div>
 {% endblock %}

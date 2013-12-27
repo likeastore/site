@@ -73,3 +73,7 @@
 .play-icon:before {
 	content: 'W';
 }
+
+.link-icon {
+	content: '2';
+}
