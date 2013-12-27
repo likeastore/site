@@ -143,7 +143,7 @@
 }
 
 .like-wrap.thumbed .desc {
-	min-height: 110px;
+	min-height: 115px;
 }
 
 .like-wrap .desc canvas {
@@ -196,6 +196,8 @@
 	font-weight: 700;
 	text-transform: uppercase;
 	text-decoration: none;
+	position: relative;
+	z-index: 1;
 }
 
 .like-date .link-icon {
@@ -216,8 +218,17 @@
 }
 
 /* Share register form */
+.share-register-wrap ,
+.share-register-wrap  *,
+.share-register-wrap  *:before,
+.share-register-wrap  *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 .share-register-wrap {
-	width: 468px;
+	width: 465px;
 	margin: 0 auto 95px;
 }
 
@@ -237,7 +248,7 @@
 
 .share-register-wrap form.register .field-wrap {
 	display: inline-block;
-	width: 170px;
+	width: 172px;
 	margin-right: 10px;
 }
 
@@ -253,9 +264,9 @@
 .share-register-wrap .auth-btn:hover,
 .share-register-wrap .auth-btn:focus {
 	display: inline-block;
-	width: 143px;
-	height: 35px;
-	margin-right: 6px;
+	width: 148px;
+	height: 39px;
+	margin-right: 7px;
 }
 
 .share-register-wrap .auth-btn span {
@@ -268,6 +279,125 @@
 }
 
 .share-register-wrap .auth-btn.github {
-	width: 144px;
 	margin-right: 0;
+}
+
+.separator {
+	display: none;
+	text-align: center;
+	margin-top: 15px;
+}
+
+@media (max-width: 760px) {
+	.logo.fixed {
+		position: absolute;
+		right: 0;
+		left: 0;
+		text-align: center;
+	}
+}
+
+@media (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+	.share-register-wrap form.register .field-wrap {
+		width: 170px;
+		margin-right: 9px;
+	}
+}
+
+@media (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+	.share-register-wrap form.register .field-wrap {
+		width: 170px;
+		margin-right: 9px;
+	}
+}
+
+@media (max-width: 520px) {
+	.user-info {
+		margin-left: 10px;
+		width: 300px;
+	}
+
+	.like-wrap .desc {
+		width: 100%;
+	}
+
+	.like-wrap img {
+		margin: 2px 15px 15px 0px;
+	}
+
+	.like-wrap {
+		width: 100%;
+		padding: 0 10px;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+	.share-register-wrap {
+		width: 100%;
+		padding: 0 10px;
+	}
+
+	.share-register-wrap form.register .field-wrap {
+		display: block;
+		width: 100%;
+		margin-right: 0;
+	}
+
+	.share-register-wrap form.register .field-wrap .password {
+		margin-bottom: 12px;
+	}
+
+	.share-register-wrap .social-auth {
+		margin-top: 30px;
+	}
+
+	.share-register-wrap form.register .do-register-btn {
+		width: 100%;
+	}
+
+	.share-register-wrap .auth-btn,
+	.share-register-wrap .auth-btn:hover,
+	.share-register-wrap .auth-btn:focus {
+		width: 122px;
+	}
+
+	.share-register-wrap .auth-btn span {
+		margin-left: 16px;
+	}
+
+	.share-register-wrap .auth-btn.facebook span {
+		margin-left: 8px;
+	}
+}
+
+@media (max-device-width: 480px) and (orientation: landscape) {
+	.share-register-wrap form.register .field-wrap {
+		width: 170px;
+		margin-right: 9px;
+	}
+}
+
+@media (max-width: 480px) {
+	.share-register-wrap .auth-btn,
+	.share-register-wrap .auth-btn:hover,
+	.share-register-wrap .auth-btn:focus {
+		width: 100%;
+	}
+
+	.share-register-wrap .social-auth {
+		margin-top: 15px;
+	}
+
+	.share-register-wrap .auth-btn span {
+		margin-left: 30px;
+	}
+
+	.share-register-wrap .auth-btn.facebook span {
+		margin-left: 30px;
+	}
+
+	.separator {
+		display: block;
+	}
 }

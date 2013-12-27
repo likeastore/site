@@ -74,6 +74,6 @@
 	content: 'W';
 }
 
-.link-icon {
+.link-icon:before {
 	content: '2';
 }
