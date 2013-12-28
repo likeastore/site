@@ -102,7 +102,6 @@ ls.auth = {
 					$msg.removeClass(type + '-msg on');
 				}, 8000);
 			}
-
 		}
 	}
 };
