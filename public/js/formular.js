@@ -1,8 +1,11 @@
+/* jshint multistr: true */
 /*
  * Common forms module (registration, login, subscription)
  */
 
 ls.auth = {
+
+	hideTimer: null, // control error messages show/hide
 
 	init: function () {
 		$('.field').focus(function (e) {
@@ -25,6 +28,7 @@ ls.auth = {
 
 		$form.find('.error').removeClass('error');
 		$form.find('.error-msg').removeClass('on');
+		$form.find('.user-suggest').removeClass('user-suggest');
 
 		if (!$name.validate()) {
 			handleResponse('error', 'Username is empty or contains not allowed symbols!', $name);
@@ -50,17 +54,23 @@ ls.auth = {
 				}
 				$form.find('.error').removeClass('error');
 
-				handleResponse('success', res.message, $('.' + res.field));
-				self.successInterceptor(res, $form);
+				handleResponse('success', res.message, $('.' + res.field), res);
+
+				if (self.successInterceptor) {
+					self.successInterceptor(res, $form);
+				}
 			})
 			.fail(function (err) {
 				var data = $.parseJSON(err.responseText);
 
-				handleResponse('error',  data.message, $('.' + data.field));
-				self.errorInterceptor(data, $form);
+				handleResponse('error',  data.message, $('.' + data.field), data);
+
+				if (self.errorInterceptor) {
+					self.errorInterceptor(data, $form);
+				}
 			});
 
-		function handleResponse (type, message, $field) {
+		function handleResponse (type, message, $field, resp) {
 			var $msg = $form.find('.msg');
 
 			$button.text(originalBtnText);
@@ -74,11 +84,24 @@ ls.auth = {
 			}
 
 			$msg.addClass(type + '-msg on');
-			$msg.text(message);
 
-			setTimeout(function () {
-				$msg.removeClass(type + '-msg on');
-			}, 8000);
+			if (resp && resp.user) {
+				var user = resp.user;
+
+				clearTimeout(self.hideTimer);
+
+				$msg.addClass('user-suggest');
+				$msg.html('\
+					<img src="' + user.avatar + '"/>\
+					<span>Email is already registered. ' + (user.displayName || user.name) + ', is it you?\
+					You can sign in with <b>' + user.provider + '</b> account.</span>');
+			} else {
+				$msg.text(message);
+
+				self.hideTimer = setTimeout(function () {
+					$msg.removeClass(type + '-msg on');
+				}, 8000);
+			}
 		}
 	}
 };

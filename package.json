@@ -28,7 +28,8 @@
     "swig": "~1.1.0",
     "dookie-css": "~0.1.5",
     "seismo-client": "0.0.4",
-    "request": "~2.30.0"
+    "request": "~2.30.0",
+    "hashids": "0.3.3"
   },
   "devDependencies": {
     "zombie": "~2.0.0-alpha19",

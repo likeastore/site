@@ -168,7 +168,7 @@ function finishUserSetup(userId, data, callback) {
 				}
 
 				if (user && user.email === data.email) {
-					return callback({ field: 'email', message: 'User with such email already exists.' });
+					return callback({ field: 'email', message: 'User with such email already exists.', user: user });
 				}
 
 				saveUser();

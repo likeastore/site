@@ -22,17 +22,6 @@
 	font-style: normal;
 }
 
-[data-icon]:before {
-	font-family: 'icon-font';
-	content: attr(data-icon);
-	font-style: normal;
-	font-weight: normal;
-	speak: none;
-	line-height: 1;
-	text-transform: none;
-	-webkit-font-smoothing: antialiased;
-}
-
 ::selection {
 	background-color: #e74c3c;
 	color: #fff;
@@ -182,6 +171,7 @@ input.field:focus {
 	height: 3px;
 	width: 100%;
 	top: 0;
+	z-index: 1000;
 }
 
 .bars li {

@@ -1,4 +1,9 @@
 var config = require('../config');
+var Hashids = require('hashids');
+var items = require('./models/items');
+var users = require('./models/users');
+
+var hashids = new Hashids(config.hashids.salt);
 var env = process.env.NODE_ENV || 'development';
 
 module.exports = function (app) {
@@ -35,6 +40,38 @@ module.exports = function (app) {
 		res.render('privacy',  { title: 'Likeastore • Privacy Policy', mode: env });
 	};
 
+	var shareLike = function (req, res) {
+		var hash = req.params.id;
+		if (!hash) {
+			return res.redirect(config.siteUrl);
+		}
+
+		var id = hashids.decryptHex(hash);
+		if (!id || id === '') {
+			return res.redirect(config.siteUrl);
+		}
+
+		items.findById(id, function (err, item) {
+			if (err || !item) {
+				return res.redirect(config.siteUrl);
+			}
+
+			users.findByEmail(item.user, function (err, user) {
+				if (err || !user) {
+					return res.redirect(config.siteUrl);
+				}
+
+				res.render('share_like', {
+					title: 'Likeastore • ' + (user.displayName || user.name) + ' shares like on' + item.type,
+					like: item,
+					user: user,
+					mode: env
+				});
+			});
+
+		});
+	};
+
 	var checkFirstTime = function (req, res, next) {
 		if (req.user.firstTimeUser) {
 			return next();
@@ -60,4 +97,5 @@ module.exports = function (app) {
 	app.get('/setup', checkAuth, checkFirstTime, setup);
 	app.get('/terms', termsOfUse);
 	app.get('/privacy', privacyPolicy);
+	app.get('/s/:id', shareLike);
 };

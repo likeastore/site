@@ -1,0 +1,83 @@
+[data-icon]:before,
+.font-icon:before {
+	font-family: 'icon-font';
+	content: attr(data-icon);
+	font-style: normal;
+	font-weight: normal;
+	speak: none;
+	line-height: 1;
+	text-transform: none;
+	-webkit-font-smoothing: antialiased;
+}
+
+.github-icon:before {
+	content: 'd';
+}
+
+.twitter-icon:before {
+	content: 'b';
+}
+
+.stackoverflow-icon:before {
+	content: 'a';
+}
+
+.facebook-icon:before {
+	content: 'g';
+}
+
+.dribbble-icon:before {
+	content: 'y';
+}
+
+.behance-icon:before {
+	content: '4';
+}
+
+.instagram-icon:before {
+	content: 'z';
+}
+
+.pinterest-icon:before {
+	content: 'A';
+}
+
+.bitbucket-icon:before {
+	content: 'B';
+}
+
+.vimeo-icon:before {
+	content: 'C';
+}
+
+.youtube-icon:before {
+	content: 'O';
+}
+
+.date-icon:before {
+	content: 'o';
+}
+
+.full-star-icon:before {
+	content: 's';
+}
+
+.settings-icon:before {
+	content: 'u';
+}
+
+.main-icon:before {
+	content: 'w';
+}
+
+.delete-icon:before {
+	content: 'v';
+}
+
+.play-icon:before {
+	content: 'W';
+}
+
+.link-icon:before {
+	content: '2';
+}
