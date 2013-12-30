@@ -46,7 +46,7 @@
 
 			<div class="desc">
 				{% if like.description %}
-					{{like.description}}
+					{{like.description|linkify|safe}}
 				{% else %}
 					This item has no description :(
 				{% endif %}
