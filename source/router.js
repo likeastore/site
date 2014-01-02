@@ -88,6 +88,17 @@ module.exports = function (app) {
 		res.redirect('/register');
 	};
 
+	var fail = function (req, res, next) {
+		if (env !== 'development' || env !== 'staging') {
+			return next();
+		}
+
+		var undef;
+		undef.fail();
+
+		res.send(200);
+	};
+
 	app.get('/', index);
 	app.get('/join', register);
 	app.get('/login', register);
@@ -98,4 +109,5 @@ module.exports = function (app) {
 	app.get('/terms', termsOfUse);
 	app.get('/privacy', privacyPolicy);
 	app.get('/s/:id', shareLike);
+	app.get('/fail', fail);
 };
