@@ -93,10 +93,12 @@ module.exports = function (app) {
 			return next();
 		}
 
-		var undef;
-		undef.fail();
+		setTimeout(function () {
+			var nu = null;
+			nu.access();
 
-		res.send(200);
+			res.send('Hello World');
+		}, 1000);
 	};
 
 	app.get('/', index);
