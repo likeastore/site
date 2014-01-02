@@ -89,7 +89,7 @@ module.exports = function (app) {
 	};
 
 	var fail = function (req, res, next) {
-		if (env !== 'development' || env !== 'staging') {
+		if (env === 'production') {
 			return next();
 		}
 
