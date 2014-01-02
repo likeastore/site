@@ -29,7 +29,8 @@
     "dookie-css": "~0.1.5",
     "seismo-client": "0.0.4",
     "request": "~2.30.0",
-    "hashids": "0.3.3"
+    "hashids": "0.3.3",
+    "respawn": "~0.1.7"
   },
   "devDependencies": {
     "zombie": "~2.0.0-alpha19",
