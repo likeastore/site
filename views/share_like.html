@@ -12,6 +12,8 @@
 {% block content %}
 	{{ snippets.multicolored_bar() }}
 
+	{% set video = like.type == 'youtube' or like.type == 'vimeo' %}
+
 	<h2 class="logo small fixed">
 		<a href="/">likeastore.</a>
 	</h2>
@@ -27,10 +29,13 @@
 				<div class="like-thumb-wrap">
 					<a href="{{like.source}}" class="source-link" target="_blank"></a>
 					<div class="like-bg" style="background-image: url({{like.thumbnail}})"></div>
+
+					{% if video %}
 					<div class="like-bg-info">
-						{% if like.type == 'youtube' or like.type == 'vimeo'%}<i class="font-icon play-icon"></i>{% endif %}
-						<h2 class="title">{{like.title}}</h2>
+						<i class="font-icon play-icon"></i>
+						<h2 class="title">{{like.title|title}}</h2>
 					</div>
+					{% endif %}
 				</div>
 			{% else %}
 				{% if like.avatarUrl %}
@@ -45,12 +50,16 @@
 			{% endif %}
 
 			<div class="desc">
+				{% if not video %}
+				<h2 class="title">{{like.title|title}}</h2>
+				{% endif %}
+
 				{% if like.description %}
-					{{like.description|linkify|safe}}
+					<div class="info-text">{{like.description|linkify|safe}}</div>
 				{% endif %}
 
 				{% if like.authorName %}
-					<div class="author-like">
+				<div class="author-like">
 					{% if like.authorUrl %}<a href="{{like.authorUrl}}" target="blank">{% endif %}
 					by @{{like.authorName}}
 					{% if like.authorUrl %}</a>{% endif %}
