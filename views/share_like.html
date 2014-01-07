@@ -28,7 +28,7 @@
 					<a href="{{like.source}}" class="source-link" target="_blank"></a>
 					<div class="like-bg" style="background-image: url({{like.thumbnail}})"></div>
 					<div class="like-bg-info">
-						<i class="font-icon play-icon"></i>
+						{% if like.type == 'youtube' or like.type == 'vimeo'%}<i class="font-icon play-icon"></i>{% endif %}
 						<h2 class="title">{{like.title}}</h2>
 					</div>
 				</div>
@@ -47,8 +47,6 @@
 			<div class="desc">
 				{% if like.description %}
 					{{like.description|linkify|safe}}
-				{% else %}
-					This item has no description :(
 				{% endif %}
 
 				{% if like.authorName %}
@@ -70,7 +68,7 @@
 	</div>
 
 	<div class="share-register-wrap">
-		<h3>Checkout other {{user.displayName or user.name}} likes</h3>
+		<h3>Check out other {{user.displayName or user.name}}'s likes</h3>
 		<div class="desc">Join Likeastore today and see what interests you!</div>
 
 		<form action="/auth/local/login" class="formular register" method="post" accept-charset="utf-8" novalidate>

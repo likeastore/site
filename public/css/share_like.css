@@ -2,6 +2,10 @@
  * Share like page
  */
 
+.bars {
+	position: fixed;
+}
+
 .share-like-page {
 	background: #fbfbfb;
 }
