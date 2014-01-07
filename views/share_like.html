@@ -2,7 +2,9 @@
 {% import './snippets.html' as snippets %}
 
 {% block fbmeta %}
+	{% if like.title %}
 	<meta property="og:title" content="{{like.title|title}} - {{title}}" />
+	{% endif %}
 
 	{% if like.description %}
 	<meta property="og:description" content="{{like.description|safe}}" />
