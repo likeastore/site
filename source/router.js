@@ -62,7 +62,7 @@ module.exports = function (app) {
 				}
 
 				res.render('share_like', {
-					title: (user.displayName || user.name) + '\'s like on ' + item.type + ' via Likeastore',
+					title: (user.displayName || user.name) + '\'s like on ' + item.type.toUpperCase() + ' via Likeastore',
 					like: item,
 					user: user,
 					mode: env
