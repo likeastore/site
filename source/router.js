@@ -62,7 +62,7 @@ module.exports = function (app) {
 				}
 
 				res.render('share_like', {
-					title: 'Likeastore • ' + (user.displayName || user.name) + ' shares like on' + item.type,
+					title: (user.displayName || user.name) + '\'s like on ' + item.type + ' via Likeastore',
 					like: item,
 					user: user,
 					mode: env

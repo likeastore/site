@@ -1,7 +1,15 @@
 {% extends 'base.html' %}
 {% import './snippets.html' as snippets %}
 
-{% block fbmeta %}{% endblock %}
+{% block fbmeta %}
+	{% if like.description %}
+	<meta property="og:description" content="{{like.description|safe}}" />
+	{% endif %}
+
+	{% if like.thumbnail %}
+	<meta property="og:image" content="{{like.thumbnail}}" />
+	{% endif %}
+{% endblock %}
 
 {% block styles %}
 <link rel="stylesheet" href="{% if mode === 'production' %}/build/share_merge.min.css{% else %}/css/merge/share_merge.css{% endif %}">
