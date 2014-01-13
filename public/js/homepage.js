@@ -6,6 +6,11 @@
 ls.welcomePage = {
 
 	init: function () {
+		if ($.getCookie('token')) {
+			window.location = ls.appConfig.applicationUrl;
+			return;
+		}
+
 		this.setHeights();
 		this.initOnScroll();
 		this.initScrollParallax();

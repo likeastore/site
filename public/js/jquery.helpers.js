@@ -12,6 +12,13 @@
 		this.preventDefault();
 	};
 
+	$.getCookie = function  (name) {
+		var units = document.cookie.split(name + '=');
+		if (units.length === 2) {
+			return units.pop().split(';').shift();
+		}
+	};
+
 	$.isDesktop = function () {
 		return window.screenX !== 0 || !('ontouchstart' in window || 'onmsgesturechange' in window);
 	};
