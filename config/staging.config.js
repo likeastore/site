@@ -50,6 +50,10 @@ var config = {
 		token: '2kXX0stV1Hf56y9DYZts3A'
 	},
 
+	logentries: {
+		token: null,
+	},
+
 	collector: {
 		engineRestartInterval: 65000
 	}

@@ -30,7 +30,10 @@
     "seismo-client": "0.0.4",
     "request": "~2.30.0",
     "hashids": "0.3.3",
-    "respawn": "~0.1.7"
+    "respawn": "~0.1.7",
+    "node-logentries": "~0.1.2",
+    "colors": "~0.6.2",
+    "moment": "~2.5.0"
   },
   "devDependencies": {
     "zombie": "~2.0.0-alpha19",
