@@ -1,0 +1,93 @@
+/*
+ * Product tour page
+ */
+
+body.tour-page {
+	background: #000;
+}
+
+.tour-page .logo {
+	color: #fff;
+}
+
+.tour-page .bg {
+	background-image: url('../img/tour-bg.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50% 100%;
+	opacity: .8;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+}
+
+.tour-page .menu-link {
+	display: inline-block;
+	background: transparent;
+	color: #ecf0f1;
+	color: rgba(255,255,255,.85);
+	font: 16px 'proxima_nova_rgbold', 'Lato', 'Helvetica', 'Arial', sans-serif;
+	text-align: center;
+	text-transform: capitalize;
+	position: fixed;
+	top: 23px;
+	z-index: 1000;
+}
+
+.tour-page .go-to-login {
+	border: 1px solid;
+	border-color: #ecf0f1;
+	border-color: rgba(255,255,255,.85);
+	padding: 8px 14px;
+	width: 60px;
+	right: 30px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+}
+
+.points-wrap {
+	color: #fff;
+	margin: 470px auto 0;
+	width: 800px;
+	position: relative;
+	z-index: 1;
+}
+
+.words {
+	color: #fff;
+	font: 3em/1.2em 'proxima_nova_rgbold', 'Lato', 'Helvetica', 'Arial', sans-serif;
+	font-weight: normal;
+	text-transform: capitalize;
+	width: 700px;
+}
+
+.words-desc {
+	font-size: 20px;
+	color: #ccc;
+	color: rgba(255,255,255,0.65);
+	margin-top: 10px;
+}
+
+.scroll-down {
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	bottom: -50px;
+	left: 50%;
+	margin-left: -8px;
+	border: 2px solid rgba(255,255,255,0.45);
+	background: transparent;
+	border-left: 0;
+	border-top: 0;
+	outline: 0;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+	cursor: pointer;
+}
