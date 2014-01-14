@@ -9,20 +9,30 @@
 	color: #1abc9c;
 }
 
-.go-to-login {
+.menu-link {
 	display: inline-block;
 	background: transparent;
 	color: #ecf0f1;
-	font: 13px 'proxima_nova_rgbold', 'Lato', 'Helvetica', 'Arial', sans-serif;
-	border: 2px solid #fff;
-	padding: 6px 8px;
-	width: 60px;
+	font: 16px 'proxima_nova_rgbold', 'Lato', 'Helvetica', 'Arial', sans-serif;
 	text-align: center;
 	text-transform: capitalize;
 	position: fixed;
 	top: 23px;
-	right: 20px;
 	z-index: 1000;
+}
+
+.go-to-login {
+	border: 1px solid #fff;
+	padding: 8px 14px;
+	width: 60px;
+	right: 20px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+}
+
+.go-to-tour {
+	padding: 10px;
+	right: 120px;
 }
 
 .go-to-login:hover {
@@ -31,24 +41,24 @@
 	text-decoration: none;
 }
 
-.stepfixer .go-to-login {
-	color: #34495e;
-	border-color: #34495e;
+.stepfixer .menu-link {
+	color: #1f282d;
+	border-color: #1f282d;
 }
 
 .stepfixer .go-to-login:hover {
-	background: #34495e;
+	background: #1f282d;
 	color: #fff;
 }
 
 .box {
-	width: 630px;
+	width: 700px;
 	margin: 0 auto;
 	text-align: center;
 }
 
 .box.welcome-block {
-	width: 530px;
+	width: 570px;
 }
 
 .welcome-block {
@@ -251,6 +261,8 @@ h2.subtitle {
 	text-align: center;
 	text-transform: capitalize;
 	-webkit-tap-highlight-color: transparent;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
 }
 
 .collect-link:hover {
@@ -271,6 +283,9 @@ h2.subtitle {
 	border-bottom: 1px solid #eee;
 	margin: 80px auto 0;
 	padding: 25px 0 35px;
+	width: 630px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
 }
 
 .newsletter-block .info-desc {

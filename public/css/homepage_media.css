@@ -45,13 +45,14 @@
 	}
 }
 
-@media (max-width: 640px) {
+@media (max-width: 700px) {
 	.logo.fixed {
 		position: absolute;
 		left: 20px;
 	}
 
-	.go-to-login {
+	.go-to-login,
+	.go-to-tour {
 		position: absolute;
 	}
 

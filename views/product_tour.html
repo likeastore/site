@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% import './snippets.html' as snippets %}
+
+{% block styles %}
+<link rel="stylesheet" href="/css/tour.css">
+{% endblock %}
+
+{% block bodyClass %}share-like-page{% endblock %}
+
+{% block content %}
+	{{ snippets.multicolored_bar() }}
+
+	<h1>The best tool for collecting and organizing your interests</h1>
+{% endblock %}
