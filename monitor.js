@@ -1,6 +1,5 @@
 var respawn = require('respawn');
 var util = require('util');
-var logger = require('./source/utils/logger');
 
 function monitor(mode) {
 	var proc = respawn(['node', 'app.js'], {
@@ -14,7 +13,7 @@ function monitor(mode) {
 	});
 
 	proc.on('exit', function (code, signal) {
-		logger.fatal({msg: 'process exited, code: ' + code + ' signal: ' + signal});
+//		logger.fatal({msg: 'process exited, code: ' + code + ' signal: ' + signal});
 	});
 
 	proc.on('stdout', function (data) {
@@ -22,7 +21,7 @@ function monitor(mode) {
 	});
 
 	proc.on('stderr', function (data) {
-		logger.error({msg: 'process error', data: data.toString()});
+//		logger.error({msg: 'process error', data: data.toString()});
 	});
 
 	return proc;
