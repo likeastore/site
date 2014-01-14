@@ -9,6 +9,9 @@ var env = process.env.NODE_ENV || 'development';
 module.exports = function (app) {
 
 	var index = function (req, res) {
+		if (req.cookies.token) {
+			return res.redirect(config.applicationUrl);
+		}
 		res.render('homepage', { title: 'Likeastore • Saves your likes & social activity', config: config, mode: env });
 	};
 
