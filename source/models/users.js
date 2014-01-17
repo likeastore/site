@@ -34,7 +34,9 @@ var logger = require('../utils/logger');
  */
 
 function logWarning(err) {
-	err && logger.warning(err);
+	if (err) {
+		logger.warning(err);
+	}
 }
 
 function findByEmail(email, callback) {
