@@ -46,6 +46,11 @@ var config = {
 		password: 'likeadmin7analitics'
 	},
 
+	ga: {
+		id: 'UA-41034999-1',
+		domain: 'stage.likeastore.com'
+	},
+
 	mandrill: {
 		token: '2kXX0stV1Hf56y9DYZts3A'
 	},

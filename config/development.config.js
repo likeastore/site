@@ -59,6 +59,11 @@ var config = {
 		password: 'mypass'
 	},
 
+	ga: {
+		id: 'UA-41034999-1',
+		domain: 'localhost'
+	},
+
 	mandrill: {
 		token: '2kXX0stV1Hf56y9DYZts3A'
 	},

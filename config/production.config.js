@@ -59,6 +59,11 @@ var config = {
 		password: 'likeadmin7analitics'
 	},
 
+	ga: {
+		id: 'UA-41034999-1',
+		domain: 'likeastore.com'
+	},
+
 	mandrill: {
 		token: process.env.MANDRILL_TOKEN
 	},
