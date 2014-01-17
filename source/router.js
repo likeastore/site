@@ -75,10 +75,6 @@ module.exports = function (app) {
 		});
 	};
 
-	var productTour = function (req, res, next) {
-		res.render('product_tour', { title: 'Likeastore • Product Tour', mode: env });
-	};
-
 	var checkFirstTime = function (req, res, next) {
 		if (req.user.firstTimeUser) {
 			return next();
@@ -118,6 +114,5 @@ module.exports = function (app) {
 	app.get('/terms', termsOfUse);
 	app.get('/privacy', privacyPolicy);
 	app.get('/s/:id', shareLike);
-	app.get('/tour', productTour);
 	app.get('/fail', fail);
 };
