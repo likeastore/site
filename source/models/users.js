@@ -10,6 +10,9 @@ var db = require('../db')(config);
 var tokens = require('../utils/tokens');
 var notificationUtil = require('../utils/notification');
 var analytics = require('../utils/analytics');
+var ga = require('../utils/ga');
+var logger = require('../utils/logger');
+
 /**
  * (!) NOTA BENE: (remove when we'll enable schema)
  * Differences between third-party user and local one:
@@ -29,6 +32,10 @@ var analytics = require('../utils/analytics');
  *   "_id" : ObjectId("100")          - mongodb object id;
  * }
  */
+
+function logWarning(err) {
+	err && logger.warning(err);
+}
 
 function findByEmail(email, callback) {
 	db.users.findOne({email: email}, function (err, user) {
@@ -75,9 +82,10 @@ function findOrCreateByService(token, tokenSecret, profile, callback) {
 
 			sendUserCreatedNotification(saved);
 
-			analytics('user registered', {service: profile.provider}, function (err) {
-				callback(null, saved);
-			});
+			analytics('user registered', {service: profile.provider}, logWarning);
+			ga.trackEvent('account', 'signup', 'users', {service: profile.provider}, logWarning);
+
+			callback(null, saved);
 		});
 	});
 
@@ -141,9 +149,10 @@ function findOrCreateByService(token, tokenSecret, profile, callback) {
 
 						sendUserCreatedNotification(saved);
 
-						analytics('user registered', {service: 'local'}, function (err) {
-							callback(null, saved);
-						});
+						analytics('user registered', {service: 'local'}, logWarning);
+						ga.trackEvent('account', 'signup', 'users', {service: 'local'}, logWarning);
+
+						callback(null, saved);
 					});
 				});
 			});
@@ -188,9 +197,10 @@ function finishUserSetup(userId, data, callback) {
 						return callback(err);
 					}
 
-					analytics('user setup account', function (err) {
-						callback(null);
-					});
+					analytics('user setup account', logWarning);
+					ga.trackEvent('account', 'setup', 'users', {name: updateQuery.name, email: updateQuery.email}, logWarning);
+
+					callback(null);
 				});
 		}
 	});
