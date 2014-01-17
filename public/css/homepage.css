@@ -31,8 +31,13 @@
 }
 
 .go-to-tour {
-	padding: 10px;
-	right: 120px;
+	right: 130px;
+	top: 32px;
+}
+
+.go-to-tour:hover {
+	border-bottom: 1px solid;
+	text-decoration: none;
 }
 
 .go-to-login:hover {
@@ -58,7 +63,7 @@
 }
 
 .box.welcome-block {
-	width: 570px;
+	width: 530px;
 }
 
 .welcome-block {
