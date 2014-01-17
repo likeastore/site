@@ -170,7 +170,7 @@
 .ads-desc {
 	font-size: 18px;
 	margin-top: 35px;
-	line-height: 24px;
+	line-height: 26px;
 	text-align: justify;
 }
 
@@ -203,7 +203,7 @@
 .info-desc {
 	color: #818181;
 	font-size: 16px;
-	line-height: 24px;
+	line-height: 26px;
 	max-width: 475px;
 	margin: 10px auto;
 }
@@ -219,6 +219,7 @@
 	padding: 10px 12px;
 	margin: 20px auto 10px;
 	cursor: default;
+	border-radius: 2px;
 }
 
 .about-block {
@@ -384,7 +385,7 @@ footer {
 }
 
 .footer-block .social .twitter {
-	width: 90px !important;
+	width: 95px !important;
 }
 
 .footer-block .bottom {

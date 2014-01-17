@@ -19,6 +19,10 @@
 		<link rel="stylesheet" href="{% if mode === 'production' %}/build/common_merge.min.css{% else %}/css/merge/common_merge.css{% endif %}">
 
 		{% block styles %}{% endblock %}
+
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
 	</head>
 	<body class="{% block bodyClass %}{% endblock %}">
 
