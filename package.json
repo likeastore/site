@@ -33,7 +33,8 @@
     "respawn": "~0.1.7",
     "node-logentries": "~0.1.2",
     "colors": "~0.6.2",
-    "moment": "~2.5.0"
+    "moment": "~2.5.0",
+    "nodealytics": "0.0.5"
   },
   "devDependencies": {
     "zombie": "~2.0.0-alpha19",
