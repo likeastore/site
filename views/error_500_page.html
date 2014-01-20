@@ -3,7 +3,7 @@
 {% block styles %}
 <style>
 	.error-wrap {
-		width: 800px;
+		width: 365px;
 		margin: 20px auto;
 	}
 
@@ -22,6 +22,7 @@
 		padding: 20px;
 		text-align: center;
 		position: relative;
+		overflow: hidden;
 		-webkit-border-radius: 2px;
 		border-radius: 2px;
 		-webkit-box-sizing: border-box;
@@ -38,7 +39,7 @@
 
 	.error-box h2 {
 		font: 1.2em 'Montserrat', 'proxima_nova_rgbold', 'Helvetica', 'Arial', sans-serif;
-		margin: 50px auto 35px;
+		margin: 65px auto 40px;
 		text-transform: uppercase;
 		letter-spacing: 2px;
 	}
@@ -46,6 +47,13 @@
 	.error-box a:hover {
 		text-decoration: none;
 		border-bottom: 1px solid;
+	}
+
+	.bottom-box {
+		position: absolute;
+		bottom: 30px;
+		left: 0;
+		right: 0;
 	}
 
 	hr {
@@ -58,8 +66,9 @@
 	}
 
 	.footer-nav {
-		width: 235px;
+		width: 240px;
 		margin: 20px auto;
+		text-align: center;
 	}
 
 	.footer-nav li {
@@ -85,31 +94,47 @@
 		text-decoration: none;
 		border-bottom: 1px solid;
 	}
+
+	@media (max-width: 380px) {
+		.error-wrap {
+			width: 100%;
+		}
+
+		.error-box {
+			width: 250px;
+			height: 250px;
+			padding: 10px;
+		}
+
+		.error-box h2 {
+			margin-top: 20px;
+		}
+	}
 </style>
 {% endblock %}
 
 {% block bodyClass %}error-page{% endblock %}
 
 {% block content %}
-	{#{ snippets.multicolored_bar() }#}
-
 	<div class="error-wrap">
 		<div class="error-box">
-			<h2>Unexpected error</h2>
+			<h2>Something is wrong</h2>
 
-			<div class="info">Something has gone wrong<br> it's likely temporary so please try again contact us: <a href="mailto:info@likeastore.com">info@likeastore.com</a></div>
+			<div class="info">It's likely temporary so please try again or contact us: <a href="mailto:info@likeastore.com">info@likeastore.com</a></div>
 		</div>
 
-		<h1 class="logo">
-			<a href="/">likeastore.</a>
-		</h1>
+		<div class="bottom-box">
+			<h1 class="logo">
+				<a href="/">likeastore.</a>
+			</h1>
 
-		<hr>
+			<hr>
 
-		<ul class="footer-nav">
-			<li><a href="http://blog.likeastore.com">Blog</a></li>
-			<li><a href="https://facebook.com/likeastore">Facebook</a></li>
-			<li><a href="https://twitter.com/likeastore" class="twitter">@likeastore</a></li>
-		</ul>
+			<ul class="footer-nav">
+				<li><a href="http://blog.likeastore.com">Blog</a></li>
+				<li><a href="https://facebook.com/likeastore">Facebook</a></li>
+				<li><a href="https://twitter.com/likeastore" class="twitter">@likeastore</a></li>
+			</ul>
+		</div>
 	</div>
 {% endblock %}
