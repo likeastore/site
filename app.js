@@ -1,9 +1,10 @@
 var express = require('express');
 var http = require('http');
 var path = require('path');
-var swig = require('./source/swig');
 var passport = require('passport');
-var authorize = require('./source/utils/auth.js');
+var swig = require('./source/swig');
+var middleware = require('./source/middleware');
+var authorize = require('./source/utils/auth');
 var config = require('./config');
 
 // (!) auth init should be ALWAYS before app
@@ -33,7 +34,7 @@ app.configure('development', function() {
 	app.use(express.logger('dev'));
 	app.use(express.static(path.join(__dirname, 'public')));
 	app.use(express.errorHandler());
-	app.use(authorize.notFound);
+	app.use(middleware.pageNotFound());
 });
 
 app.configure('staging', function () {
@@ -43,16 +44,16 @@ app.configure('staging', function () {
 	app.use(express.logger('short'));
 	app.use(express.compress());
 	app.use(express.static(path.join(__dirname, 'public')));
-	app.use(express.errorHandler());
-	app.use(authorize.notFound);
+	app.use(middleware.serverError());
+	app.use(middleware.pageNotFound());
 });
 
 app.configure('production', function() {
 	app.use(express.logger('short'));
 	app.use(express.compress());
 	app.use(express.static(path.join(__dirname, 'public')));
-	app.use(express.errorHandler());
-	app.use(authorize.notFound);
+	app.use(middleware.serverError());
+	app.use(middleware.pageNotFound());
 });
 
 app.configure('test', function() {

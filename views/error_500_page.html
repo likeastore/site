@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<style>
+	.error-wrap {
+		width: 800px;
+		margin: 20px auto;
+	}
+
+	.error-page .logo {
+		color: #ccc;
+		font-size: 26px;
+		text-align: center;
+	}
+
+	.error-box {
+		background: #1f282d;
+		color: #fff;
+		width: 350px;
+		height: 350px;
+		margin: 100px auto 80px;
+		padding: 20px;
+		text-align: center;
+		position: relative;
+		-webkit-border-radius: 2px;
+		border-radius: 2px;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		box-shadow: -0.2em 0.2em red, 0.2em -0.2em cyan;
+	}
+
+	.error-box .info {
+		font-size: 14px;
+		line-height: 22px;
+		text-transform: uppercase;
+	}
+
+	.error-box h2 {
+		font: 1.2em 'Montserrat', 'proxima_nova_rgbold', 'Helvetica', 'Arial', sans-serif;
+		margin: 50px auto 35px;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+	}
+
+	.error-box a:hover {
+		text-decoration: none;
+		border-bottom: 1px solid;
+	}
+
+	hr {
+		display: block;
+		height: 1px;
+		border: 0;
+		border-top: solid 1px #ccc;
+		width: 25%;
+		margin: 50px auto 0;
+	}
+
+	.footer-nav {
+		width: 235px;
+		margin: 20px auto;
+	}
+
+	.footer-nav li {
+		display: inline-block;
+	}
+
+	.footer-nav li a {
+		color: #1f282d;
+		font-size: 12px;
+		font-family: 'Montserrat', 'proxima_nova_rgbold', 'Lato', 'Helvetica', 'Arial', sans-serif;
+		font-weight: normal;
+		margin: 0 5px;
+		text-transform: uppercase;
+		text-decoration: none;
+		letter-spacing: 1px;
+	}
+
+	.footer-nav li a.twitter {
+		text-transform: lowercase;
+	}
+
+	.footer-nav li a:hover {
+		text-decoration: none;
+		border-bottom: 1px solid;
+	}
+</style>
+{% endblock %}
+
+{% block bodyClass %}error-page{% endblock %}
+
+{% block content %}
+	{#{ snippets.multicolored_bar() }#}
+
+	<div class="error-wrap">
+		<div class="error-box">
+			<h2>Unexpected error</h2>
+
+			<div class="info">Something has gone wrong<br> it's likely temporary so please try again contact us: <a href="mailto:info@likeastore.com">info@likeastore.com</a></div>
+		</div>
+
+		<h1 class="logo">
+			<a href="/">likeastore.</a>
+		</h1>
+
+		<hr>
+
+		<ul class="footer-nav">
+			<li><a href="http://blog.likeastore.com">Blog</a></li>
+			<li><a href="https://facebook.com/likeastore">Facebook</a></li>
+			<li><a href="https://twitter.com/likeastore" class="twitter">@likeastore</a></li>
+		</ul>
+	</div>
+{% endblock %}
