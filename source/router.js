@@ -43,6 +43,10 @@ module.exports = function (app) {
 		res.render('privacy',  { title: 'Likeastore • Privacy Policy', mode: env });
 	};
 
+	var serverErrorPage = function (req, res) {
+		res.render('error_500_page', { title: 'Internal Server Error', error: {} });
+	};
+
 	var shareLike = function (req, res) {
 		var hash = req.params.id;
 		if (!hash) {
@@ -115,4 +119,5 @@ module.exports = function (app) {
 	app.get('/privacy', privacyPolicy);
 	app.get('/s/:id', shareLike);
 	app.get('/fail', fail);
+	app.get('/500', serverErrorPage);
 };
