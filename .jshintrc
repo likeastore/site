@@ -18,7 +18,8 @@
 		"waitsFor",
 		"xit",
 		"xdescribe",
-		"Zombie"
+		"Zombie",
+		"mixpanel"
 	],
 
 	"asi": false,

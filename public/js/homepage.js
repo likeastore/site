@@ -63,6 +63,8 @@ ls.welcomePage = {
 		$('.open-register-dialog').on('click', function (e) {
 			e.stop();
 
+			mixpanel.track('signup opened');
+
 			vex.open({
 				content: '\
 					<h2 class="dialog-title">Join</h2>\

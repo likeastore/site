@@ -31,3 +31,8 @@
 	</form>
 </div>
 {% endblock %}
+
+{% block scripts %}
+<script>mixpanel.track('setup opened');</script>
+{% endblock %}
+
