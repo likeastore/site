@@ -73,6 +73,7 @@ function findOrCreateByService(token, tokenSecret, profile, callback) {
 			tokenSecret: tokenSecret,
 			avatar: avatar,
 			registered: new Date(),
+			loginLastDate: new Date(),
 			apiToken: tokens.generateApiToken(meta.username),
 			firstTimeUser: true
 		});
@@ -130,6 +131,7 @@ function findOrCreateByService(token, tokenSecret, profile, callback) {
 				provider: 'local',
 				apiToken: tokens.generateApiToken(data.username),
 				registered: new Date(),
+				loginLastDate: new Date(),
 				firstTimeUser: true
 			};
 
