@@ -1,7 +1,81 @@
 {% extends 'base.html' %}
 {% import './snippets.html' as snippets %}
 
+{% block styles %}
+<style>
+	.unsubscribe-page .logo {
+		color: #ccc;
+		font-size: 26px;
+		text-align: center;
+	}
+
+	.unsubscribe-page h2 {
+		font-family: 'proxima_nova_rgbold';
+		font-size: 30px;
+		width: 40%;
+		margin: 160px auto 80px;
+		line-height: 36px;
+		text-align: center;
+	}
+
+	hr {
+		display: block;
+		height: 1px;
+		border: 0;
+		border-top: solid 1px #ccc;
+		width: 15%;
+		margin: 50px auto 0;
+	}
+
+	.footer-nav {
+		width: 280px;
+		margin: 20px auto 50px;
+		text-align: center;
+	}
+
+	.footer-nav li {
+		display: inline-block;
+	}
+
+	.footer-nav li a {
+		color: #1f282d;
+		font-size: 12px;
+		font-family: 'Montserrat', 'proxima_nova_rgbold', 'Lato', 'Helvetica', 'Arial', sans-serif;
+		font-weight: normal;
+		margin: 0 5px;
+		text-transform: uppercase;
+		text-decoration: none;
+		letter-spacing: 1px;
+	}
+
+	.footer-nav li a.twitter {
+		text-transform: lowercase;
+	}
+
+	.footer-nav li a:hover {
+		text-decoration: none;
+		border-bottom: 1px solid;
+	}
+</style>
+{% endblock %}
+
+{% block bodyClass %}unsubscribe-page{% endblock %}
+
 {% block content %}
 	{{ snippets.multicolored_bar() }}
-	<h1>You've been unsubscribed from Likeastore newsletters.</h1>
+
+	<h2>You've been successfully unsubscribed from Likeastore newsletters.</h2>
+
+	<h1 class="logo">
+		<a href="/">likeastore.</a>
+	</h1>
+
+	<hr>
+
+	<ul class="footer-nav">
+		<li><a href="{{app}}">App</a></li>
+		<li><a href="http://blog.likeastore.com">Blog</a></li>
+		<li><a href="https://facebook.com/likeastore">Facebook</a></li>
+		<li><a href="https://twitter.com/likeastore" class="twitter">@likeastore</a></li>
+	</ul>
 {% endblock %}

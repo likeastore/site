@@ -118,7 +118,7 @@ module.exports = function (app) {
 				return res.redirect(config.siteUrl);
 			}
 
-			res.render('unsubscribed',  { title: 'Likeastore • Unsubscribe', mode: env });
+			res.render('unsubscribed',  { title: 'Likeastore • Unsubscribe', mode: env, app: config.applicationUrl });
 		});
 	};
 
