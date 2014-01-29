@@ -39,6 +39,20 @@ function logWarning(err) {
 	}
 }
 
+function findById (id, callback) {
+	if (typeof id === 'string') {
+		id = new ObjectId(id);
+	}
+
+	db.users.findOne({ _id: id }, function (err, user) {
+		if (err) {
+			return callback(err);
+		}
+
+		callback(null, user);
+	});
+}
+
 function findByEmail(email, callback) {
 	db.users.findOne({email: email}, function (err, user) {
 		if (err || !user) {
@@ -274,6 +288,14 @@ function changePassword(email, request, password, callback) {
 	});
 }
 
+function unsubscribe(id, callback) {
+	db.users.findAndModify({
+		query: {_id: new ObjectId(id)},
+		update: {$set: {unsubscribed: true}},
+		'new': true,
+	}, callback);
+}
+
 function sendUserCreatedNotification (user) {
 	var title = '[likeastore] New user registered!';
 	var message = 'Congrats!\n\nNew user ' + (user.email || user.username) + ' just registered for likeastore via ' + user.provider + ' registration on ' + (process.env.NODE_ENV || 'development') + '. Impress him!';
@@ -285,6 +307,8 @@ module.exports = {
 	findOrCreateLocal: findOrCreateLocal,
 	finishUserSetup: finishUserSetup,
 	resetPasswordRequest: resetPasswordRequest,
+	findById: findById,
 	findByEmail: findByEmail,
-	changePassword: changePassword
+	changePassword: changePassword,
+	unsubscribe: unsubscribe
 };
