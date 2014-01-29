@@ -108,6 +108,20 @@ module.exports = function (app) {
 		}, 1000);
 	};
 
+	var unsubscribe = function (req, res, next) {
+		if (!req.query.u) {
+			return res.redirect(config.siteUrl);
+		}
+
+		users.unsubscribe(req.query.u, function (err) {
+			if (err) {
+				return res.redirect(config.siteUrl);
+			}
+
+			res.render('unsubscribed',  { title: 'Likeastore • Unsubscribe', mode: env });
+		});
+	};
+
 	app.get('/', index);
 	app.get('/join', register);
 	app.get('/login', register);
@@ -118,6 +132,7 @@ module.exports = function (app) {
 	app.get('/terms', termsOfUse);
 	app.get('/privacy', privacyPolicy);
 	app.get('/s/:id', shareLike);
+	app.get('/unsubscribe', unsubscribe);
 	app.get('/fail', fail);
 	app.get('/500', serverErrorPage);
 };
