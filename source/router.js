@@ -47,6 +47,10 @@ module.exports = function (app) {
 		res.render('error_500_page', { title: 'Internal Server Error', error: {} });
 	};
 
+	var serveDevelopersLanding = function (req, res) {
+		res.render('landing_developers', { title: 'Likeastore • Social bookmarks for developers', config: config, mode: env });
+	};
+
 	var shareLike = function (req, res) {
 		var hash = req.params.id;
 		if (!hash) {
@@ -135,4 +139,6 @@ module.exports = function (app) {
 	app.get('/unsubscribe', unsubscribe);
 	app.get('/fail', fail);
 	app.get('/500', serverErrorPage);
+	app.get('/geeks', serveDevelopersLanding);
+	app.get('/developers', serveDevelopersLanding);
 };

@@ -1,0 +1,412 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700|PT+Sans:400,700|Montserrat:400,700&subset=latin,cyrillic);
+
+:root {
+	var-red: #df3f3f;
+	var-grey: #eeeef0;
+	var-darkgrey: #767a86;
+	var-navy: #00a2b4;
+	var-green: #00b763;
+	var-tortoise: #1abc9c;
+	var-yellow: #f1c40f;
+	var-black: #1f282d;
+	var-pink: #f03e56;
+	var-blue: #5da8e0;
+	var-facebook: #3b5998;
+	var-twitter: #3498db;
+	var-github: #bdc3c7;
+	var-stackoverflow: #e67e22;
+	var-youtube: #c0392b;
+	var-vimeo: #62a0ad;
+	var-dribbble: #ea4c89;
+	var-behance: #0d7ba3;
+	var-title-font: 'Montserrat', 'Source Sans Pro', 'Helvetica', 'Arial', sans-serif;
+	var-text-font: 'Source Sans Pro', 'PT Sans', 'Helvetica', 'Arial', sans-serif;
+}
+
+@font-face {
+	font-family: 'likeastore-icon-font';
+	src: url('../fonts/likeastore-icon-font.eot');
+	src: url('../fonts/likeastore-icon-font.eot?#iefix') format('embedded-opentype'),
+		 url('../fonts/likeastore-icon-font.woff') format('woff'),
+		 url('../fonts/likeastore-icon-font.ttf') format('truetype'),
+		 url('../fonts/likeastore-icon-font.svg#likeastore-icon-font') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[data-icon]:before,
+.font-icon:before {
+	font-family: 'likeastore-icon-font';
+	content: attr(data-icon);
+	font-style: normal;
+	font-weight: normal;
+	speak: none;
+	line-height: 1;
+	text-transform: none;
+	-webkit-font-smoothing: antialiased;
+}
+
+::selection {
+	background-color: #e74c3c;
+	color: #fff;
+}
+
+::-moz-selection {
+	background-color: #e74c3c;
+	color: #fff;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	color: var(black);
+	background: var(grey);
+	font: 400 14px var(text-font);
+	width: 100%;
+	overflow-x: hidden;
+}
+
+.dev-land-page h1, .dev-land-page h2, .dev-land-page h3 {
+	font-family: var(text-font);
+	padding: 0;
+}
+
+.cta-btn {
+	display: inline-block;
+	color: var(darkgrey);
+	border: 2px solid var(darkgrey);
+	font-size: 14px;
+	font-family: var(title-font);
+	padding: 24px 70px;
+	vertical-align: middle;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	cursor: pointer;
+	user-select: none;
+	border-radius: 4px;
+	transition: all .3s linear;
+}
+
+.cta-btn:hover {
+	border-color: var(navy);
+	color: var(navy);
+	text-decoration: none;
+}
+
+.logo {
+	display: inline-block;
+	background: url('../img/logo-likeastore-pink.png') no-repeat center transparent;
+	-webkit-background-size: cover;
+	background-size: cover;
+	width: 140px;
+	height: 20px;
+	cursor: pointer;
+}
+
+.nav {
+	padding-top: 32px;
+	margin: 0 auto;
+	width: 960px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+
+.nav .menu {
+	margin-top: 5px;
+}
+
+.nav .menu li {
+	display: inline-block;
+	margin-left: 18px;
+}
+
+.nav .menu a.link {
+	color: #fff;
+	font: 400 11px var(title-font);
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: .5px;
+	transition: all .3s linear;
+}
+
+.nav .menu a.link:hover {
+	border-bottom: 1px solid;
+}
+
+.nav .menu .button {
+	background: rgba(255,255,255,0.2);
+	padding: 9px 24px;
+	margin-bottom: 0;
+	font-weight: 100;
+	text-align: center;
+	text-transform: uppercase;
+	vertical-align: middle;
+	border-radius: 4px;
+}
+
+.nav .menu li:hover .button {
+	background: var(pink);
+}
+
+.nav .menu .button.link:hover {
+	border: 0;
+}
+
+.vow {
+	margin: 0 auto;
+	min-width: 1000px;
+	min-height: 100px;
+	overflow: hidden;
+}
+
+.vow.index {
+	height: 750px;
+	background: linear-gradient(25deg, #98dacf 30%,#00a2b4);
+	background-image: url('../img/polygons.png');
+	background-size: cover;
+}
+
+.vow.dark {
+	background: #272a33;
+}
+
+.vow.green {
+	/*background: #98dacf;*/
+	background: #56c7aa;
+}
+
+.vow .title {
+	font-size: 42px;
+	font-weight: 300;
+	text-align: center;
+}
+
+.vow.dark .title {
+	color: #fff;
+}
+
+.cont {
+	width: 960px;
+	margin: 0 auto;
+}
+
+.cont .index-wrap {
+	width: 960px;
+	margin: 0 auto;
+	top: 48px;
+	position: relative;
+	color: rgba(255,255,255,.9);
+	padding-top: 250px;
+}
+
+.pluses h2, .pluses h3 {
+	font-family: var(text-font);
+	font-weight: 300;
+}
+
+.pluses h2 {
+	font-size: 46px;
+}
+
+.pluses h3 {
+	/*color: #00505a;*/
+	font-size: 32px;
+}
+
+.features.cont {
+	padding: 85px 0 180px;
+	text-align: center;
+}
+
+.features .title {
+	margin-bottom: 45px;
+}
+
+.features .text {
+	color: var(darkgrey);
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 28px;
+	margin-bottom: 85px
+}
+
+.features img {
+	width: 90%;
+	margin-left: 25px;
+}
+
+.features .cta-btn {
+	margin-top: 90px;
+}
+
+.works {
+	padding: 100px 0 240px;
+}
+
+.steps {
+	color: #fff;
+}
+
+.works img {
+	width: 100%;
+	margin: 90px auto 35px;
+	opacity: .9;
+}
+
+.steps .how-step {
+	width: 216px;
+	margin: 0 12px;
+	padding-left: 10px;
+}
+
+.steps .how-subtitle {
+	font-size: 16px;
+	font-weight: 600;
+	margin-bottom: 8px;
+}
+
+.steps .how-subtitle span {
+	background: rgba(255,255,255,0.2);
+	font-size: 14px;
+	padding: 2px 5px;
+	margin-right: 3px;
+	vertical-align: top;
+	line-height: 20px;
+	border-radius: 3px;
+}
+
+.steps p {
+	color: rgba(255,255,255, .9);
+	line-height: 20px;
+}
+
+.free {
+	padding: 120px 0 160px;
+}
+
+.free .title {
+	color: #fff;
+	font-size: 46px;
+	font-weight: 600;
+}
+
+.free .text {
+	color: #fff;
+	font-size: 32px;
+	font-weight: 300;
+	line-height: 42px;
+	width: 86%;
+	margin: 30px auto;
+	text-align: center;
+}
+
+.free .actions {
+	width: 760px;
+	margin: 75px auto;
+}
+
+.free .cta-btn {
+	color: #fff;
+	letter-spacing: 1px;
+	padding: 24px 50px;
+}
+
+.free .cta-btn.sign-up {
+	border-color: #fff;
+}
+
+.free .cta-btn.sign-up:hover {
+	border-color: rgba(255,255,255,0.2);
+	background: rgba(255,255,255,0.2);
+}
+
+.free .cta-btn.pay {
+	border-color: var(pink);
+	background: var(pink);
+}
+
+.free .cta-btn.pay:hover {
+	border-color: #fff;
+	background: transparent;
+}
+
+.proofs {
+	padding: 85px 0 60px;
+}
+
+.proofs .title {
+	margin-bottom: 60px;
+}
+
+.proofs-quotes {
+	width: 465px;
+}
+
+.proofs-quotes iframe.twitter-tweet {
+	margin-bottom: 35px !important;
+}
+
+.footer-wrap .action {
+	margin-top: 60px;
+	text-align: center;
+}
+
+.footer-wrap .action .brand {
+	display: inline-block;
+	width: 60px;
+	margin-right: 35px;
+	vertical-align: top
+}
+
+.footer-wrap .action .cta-btn {
+	color: #01a4a3;
+	border: 2px solid #01a4a3;
+	font-size: 13px;
+	padding: 20px 45px;
+}
+
+.footer-wrap .action .cta-btn:hover {
+	opacity: .6;
+}
+
+.footer-wrap ul {
+	width: 100%;
+	margin: 50px auto 0;
+	text-align: center;
+}
+
+.footer-wrap li {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.footer-wrap li.twitter {
+	height: 20px;
+	position: relative;
+	margin: 0 2px 0 20px;
+}
+
+.footer-wrap ul li a {
+	color: #fff;
+	font-size: 12px;
+	font-family: var(title-font);
+	font-weight: 500;
+	margin: 0 8px;
+	text-transform: uppercase;
+	text-decoration: none;
+	letter-spacing: 1px;
+}
+
+.footer-wrap ul li a.twitter {
+	text-transform: lowercase;
+}
+
+.footer-wrap ul li a:hover,
+.footer-wrap ul li a:focus {
+	border-bottom: 1px solid;
+}
