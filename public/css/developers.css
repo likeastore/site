@@ -382,6 +382,7 @@ body {
   color: #fff;
   letter-spacing: 1px;
   padding: 24px 50px;
+  vertical-align: top;
 }
 
 .free .cta-btn.sign-up {
