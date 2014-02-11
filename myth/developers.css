@@ -528,7 +528,7 @@ body {
 	}
 
 	.free .sign-up {
-		margin: 0 0 30px !important;
+		margin-bottom: 30px;
 	}
 
 	.proofs-quotes {
@@ -568,6 +568,10 @@ body {
 
 	.free .text {
 		font-size: 28px;
+	}
+
+	.free .sign-up {
+		margin: 0 0 30px!important;
 	}
 }
 
