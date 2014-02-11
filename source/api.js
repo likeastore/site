@@ -131,6 +131,16 @@ module.exports = function (app, passport) {
 		};
 	};
 
+	var collectPayingInfo = function (req, res) {
+		var amount = req.body.amount || 0;
+		users.savePayAmount(amount, function (err) {
+			if (err) {
+				return res.send(500);
+			}
+			return res.json({ redirect: config.applicationUrl });
+		});
+	};
+
 	app.post('/notify', validate('subscribeSchema'), notify);
 	app.post('/auth/setup', validate('setupUserSchema'), setupUser);
 	app.post('/auth/local/login', validate('findOrCreateUserSchema'), localAuth);

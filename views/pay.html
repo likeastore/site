@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<style>
+	.pay-wrap {
+		width: 400px;
+		margin: 0 auto;
+	}
+
+	.pay-page .logo {
+		color: #ccc;
+		font-size: 26px;
+		text-align: center;
+	}
+
+	.pay-page h2 {
+		color: #333;
+		font-size: 26px;
+		margin: 130px auto 10px;
+		line-height: 36px;
+		text-align: center;
+	}
+
+	.pay-page h3 {
+		color: #767a86;
+		font: 400 18px 'Source Sans Pro', 'Helvetica', Arial, sans-serif;
+		margin: 0 auto 35px;
+		line-height: 28px;
+		text-align: center;
+	}
+
+	.pay-page form {
+		width: 325px;
+		margin: 0 auto 80px;
+	}
+
+	.pay-page form .dollar {
+		display: inline-block;
+		color: #f03e56;
+		font-family: 'proxima_nova_rgbold', 'Helvetica', Arial, sans-serif;
+		font-size: 22px;
+		line-height: 40px;
+		vertical-align: top;
+		margin-right: 10px;
+	}
+
+	.pay-page form .field {
+		width: 140px;
+		vertical-align: top;
+		-webkit-border-radius: 2px;
+		border-radius: 2px;
+	}
+
+	.pay-page form .btn {
+		display: inline-block;
+		width: 150px;
+		margin-left: 10px;
+		-webkit-border-radius: 2px;
+		border-radius: 2px;
+	}
+
+	hr {
+		display: block;
+		height: 1px;
+		border: 0;
+		border-top: solid 1px #ccc;
+		width: 15%;
+		margin: 50px auto 0;
+	}
+
+	.footer-nav {
+		width: 280px;
+		margin: 20px auto 50px;
+		text-align: center;
+	}
+
+	.footer-nav li {
+		display: inline-block;
+	}
+
+	.footer-nav li a {
+		color: #1f282d;
+		font-size: 12px;
+		font-family: 'Montserrat', 'proxima_nova_rgbold', 'Lato', 'Helvetica', 'Arial', sans-serif;
+		font-weight: normal;
+		margin: 0 5px;
+		text-transform: uppercase;
+		text-decoration: none;
+		letter-spacing: 1px;
+	}
+
+	.footer-nav li a.twitter {
+		text-transform: lowercase;
+	}
+
+	.footer-nav li a:hover {
+		text-decoration: none;
+		border-bottom: 1px solid;
+	}
+</style>
+{% endblock %}
+
+{% block bodyClass %}pay-page{% endblock %}
+
+{% block content %}
+	<div class="pay-wrap">
+		<h2>Thanks for supporting us!</h2>
+
+		<h3>We won't charge you for now, but please tell us how much you're willing to pay for our service per month:</h3>
+
+		<form action="/paying/suggest" method="post" accept-charset="utf-8" class="pay" novalidate>
+			<span class="dollar left">$</span>
+			<input type="text" name="amount" class="field amount left" placeholder="Suggested amount" pattern autocomplete="off">
+			<button type="submit" class="do-pay-btn btn green-btn">Continue to app</button>
+		</form>
+
+		<h1 class="logo">
+			<a href="/">likeastore.</a>
+		</h1>
+
+		<hr>
+
+		<ul class="footer-nav">
+			<li><a href="{{app}}">App</a></li>
+			<li><a href="http://blog.likeastore.com">Blog</a></li>
+			<li><a href="https://facebook.com/likeastore">Facebook</a></li>
+			<li><a href="https://twitter.com/likeastore" class="twitter">@likeastore</a></li>
+		</ul>
+	</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+	mixpanel.track('ready for paying');
+
+	$('.amount').on('input', function (e) {
+		this.value = this.value.replace(/[^0-9]/g, '');
+	});
+
+	$('.pay').submit(function (e) {
+		e.stop();
+		var amount = $(e.target).find('.amount').val();
+		mixpanel.track('payed suggested amount', { amount: amount });
+		window.location = '{{app}}';
+	});
+</script>
+{% endblock %}

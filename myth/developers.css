@@ -99,11 +99,14 @@ body {
 .logo {
 	display: inline-block;
 	background: url('../img/logo-likeastore-pink.png') no-repeat center transparent;
-	-webkit-background-size: cover;
 	background-size: cover;
 	width: 140px;
 	height: 20px;
 	cursor: pointer;
+}
+
+.delay-2s {
+	animation-delay: 2s;
 }
 
 .nav {
@@ -114,6 +117,7 @@ body {
 	top: 0;
 	left: 0;
 	right: 0;
+	z-index: 100;
 }
 
 .nav .menu {
@@ -176,7 +180,6 @@ body {
 }
 
 .vow.green {
-	/*background: #98dacf;*/
 	background: #56c7aa;
 }
 
@@ -193,15 +196,16 @@ body {
 .cont {
 	width: 960px;
 	margin: 0 auto;
+	position: relative;
 }
 
 .cont .index-wrap {
+	color: rgba(255,255,255,.9);
 	width: 960px;
 	margin: 0 auto;
-	top: 48px;
+	padding-top: 180px;
 	position: relative;
-	color: rgba(255,255,255,.9);
-	padding-top: 250px;
+	top: 48px;
 }
 
 .pluses h2, .pluses h3 {
@@ -210,12 +214,83 @@ body {
 }
 
 .pluses h2 {
-	font-size: 46px;
+	font-size: 52px;
 }
 
 .pluses h3 {
-	/*color: #00505a;*/
-	font-size: 32px;
+	color: rgba(255,255,255,.8);
+	font-size: 36px;
+}
+
+.pluses .cta-btn {
+	color: rgba(255,255,255,.8);
+	border-color: rgba(255,255,255,.8);
+	font-size: 13px;
+	margin-top: 55px;
+	padding: 24px 55px;
+}
+
+.pluses .cta-btn:hover,
+.pluses .cta-btn:focus {
+	opacity: .7;
+}
+
+.index .browser {
+	background: url('../img/feed-box.png') top center no-repeat;
+	background-size: 100%;
+	margin: 45px 0 0;
+	width: 550px;
+	height: 590px;
+	position: absolute;
+	right: 0;
+	opacity: .9;
+	box-shadow: -1px -25px 16px 5px rgba(255,255,255,0.2);
+}
+
+.index .browser:before {
+	display: block;
+	background: #111;
+	content: '';
+	height: 26px;
+	position: relative;
+	top: -26px;
+	border-radius: 3px 3px 0 0;
+}
+
+.index .browser-ctrl {
+	background: rgba(255,255,255,0.2);
+	position: absolute;
+	top: -16px;
+	width: 8px;
+	height: 8px;
+	border-radius: 100%;
+}
+
+.index .browser-ctrl.one {
+	left: 13px;
+}
+
+.index .browser-ctrl.two {
+	left: 26px;
+}
+
+.index .browser-ctrl.three {
+	left: 39px;
+}
+
+.index .iphone {
+	position: absolute;
+	width: 185px;
+	height: auto;
+	bottom: 75px;
+	right: -40px;
+	margin: 0 auto;
+	opacity: .96;
+	transition: all .3s;
+}
+
+.index .browser:hover .iphone {
+	bottom: 175px;
 }
 
 .features.cont {
@@ -360,7 +435,8 @@ body {
 	display: inline-block;
 	width: 60px;
 	margin-right: 35px;
-	vertical-align: top
+	vertical-align: top;
+	opacity: .9;
 }
 
 .footer-wrap .action .cta-btn {
@@ -368,6 +444,7 @@ body {
 	border: 2px solid #01a4a3;
 	font-size: 13px;
 	padding: 20px 45px;
+	vertical-align: top;
 }
 
 .footer-wrap .action .cta-btn:hover {

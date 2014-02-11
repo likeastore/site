@@ -1,7 +1,12 @@
 {% extends './base.html' %}
 
+{% block meta %}
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+{% endblock %}
+
 {% block styles %}
 	<link rel="stylesheet" href="/css/developers.css">
+	<link rel="stylesheet" href="/components/animate.css/animate.min.css">
 {% endblock %}
 
 {% block bodyClass %}dev-land-page{% endblock %}
@@ -23,8 +28,16 @@
 		<div class="index-wrap">
 			<div class="pluses">
 				<h2>Social bookmarking for geeks</h2>
-				<h3>with simple cloud and all favorites</h3>
+				<h3>with storage to collect and organize all your favorites</h3>
+				<a href="/join" class="cta-btn">Join for free</a>
 			</div>
+		</div>
+
+		<div class="browser">
+			<div class="browser-ctrl one"></div>
+			<div class="browser-ctrl two"></div>
+			<div class="browser-ctrl three"></div>
+			<img src="/img/iphone-feed.png" class="iphone delay2s animated bounce" alt="Dashboard Iphone">
 		</div>
 	</div>
 </section>

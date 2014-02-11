@@ -12,7 +12,8 @@ module.exports = function (app) {
 		if (req.cookies.token) {
 			return res.redirect(config.applicationUrl);
 		}
-		res.render('homepage', { title: 'Likeastore • Saves your likes & social activity', config: config, mode: env });
+		res.redirect('/geeks');
+		//res.render('homepage', { title: 'Likeastore • Saves your likes & social activity', config: config, mode: env });
 	};
 
 	var register = function (req, res) {
@@ -48,7 +49,11 @@ module.exports = function (app) {
 	};
 
 	var serveDevelopersLanding = function (req, res) {
-		res.render('landing_developers', { title: 'Likeastore • Social bookmarks for developers', config: config, mode: env });
+		res.render('landing_developers', { title: 'Likeastore • Social bookmarks and favorites for geeks', config: config, mode: env });
+	};
+
+	var payForService = function (req, res) {
+		res.render('pay', { title: 'Likeastore • Support us!', mode: env, app: config.applicationUrl });
 	};
 
 	var shareLike = function (req, res) {
@@ -141,4 +146,5 @@ module.exports = function (app) {
 	app.get('/500', serverErrorPage);
 	app.get('/geeks', serveDevelopersLanding);
 	app.get('/developers', serveDevelopersLanding);
+	app.get('/pay', payForService);
 };
