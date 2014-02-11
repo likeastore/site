@@ -5,8 +5,7 @@
 {% endblock %}
 
 {% block styles %}
-	<link rel="stylesheet" href="/css/developers.css">
-	<link rel="stylesheet" href="/components/animate.css/animate.min.css">
+<link rel="stylesheet" href="{% if mode === 'production' %}/build/geek_landing_merge.min.css{% else %}/css/merge/geek_landing_merge.css{% endif %}">
 {% endblock %}
 
 {% block bodyClass %}dev-land-page{% endblock %}
@@ -16,8 +15,8 @@
 	<a href="/" class="logo left"></a>
 	<ul class="menu right">
 		<li><a href="/geeks" class="link">Home</a></li>
-		<li><a href="http://tour.likeastore.com" class="link">Tour</a></li>
-		<li><a href="http://blog.likeastore.com" class="link">Blog</a></li>
+		<li><a href="http://tour.likeastore.com" class="link" target="_blank">Tour</a></li>
+		<li><a href="http://blog.likeastore.com" class="link" target="_blank">Blog</a></li>
 		<li><a href="https://app.likeastore.com" class="link">Login</a></li>
 		<li><a href="/join" class="link button">Sign up</a></li>
 	</ul>

@@ -110,7 +110,7 @@ body {
 }
 
 .nav .menu {
-  margin-top: 5px;
+  margin-top: 2px;
 }
 
 .nav .menu li {
@@ -153,7 +153,6 @@ body {
 
 .vow {
   margin: 0 auto;
-  min-width: 1000px;
   min-height: 100px;
   overflow: hidden;
 }
@@ -430,7 +429,7 @@ body {
 .footer-wrap .action .brand {
   display: inline-block;
   width: 60px;
-  margin-right: 35px;
+  margin-right: 30px;
   vertical-align: top;
   opacity: .9;
 }
@@ -482,4 +481,153 @@ body {
 .footer-wrap ul li a:hover,
 .footer-wrap ul li a:focus {
   border-bottom: 1px solid;
+}
+
+@media (max-width: 960px) {
+  .cont,
+  .nav {
+    width: 95%;
+  }
+
+  .cont .index-wrap {
+    width: 95%;
+    padding-top: 120px;
+  }
+
+  .pluses {
+    text-align: center;
+  }
+
+  .pluses h2 {
+    font-size: 48px;
+  }
+
+  .pluses h3 {
+    font-size: 30px;
+  }
+
+  .index .browser {
+    left: 0;
+    margin: 150px auto 0;
+  }
+
+  .steps .how-step {
+    width: 21.57%;
+  }
+
+  .free .actions {
+    width: 95%;
+    text-align: center;
+  }
+
+  .free .cta-btn {
+    float: none !important;
+  }
+
+  .free .sign-up {
+    margin-bottom: 30px;
+  }
+
+  .proofs-quotes {
+    width: 48%;
+  }
+}
+
+@media (max-width: 640px) {
+  .pluses h2 {
+    font-size: 40px;
+  }
+
+  .pluses h3 {
+    font-size: 24px;
+  }
+
+  .index .browser {
+    width: 400px;
+    height: 385px;
+  }
+
+  .index .iphone {
+    bottom: -75px;
+  }
+
+  .index .browser:hover .iphone {
+    bottom: -30px;
+  }
+
+  .steps .how-step {
+    width: 20%;
+  }
+
+  .free .title {
+    font-size: 40px;
+  }
+
+  .free .text {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 520px) {
+  .nav .menu li:nth-child(1),
+  .nav .menu li:nth-child(2) {
+    display: none;
+  }
+
+  .vow .title {
+    font-size: 30px;
+  }
+
+  .pluses h2 {
+    font-size: 34px;
+    margin-bottom: 5px;
+  }
+
+  .pluses h3 {
+    font-size: 18px;
+  }
+
+  .steps .how-step {
+    width: 100%;
+    margin: 0 0 25px;
+  }
+
+  .index .browser {
+    width: 360px;
+    height: 385px;
+  }
+
+  .free .text {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .free .cta-btn {
+    font-size: 12px;
+  }
+
+  .index .iphone {
+    width: 185px;
+    left: 0;
+    right: 0;
+  }
+}
+
+@media (max-width: 440px) {
+  .nav .menu li:nth-child(1),
+  .nav .menu li:nth-child(2),
+  .nav .menu li:nth-child(3),
+  .nav .menu li:nth-child(4) {
+    display: none;
+  }
+
+  .proofs-quotes {
+    float: none !important;
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .footer-wrap .action .brand {
+    margin-right: 5px;
+  }
 }

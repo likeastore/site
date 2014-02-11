@@ -16,6 +16,13 @@ module.exports = function (app) {
 		//res.render('homepage', { title: 'Likeastore • Saves your likes & social activity', config: config, mode: env });
 	};
 
+	var home =function (req, res) {
+		if (req.cookies.token) {
+			return res.redirect(config.applicationUrl);
+		}
+		res.render('homepage', { title: 'Likeastore • Social bookmarks and favorites', config: config, mode: env });
+	};
+
 	var register = function (req, res) {
 		res.render('register', { title: 'Likeastore • Join', mode: env });
 	};
@@ -132,6 +139,7 @@ module.exports = function (app) {
 	};
 
 	app.get('/', index);
+	app.get('/home', home);
 	app.get('/join', register);
 	app.get('/login', register);
 	app.get('/register', register);

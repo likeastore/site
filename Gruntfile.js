@@ -10,7 +10,8 @@ module.exports = function (grunt) {
 					'public/build/common_merge.min.css': ['public/css/merge/common_merge.css'],
 					'public/build/homepage_merge.min.css': ['public/css/merge/homepage_merge.css'],
 					'public/build/register_merge.min.css': ['public/css/merge/register_merge.css'],
-					'public/build/share_merge.min.css': ['public/css/merge/share_merge.css']
+					'public/build/share_merge.min.css': ['public/css/merge/share_merge.css'],
+					'public/build/geek_landing_merge.min.css': ['public/css/merge/geek_landing_merge.css']
 				}
 			}
 		},
