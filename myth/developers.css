@@ -391,6 +391,7 @@ body {
 
 .free .cta-btn.sign-up {
 	border-color: #fff;
+	margin-right: 15px;
 }
 
 .free .cta-btn.sign-up:hover {
