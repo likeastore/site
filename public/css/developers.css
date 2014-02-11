@@ -525,7 +525,7 @@ body {
   }
 
   .free .sign-up {
-    margin-bottom: 30px;
+    margin: 0 0 30px !important;
   }
 
   .proofs-quotes {
