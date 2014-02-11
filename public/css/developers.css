@@ -161,7 +161,7 @@ body {
   height: 750px;
   background: -webkit-linear-gradient(65deg, #98dacf 30%, #00a2b4);
   background: linear-gradient(25deg, #98dacf 30%,#00a2b4);
-  background-image: url('http://tour.likeastore.com/img/polygons.png');
+  background-image: url('../img/polygons.png');
   -webkit-background-size: cover;
   background-size: cover;
 }

@@ -170,7 +170,7 @@ body {
 .vow.index {
 	height: 750px;
 	background: linear-gradient(25deg, #98dacf 30%,#00a2b4);
-	background-image: url('http://tour.likeastore.com/img/polygons.png');
+	background-image: url('../img/polygons.png');
 	background-size: cover;
 }
 
