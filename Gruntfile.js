@@ -14,6 +14,7 @@ module.exports = function (grunt) {
 		cssmin: {
 			combine: {
 				options: {
+					keepSpecialComments: 0,
 					report: 'gzip'
 				},
 				files: {
