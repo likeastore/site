@@ -35,9 +35,11 @@
 
 		{% block content %}{% endblock %}
 
-		<script src="/components/jquery/jquery.min.js"></script>
-		<script src="/js/jquery.helpers.js"></script>
-		<script src="/js/formular.js"></script>
+		{% block base_js %}
+			<script src="/components/jquery/jquery.min.js"></script>
+			<script src="/js/jquery.helpers.js"></script>
+			<script src="/js/formular.js"></script>
+		{% endblock %}
 
 		<!-- Google analytics -->
 		<script>
@@ -65,6 +67,11 @@
 		b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
 		mixpanel.init("c5c59411e311ab48cfe2846460be7d7e");</script>
 		<!-- end Mixpanel -->
+
+		{% if mode !== 'production' %}
+		<!-- disable mixpanel on dev and stage envs -->
+		<script>mixpanel.disable()</script>
+		{% endif %}
 
 		{% block scripts %}{% endblock %}
 	</body>
