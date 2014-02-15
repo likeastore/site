@@ -4,6 +4,8 @@
   "dependencies": {
     "jquery": "~1.9.0",
     "vex": "~2.0.1",
-    "animate.css": "~3.0.0"
+    "animate.css": "~3.0.0",
+    "modernizr": "~2.7.1",
+    "vue": "~0.8.6"
   }
 }

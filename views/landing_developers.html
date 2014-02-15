@@ -1,16 +1,11 @@
 {% extends './base.html' %}
 
 {% block meta %}
-	<meta name="apple-mobile-web-app-capable" content="yes" />
-{% endblock %}
-
-{% block favicons %}
-	{% parent %}
-	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700|PT+Sans:400,700|Montserrat:400,700' rel='stylesheet' type='text/css'>
+	<meta name="apple-mobile-web-app-capable" content="yes">
 {% endblock %}
 
 {% block styles %}
-<link rel="stylesheet" href="{% if mode === 'production' %}/build/geek_landing_merge.min.css{% else %}/css/merge/geek_landing_merge.css{% endif %}">
+<link rel="stylesheet" href="/css/developers.css">
 {% endblock %}
 
 {% block bodyClass %}dev-land-page{% endblock %}

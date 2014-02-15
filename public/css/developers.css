@@ -1,43 +1,8 @@
+/*
+ * Geeks landings styles
+ */
 
 
-@font-face {
-  font-family: 'likeastore-icon-font';
-  src: url('../fonts/likeastore-icon-font.eot');
-  src: url('../fonts/likeastore-icon-font.eot?#iefix') format('embedded-opentype'),
-		 url('../fonts/likeastore-icon-font.woff') format('woff'),
-		 url('../fonts/likeastore-icon-font.ttf') format('truetype'),
-		 url('../fonts/likeastore-icon-font.svg#likeastore-icon-font') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
-[data-icon]:before,
-.font-icon:before {
-  font-family: 'likeastore-icon-font';
-  content: attr(data-icon);
-  font-style: normal;
-  font-weight: normal;
-  speak: none;
-  line-height: 1;
-  text-transform: none;
-  -webkit-font-smoothing: antialiased;
-}
-
-::selection {
-  background-color: #e74c3c;
-  color: #fff;
-}
-
-::-moz-selection {
-  background-color: #e74c3c;
-  color: #fff;
-}
-
-* {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
 
 body {
   color: #1f282d;
@@ -59,7 +24,7 @@ body {
   color: #767a86;
   border: 2px solid #767a86;
   font-size: 14px;
-  font-family: 'Montserrat', 'Source Sans Pro', 'Helvetica', 'Arial', sans-serif;
+  font-family: 'Montserrat', 'Source Sans Pro', 'PT Sans', 'Helvetica', 'Arial', sans-serif;
   padding: 24px 70px;
   vertical-align: middle;
   text-align: center;
@@ -79,21 +44,6 @@ body {
   border-color: #00a2b4;
   color: #00a2b4;
   text-decoration: none;
-}
-
-.logo {
-  display: inline-block;
-  background: url('../img/logo-likeastore-pink.png') no-repeat center transparent;
-  -webkit-background-size: cover;
-  background-size: cover;
-  width: 140px;
-  height: 20px;
-  cursor: pointer;
-}
-
-.delay-2s {
-  -webkit-animation-delay: 2s;
-  animation-delay: 2s;
 }
 
 .nav {
@@ -118,7 +68,7 @@ body {
 
 .nav .menu a.link {
   color: #fff;
-  font: 400 11px 'Montserrat', 'Source Sans Pro', 'Helvetica', 'Arial', sans-serif;
+  font: 400 11px 'Montserrat', 'Source Sans Pro', 'PT Sans', 'Helvetica', 'Arial', sans-serif;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: .5px;
@@ -466,7 +416,7 @@ body {
 .footer-wrap ul li a {
   color: #fff;
   font-size: 12px;
-  font-family: 'Montserrat', 'Source Sans Pro', 'Helvetica', 'Arial', sans-serif;
+  font-family: 'Montserrat', 'Source Sans Pro', 'PT Sans', 'Helvetica', 'Arial', sans-serif;
   font-weight: 500;
   margin: 0 8px;
   text-transform: uppercase;

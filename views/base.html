@@ -12,8 +12,8 @@
 		{% block meta %}{% endblock %}
 
 		{% block fbmeta %}
-		<meta property="og:title" content="likeastore.com: keep all your likes in a safe place" />
-		<meta property="og:image" content="/img/likeastorescreen.png" />
+		<meta property="og:title" content="likeastore.com - social bookmarks and favorites" />
+		<meta property="og:image" content="/img/feed-box.png" />
 		{% endblock %}
 
 		<title>{{title}}</title>
@@ -23,7 +23,9 @@
 		<link rel="apple-touch-icon" href="/img/logo.png"/>
 		{% endblock %}
 
-		<link rel="stylesheet" href="{% if mode === 'production' %}/build/common_merge.min.css{% else %}/css/merge/common_merge.css{% endif %}">
+		{% block base_css %}
+		<link rel="stylesheet" href="{% if mode === 'production' %}/build/base_merge.min.css{% else %}/css/merge/base_merge.css{% endif %}">
+		{% endblock %}
 
 		{% block styles %}{% endblock %}
 
@@ -36,9 +38,7 @@
 		{% block content %}{% endblock %}
 
 		{% block base_js %}
-			<script src="/components/jquery/jquery.min.js"></script>
-			<script src="/js/jquery.helpers.js"></script>
-			<script src="/js/formular.js"></script>
+			<script src="/build/base_merge{% if mode === 'production' %}.min{% endif %}.js"></script>
 		{% endblock %}
 
 		<!-- Google analytics -->

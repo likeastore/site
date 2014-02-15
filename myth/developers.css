@@ -1,4 +1,7 @@
-:root {
+/*
+ * Geeks landings styles
+ */
+ :root {
 	var-red: #df3f3f;
 	var-grey: #eeeef0;
 	var-darkgrey: #767a86;
@@ -17,45 +20,8 @@
 	var-vimeo: #62a0ad;
 	var-dribbble: #ea4c89;
 	var-behance: #0d7ba3;
-	var-title-font: 'Montserrat', 'Source Sans Pro', 'Helvetica', 'Arial', sans-serif;
+	var-title-font: 'Montserrat', 'Source Sans Pro', 'PT Sans', 'Helvetica', 'Arial', sans-serif;
 	var-text-font: 'Source Sans Pro', 'PT Sans', 'Helvetica', 'Arial', sans-serif;
-}
-
-@font-face {
-	font-family: 'likeastore-icon-font';
-	src: url('../fonts/likeastore-icon-font.eot');
-	src: url('../fonts/likeastore-icon-font.eot?#iefix') format('embedded-opentype'),
-		 url('../fonts/likeastore-icon-font.woff') format('woff'),
-		 url('../fonts/likeastore-icon-font.ttf') format('truetype'),
-		 url('../fonts/likeastore-icon-font.svg#likeastore-icon-font') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
-[data-icon]:before,
-.font-icon:before {
-	font-family: 'likeastore-icon-font';
-	content: attr(data-icon);
-	font-style: normal;
-	font-weight: normal;
-	speak: none;
-	line-height: 1;
-	text-transform: none;
-	-webkit-font-smoothing: antialiased;
-}
-
-::selection {
-	background-color: #e74c3c;
-	color: #fff;
-}
-
-::-moz-selection {
-	background-color: #e74c3c;
-	color: #fff;
-}
-
-* {
-	box-sizing: border-box;
 }
 
 body {
@@ -92,19 +58,6 @@ body {
 	border-color: var(navy);
 	color: var(navy);
 	text-decoration: none;
-}
-
-.logo {
-	display: inline-block;
-	background: url('../img/logo-likeastore-pink.png') no-repeat center transparent;
-	background-size: cover;
-	width: 140px;
-	height: 20px;
-	cursor: pointer;
-}
-
-.delay-2s {
-	animation-delay: 2s;
 }
 
 .nav {
