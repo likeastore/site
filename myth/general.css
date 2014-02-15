@@ -1,0 +1,42 @@
+/*
+ * General styles
+ */
+::selection {
+	background-color: #e74c3c;
+	color: #fff;
+}
+
+::-moz-selection {
+	background-color: #e74c3c;
+	color: #fff;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+	transition: all .2s ease;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.logo {
+	display: inline-block;
+	background: url('../img/logo-likeastore-pink.png') no-repeat center transparent;
+	background-size: cover;
+	width: 140px;
+	height: 20px;
+	cursor: pointer;
+}
+
+.delay-1s {
+	animation-delay: 1s;
+}
+
+.delay-2s {
+	animation-delay: 2s;
+}

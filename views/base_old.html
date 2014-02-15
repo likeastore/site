@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block base_css %}
+	<link rel="stylesheet" href="{% if mode === 'production' %}/build/common_merge.min.css{% else %}/css/merge/common_merge.css{% endif %}">
+{% endblock %}
+
+{% block base_js %}
+	<script src="/build/base_jq_merge{% if mode === 'production' %}.min{% endif %}.js"></script>
+{% endblock %}
