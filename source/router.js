@@ -12,7 +12,8 @@ module.exports = function (app) {
 		if (req.cookies.token) {
 			return res.redirect(config.applicationUrl);
 		}
-		res.redirect('/geeks');
+
+		res.render('landing_developers', { title: 'Likeastore • Social bookmarks and favorites for geeks', config: config, mode: env });
 		//res.render('homepage', { title: 'Likeastore • Saves your likes & social activity', config: config, mode: env });
 	};
 
