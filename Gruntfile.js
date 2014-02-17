@@ -6,7 +6,8 @@ module.exports = function (grunt) {
 				files: {
 					'public/css/developers.css': 'myth/developers.css',
 					'public/css/general.css': 'myth/general.css',
-					'public/css/icons.css': 'myth/icons.css'
+					'public/css/icons.css': 'myth/icons.css',
+					'public/css/forms.css': 'myth/forms.css'
 				}
 			}
 		},

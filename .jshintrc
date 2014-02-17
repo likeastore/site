@@ -18,6 +18,7 @@
 		"waitsFor",
 		"xit",
 		"xdescribe",
+		"Vue",
 		"Zombie",
 		"mixpanel"
 	],

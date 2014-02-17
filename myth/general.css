@@ -27,10 +27,15 @@ a:hover {
 .logo {
 	display: inline-block;
 	background: url('../img/logo-likeastore-pink.png') no-repeat center transparent;
-	background-size: cover;
+	background-size: 100%;
 	width: 140px;
 	height: 20px;
 	cursor: pointer;
+}
+
+.logo.big {
+	width: 200px;
+	height: 29px;
 }
 
 .delay-1s {

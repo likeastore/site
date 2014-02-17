@@ -24,7 +24,8 @@ module.exports = function (app) {
 	};
 
 	var register = function (req, res) {
-		res.render('register', { title: 'Likeastore • Join', mode: env });
+		res.render('join', { title: 'Likeastore • Join', mode: env });
+		//res.render('register', { title: 'Likeastore • Join', mode: env });
 	};
 
 	var forgotPassword = function (req, res) {

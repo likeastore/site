@@ -1,0 +1,77 @@
+:root {
+	var-red: #df3f3f;
+	var-grey: #eeeef0;
+	var-darkgrey: #767a86;
+	var-darkblue: #272a33;
+	var-navy: #00a2b4;
+	var-green: #00b763;
+	var-tortoise: #1abc9c;
+	var-yellow: #f1c40f;
+	var-black: #1f282d;
+	var-pink: #f03e56;
+	var-blue: #5da8e0;
+	var-title-font: 'Montserrat', 'Source Sans Pro', 'PT Sans', 'Helvetica', 'Arial', sans-serif;
+	var-text-font: 'Source Sans Pro', 'PT Sans', 'Helvetica', 'Arial', sans-serif;
+}
+
+body {
+	color: #fff;
+	background: var(darkblue);
+	font: 400 14px var(text-font);
+	width: 100%;
+	overflow-x: hidden;
+}
+
+.join-wrap {
+	width: 430px;
+	margin: 150px auto;
+	text-align: center;
+}
+
+.join-form {
+	background: rgba(0,0,0,.2);
+	margin: 35px auto;
+	padding: 45px 40px;
+	border-radius: 3px;
+}
+
+.fld {
+	background: rgba(255,255,255,1);
+	border: none;
+	width: 100%;
+	padding: 14px 20px;
+	margin-bottom: 15px;
+	font-size: 14px;
+	outline: none;
+	-webkit-appearance: none;
+	border-radius: 2px;
+	transition: background-color .3s ease-in;
+}
+
+.forgot-password {
+	display: inline-block;
+	color: var(grey);
+	margin-top: 15px;
+}
+
+.btn {
+	display: inline-block;
+	border: 0;
+	font-size: 12px;
+	font-family: var(title-font);
+	padding: 15px 35px;
+	vertical-align: middle;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	cursor: pointer;
+	user-select: none;
+	border-radius: 4px;
+	outline: none;
+	transition: all .3s linear;
+}
+
+.green-btn {
+	background-color: #00b763;
+	color: #fff;
+}

@@ -1,0 +1,30 @@
+{% extends './base.html' %}
+
+{% block styles %}
+
+{% endblock %}
+
+{% block content %}
+<section class="join-wrap">
+	<a href="/" class="logo big"></a>
+
+	<form id="join" class="join-form" accept-charset="utf-8" novalidate>
+		<div>
+			<input type="email" name="email" class="fld" v-model="email" placeholder="Your email (only you can see it)" autocomplete="off"> <div style="color: #fff" v-text="email"></div>
+		</div>
+		<div>
+			<input type="password" name="password" class="fld" v-model="password" placeholder="Password">
+		</div>
+
+		<div class="clearfix">
+			<a href="/forgot-password" class="forgot-password left">Forgot password?</a>
+			<button class="btn right green-btn" v-on="click: submitForm">Sign in</button>
+		</div>
+
+	</form>
+</section>
+{% endblock %}
+
+{% block scripts %}
+	<script src="/js/forms.js"></script>
+{% endblock %}
