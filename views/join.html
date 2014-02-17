@@ -7,7 +7,7 @@
 	<form id="join" class="join-form animated" accept-charset="utf-8" novalidate
 		v-class="shake: (errors.email || errors.password)">
 
-		<div class="error-msg"
+		<div v-class="error-msg: errors.msg"
 			v-if="errors.msg"
 			v-text="errors.msg">
 		</div>
