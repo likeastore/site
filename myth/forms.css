@@ -17,7 +17,7 @@
 	var-text-font: 'Source Sans Pro', 'PT Sans', 'Helvetica', 'Arial', sans-serif;
 }
 
-body {
+body.join-page {
 	color: #fff;
 	background: var(darkblue);
 	font: 400 14px var(text-font);
