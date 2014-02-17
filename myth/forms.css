@@ -10,6 +10,9 @@
 	var-black: #1f282d;
 	var-pink: #f03e56;
 	var-blue: #5da8e0;
+	var-facebook: #3b5998;
+	var-twitter: #3498db;
+	var-github: #bdc3c7;
 	var-title-font: 'Montserrat', 'Source Sans Pro', 'PT Sans', 'Helvetica', 'Arial', sans-serif;
 	var-text-font: 'Source Sans Pro', 'PT Sans', 'Helvetica', 'Arial', sans-serif;
 }
@@ -24,20 +27,28 @@ body {
 
 .join-wrap {
 	width: 430px;
-	margin: 150px auto;
+	margin: 140px auto 80px;
 	text-align: center;
 }
 
 .join-form {
 	background: rgba(0,0,0,.2);
-	margin: 35px auto;
+	margin: 35px auto 20px;
 	padding: 45px 40px;
+	position: relative;
 	border-radius: 3px;
+}
+
+.error-msg {
+	color: var(pink);
+	font-size: 16px;
+	margin-bottom: 15px;
 }
 
 .fld {
 	background: rgba(255,255,255,1);
 	border: none;
+	color: #333;
 	width: 100%;
 	padding: 14px 20px;
 	margin-bottom: 15px;
@@ -46,6 +57,10 @@ body {
 	-webkit-appearance: none;
 	border-radius: 2px;
 	transition: background-color .3s ease-in;
+}
+
+.fld.error {
+	box-shadow: 0 0 0 3px var(pink);
 }
 
 .forgot-password {
@@ -66,7 +81,7 @@ body {
 	letter-spacing: 1px;
 	cursor: pointer;
 	user-select: none;
-	border-radius: 4px;
+	border-radius: 3px;
 	outline: none;
 	transition: all .3s linear;
 }
@@ -74,4 +89,115 @@ body {
 .green-btn {
 	background-color: #00b763;
 	color: #fff;
+}
+
+.social-auth {
+	margin: 20px 0 0;
+	text-align: center;
+}
+
+.auth-btn {
+	display: inline-block;
+	color: #fff;
+	font-size: 11px;
+	font-family: var(title-font);
+	padding: 9px 12px 8px 12px;
+	margin: 0 0 12px;
+	letter-spacing: .5px;
+	width: 205px;
+	text-decoration: none;
+	text-transform: uppercase;
+	border-radius: 3px;
+	transition: all .3s linear;
+}
+
+.auth-btn.facebook {
+	background: var(facebook);
+	margin-right: 8px;
+}
+
+.auth-btn.twitter {
+	background: var(twitter);
+}
+
+.auth-btn.github {
+	background: var(github);
+}
+
+.auth-btn i,
+.auth-btn span {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.auth-btn i {
+	font-size: 14px;
+	line-height: 10px;
+	margin-top: 3px;
+	margin-right: 5px;
+}
+
+.auth-btn span {
+	line-height: 22px;
+}
+
+.btn:hover, .btn:focus,
+.auth-btn:hover, .auth-btn:focus {
+	opacity: .9;
+	text-decoration: none;
+}
+
+.separator {
+	color: rgba(255,255,255,.3);
+	font-size: 14px;
+	position: relative;
+}
+
+.separator:before {
+	position: absolute;
+	border-bottom: 1px solid  rgba(255,255,255,.2);
+	width: 30%;
+	height: 10px;
+	content: '';
+	left: 42px;
+}
+
+.separator:after {
+	position: absolute;
+	border-bottom: 1px solid  rgba(255,255,255,.2);
+	width: 30%;
+	height: 10px;
+	content: '';
+	right: 42px;
+}
+
+@media (max-width: 440px) {
+	.logo {
+		width: 180px;
+	}
+
+	.join-wrap {
+		width: 95%;
+		margin-top: 100px;
+	}
+
+	.join-form {
+		padding: 30px 25px;
+	}
+
+	.auth-btn {
+		width: 80%;
+	}
+
+	.auth-btn.facebook {
+		margin-right: 0;
+	}
+
+	.separator:before {
+		left: 25px;
+	}
+
+	.separator:after {
+		right: 25px;
+	}
 }

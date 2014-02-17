@@ -1,0 +1,27 @@
+{
+  "name": "rqst",
+  "version": "0.1.0",
+  "description": "the most simple browser http request lib",
+  "main": "rqst.js",
+  "keywords": [
+    "http",
+    "request",
+    "response",
+    "xhr",
+    "xmlhttprequest",
+    "javascript",
+    "1k"
+  ],
+  "authors": [
+    "Dmitri Voronianski <dmitri.voronianski@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "example",
+    "test",
+    "tests"
+  ]
+}

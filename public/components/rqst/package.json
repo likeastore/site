@@ -1,0 +1,22 @@
+{
+  "name": "rqst",
+  "version": "0.1.0",
+  "description": "",
+  "main": "rqst.js",
+  "directories": {
+    "example": "example",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/karma start --single-run"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "karma-jasmine": "~0.1",
+    "karma": "~0.10",
+    "karma-chrome-launcher": "~0.1.2",
+    "express": "~3.4.8",
+    "tape": "~2.4.2"
+  }
+}

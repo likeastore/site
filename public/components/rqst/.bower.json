@@ -1,0 +1,37 @@
+{
+  "name": "rqst",
+  "description": "the most simple browser http request lib",
+  "main": "rqst.js",
+  "keywords": [
+    "http",
+    "request",
+    "response",
+    "xhr",
+    "xmlhttprequest",
+    "javascript",
+    "1k"
+  ],
+  "authors": [
+    "Dmitri Voronianski <dmitri.voronianski@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "example",
+    "test",
+    "tests"
+  ],
+  "homepage": "https://github.com/voronianski/rqst",
+  "_release": "04f9dfc150",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "04f9dfc1506e45ff84362614c792c272a297094a"
+  },
+  "_source": "git://github.com/voronianski/rqst.git",
+  "_target": "*",
+  "_originalSource": "rqst",
+  "_direct": true
+}

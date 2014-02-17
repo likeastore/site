@@ -41,7 +41,8 @@ module.exports = function (grunt) {
 			base: {
 				src: [
 					'public/components/modernizr/modernizr.js',
-					'public/components/vue/dist/vue.js'
+					'public/components/vue/dist/vue.js',
+					'public/components/rqst/rqst.js'
 				],
 				dest: 'public/build/base_merge.js'
 			},

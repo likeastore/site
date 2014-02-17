@@ -1,30 +1,61 @@
 {% extends './base.html' %}
 
-{% block styles %}
-
-{% endblock %}
-
 {% block content %}
-<section class="join-wrap">
+<section class="join-wrap animated fadeInLeft">
 	<a href="/" class="logo big"></a>
 
-	<form id="join" class="join-form" accept-charset="utf-8" novalidate>
-		<div>
-			<input type="email" name="email" class="fld" v-model="email" placeholder="Your email (only you can see it)" autocomplete="off"> <div style="color: #fff" v-text="email"></div>
+	<form id="join" class="join-form animated" accept-charset="utf-8" novalidate
+		v-class="shake: (errors.email || errors.password)">
+
+		<div class="error-msg"
+			v-if="errors.msg"
+			v-text="errors.msg">
 		</div>
+
 		<div>
-			<input type="password" name="password" class="fld" v-model="password" placeholder="Password">
+			<input type="email" name="email" class="fld" placeholder="Your email (only you can see it)" autocomplete="off"
+				v-model="user.email"
+				v-class="error: errors.email"
+				v-on="focus: resetFields">
+		</div>
+
+		<div>
+			<input type="password" name="password" class="fld" placeholder="Your password"
+				v-model="user.password"
+				v-class="error: errors.password"
+				v-on="focus: resetFields">
 		</div>
 
 		<div class="clearfix">
 			<a href="/forgot-password" class="forgot-password left">Forgot password?</a>
-			<button class="btn right green-btn" v-on="click: submitForm">Sign in</button>
+			<button class="btn right green-btn"
+				v-on="click: submitForm"
+				v-on="keyup: submitForm|key enter">{{texts.cta}}</button>
 		</div>
-
 	</form>
+
+	<div class="separator">or be social</div>
+
+	<div class="social-auth">
+		<a class="facebook auth-btn" href="/auth/facebook">
+			<i data-icon="g" class="icon"></i>
+			<span>{{texts.cta}} with facebook</span>
+		</a>
+
+		<a class="twitter auth-btn" href="/auth/twitter">
+			<i data-icon="b" class="icon"></i>
+			<span>{{texts.cta}} with twitter</span>
+		</a>
+
+		<a class="github auth-btn" href="/auth/github">
+			<i data-icon="d" class="icon"></i>
+			<span>{{texts.cta}} with github</span>
+		</a>
+	</div>
 </section>
 {% endblock %}
 
 {% block scripts %}
 	<script src="/js/forms.js"></script>
+	<script>mixpanel.track('{{texts.cta}} opened');</script>
 {% endblock %}

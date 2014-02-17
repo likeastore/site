@@ -12,11 +12,11 @@ module.exports = function (app) {
 		if (req.cookies.token) {
 			return res.redirect(config.applicationUrl);
 		}
-		res.redirect('/geeks');
-		//res.render('homepage', { title: 'Likeastore • Saves your likes & social activity', config: config, mode: env });
+		res.render('landing_developers', { title: 'Likeastore • Social bookmarks and favorites', config: config, mode: env });
 	};
 
-	var home =function (req, res) {
+	// old school landing
+	var home = function (req, res) {
 		if (req.cookies.token) {
 			return res.redirect(config.applicationUrl);
 		}
@@ -24,12 +24,19 @@ module.exports = function (app) {
 	};
 
 	var register = function (req, res) {
-		res.render('join', { title: 'Likeastore • Join', mode: env });
-		//res.render('register', { title: 'Likeastore • Join', mode: env });
+		res.render('join', { title: 'Join • Likeastore', mode: env, texts: {
+			cta: 'Sign up'
+		}});
+	};
+
+	var login = function (req, res) {
+		res.render('join', { title: 'Log in • Likeastore', mode: env, texts: {
+			cta: 'Sign in'
+		}});
 	};
 
 	var forgotPassword = function (req, res) {
-		res.render('forgot_password', { title: 'Likeastore • Forgot password?', mode: env });
+		res.render('forgot_password', { title: 'Forgot password? • Likeastore', mode: env });
 	};
 
 	var resetPassword = function (req, res) {
@@ -37,11 +44,11 @@ module.exports = function (app) {
 			return res.redirect(config.siteUrl);
 		}
 
-		res.render('reset_password', { title: 'Likeastore • Reset password', mode: env, email: req.query.email, request: req.query.request});
+		res.render('reset_password', { title: 'Reset password • Likeastore', mode: env, email: req.query.email, request: req.query.request});
 	};
 
 	var setup = function (req, res) {
-		res.render('setup', { title: 'Likeastore • Setup', mode: env, user: req.user });
+		res.render('setup', { title: 'Setup account • Likeastore', mode: env, user: req.user });
 	};
 
 	var termsOfUse = function (req, res) {
@@ -142,8 +149,8 @@ module.exports = function (app) {
 	app.get('/', index);
 	app.get('/home', home);
 	app.get('/join', register);
-	app.get('/login', register);
 	app.get('/register', register);
+	app.get('/login', login);
 	app.get('/forgot-password', forgotPassword);
 	app.get('/reset-password', resetPassword);
 	app.get('/setup', checkAuth, checkFirstTime, setup);

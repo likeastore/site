@@ -11151,7 +11151,7 @@ ls.auth = {
 
 				$msg.addClass('user-suggest');
 				$msg.html('\
-					<img src="' + user.avatar + '"/>\
+					<img src="' + user.avatar + '">\
 					<span>Email is already registered. ' + (user.displayName || user.name) + ', is it you?\
 					You can sign in with <b>' + user.provider + '</b> account.</span>');
 			} else {
