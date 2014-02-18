@@ -1,7 +1,7 @@
 (function (exports, undefined) {
 	'use strict';
 
-	exports.form = new Vue({
+	exports.ls.join = new Vue({
 		el: '#join',
 
 		data: {

@@ -4,16 +4,16 @@
 	<link rel="stylesheet" href="/css/forms.css">
 {% endblock %}
 
-{% block bodyClass %}join-page{% endblock %}
+{% block bodyClass %}join-page dark-bg{% endblock %}
 
 {% block content %}
-<section class="join-wrap animated fadeInLeft">
+<section class="forms-wrap join-wrap animated fadeInLeft">
 	<a href="/" class="logo big"></a>
 
-	<form id="join" class="join-form animated" accept-charset="utf-8" novalidate
+	<form id="join" class="form animated" accept-charset="utf-8" novalidate
 		v-class="shake: (errors.email || errors.password)">
 
-		<div v-class="error-msg: errors.msg"
+		<div class="message" v-class="error-msg: errors.msg"
 			v-if="errors.msg"
 			v-text="errors.msg">
 		</div>
@@ -33,7 +33,7 @@
 		</div>
 
 		<div class="clearfix">
-			<a href="/forgot-password" class="forgot-password left">Forgot password?</a>
+			<a href="/forgot-password" class="forgot-password-link link left">Forgot password?</a>
 			<button class="btn right green-btn"
 				v-on="click: submitForm"
 				v-on="keyup: submitForm|key enter">{{texts.cta}}</button>
@@ -62,6 +62,6 @@
 {% endblock %}
 
 {% block scripts %}
-	<script src="/js/forms.js"></script>
+	<script src="/js/pages/join.js"></script>
 	<script>mixpanel.track('{{texts.cta}} opened');</script>
 {% endblock %}

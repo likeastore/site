@@ -43,6 +43,10 @@ a:hover {
   height: 29px;
 }
 
+.dark-bg {
+  background-color: #272a33;
+}
+
 .delay-1s {
   -webkit-animation-delay: 1s;
   animation-delay: 1s;

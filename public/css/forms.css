@@ -1,20 +1,26 @@
 
 
-body.join-page {
+body {
   color: #fff;
-  background: #272a33;
   font: 400 14px 'Source Sans Pro', 'PT Sans', 'Helvetica', 'Arial', sans-serif;
   width: 100%;
   overflow-x: hidden;
 }
 
-.join-wrap {
-  width: 430px;
+.forms-wrap {
   margin: 140px auto 80px;
   text-align: center;
 }
 
-.join-form {
+.join-wrap {
+  width: 430px;
+}
+
+.password-wrap {
+  width: 565px;
+}
+
+.form {
   background: rgba(0,0,0,.2);
   margin: 35px auto 20px;
   padding: 45px 40px;
@@ -22,10 +28,17 @@ body.join-page {
   border-radius: 3px;
 }
 
-.error-msg {
-  color: #f03e56;
+.message {
   font-size: 16px;
   margin-bottom: 15px;
+}
+
+.error-msg {
+  color: #f03e56;
+}
+
+.success-msg {
+  color: #00b763;
 }
 
 .fld {
@@ -48,10 +61,19 @@ body.join-page {
   box-shadow: 0 0 0 3px #f03e56;
 }
 
-.forgot-password {
+.link {
   display: inline-block;
-  color: #eeeef0;
+  font-size: 16px;
   margin-top: 15px;
+}
+
+.forgot-password-link {
+  color: #eeeef0;
+  font-size: 14px !important;
+}
+
+.back-link {
+  color: #eeeef0;
 }
 
 .btn {
@@ -80,6 +102,11 @@ body.join-page {
   color: #fff;
 }
 
+.pink-btn {
+  background-color: #f03e56;
+  color: #fff;
+}
+
 .social-auth {
   margin: 20px 0 0;
   text-align: center;
@@ -93,7 +120,6 @@ body.join-page {
   padding: 9px 12px 8px 12px;
   margin: 0 0 12px;
   letter-spacing: .5px;
-  width: 205px;
   text-decoration: none;
   text-transform: uppercase;
   border-radius: 3px;
@@ -163,17 +189,34 @@ body.join-page {
   right: 42px;
 }
 
+.desc {
+  color: #eeeef0;
+  font-size: 16px;
+  line-height: 22px;
+  margin-bottom: 25px;
+  text-align: justify;
+}
+
+@media (max-width: 600px) {
+  .password-wrap {
+    width: 95%;
+  }
+}
+
 @media (max-width: 440px) {
   .logo {
     width: 180px;
   }
 
-  .join-wrap {
-    width: 95%;
-    margin-top: 100px;
+  .forms-wrap {
+    margin-top: 60px;
   }
 
-  .join-form {
+  .join-wrap {
+    width: 95%;
+  }
+
+  .form {
     padding: 30px 25px;
   }
 
@@ -191,5 +234,13 @@ body.join-page {
 
   .separator:after {
     right: 25px;
+  }
+
+  .password-wrap .btn {
+    padding: 15px;
+  }
+
+  .back-link {
+    font-size: 14px;
   }
 }

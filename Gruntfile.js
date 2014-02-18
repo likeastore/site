@@ -42,7 +42,8 @@ module.exports = function (grunt) {
 				src: [
 					'public/components/modernizr/modernizr.js',
 					'public/components/vue/dist/vue.js',
-					'public/components/rqst/rqst.js'
+					'public/components/rqst/rqst.js',
+					'public/js/onLoad.js',
 				],
 				dest: 'public/build/base_merge.js'
 			},
@@ -91,4 +92,5 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('lint', ['jshint']);
 	grunt.registerTask('default', ['myth', 'cssmin', 'jshint', 'concat', 'uglify']);
+
 };
