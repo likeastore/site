@@ -161,7 +161,6 @@ body {
 .btn:focus,
 .auth-btn:hover,
 .auth-btn:focus {
-  opacity: .9;
   text-decoration: none;
 }
 
