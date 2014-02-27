@@ -56,3 +56,23 @@ a:hover {
   -webkit-animation-delay: 2s;
   animation-delay: 2s;
 }
+
+/* Hack for fixing Chrome fonts issue version 33 */
+
+body {
+  -webkit-animation-duration: .1s;
+  -webkit-animation-name: fontfix;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-delay: .1s;
+}
+
+@-webkit-keyframes fontfix {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
