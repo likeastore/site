@@ -440,6 +440,11 @@ body {
 	border-bottom: 1px solid;
 }
 
+.footer-wrap a.mixpanel:hover {
+	border: 0;
+	text-decoration: none;
+}
+
 @media (max-width: 960px) {
 	.cont, .nav {
 		width: 95%;
