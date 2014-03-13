@@ -8,7 +8,6 @@ var crypto = require('crypto');
 var config = require('../../config');
 var db = require('../db')(config);
 var tokens = require('../utils/tokens');
-var notificationUtil = require('../utils/notification');
 var analytics = require('../utils/analytics');
 var ga = require('../utils/ga');
 var logger = require('../utils/logger');
@@ -97,8 +96,6 @@ function findOrCreateByService(token, tokenSecret, profile, callback) {
 				return callback(err);
 			}
 
-			sendUserCreatedNotification(saved);
-
 			analytics('user registered', {service: profile.provider}, logWarning);
 			ga.trackEvent('account', 'signup', 'users', {service: profile.provider}, logWarning);
 
@@ -164,8 +161,6 @@ function findOrCreateByService(token, tokenSecret, profile, callback) {
 						if (err) {
 							return callback(err);
 						}
-
-						sendUserCreatedNotification(saved);
 
 						analytics('user registered', {service: 'local'}, logWarning);
 						ga.trackEvent('account', 'signup', 'users', {service: 'local'}, logWarning);
@@ -294,12 +289,6 @@ function unsubscribe(id, callback) {
 		update: {$set: {unsubscribed: true}},
 		'new': true,
 	}, callback);
-}
-
-function sendUserCreatedNotification (user) {
-	var title = '[likeastore] New user registered!';
-	var message = 'Congrats!\n\nNew user ' + (user.email || user.username) + ' just registered for likeastore via ' + user.provider + ' registration on ' + (process.env.NODE_ENV || 'development') + '. Impress him!';
-	notificationUtil.sendEmail(title, message, function () {});
 }
 
 module.exports = {
