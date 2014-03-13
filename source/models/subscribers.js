@@ -1,7 +1,6 @@
 var _ = require('underscore');
 var config = require('../../config');
 var db = require('../db')(config);
-var notificationUtil = require('../utils/notification');
 
 /**
  * (!) NOTA BENE: (remove when we'll enable schema)
@@ -25,15 +24,7 @@ exports.save = function (req, callback) {
 			return callback('subscription is not saved');
 		}
 
-		var title = '[likeastore] New user subscribed for notifications!';
-		var message = 'Buddy ' + subscriber.email + ' just subscribed for notifications!';
-		notificationUtil.sendEmail(title, message, function (err) {
-			if (err) {
-				console.error(err);
-			}
-
-			return callback(null);
-		});
+		callback(null);
 	});
 };
 
