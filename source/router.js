@@ -9,7 +9,7 @@ var env = process.env.NODE_ENV || 'development';
 module.exports = function (app) {
 
 	var index = function (req, res) {
-		if (req.cookies.token) {
+		if (req.cookies[config.auth.cookieName]) {
 			return res.redirect(config.applicationUrl);
 		}
 		res.render('landing_developers', { title: 'Likeastore • Social bookmarks and favorites', config: config, mode: env });
@@ -17,7 +17,7 @@ module.exports = function (app) {
 
 	// old school landing
 	var home = function (req, res) {
-		if (req.cookies.token) {
+		if (req.cookies[config.auth.cookieName]) {
 			return res.redirect(config.applicationUrl);
 		}
 		res.render('homepage', { title: 'Likeastore • Social bookmarks and favorites', config: config, mode: env });
