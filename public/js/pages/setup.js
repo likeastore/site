@@ -9,12 +9,14 @@
 				email: '',
 				username: ''
 			},
+			provider: '',
 			accountSuggest: false,
 			error: false
 		},
 
 		ready: function () {
 			this.$data.user.username = document.getElementsByName('nameSuggest')[0].value;
+			this.$data.provider = document.getElementsByName('provider')[0].value;
 		},
 
 		methods: {
@@ -33,9 +35,13 @@
 					return;
 				}
 
-				if (!emailRegex.test(user.email)) {
+				if (!emailRegex.test(user.email) && data.provider !== 'local') {
 					data.error = 'Whoops! Your email looks incorrect!';
 					return;
+				}
+
+				if (data.provider === 'local') {
+					delete user.email;
 				}
 
 				rqst.post({ url: '/auth/setup', body: user }, function (err, res, body) {
