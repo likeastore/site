@@ -42,6 +42,14 @@ a:hover {
 	background-color: #272a33;
 }
 
+.delay-300ms {
+	animation-delay: .3s;
+}
+
+.delay-500ms {
+	animation-delay: .5s;
+}
+
 .delay-1s {
 	animation-delay: 1s;
 }

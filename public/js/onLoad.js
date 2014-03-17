@@ -1,11 +1,11 @@
 (function () {
 	'use strict';
 
-	window.ls = window.ls || {};
-
 	if (window.location.hash === '#_=_') {
 		window.location.href = window.location.href.split('#')[0];
 	}
+
+	window.ls = window.ls || {};
 
 	ls.getCookie = function (name) {
 		var units = document.cookie.split(name + '=');

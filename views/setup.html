@@ -1,38 +1,60 @@
-{% extends './base_register.html' %}
-{% import './snippets.html' as snippets %}
+{% extends './base.html' %}
 
-{% block bodyClass %}register-page setup-page{% endblock %}
+{% block styles %}
+	<link rel="stylesheet" href="/css/forms.css">
+{% endblock %}
+
+{% block bodyClass %}setup-page dark-bg{% endblock %}
 
 {% block content %}
+<section class="forms-wrap setup-wrap">
+	<a href="/" class="logo big"></a>
 
-{{ snippets.multicolored_bar() }}
+	<form id="setup" class="form animated" accept-charset="utf-8" novalidate v-class="shake: error">
 
-<div class="wrap">
-	<h2 class="logo"><a href="/">likeastore.</a></h2>
+		{% if user.avatar %}
+		<img src="{{user.avatar}}" class="avatar" title="{% if user.provider === 'local' %}gravatar{% else %}{{user.provider}}{% endif %} avatar">
+		{% endif %}
 
-	<form action="/auth/setup" method="post" accept-charset="utf-8" class="formular setup" novalidate>
+		<div class="desc">Please type your {% if user.provider !== 'local' %}email and username{% else %}username{% endif %} to finish registration and welcome on board!</div>
 
-		<img src="{{user.avatar}}" class="avatar">
-
-		<div class="desc">
-			Please type your {% if user.provider !== 'local' %}email and username{% else %}username{% endif %} to finish registration and welcome on board!
+		<div class="message" v-class="error-msg: error"
+			v-if="error && !accountSuggest"
+			v-text="error">
 		</div>
 
-		<div class="msg"></div>
+		<div class="suggest-account" v-if="accountSuggest" v-html="accountSuggest"></div>
+
 		<div>
-			<input type="text" name="username" class="field username" value="{{user.username}}" placeholder="Your username" autocomplete="off">
+			<input type="text" name="username" class="fld username" placeholder="Your username" autocomplete="off"
+				v-model="user.username"
+				v-class="error: error"
+				v-on="focus: error=false">
 		</div>
+
 		{% if user.provider !== 'local' %}
 		<div>
-			<input type="email" name="email" class="field email" placeholder="Your email (only you can see it)" autocomplete="off">
+			<input type="email" name="email" class="fld email" placeholder="Your email (only you can see it)" autocomplete="off"
+				v-model="user.email"
+				v-class="error: error"
+				v-on="focus: error=false">
 		</div>
 		{% endif %}
-		<button type="submit" class="do-setup-btn btn green-btn">Go to app</button>
+
+		<input type="hidden" name="nameSuggest" value="{{user.username}}">
+		<input type="hidden" name="provider" value="{{user.provider}}">
+
+		<div class="clearfix">
+			<button class="btn green-btn right"
+				v-on="click: submitForm"
+				v-on="keyup: submitForm|key enter">Go to app</button>
+		</div>
 	</form>
-</div>
+</section>
 {% endblock %}
 
 {% block scripts %}
-<script>mixpanel.track('setup opened');</script>
+	<script src="/js/pages/setup.js"></script>
+	<script>mixpanel.track('setup opened');</script>
 {% endblock %}
 
