@@ -20,6 +20,17 @@ body {
   width: 565px;
 }
 
+.setup-wrap {
+  width: 440px;
+}
+
+.setup-wrap .avatar {
+  border: 2px solid #fdfdfd;
+  margin-bottom: 25px;
+  width: 38px;
+  border-radius: 2px;
+}
+
 .form {
   background: rgba(0,0,0,.2);
   margin: 35px auto 20px;
@@ -196,6 +207,33 @@ body {
   text-align: justify;
 }
 
+.setup-wrap .desc {
+  text-align: left;
+}
+
+.setup-wrap .suggest-account {
+  margin-bottom: 15px;
+  text-align: left;
+  line-height: 18px;
+}
+
+.suggest-account img {
+  width: 32px;
+  height: 32px;
+  margin: 3px 12px 0 0;
+  border-radius: 2px;
+}
+
+.suggest-account span {
+  color: #f03e56;
+  font-size: 14px;
+  text-align: left;
+}
+
+.suggest-account b {
+  text-transform: capitalize;
+}
+
 @media (max-width: 600px) {
   .password-wrap {
     width: 95%;
@@ -211,7 +249,8 @@ body {
     margin-top: 60px;
   }
 
-  .join-wrap {
+  .join-wrap,
+  .setup-wrap {
     width: 95%;
   }
 
