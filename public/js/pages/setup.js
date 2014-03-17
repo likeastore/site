@@ -51,7 +51,7 @@
 						if (body.user) {
 							var user = body.user;
 							data.accountSuggest = '<img src="' + user.avatar + '" class="left">' +
-								'<span>Email is already registered. ' + (user.displayName || user.name) + ', is it you?' +
+								'<span>Email is already registered. ' + (user.displayName || user.name) + ', is it you? ' +
 								'You can sign in with <b>' + user.provider + '</b> account.</span>';
 						}
 
