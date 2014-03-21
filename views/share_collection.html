@@ -130,9 +130,10 @@
 									</div>
 									{% endif %}
 
-									{% if item.authorName and item.type !== 'facebook' %}
 									<div class="right-block">
+										{% if item.authorName and item.type !== 'facebook' %}
 										<div class="author-name">{{item.authorName}}</div>
+										{% endif %}
 
 										{% if item.title or item.repo or item.name %}
 										<h2 class="title{% if item.type !== 'tumblr' %} truncate{% endif %}">{{item.title or item.repo or item.name}}</h2>
@@ -143,10 +144,9 @@
 										{% endif %}
 
 										{% if item.gist or item.type === 'tumblr' or item.description === item.name %}
-										<div class="description">{{item.description|truncate(240)|linkify|safe}}</div>
+										<div class="description">{{item.source|linkify|safe}}</div>
 										{% endif %}
 									</div>
-									{% endif %}
 								</div>
 								{% endif %}
 
