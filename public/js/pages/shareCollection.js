@@ -23,12 +23,14 @@
 			},
 
 			shareOnFacebook: function (e) {
+				e.preventDefault();
 				var text = 'http://www.facebook.com/share.php?u=' + e.currentTarget.getAttribute('data-text');
 				window.open(text, 'Share', 'width=600,height=400,resizable=yes');
 			},
 
 			shareOnTwitter: function (e) {
-				var text = 'http://twitter.com/home?status=' + e.currentTarget.getAttribute('data-text');
+				e.preventDefault();
+				var text = 'http://twitter.com/share?text=' + e.currentTarget.getAttribute('data-text');
 				window.open(text, 'Share', 'width=600,height=400,resizable=yes');
 			},
 

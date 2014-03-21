@@ -80,7 +80,6 @@ body,
 	overflow: hidden;
 }
 
-
 .small-white-logo {
 	display: inline-block;
 	background: url('../img/logo-likeastore.png') no-repeat center transparent;
@@ -694,6 +693,12 @@ body,
 	}
 }
 
+@media (max-width: 700px) and (min-width: 460px) {
+	.dash-item:nth-child(2n) {
+		margin-right: 0;
+	}
+}
+
 @media (max-width: 700px) {
 	.top-bar .title {
 		font-size: 24px;
@@ -703,8 +708,33 @@ body,
 	.dashboard, .top-bar {
 		width: 460px;
 	}
+}
 
-	.dash-item:nth-child(2n) {
-		margin-right: 0;
+@media (max-width: 460px) {
+	.small-white-logo {
+		background: url('../img/logo-stroked.png') no-repeat center transparent;
+		background-size: cover;
+		width: 20px;
+		height: 20px;
+	}
+
+	.dashboard, .top-bar {
+		width: 90%;
+	}
+
+	.dash-item {
+		width: 100%;
+		margin: 0 0 25px;
+		float: none;
+	}
+
+	.dash-item .right-block {
+		width: 80%;
+	}
+}
+
+@media (max-width: 360px) {
+	.dash-item .right-block {
+		width: 50%;
 	}
 }
