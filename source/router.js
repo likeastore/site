@@ -4,7 +4,6 @@ var Hashids = require('hashids');
 var items = require('./models/items');
 var users = require('./models/users');
 var collections = require('./models/collections');
-var mongojs = require('mongojs');
 
 var hashids = new Hashids(config.hashids.salt);
 var env = process.env.NODE_ENV || 'development';
@@ -108,15 +107,14 @@ module.exports = function (app) {
 
 	var shareCollection = function (req, res, next) {
 		var username = req.params.username;
-		var collectionId = req.params.collection;
+		var hash = req.params.id;
 
-		if (!username || !collectionId) {
+		if (!username || !hash) {
 			return res.redirect(config.siteUrl);
 		}
 
-		try {
-			mongojs.ObjectId(collectionId);
-		} catch (err) {
+		var collectionId = hashids.decryptHex(hash);
+		if (!collectionId || collectionId === '') {
 			return res.redirect(config.siteUrl);
 		}
 
@@ -218,7 +216,7 @@ module.exports = function (app) {
 	app.get('/terms', termsOfUse);
 	app.get('/privacy', privacyPolicy);
 	app.get('/s/:id', shareLike);
-	app.get('/u/:username/:collection', shareCollection);
+	app.get('/u/:username/:id', shareCollection);
 	app.get('/unsubscribe', unsubscribe);
 	app.get('/fail', fail);
 	app.get('/500', serverErrorPage);
