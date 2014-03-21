@@ -62,6 +62,16 @@ function findByEmail(email, callback) {
 	});
 }
 
+function findByName(name, callback) {
+	db.users.findOne({name: name}, function (err, user) {
+		if (err || !user) {
+			return callback({message: 'No user with such name found.'});
+		}
+
+		callback(null, user);
+	});
+}
+
 function findOrCreateByService(token, tokenSecret, profile, callback) {
 	var metaFromServices = ['id', 'provider', 'username', 'displayName'];
 
@@ -297,6 +307,7 @@ module.exports = {
 	finishUserSetup: finishUserSetup,
 	resetPasswordRequest: resetPasswordRequest,
 	findById: findById,
+	findByName: findByName,
 	findByEmail: findByEmail,
 	changePassword: changePassword,
 	unsubscribe: unsubscribe

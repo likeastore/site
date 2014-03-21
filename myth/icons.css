@@ -104,3 +104,27 @@
 .link-icon:before {
 	content: '2';
 }
+
+.share-icon:before {
+	content: 'Y';
+}
+
+.menu-icon:before {
+	content: 'J';
+}
+
+.home-icon:before {
+	content: '\e01F';
+}
+
+.login-icon:before {
+	content: '\e020';
+}
+
+.blog-icon:before {
+	content: '\e01D';
+}
+
+.tour-icon:before {
+	content: '\e009';
+}
