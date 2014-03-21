@@ -10,4 +10,20 @@ swig.setFilter('linkify', function (input, idx) {
 	return result;
 });
 
+swig.setFilter('truncate', function (text, length, end) {
+	if (isNaN(length)) {
+		length = 100;
+	}
+
+	if (!end || typeof end !== 'string') {
+		end = "...";
+	}
+
+	if (text.length <= length || text.length - end.length <= length) {
+		return text;
+	} else {
+		return text.substring(0, length - end.length) + end;
+	}
+});
+
 module.exports = swig;

@@ -1,7 +1,9 @@
+var _ = require('underscore');
 var config = require('../config');
 var Hashids = require('hashids');
 var items = require('./models/items');
 var users = require('./models/users');
+var collections = require('./models/collections');
 
 var hashids = new Hashids(config.hashids.salt);
 var env = process.env.NODE_ENV || 'development';
@@ -103,6 +105,64 @@ module.exports = function (app) {
 		});
 	};
 
+	var shareCollection = function (req, res, next) {
+		var username = req.params.username;
+		var hash = req.params.id;
+
+		if (!username || !hash) {
+			return res.redirect(config.siteUrl);
+		}
+
+		var collectionId = hashids.decryptHex(hash);
+		if (!collectionId || collectionId === '') {
+			return res.redirect(config.siteUrl);
+		}
+
+		users.findByName(username, function (err, user) {
+			if (err) {
+				return next(err);
+			}
+			if (!user) {
+				return res.redirect(config.siteUrl);
+			}
+
+			collections.find(user, function (err, colls) {
+				if (err) {
+					return next(err);
+				}
+				if (!colls.length) {
+					return res.redirect(config.siteUrl);
+				}
+
+				var collection = _(colls).find(function (coll) {
+					return coll._id.toString() === collectionId;
+				});
+
+				if (!collection.public) {
+					return res.redirect(config.siteUrl);
+				}
+
+				collections.findItems(user, collectionId, function (err, items) {
+					if (err) {
+						return next(err);
+					}
+					if (!items.length) {
+						return res.redirect(config.siteUrl);
+					}
+
+					res.render('share_collection', {
+						title: collection.title + ' • Likeastore',
+						collection: collection,
+						config: config,
+						items: items,
+						user: user,
+						mode: env
+					});
+				});
+			});
+		});
+	};
+
 	var checkFirstTime = function (req, res, next) {
 		if (req.user.firstTimeUser) {
 			return next();
@@ -156,6 +216,7 @@ module.exports = function (app) {
 	app.get('/terms', termsOfUse);
 	app.get('/privacy', privacyPolicy);
 	app.get('/s/:id', shareLike);
+	app.get('/u/:username/:id', shareCollection);
 	app.get('/unsubscribe', unsubscribe);
 	app.get('/fail', fail);
 	app.get('/500', serverErrorPage);
