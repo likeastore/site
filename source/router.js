@@ -140,6 +140,10 @@ module.exports = function (app) {
 					return coll._id.toString() === collectionId;
 				});
 
+				if (!collection.public) {
+					return res.redirect(config.siteUrl);
+				}
+
 				collections.findItems(user, collectionId, function (err, items) {
 					if (err) {
 						return next(err);
