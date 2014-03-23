@@ -4,7 +4,7 @@ var Hashids = require('hashids');
 var items = require('./models/items');
 var users = require('./models/users');
 var collections = require('./models/collections');
-
+var pulse = require('./models/pulse');
 var hashids = new Hashids(config.hashids.salt);
 var env = process.env.NODE_ENV || 'development';
 
@@ -163,6 +163,23 @@ module.exports = function (app) {
 		});
 	};
 
+	var pulsePage = function (req, res, next) {
+		pulse.pulse('week', function (err, items) {
+			if (err) {
+				return next(err);
+			}
+			if (!items.length) {
+				return res.redirect(config.siteUrl);
+			}
+
+			res.render('pulse', {
+				title: 'Pulse • Likeastore',
+				items: items,
+				mode: env
+			});
+		});
+	};
+
 	var checkFirstTime = function (req, res, next) {
 		if (req.user.firstTimeUser) {
 			return next();
@@ -217,6 +234,7 @@ module.exports = function (app) {
 	app.get('/privacy', privacyPolicy);
 	app.get('/s/:id', shareLike);
 	app.get('/u/:username/:id', shareCollection);
+	app.get('/pulse', pulsePage);
 	app.get('/unsubscribe', unsubscribe);
 	app.get('/fail', fail);
 	app.get('/500', serverErrorPage);

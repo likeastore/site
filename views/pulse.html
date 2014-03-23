@@ -1,0 +1,124 @@
+{% extends './base.html' %}
+
+{% block styles %}
+	<link rel="stylesheet" href="/css/forms.css">
+	<link rel="stylesheet" href="/css/collection.css">
+{% endblock %}
+
+{% block bodyClass %}collection-page{% endblock %}
+
+{% block content %}
+<div id="app" v-class="sidebar-active: showSidebar">
+	<nav class="sidebar-nav st-menu">
+		<ul class="folders">
+			<li class="home">
+				<a href="{{config.applicationUrl}}" class="menu-title"><i data-icon="c" class="font-icon home-icon icon"></i>Home</a>
+			</li>
+			<li class="blog">
+				<a href="http://blog.likeastore.com" class="menu-title"><i data-icon="c" class="font-icon blog-icon icon"></i>Blog</a>
+			</li>
+			<li class="tour">
+				<a href="https://tour.likeastore.com" class="menu-title"><i data-icon="c" class="font-icon tour-icon icon"></i>Tour</a>
+			</li>
+			<li class="login">
+				<a href="{{config.applicationUrl}}" class="menu-title"><i data-icon="c" class="font-icon login-icon icon"></i>Log in</a>
+			</li>
+		</ul>
+
+		<div class="join-box">
+			<img src="/img/foot_logo.png" class="grey-logo">
+			<div class="text">
+				Social bookmarking for geeks. <br>
+				Collect and organize all favorites from multiple services in one place.
+			</div>
+			<a href="{{config.siteUrl}}/join" class="btn pink-btn">Join now</a>
+		</div>
+	</nav>
+
+	<div class="sidebar-overlay" v-on="click: hideSidebar"></div>
+
+	<div class="container">
+		<div class="content">
+			<div class="content-inner">
+				<header class="header">
+				</header>
+
+				<div class="main-viewer animated fadeIn">
+
+					<section class="dashboard activity clearfix animated fadeIn">
+						<ul class="items-wrap grid-view">
+							{% for item in items %}
+							<li class="dash-item left {{item.type}} item{{loop.index}}{% if item.thumbnail %} thumbed{% else %} texted{% endif %}">
+								<a href="{{item.source}}" class="mask-link" target="_blank"></a>
+
+								{% if item.thumbnail %}
+								<div class="image">
+									<a href="{{item.source}}" class="cover animated delay-500ms fadeIn" style="background-image: url({{item.thumbnail}})" target="_blank"></a>
+
+									<div class="info">
+										{% if item.avatarUrl %}
+										<div class="author-image">
+											<img src="{{item.avatarUrl}}" class="avatar" avatar-load>
+										</div>
+										{% endif %}
+
+										<div class="right-block">
+											{% if item.authorName %}
+											<div class="author-name">{{item.authorName}}</div>
+											{% endif %}
+
+											{% if item.title or item.repo %}
+											<h2 class="title truncate">{{item.title or item.repo}}</h2>
+											{% endif %}
+
+											{% if item.description %}
+											<div class="description{% if item.title and item.authorName %} short{% endif %}">{{item.description|truncate(240)|linkify|safe}}"</div>
+											{% endif %}
+										</div>
+									</div>
+								</div>
+								{% else %}
+								<div class="text-wrap">
+									{% if item.avatarUrl and item.type !== 'facebook' %}
+									<div class="author-image">
+										<img src="{{item.avatarUrl}}" class="avatar" avatar-load>
+									</div>
+									{% endif %}
+
+									<div class="right-block">
+										{% if item.authorName and item.type !== 'facebook' %}
+										<div class="author-name">{{item.authorName}}</div>
+										{% endif %}
+
+										{% if item.title or item.repo or item.name %}
+										<h2 class="title{% if item.type !== 'tumblr' %} truncate{% endif %}">{{item.title or item.repo or item.name}}</h2>
+										{% endif %}
+
+										{% if item.description and item.description !== item.name %}
+										<div class="description">{{item.description|truncate(240)|linkify|safe}}</div>
+										{% endif %}
+
+										{% if item.gist or item.type === 'tumblr' or item.description === item.name %}
+										<div class="description">{{item.source|linkify|safe}}</div>
+										{% endif %}
+									</div>
+								</div>
+								{% endif %}
+
+								<time>{{item.created|date('F d, Y')}}</time>
+								<div>Likes {{item.likes}}</div>
+								<i class="font-icon {{item.type}}-icon {{item.type}}-bg-clr icon"></i>
+							</li>
+							{% endfor %}
+						</ul>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+	<script>mixpanel.track('pulse opened');</script>
+{% endblock %}
