@@ -36,10 +36,10 @@
 	</div>
 </div>
 
-<div class="main-viewer animated fadeIn">
+<div class="main-viewer delay-300ms animated fadeIn">
 	<h1 class="featured-title">Popular favorites of the {{age}}</h1>
 
-	<section class="dashboard activity clearfix animated fadeIn">
+	<section class="dashboard activity clearfix">
 		<ul class="items-wrap grid-view">
 			{% for item in items %}
 			<li class="dash-item left {{item.type}} item{{loop.index}}{% if item.thumbnail %} thumbed{% else %} texted{% endif %}">
