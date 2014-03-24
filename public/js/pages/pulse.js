@@ -24,10 +24,6 @@
 				e.preventDefault();
 				var text = 'http://twitter.com/share?text=' + e.currentTarget.getAttribute('data-text');
 				window.open(text, 'Share', 'width=600,height=400,resizable=yes');
-			},
-
-			checkImageLoad: function () {
-				debugger;
 			}
 		}
 	});
