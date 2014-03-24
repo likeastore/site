@@ -219,19 +219,13 @@ a:hover {
   border-radius: 2px;
 }
 
-.dash-item time,
 .dash-item .likes {
-  color: #999;
-  font-size: 11px;
-  font-weight: 600;
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-}
-
-.dash-item .likes {
+  color: #aaa;
   font-size: 11px;
   font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 600;
+  position: absolute;
+  left: 10px;
   bottom: 9px;
   letter-spacing: .3px;
 }
