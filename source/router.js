@@ -243,6 +243,7 @@ module.exports = function (app) {
 	app.get('/privacy', privacyPolicy);
 	app.get('/s/:id', shareLike);
 	app.get('/u/:username/:id', shareCollection);
+	app.get('/pulse', pulsePage);
 	app.get('/pulse/:age', pulsePage);
 	app.get('/unsubscribe', unsubscribe);
 	app.get('/fail', fail);
