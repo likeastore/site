@@ -24,6 +24,7 @@
 	var-tumblr: #2c4762;
 	var-title-font: 'Montserrat', 'Source Sans Pro', 'PT Sans', 'Helvetica', 'Arial', sans-serif;
 	var-text-font: 'Source Sans Pro', 'PT Sans', 'Helvetica', 'Arial', sans-serif;
+	var-strict-font: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 }
 
 body {
@@ -247,7 +248,8 @@ a:hover {
 }
 
 .dash-item .likes {
-	font-size: 12px;
+	font-size: 11px;
+	font-family: var(strict-font);
 	bottom: 9px;
 	letter-spacing: .3px;
 }
@@ -256,12 +258,14 @@ a:hover {
 	display: inline-block;
 	font-size: 11px;
 	vertical-align: top;
-	margin: 2px 2px 0 0;
+	margin: 1px 2px 0 0;
 }
 
 .dash-item .title {
-	font-size: 14px;
-	font-family: var(title-font);
+	color: #343434;
+	font-size: 13px;
+	font-family: var(strict-font);
+	font-weight: bold;
 	padding: 5px 5px 2px;
 }
 
