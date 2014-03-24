@@ -1,8 +1,8 @@
 {% extends './base.html' %}
 
 {% block fbmeta %}
-	<meta property="og:title" content="Featured favorites of the {{age}}" />
-	<meta property="og:description" content="Likeastore.Pulse collects the best content of the web based on user likes." />
+	<meta property="og:title" content="Popular favorites of the {{age}}" />
+	<meta property="og:description" content="Likeastore. Pulse collects the best content of the web based on user likes." />
 {% endblock %}
 
 {% block styles %}
@@ -30,14 +30,14 @@
 		<div class="right right-bar">
 			{% set link = config.siteUrl + '/pulse/' + age %}
 			<a href="/join" class="btn pink-btn join-btn">Join now</a>
-			<a href="" class="btn social-btn twitter-bg-clr" v-tooltip="Share on twitter" v-on="click: shareOnTwitter" data-text="Featured favorites of the {{age}} - {{link}}, via @likeastore"><i class="font-icon twitter-icon icon"></i></a>
+			<a href="" class="btn social-btn twitter-bg-clr" v-tooltip="Share on twitter" v-on="click: shareOnTwitter" data-text="Popular favorites of the {{age}} - {{link}}, via @likeastore"><i class="font-icon twitter-icon icon"></i></a>
 			<a href="" class="btn social-btn facebook-bg-clr" v-tooltip="Share on facebook" v-on="click: shareOnFacebook" data-text="{{link}}"><i class="font-icon facebook-icon icon"></i></a>
 		</div>
 	</div>
 </div>
 
 <div class="main-viewer animated fadeIn">
-	<h1 class="featured-title">Featured favorites of the {{age}}</h1>
+	<h1 class="featured-title">Popular favorites of the {{age}}</h1>
 
 	<section class="dashboard activity clearfix animated fadeIn">
 		<ul class="items-wrap grid-view">

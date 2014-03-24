@@ -164,11 +164,7 @@ module.exports = function (app) {
 	};
 
 	var pulsePage = function (req, res, next) {
-		var age = req.params.age;
-
-		if (!age) {
-			return res.redirect(config.siteUrl);
-		}
+		var age = req.params.age || 'week';
 
 		var ages = ['day', 'week', 'month'];
 		if (!_(ages).include(age)) {

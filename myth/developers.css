@@ -533,9 +533,10 @@ body {
 	}
 }
 
-@media (max-width: 520px) {
+@media (max-width: 600px) {
 	.nav .menu li:nth-child(1),
-	.nav .menu li:nth-child(2) {
+	.nav .menu li:nth-child(2),
+	.nav .menu li:nth-child(4) {
 		display: none;
 	}
 
