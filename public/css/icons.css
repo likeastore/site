@@ -128,3 +128,7 @@
 .tour-icon:before {
   content: '\e009';
 }
+
+.heart-icon:before {
+  content: 'Q';
+}

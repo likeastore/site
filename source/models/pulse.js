@@ -8,6 +8,10 @@ function pulse(interval, callback) {
 			return callback(err);
 		}
 
+		if (!item) {
+			return callback({ message: 'pulse not found', status: 404 });
+		}
+
 		callback(null, item.results);
 	});
 }

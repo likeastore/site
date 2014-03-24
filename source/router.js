@@ -164,9 +164,20 @@ module.exports = function (app) {
 	};
 
 	var pulsePage = function (req, res, next) {
-		pulse.pulse('week', function (err, items) {
+		var age = req.params.age;
+
+		if (!age) {
+			return res.redirect(config.siteUrl);
+		}
+
+		var ages = ['day', 'week', 'month'];
+		if (!_(ages).include(age)) {
+			return res.redirect(config.siteUrl);
+		}
+
+		pulse.pulse(age, function (err, items) {
 			if (err) {
-				return next(err);
+				return next();
 			}
 			if (!items.length) {
 				return res.redirect(config.siteUrl);
@@ -175,6 +186,8 @@ module.exports = function (app) {
 			res.render('pulse', {
 				title: 'Pulse • Likeastore',
 				items: items,
+				age: age,
+				config: config,
 				mode: env
 			});
 		});
@@ -234,7 +247,7 @@ module.exports = function (app) {
 	app.get('/privacy', privacyPolicy);
 	app.get('/s/:id', shareLike);
 	app.get('/u/:username/:id', shareCollection);
-	app.get('/pulse', pulsePage);
+	app.get('/pulse/:age', pulsePage);
 	app.get('/unsubscribe', unsubscribe);
 	app.get('/fail', fail);
 	app.get('/500', serverErrorPage);

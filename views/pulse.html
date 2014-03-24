@@ -1,123 +1,114 @@
 {% extends './base.html' %}
 
-{% block styles %}
-	<link rel="stylesheet" href="/css/forms.css">
-	<link rel="stylesheet" href="/css/collection.css">
+{% block fbmeta %}
+	<meta property="og:title" content="Featured favorites of the {{age}}" />
+	<meta property="og:description" content="Likeastore.Pulse collects the best content of the web based on user likes." />
 {% endblock %}
 
-{% block bodyClass %}collection-page{% endblock %}
+{% block styles %}
+	<link rel="stylesheet" href="/css/forms.css">
+	<link rel="stylesheet" href="/css/pulse.css">
+{% endblock %}
+
+{% block bodyClass %}pulse-page{% endblock %}
 
 {% block content %}
-<div id="app" v-class="sidebar-active: showSidebar">
-	<nav class="sidebar-nav st-menu">
-		<ul class="folders">
-			<li class="home">
-				<a href="{{config.applicationUrl}}" class="menu-title"><i data-icon="c" class="font-icon home-icon icon"></i>Home</a>
-			</li>
-			<li class="blog">
-				<a href="http://blog.likeastore.com" class="menu-title"><i data-icon="c" class="font-icon blog-icon icon"></i>Blog</a>
-			</li>
-			<li class="tour">
-				<a href="https://tour.likeastore.com" class="menu-title"><i data-icon="c" class="font-icon tour-icon icon"></i>Tour</a>
-			</li>
-			<li class="login">
-				<a href="{{config.applicationUrl}}" class="menu-title"><i data-icon="c" class="font-icon login-icon icon"></i>Log in</a>
-			</li>
-		</ul>
+<header class="header">
+	<a href="/" class="small-white-logo" title="likeastore"></a>
+</header>
 
-		<div class="join-box">
-			<img src="/img/foot_logo.png" class="grey-logo">
-			<div class="text">
-				Social bookmarking for geeks. <br>
-				Collect and organize all favorites from multiple services in one place.
-			</div>
-			<a href="{{config.siteUrl}}/join" class="btn pink-btn">Join now</a>
+<div class="subheader animated fadeInDown">
+	<div class="bar clearfix">
+		<div class="left left-bar">
+			<ul class="filter">
+				<li><a href="/pulse/day" class="btn" v-tooltip="Today's popular favorites">Daily</a></li>
+				<li><a href="/pulse/week" class="btn"  v-tooltip="This week's popular favorites">Weekly</a></li>
+				<li><a href="/pulse/month" class="btn" v-tooltip="This month's popular favorites">Monthly</a></li>
+			</ul>
 		</div>
-	</nav>
 
-	<div class="sidebar-overlay" v-on="click: hideSidebar"></div>
-
-	<div class="container">
-		<div class="content">
-			<div class="content-inner">
-				<header class="header">
-				</header>
-
-				<div class="main-viewer animated fadeIn">
-
-					<section class="dashboard activity clearfix animated fadeIn">
-						<ul class="items-wrap grid-view">
-							{% for item in items %}
-							<li class="dash-item left {{item.type}} item{{loop.index}}{% if item.thumbnail %} thumbed{% else %} texted{% endif %}">
-								<a href="{{item.source}}" class="mask-link" target="_blank"></a>
-
-								{% if item.thumbnail %}
-								<div class="image">
-									<a href="{{item.source}}" class="cover animated delay-500ms fadeIn" style="background-image: url({{item.thumbnail}})" target="_blank"></a>
-
-									<div class="info">
-										{% if item.avatarUrl %}
-										<div class="author-image">
-											<img src="{{item.avatarUrl}}" class="avatar" avatar-load>
-										</div>
-										{% endif %}
-
-										<div class="right-block">
-											{% if item.authorName %}
-											<div class="author-name">{{item.authorName}}</div>
-											{% endif %}
-
-											{% if item.title or item.repo %}
-											<h2 class="title truncate">{{item.title or item.repo}}</h2>
-											{% endif %}
-
-											{% if item.description %}
-											<div class="description{% if item.title and item.authorName %} short{% endif %}">{{item.description|truncate(240)|linkify|safe}}"</div>
-											{% endif %}
-										</div>
-									</div>
-								</div>
-								{% else %}
-								<div class="text-wrap">
-									{% if item.avatarUrl and item.type !== 'facebook' %}
-									<div class="author-image">
-										<img src="{{item.avatarUrl}}" class="avatar" avatar-load>
-									</div>
-									{% endif %}
-
-									<div class="right-block">
-										{% if item.authorName and item.type !== 'facebook' %}
-										<div class="author-name">{{item.authorName}}</div>
-										{% endif %}
-
-										{% if item.title or item.repo or item.name %}
-										<h2 class="title{% if item.type !== 'tumblr' %} truncate{% endif %}">{{item.title or item.repo or item.name}}</h2>
-										{% endif %}
-
-										{% if item.description and item.description !== item.name %}
-										<div class="description">{{item.description|truncate(240)|linkify|safe}}</div>
-										{% endif %}
-
-										{% if item.gist or item.type === 'tumblr' or item.description === item.name %}
-										<div class="description">{{item.source|linkify|safe}}</div>
-										{% endif %}
-									</div>
-								</div>
-								{% endif %}
-
-								<time>{{item.created|date('F d, Y')}}</time>
-								<i class="font-icon {{item.type}}-icon {{item.type}}-bg-clr icon"></i>
-							</li>
-							{% endfor %}
-						</ul>
-					</section>
-				</div>
-			</div>
+		<div class="right right-bar">
+			{% set link = config.siteUrl + '/pulse/' + age %}
+			<a href="/join" class="btn pink-btn join-btn">Join now</a>
+			<a href="" class="btn social-btn twitter-bg-clr" v-tooltip="Share on twitter" v-on="click: shareOnTwitter" data-text="Featured favorites of the {{age}} - {{link}}, via @likeastore"><i class="font-icon twitter-icon icon"></i></a>
+			<a href="" class="btn social-btn facebook-bg-clr" v-tooltip="Share on facebook" v-on="click: shareOnFacebook" data-text="{{link}}"><i class="font-icon facebook-icon icon"></i></a>
 		</div>
 	</div>
+</div>
+
+<div class="main-viewer animated fadeIn">
+	<h1 class="featured-title">Featured favorites of the {{age}}</h1>
+
+	<section class="dashboard activity clearfix animated fadeIn">
+		<ul class="items-wrap grid-view">
+			{% for item in items %}
+			<li class="dash-item left {{item.type}} item{{loop.index}}{% if item.thumbnail %} thumbed{% else %} texted{% endif %}">
+				<a href="{{item.url}}" class="mask-link" target="_blank"></a>
+
+				{% if item.thumbnail %}
+				<div class="image">
+					<a href="{{item.url}}" class="cover animated delay-500ms fadeIn" style="background-image: url({{item.thumbnail||'https://i.ytimg.com/vi/EQFCT8YaYcE/hqdefault.jpg'}})" target="_blank"></a>
+
+					<div class="info">
+						{% if item.avatarUrl %}
+						<div class="author-image">
+							<img src="{{item.avatarUrl}}" class="avatar" avatar-load>
+						</div>
+						{% endif %}
+
+						<div class="right-block">
+							{% if item.authorName %}
+							<div class="author-name">{{item.authorName}}</div>
+							{% endif %}
+
+							{% if item.title or item.repo %}
+							<h2 class="title truncate">{{item.title or item.repo}}</h2>
+							{% endif %}
+
+							{% if item.description %}
+							<div class="description{% if item.title and item.authorName %} short{% endif %}">{{item.description|truncate(240)|linkify|safe}}"</div>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+				{% else %}
+				<div class="text-wrap">
+					{% if item.avatarUrl and item.type !== 'facebook' %}
+					<div class="author-image">
+						<img src="{{item.avatarUrl}}" class="avatar" avatar-load>
+					</div>
+					{% endif %}
+
+					<div class="right-block">
+						{% if item.authorName and item.type !== 'facebook' %}
+						<div class="author-name">{{item.authorName}}</div>
+						{% endif %}
+
+						{% if item.title %}
+						<h2 class="title{% if item.type !== 'tumblr' %} truncate{% endif %}">{{item.title}}</h2>
+						{% endif %}
+
+						{% if item.description and item.description !== item.title %}
+						<div class="description">{{item.description|truncate(240)|linkify|safe}}</div>
+						{% endif %}
+
+						{% if item.gist or item.type === 'tumblr' or item.description === item.title %}
+						<div class="description">{{item.url|linkify|safe}}</div>
+						{% endif %}
+					</div>
+				</div>
+				{% endif %}
+
+				<div class="likes"><i class="font-icon heart-icon"></i> {{item.likes}}</div>
+				<i class="font-icon {{item.type}}-icon {{item.type}}-bg-clr icon"></i>
+			</li>
+			{% endfor %}
+		</ul>
+	</section>
 </div>
 {% endblock %}
 
 {% block scripts %}
+	<script src="/js/pages/pulse.js"></script>
 	<script>mixpanel.track('pulse opened');</script>
 {% endblock %}
