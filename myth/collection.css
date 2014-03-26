@@ -575,6 +575,55 @@ body,
 	border-radius: 100px;
 }
 
+.dash-item .action-buttons a {
+	display: inline-block;
+	color: var(navy-opacity);
+	font-size: 16px;
+	text-decoration: none;
+	margin-left: 3px;
+	position: relative;
+}
+
+.dash-item .action-buttons a:hover {
+	color: var(pink);
+}
+
+.dash-item .action-buttons a:first-child {
+	margin-left: 5px;
+}
+
+.dash-item .author-image {
+	display: inline-block;
+	padding: 5px 5px 0;
+	vertical-align: top;
+}
+
+.dash-item .right-block {
+	display: inline-block;
+	width: 200px;
+	vertical-align: top
+}
+
+.activity .dash-item.facebook .right-block,
+.activity .dash-item.pocket .right-block,
+.activity .dash-item.youtube .right-block,
+.activity .dash-item.tumblr .right-block {
+	width: 100%;
+}
+
+.dash-item .author-name {
+	color: #999;
+	font-size: 12px;
+	font-weight: 600;
+	padding: 2px 5px 0;
+}
+
+.dash-item .avatar {
+	width: 32px;
+	height: 32px;
+	border-radius: 100px;
+}
+
 /* Colors */
 .facebook-bg-clr {
 	background-color: var(facebook) !important;

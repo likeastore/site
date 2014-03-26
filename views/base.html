@@ -73,6 +73,7 @@
 		<script>mixpanel.disable()</script>
 		{% endif %}
 
+		<script>window.appConfig = {{config|json|raw}}</script>
 		{% block scripts %}{% endblock %}
 	</body>
 </html>

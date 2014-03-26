@@ -17,7 +17,7 @@
 	<link rel="stylesheet" href="/css/collection.css">
 {% endblock %}
 
-{% block bodyClass %}collection-page{% endblock %}
+{% block bodyClass %}collection-page animated fadeIn{% endblock %}
 
 {% block content %}
 <div id="app" v-class="sidebar-active: showSidebar">
@@ -58,7 +58,7 @@
 						<a href="/" class="small-white-logo" title="likeastore"></a>
 						<div class="reshare-link header-btn" v-on="click: togglePopup"><i class="share-icon font-icon icon"></i> Reshare</div>
 
-						{% set link = config.siteUrl + '/u/' + user.name + '/' + collection._id %}
+						{% set link = config.siteUrl + '/u/' + user.name + '/' + collection.hash %}
 						<div class="share-popup" v-class="open: showPopup">
 							<div class="label">Share this collection with others:</div>
 							<div>
@@ -95,6 +95,12 @@
 							{% for item in items %}
 							<li class="dash-item left {{item.type}} item{{loop.index}}{% if item.thumbnail %} thumbed{% else %} texted{% endif %}">
 								<a href="{{item.source}}" class="mask-link" target="_blank"></a>
+
+								<div class="action-buttons">
+									<a href="" class="share-btn" data-id="{{item._id.toString()}}" data-type="{{item.type}}" data-title="{{item.title||item.repo||item.name}}" tooltip="Share" v-vex>
+										<i class="font-icon share-box-icon"></i>
+									</a>
+								</div>
 
 								{% if item.thumbnail %}
 								<div class="image">

@@ -2,5 +2,6 @@
 @import url(../reset.css);
 @import url(../general.css);
 @import url(../icons.css);
+@import url(../../components/vex/css/vex.css);
 @import url(../../components/animate.css/animate.css);
-
+@import url(../dialog.css);

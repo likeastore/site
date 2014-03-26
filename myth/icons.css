@@ -109,6 +109,10 @@
 	content: 'Y';
 }
 
+.share-box-icon:before {
+	content: 'X';
+}
+
 .menu-icon:before {
 	content: 'J';
 }

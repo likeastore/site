@@ -150,6 +150,9 @@ module.exports = function (app) {
 						return res.redirect(config.siteUrl);
 					}
 
+					// set collection hash for resharing
+					collection.hash = hash;
+
 					res.render('share_collection', {
 						title: collection.title + ' • Likeastore',
 						collection: collection,
