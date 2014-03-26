@@ -85,7 +85,7 @@
 						<div class="top left">
 							<h2 class="title">{{collection.title|title}}</h2>
 							<div class="info">
-								<div class="line">via {#<img src="{{user.avatar}}" class="left avatar animated delay-500ms fadeIn">#}{{user.displayName or user.name}}{#% if collection.description %} • {{collection.description|linkify|safe}}{% endif %#}</div>
+								<div class="line">via {{user.displayName or user.name}}</div>
 							</div>
 						</div>
 					</div>
@@ -97,7 +97,7 @@
 								<a href="{{item.source}}" class="mask-link" target="_blank"></a>
 
 								<div class="action-buttons">
-									<a href="" class="share-btn" data-id="{{item._id.toString()}}" data-type="{{item.type}}" data-title="{{item.title||item.repo||item.name}}" tooltip="Share" v-vex>
+									<a href="" class="share-btn" data-id="{{item._id.toString()}}" data-type="{{item.type}}" data-title="{{item.title||item.repo||item.name}}" v-tooltip="Share" v-vex>
 										<i class="font-icon share-box-icon"></i>
 									</a>
 								</div>

@@ -17,6 +17,11 @@
 					vue.initShareItemDialog($(this));
 				});
 			},
+
+			tooltip: function () {
+				this.el.className += ' tooltipped';
+				this.el.innerHTML += '<div class="tooltip">' + this.expression + '</div>';
+			}
 		},
 
 		methods: {

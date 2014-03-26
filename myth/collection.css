@@ -624,6 +624,34 @@ body,
 	border-radius: 100px;
 }
 
+/* Tooltip */
+.tooltip {
+	visibility: hidden;
+	opacity: 0;
+	background: rgba(31, 33, 47, 0.96);
+	font-size: 11px;
+	color: #eee;
+	padding: 4px 12px;
+	text-align: center;
+	position: absolute;
+	bottom: 25px;
+	margin-left: 50%;
+	z-index: 100;
+	border-radius: 2px;
+	transition: all .2s;
+	transform: translateX(-50%);
+}
+
+.tooltipped {
+	position: relative;
+	overflow: visible;
+}
+
+.tooltipped:hover .tooltip {
+	visibility: visible;
+	opacity: 1;
+}
+
 /* Colors */
 .facebook-bg-clr {
 	background-color: var(facebook) !important;
