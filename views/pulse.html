@@ -18,7 +18,7 @@
 </header>
 
 <div class="subheader animated fadeInDown">
-	<div class="bar clearfix">
+	<div class="top-bar clearfix">
 		<div class="left left-bar">
 			<ul class="filter">
 				<li><a href="/pulse/day" class="btn" v-tooltip="Today's popular favorites">Daily</a></li>
@@ -44,6 +44,12 @@
 			{% for item in items %}
 			<li class="dash-item left {{item.type}} item{{loop.index}}{% if item.thumbnail %} thumbed{% else %} texted{% endif %}">
 				<a href="{{item.url}}" class="mask-link" target="_blank"></a>
+
+				<div class="action-buttons">
+					<a href="" class="share-btn" data-id="{{item._id.toString()}}" data-type="{{item.type}}" data-title="{{item.title}}" v-tooltip="Share" v-vex>
+						<i class="font-icon share-box-icon"></i>
+					</a>
+				</div>
 
 				{% if item.thumbnail %}
 				<div class="image">

@@ -96,14 +96,14 @@ a:hover {
 	z-index: 99;
 }
 
-.bar {
+.top-bar {
 	max-width: 1140px;
 	margin: 0 auto;
 	position: relative;
 	padding: 15px 0;
 }
 
-.bar .join-btn {
+.top-bar .join-btn {
 	background: rgba(240, 62, 86, 0.93);
 	font: 600 12px var(text-font);
 	width: 140px;
@@ -114,7 +114,7 @@ a:hover {
 	box-shadow: inset 0 -1px 0 rgba(0,0,0,.2);
 }
 
-.bar .social-btn {
+.top-bar .social-btn {
 	color: #fff;
 	padding: 0;
 	text-align: center;
@@ -125,23 +125,23 @@ a:hover {
 	box-shadow: inset 0 -1px 0 rgba(0,0,0,.2);
 }
 
-.bar .social-btn .icon {
+.top-bar .social-btn .icon {
 	display: inline-block;
 	vertical-align: top;
 	line-height: 46px;
 }
 
-.bar .filter {
+.top-bar .filter {
 	position: relative;
 	z-index: 1;
 }
 
-.bar .filter li {
+.top-bar .filter li {
 	display: inline-block;
 	vertical-align: top;
 }
 
-.bar .filter li .btn {
+.top-bar .filter li .btn {
 	color: #aaa;
 	background: rgba(0,0,0,.038);
 	font-family: var(text-font);
@@ -346,6 +346,23 @@ a:hover {
 	border-radius: 100px;
 }
 
+.dash-item .action-buttons a {
+	display: inline-block;
+	color: var(navy-opacity);
+	font-size: 16px;
+	text-decoration: none;
+	margin-left: 3px;
+	position: relative;
+}
+
+.dash-item .action-buttons a:hover {
+	color: var(pink);
+}
+
+.dash-item .action-buttons a:first-child {
+	margin-left: 5px;
+}
+
 /* Tooltip */
 .tooltip {
 	visibility: hidden;
@@ -355,20 +372,29 @@ a:hover {
 	font-size: 11px;
 	font-family: var(text-font);
 	line-height: 16px;
-	min-width: 130px;
 	padding: 4px 12px;
 	text-align: center;
 	position: absolute;
-	top: 50px;
-	margin-left: 50%;
 	text-transform: none;
+	margin-left: 50%;
 	z-index: 100;
 	border-radius: 2px;
 	transition: all .2s;
 	transform: translateX(-50%);
 }
 
-.tooltip:after {
+.dash-item .tooltip {
+	bottom: 25px;
+}
+
+.filter .tooltip,
+.social-btn .tooltip {
+	min-width: 130px;
+	top: 50px;
+}
+
+.filter .tooltip:after,
+.social-btn .tooltip:after {
 	bottom: 100%;
 	border: solid transparent;
 	content: '';
@@ -483,7 +509,7 @@ a:hover {
 }
 
 @media (max-width: 1160px) {
-	.dashboard, .bar {
+	.dashboard, .top-bar {
 		width: 920px;
 	}
 
@@ -500,7 +526,7 @@ a:hover {
 }
 
 @media (max-width: 920px) {
-	.dashboard, .bar {
+	.dashboard, .top-bar {
 		width: 700px;
 	}
 
@@ -534,29 +560,29 @@ a:hover {
 }
 
 @media (max-width: 700px) {
-	.bar .title {
+	.top-bar .title {
 		font-size: 24px;
 		line-height: 22px;
 	}
 
-	.dashboard, .bar {
+	.dashboard, .top-bar {
 		width: 460px;
 	}
 
-	.bar {
+	.top-bar {
 		text-align: center;
 	}
 
-	.bar .left-bar,
-	.bar .right-bar {
+	.top-bar .left-bar,
+	.top-bar .right-bar {
 		float: none !important;
 	}
 
-	.bar .left-bar {
+	.top-bar .left-bar {
 		margin-bottom: 10px;
 	}
 
-	.bar .filter .btn {
+	.top-bar .filter .btn {
 		margin: 0 5px !important;
 	}
 
@@ -573,7 +599,7 @@ a:hover {
 		height: 20px;
 	}
 
-	.dashboard, .bar {
+	.dashboard, .top-bar {
 		width: 90%;
 	}
 
@@ -589,7 +615,7 @@ a:hover {
 }
 
 @media (max-width: 360px) {
-	.bar .filter li .btn {
+	.top-bar .filter li .btn {
 		font-size: 11px;
 		line-height: 40px;
 		width: 75px;
