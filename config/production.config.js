@@ -63,6 +63,7 @@ var config = {
 
 	analytics: {
 		url: 'https://analytics.likeastore.com',
+		application: 'likeastore-production',
 		username: 'likeastore',
 		password: 'likeadmin7analitics'
 	},

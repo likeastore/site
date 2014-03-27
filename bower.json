@@ -8,6 +8,7 @@
     "modernizr": "~2.7.1",
     "vue": "~0.8.6",
     "rqst": "*",
-    "hashids": "~0.3.0"
+    "hashids": "~0.3.0",
+    "seismo": "~0.0.3"
   }
 }

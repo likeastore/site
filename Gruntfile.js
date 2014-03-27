@@ -49,7 +49,8 @@ module.exports = function (grunt) {
 					'public/components/vex/js/vex.js',
 					'public/components/vex/js/vex.dialog.js',
 					'public/components/rqst/rqst.js',
-					'public/components/hashids/lib/hashids.js'
+					'public/components/hashids/lib/hashids.js',
+					'public/components/seismo/seismo.js'
 				],
 				dest: 'public/build/base_merge.js'
 			},
@@ -66,7 +67,7 @@ module.exports = function (grunt) {
 
 		uglify: {
 			options: {
-				compress: true,
+				compress: false,
 				report: 'gzip'
 			},
 			target: {

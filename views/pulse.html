@@ -46,7 +46,7 @@
 				<a href="{{item.url}}" class="mask-link" target="_blank"></a>
 
 				<div class="action-buttons">
-					<a href="" class="share-btn" data-id="{{item._id.toString()}}" data-type="{{item.type}}" data-title="{{item.title}}" v-tooltip="Share" v-vex>
+					<a href="" class="share-btn" data-id="{{item._id.toString()}}" data-type="{{item.type}}" data-title="{{item.title or item.description|truncate(30)}}" v-tooltip="Share" v-vex>
 						<i class="font-icon share-box-icon"></i>
 					</a>
 				</div>
