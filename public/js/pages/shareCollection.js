@@ -76,6 +76,9 @@
 					className: 'lsd-theme share-dialog share-like',
 					showCloseButton: false,
 					afterOpen: function () {
+						ls.analytics.track('share-like');
+						mixpanel.track('like shared', { page: 'collection' });
+
 						$('.fb-btn').on('click', self.shareOnFacebook);
 						$('.tw-btn').on('click', self.shareOnTwitter);
 

@@ -54,7 +54,7 @@
 					showCloseButton: false,
 					afterOpen: function () {
 						ls.analytics.track('share-like');
-						mixpanel.track('like shared');
+						mixpanel.track('like shared', { page: 'pulse' });
 
 						$('.fb-btn').on('click', self.shareOnFacebook);
 						$('.tw-btn').on('click', self.shareOnTwitter);
