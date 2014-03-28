@@ -1,3 +1,5 @@
+var env = process.env.NODE_ENV || 'development';
+
 var express = require('express');
 var http = require('http');
 var path = require('path');
@@ -30,7 +32,19 @@ app.configure(function(){
 
 app.configure('development', function() {
 	app.set('view cache', false);
-	swig.setDefaults({ cache: false });
+	swig.setDefaults({
+		cache: false,
+		locals: {
+			config: {
+				env: env,
+				siteUrl: config.siteUrl,
+				applicationUrl: config.applicationUrl,
+				hashids: config.hashids,
+				analytics: config.analytics
+			},
+			mode: env
+		}
+	});
 	app.use(express.logger('dev'));
 	app.use(express.static(path.join(__dirname, 'public')));
 	app.use(express.errorHandler());

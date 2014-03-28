@@ -14,7 +14,7 @@ module.exports = function (app) {
 		if (req.cookies[config.auth.cookieName]) {
 			return res.redirect(config.applicationUrl);
 		}
-		res.render('landing_developers', { title: 'Likeastore • Social bookmarks and favorites', config: config, mode: env });
+		res.render('landing_developers', { title: 'Likeastore • Social bookmarks and favorites' });
 	};
 
 	// old school landing
@@ -22,23 +22,19 @@ module.exports = function (app) {
 		if (req.cookies[config.auth.cookieName]) {
 			return res.redirect(config.applicationUrl);
 		}
-		res.render('homepage', { title: 'Likeastore • Social bookmarks and favorites', config: config, mode: env });
+		res.render('homepage', { title: 'Likeastore • Social bookmarks and favorites' });
 	};
 
 	var register = function (req, res) {
-		res.render('join', { title: 'Join • Likeastore', mode: env, texts: {
-			cta: 'Sign up'
-		}});
+		res.render('join', { title: 'Join • Likeastore', texts: {cta: 'Sign up'} });
 	};
 
 	var login = function (req, res) {
-		res.render('join', { title: 'Log in • Likeastore', mode: env, texts: {
-			cta: 'Sign in'
-		}});
+		res.render('join', { title: 'Log in • Likeastore', texts: {cta: 'Sign in'} });
 	};
 
 	var forgotPassword = function (req, res) {
-		res.render('forgot_password', { title: 'Forgot password? • Likeastore', mode: env });
+		res.render('forgot_password', { title: 'Forgot password? • Likeastore' });
 	};
 
 	var resetPassword = function (req, res) {
@@ -46,19 +42,19 @@ module.exports = function (app) {
 			return res.redirect(config.siteUrl);
 		}
 
-		res.render('reset_password', { title: 'Reset password • Likeastore', mode: env, email: req.query.email, request: req.query.request});
+		res.render('reset_password', { title: 'Reset password • Likeastore', email: req.query.email, request: req.query.request});
 	};
 
 	var setup = function (req, res) {
-		res.render('setup', { title: 'Setup account • Likeastore', mode: env, user: req.user });
+		res.render('setup', { title: 'Setup account • Likeastore', user: req.user });
 	};
 
 	var termsOfUse = function (req, res) {
-		res.render('terms_of_use',  { title: 'Likeastore • Terms and Conditions of Use', mode: env });
+		res.render('terms_of_use',  { title: 'Likeastore • Terms and Conditions of Use' });
 	};
 
 	var privacyPolicy = function (req, res) {
-		res.render('privacy',  { title: 'Likeastore • Privacy Policy', mode: env });
+		res.render('privacy',  { title: 'Likeastore • Privacy Policy' });
 	};
 
 	var serverErrorPage = function (req, res) {
@@ -66,11 +62,11 @@ module.exports = function (app) {
 	};
 
 	var serveDevelopersLanding = function (req, res) {
-		res.render('landing_developers', { title: 'Likeastore • Social bookmarks and favorites for geeks', config: config, mode: env });
+		res.render('landing_developers', { title: 'Likeastore • Social bookmarks and favorites for geeks' });
 	};
 
 	var payForService = function (req, res) {
-		res.render('pay', { title: 'Likeastore • Support us!', mode: env, app: config.applicationUrl });
+		res.render('pay', { title: 'Likeastore • Support us!', app: config.applicationUrl });
 	};
 
 	var shareLike = function (req, res) {
@@ -97,11 +93,9 @@ module.exports = function (app) {
 				res.render('share_like', {
 					title: (user.displayName || user.name) + '\'s like on ' + item.type + ' via likeastore',
 					like: item,
-					user: user,
-					mode: env
+					user: user
 				});
 			});
-
 		});
 	};
 
@@ -156,10 +150,8 @@ module.exports = function (app) {
 					res.render('share_collection', {
 						title: collection.title + ' • Likeastore',
 						collection: collection,
-						config: config,
 						items: items,
-						user: user,
-						mode: env
+						user: user
 					});
 				});
 			});
@@ -185,9 +177,7 @@ module.exports = function (app) {
 			res.render('pulse', {
 				title: 'Pulse • Likeastore',
 				items: items,
-				age: age,
-				config: config,
-				mode: env
+				age: age
 			});
 		});
 	};
@@ -230,7 +220,7 @@ module.exports = function (app) {
 			if (err) {
 				return res.redirect(config.siteUrl);
 			}
-			res.render('unsubscribed',  { title: 'Likeastore • Unsubscribe', mode: env, app: config.applicationUrl });
+			res.render('unsubscribed',  { title: 'Likeastore • Unsubscribe', app: config.applicationUrl });
 		});
 	};
 
