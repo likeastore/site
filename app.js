@@ -9,6 +9,17 @@ var middleware = require('./source/middleware');
 var authorize = require('./source/utils/auth');
 var config = require('./config');
 
+var locals = {
+	config: {
+		env: env,
+		siteUrl: config.siteUrl,
+		applicationUrl: config.applicationUrl,
+		hashids: config.hashids,
+		analytics: config.analytics
+	},
+	mode: env
+};
+
 // (!) auth init should be ALWAYS before app
 authorize.init(passport);
 var app = express();
@@ -32,19 +43,7 @@ app.configure(function(){
 
 app.configure('development', function() {
 	app.set('view cache', false);
-	swig.setDefaults({
-		cache: false,
-		locals: {
-			config: {
-				env: env,
-				siteUrl: config.siteUrl,
-				applicationUrl: config.applicationUrl,
-				hashids: config.hashids,
-				analytics: config.analytics
-			},
-			mode: env
-		}
-	});
+	swig.setDefaults({ cache: false, locals: locals });
 	app.use(express.logger('dev'));
 	app.use(express.static(path.join(__dirname, 'public')));
 	app.use(express.errorHandler());
@@ -53,7 +52,7 @@ app.configure('development', function() {
 
 app.configure('staging', function () {
 	app.set('view cache', false);
-	swig.setDefaults({ cache: false });
+	swig.setDefaults({ cache: false, locals: locals });
 	//app.use(express.basicAuth(config.access.user, config.access.password));
 	app.use(express.logger('short'));
 	app.use(express.compress());
@@ -63,6 +62,7 @@ app.configure('staging', function () {
 });
 
 app.configure('production', function() {
+	swig.setDefaults({ locals: locals });
 	app.use(express.logger('short'));
 	app.use(express.compress());
 	app.use(express.static(path.join(__dirname, 'public')));
@@ -71,6 +71,7 @@ app.configure('production', function() {
 });
 
 app.configure('test', function() {
+	swig.setDefaults({ locals: locals });
 	app.use(express.static(path.join(__dirname, 'public')));
 	app.use(express.errorHandler());
 });
