@@ -53,6 +53,10 @@
   content: 'z';
 }
 
+.flickr-icon:before {
+  content: '\e025';
+}
+
 .pinterest-icon:before {
   content: 'A';
 }
