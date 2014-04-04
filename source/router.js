@@ -132,7 +132,7 @@ module.exports = function (app) {
 					return coll._id.toString() === collectionId;
 				});
 
-				if (!collection.public) {
+				if (!collection || !collection.public) {
 					return res.redirect(config.siteUrl);
 				}
 
