@@ -136,24 +136,24 @@ module.exports = function (app) {
 					return res.redirect(config.siteUrl);
 				}
 
-				collections.findItems(user, collectionId, function (err, items) {
-					if (err) {
-						return next(err);
-					}
-					if (!items.length) {
-						return res.redirect(config.siteUrl);
-					}
+				if (!collection.items.length) {
+					return res.redirect(config.siteUrl);
+				}
 
-					// set collection hash for resharing
-					collection.hash = hash;
+				if (req.cookies[config.auth.cookieName]) {
+					return res.redirect(config.applicationUrl + '/u/' + user.name + '/' + collectionId);
+				}
 
-					res.render('share_collection', {
-						title: collection.title + ' • Likeastore',
-						collection: collection,
-						items: items,
-						user: user
-					});
+				// set collection hash for resharing
+				collection.hash = hash;
+
+				res.render('share_collection', {
+					title: collection.title + ' • Likeastore',
+					collection: collection,
+					items: collection.items,
+					user: user
 				});
+
 			});
 		});
 	};
@@ -225,7 +225,6 @@ module.exports = function (app) {
 	};
 
 	app.get('/', index);
-	app.get('/home', home);
 	app.get('/join', register);
 	app.get('/register', register);
 	app.get('/login', login);
