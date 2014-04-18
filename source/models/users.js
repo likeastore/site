@@ -221,8 +221,8 @@ function finishUserSetup(userId, data, callback) {
 						return callback(err);
 					}
 
-					analytics('user setup account', logWarning);
-					notifier('user registered', user);
+					analytics('user registered', logWarning);
+					notifier('user registered', user, null, logWarning);
 					ga.trackEvent('account', 'setup', 'users', {name: updateQuery.name, email: updateQuery.email}, logWarning);
 
 					callback(null);
