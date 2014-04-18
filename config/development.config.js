@@ -18,6 +18,11 @@ var config = {
 		secure: false
 	},
 
+	notifier: {
+		url: 'http://localhost:3031',
+		accessToken: '1234'
+	},
+
 	// api keys
 	services: {
 		github: {

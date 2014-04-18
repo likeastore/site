@@ -23,6 +23,11 @@ var config = {
 		password: process.env.BASICAUTH_PASSWORD
 	},
 
+	notifier: {
+		url: 'http://notifier.stage.likeastore.com',
+		accessToken: '1234'
+	},
+
 	// api keys
 	services: {
 		github: {

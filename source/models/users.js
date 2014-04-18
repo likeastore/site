@@ -11,6 +11,7 @@ var tokens = require('../utils/tokens');
 var analytics = require('../utils/analytics');
 var ga = require('../utils/ga');
 var logger = require('../utils/logger');
+var notifier = require('./notifier');
 
 /**
  * (!) NOTA BENE: (remove when we'll enable schema)
@@ -106,7 +107,6 @@ function findOrCreateByService(token, tokenSecret, profile, callback) {
 				return callback(err);
 			}
 
-			analytics('user registered', {service: profile.provider}, logWarning);
 			ga.trackEvent('account', 'signup', 'users', {service: profile.provider}, logWarning);
 
 			callback(null, saved);
@@ -172,7 +172,6 @@ function findOrCreateByService(token, tokenSecret, profile, callback) {
 							return callback(err);
 						}
 
-						analytics('user registered', {service: 'local'}, logWarning);
 						ga.trackEvent('account', 'signup', 'users', {service: 'local'}, logWarning);
 
 						callback(null, saved);
@@ -212,15 +211,18 @@ function finishUserSetup(userId, data, callback) {
 		function saveUser () {
 			var updateQuery = data.email ? { name: data.username, email: data.email } : { name: data.username };
 
-			db.users.update(
-				{ _id: new ObjectId(userId) },
-				{ $set: updateQuery, $unset: { firstTimeUser: 1 }},
-				function (err) {
+			db.users.findAndModify({
+					query: { _id: new ObjectId(userId) },
+					update: { $set: updateQuery, $unset: { firstTimeUser: 1 }},
+					'new': true
+				},
+				function (err, user) {
 					if (err) {
 						return callback(err);
 					}
 
 					analytics('user setup account', logWarning);
+					notifier('user registered', user);
 					ga.trackEvent('account', 'setup', 'users', {name: updateQuery.name, email: updateQuery.email}, logWarning);
 
 					callback(null);
