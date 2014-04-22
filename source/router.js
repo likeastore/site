@@ -17,14 +17,6 @@ module.exports = function (app) {
 		res.render('landing_developers', { title: 'Likeastore • Social bookmarks and favorites' });
 	};
 
-	// old school landing
-	var home = function (req, res) {
-		if (req.cookies[config.auth.cookieName]) {
-			return res.redirect(config.applicationUrl);
-		}
-		res.render('homepage', { title: 'Likeastore • Social bookmarks and favorites' });
-	};
-
 	var register = function (req, res) {
 		res.render('join', { title: 'Join • Likeastore', texts: {cta: 'Sign up'} });
 	};

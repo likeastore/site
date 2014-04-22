@@ -105,6 +105,7 @@ body {
   user-select: none;
   border-radius: 3px;
   outline: none;
+  -webkit-font-smoothing: antialiased;
   -webkit-transition: all .3s linear;
   transition: all .3s linear;
 }
@@ -160,7 +161,6 @@ body {
 
 .auth-btn i {
   font-size: 14px;
-  line-height: 10px;
   margin-top: 3px;
   margin-right: 5px;
 }

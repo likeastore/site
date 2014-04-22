@@ -60,7 +60,7 @@
 
 						{% set link = config.siteUrl + '/u/' + user.name + '/' + collection.hash %}
 						<div class="share-popup" v-class="open: showPopup">
-							<div class="label">Share this collection with others:</div>
+							<div class="label">Share through social media:</div>
 							<div>
 								<a href="" v-on="click: shareOnFacebook" data-text="{{link}}" class="auth-btn facebook">
 									<i data-icon="g" class="icon"></i>
@@ -71,7 +71,7 @@
 									<span>Twitter</span>
 								</a>
 							</div>
-							<div class="label">Copy this link to share this collection with others:</div>
+							<div class="label">Or copy this link and share with friends:</div>
 							<div>
 								<input id="collectionUrl" class="fld" value="{{link}}">
 							</div>
@@ -82,11 +82,12 @@
 
 				<div class="main-viewer animated fadeIn">
 					<div class="top-bar clearfix animated fadeInLeft">
-						<div class="top left">
-							<h2 class="title">{{collection.title|title}}</h2>
-							<div class="info">
-								<div class="line">curated by {{user.displayName or user.name}}</div>
-							</div>
+						<h2 class="title">{{collection.title|title}}</h2>
+						<div>
+							<a href="{{config.applicationUrl}}/u/{{user.name}}" class="author"><img src="{{user.avatar}}" class="avatar"> {{user.name}}</a>
+						</div>
+						<div>
+							<a href="{{config.siteUrl}}/join" class="btn follow-btn" v-on="click: trackFollowCollection"><i class="font-icon plus-icon icon"></i> Follow</a>
 						</div>
 					</div>
 

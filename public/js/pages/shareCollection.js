@@ -57,6 +57,10 @@
 				this.$data.showSidebar = false;
 			},
 
+			trackFollowCollection: function () {
+				mixpanel.track('collection followed site');
+			},
+
 			initShareItemDialog: function (elem) {
 				var self = this;
 				var base = window.appConfig.siteUrl + '/s';

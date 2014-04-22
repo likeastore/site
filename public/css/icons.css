@@ -105,6 +105,10 @@
   content: 'W';
 }
 
+.plus-icon:before {
+  content: '`';
+}
+
 .link-icon:before {
   content: '2';
 }
