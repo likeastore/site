@@ -6,6 +6,7 @@ var path = require('path');
 var passport = require('passport');
 var swig = require('./source/swig');
 var middleware = require('./source/middleware');
+var applyErrorLogging = require('./source/utils/applyErrorLogging');
 var authorize = require('./source/utils/auth');
 var config = require('./config');
 
@@ -78,6 +79,8 @@ app.configure('test', function() {
 
 require('./source/api.js')(app, passport);
 require('./source/router.js')(app);
+
+applyErrorLogging(app);
 
 http.createServer(app).listen(app.get('port'), function () {
 	var env = process.env.NODE_ENV || 'development';

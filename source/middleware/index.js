@@ -1,4 +1,5 @@
 module.exports = {
 	pageNotFound: require('./pageNotFound'),
-	serverError: require('./serverError')
+	serverError: require('./serverError'),
+	errors: require('./errors')
 };

@@ -2,6 +2,8 @@
 
 function serverError () {
 	return function (err, req, res, next) {
+		console.log('serverError', err);
+
 		if (!err) {
 			return next();
 		}

@@ -160,8 +160,9 @@ module.exports = function (app) {
 
 		pulse.pulse(age, function (err, items) {
 			if (err) {
-				return next();
+				return next(err);
 			}
+
 			if (!items.length) {
 				return res.redirect(config.siteUrl);
 			}
