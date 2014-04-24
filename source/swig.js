@@ -11,6 +11,10 @@ swig.setFilter('linkify', function (input, idx) {
 });
 
 swig.setFilter('truncate', function (text, length, end) {
+	if (!text) {
+		return;
+	}
+
 	if (isNaN(length)) {
 		length = 100;
 	}
