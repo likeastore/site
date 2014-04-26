@@ -10,7 +10,7 @@
 <section class="forms-wrap join-wrap animated delay-300ms fadeInLeft">
 	<a href="/" class="logo big"></a>
 
-	<form id="join" class="form animated" accept-charset="utf-8" novalidate
+	<form id="join" class="form animated" accept-charset="utf-8" novalidate autocomplete="off"
 		v-class="shake: (errors.email || errors.password)">
 
 		<div class="message" v-class="error-msg: errors.msg"
@@ -26,7 +26,7 @@
 		</div>
 
 		<div>
-			<input type="password" name="password" class="fld" placeholder="Your password"
+			<input type="password" name="password" class="fld" placeholder="Your password" autocomplete="off"
 				v-model="user.password"
 				v-class="error: errors.password"
 				v-on="focus: resetFields">
