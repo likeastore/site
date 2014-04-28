@@ -18,7 +18,7 @@ module.exports = function (app, passport) {
 	var notify = function (req, res) {
 		subscribers.save(req, function (err) {
 			if (err) {
-				return res.send(500);
+				return res.json(500, err);
 			}
 			res.json({ message: 'You have been subscribed successfully!' });
 		});
@@ -27,7 +27,7 @@ module.exports = function (app, passport) {
 	var localAuth = function (req, res) {
 		users.findOrCreateLocal(req.body, function (err, user) {
 			if (err) {
-				return res.send(500, err);
+				return res.json(500, err);
 			}
 
 			if (user.firstTimeUser) {
@@ -45,7 +45,7 @@ module.exports = function (app, passport) {
 	var setupUser = function (req, res) {
 		users.finishUserSetup(req.user._id, req.body, function (err) {
 			if (err) {
-				return res.send(500, err);
+				return res.json(500, err);
 			}
 
 			var email = req.body.email || req.user.email;
@@ -58,7 +58,7 @@ module.exports = function (app, passport) {
 
 			networks.save(email, req.user, function (err, net) {
 				if (err) {
-					return res.send(500, err);
+					return res.json(500, err);
 				}
 				return res.json({ applicationUrl: appRedirectUrl });
 			});
@@ -73,16 +73,16 @@ module.exports = function (app, passport) {
 
 		users.resetPasswordRequest(email, function (err, request) {
 			if (err) {
-				return res.send(403, err);
+				return res.json(403, err);
 			}
 
 			var url = config.siteUrl + '/reset-password?email=' + email + '&request=' + request.id;
 			emails.sendTemplate([{email: email}], 'reset-password', [{name: 'URL', content: url}], function (err) {
 				if (err) {
-					return res.send(500, err);
+					return res.json(500, err);
 				}
 
-				res.send(200, {message: 'Thanks, email with instuctions just went to your inbox.'});
+				res.json(200, {message: 'Thanks, email with instuctions just went to your inbox.'});
 			});
 		});
 	};
@@ -98,20 +98,20 @@ module.exports = function (app, passport) {
 
 		users.changePassword(email, request, password, function (err) {
 			if (err) {
-				return res.send(500, err);
+				return res.json(500, err);
 			}
 
-			res.send(200, {message: 'Your password has been reset.'});
+			res.json(200, {message: 'Your password has been reset.'});
 		});
 	};
 
 	var getLikesCount = function (req, res, next) {
 		request(config.applicationUrl + '/api/items/count', function (err, resp, body) {
 			if (err) {
-				return res.send(500, err);
+				return res.json(500, err);
 			}
 
-			res.send(200, body);
+			res.json(200, body);
 		});
 	};
 
@@ -124,7 +124,7 @@ module.exports = function (app, passport) {
 		return function (req, res, next) {
 			schemas.validate(req.body, model, function (err) {
 				if (err) {
-					return res.send(412, err);
+					return res.json(412, err);
 				}
 				return next();
 			});
