@@ -61,6 +61,10 @@ module.exports = function (app) {
 		res.render('pay', { title: 'Likeastore • Support us!', app: config.applicationUrl });
 	};
 
+	var blank = function (req, res) {
+		res.send(200, '');
+	};
+
 	var shareLike = function (req, res) {
 		var hash = req.params.id;
 		if (!hash) {
@@ -236,4 +240,6 @@ module.exports = function (app) {
 	app.get('/geeks', serveDevelopersLanding);
 	app.get('/developers', serveDevelopersLanding);
 	app.get('/pay', payForService);
+
+	app.get('/blank.html', blank);
 };

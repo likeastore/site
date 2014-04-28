@@ -23,6 +23,10 @@ var config = {
 		accessToken: process.env.NOTIFIER_ACCESS_TOKEN
 	},
 
+	iosClient: {
+		accessToken: 'b7d4f9c7a3a5379be36cea3e8dbfb5da44a1fdb8'
+	},
+
 	// api keys
 	services: {
 		github: {

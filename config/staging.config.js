@@ -23,6 +23,10 @@ var config = {
 		password: process.env.BASICAUTH_PASSWORD
 	},
 
+	iosClient: {
+		accessToken: 'b7d4f9c7a3a5379be36cea3e8dbfb5da44a1fdb8'
+	},
+
 	notifier: {
 		url: 'http://notifier.stage.likeastore.com',
 		accessToken: '1234'

@@ -10,11 +10,6 @@ var schemas = require('./schemas');
 
 module.exports = function (app, passport) {
 
-	var authRedirect = {
-		successReturnToOrRedirect: '/setup',
-		failureRedirect: '/login'
-	};
-
 	var notify = function (req, res) {
 		subscribers.save(req, function (err) {
 			if (err) {
@@ -131,16 +126,63 @@ module.exports = function (app, passport) {
 		};
 	};
 
+	var getMobileUser = function (req, res) {
+		var accessToken = req.query.access_token;
+		var userId = req.query.id;
+
+		if (!accessToken) {
+			return res.json(401, {message: 'access_token is missing'});
+		}
+		if (accessToken !== config.iosClient.accessToken) {
+			return res.json(401, {message: 'access_token is wrong'});
+		}
+		if (!userId) {
+			return res.json(401, {message: 'user id is missing'});
+		}
+
+		users.findById(userId, function (err, user) {
+			if (err) {
+				return res.json(500, err);
+			}
+
+			user = _(user).pick('_id', 'email', 'apiToken', 'username', 'name');
+			return res.json(user);
+		});
+	};
+
+	var authenticateCallback = function (network) {
+		return function (req, res, next) {
+			var iOSClient = /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(req.headers['user-agent']);
+
+			var authRedirect = !iOSClient ?
+				// web client
+				{ successReturnToOrRedirect: '/setup', failureRedirect: '/login' } :
+
+				// on iphone client respond with user identifier
+				function (err, user) {
+					if (err) {
+						return next(err);
+					}
+					return res.redirect('/blank.html?id=' + user._id);
+				};
+
+			passport.authenticate(network, authRedirect)(req, res, next);
+		};
+	};
+
 	app.post('/notify', validate('subscribeSchema'), notify);
 	app.post('/auth/setup', validate('setupUserSchema'), setupUser);
 	app.post('/auth/local/login', validate('findOrCreateUserSchema'), localAuth);
 	app.get('/auth/twitter', cleanSession, passport.authenticate('twitter'));
-	app.get('/auth/twitter/callback', passport.authenticate('twitter', authRedirect));
+	app.get('/auth/twitter/callback', authenticateCallback('twitter'));
 	app.get('/auth/github', cleanSession, passport.authenticate('github'));
-	app.get('/auth/github/callback', passport.authenticate('github', authRedirect));
+	app.get('/auth/github/callback', authenticateCallback('github'));
 	app.get('/auth/facebook', cleanSession, passport.authenticate('facebook'));
-	app.get('/auth/facebook/callback', passport.authenticate('facebook', authRedirect));
+	app.get('/auth/facebook/callback', authenticateCallback('facebook'));
 	app.post('/resetpassword/request', createResetPasswordRequest);
 	app.post('/resetpassword', resetPassword);
 	app.get('/likescount', getLikesCount);
+
+	// mobile specials
+	app.get('/auth/mobile/user', getMobileUser);
 };
