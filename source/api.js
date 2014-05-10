@@ -8,6 +8,8 @@ var subscribers = require('./models/subscribers');
 var networks = require('./models/networks');
 var schemas = require('./schemas');
 
+var userFields = ['_id', 'email', 'apiToken', 'username', 'name', 'firstTimeUser'];
+
 module.exports = function (app, passport) {
 
 	var notify = function (req, res) {
@@ -29,7 +31,15 @@ module.exports = function (app, passport) {
 				req.session.localUser = _(user).extend({
 					username: user.email.substring(0, user.email.indexOf('@'))
 				});
-				return res.json({ applicationUrl: '/setup' });
+
+				var firstAuthData = !isIOSApp(req.headers) ?
+					// web client
+					{ applicationUrl: '/setup' } :
+
+					// iphone client
+					_(user).pick(userFields);
+
+				return res.json(firstAuthData);
 			}
 
 			var appRedirectUrl = config.applicationUrl + '?email=' + user.email + '&apiToken=' + user.apiToken;
@@ -145,20 +155,18 @@ module.exports = function (app, passport) {
 				return res.json(500, err);
 			}
 
-			user = _(user).pick('_id', 'email', 'apiToken', 'username', 'name');
+			user = _(user).pick(userFields);
 			return res.json(user);
 		});
 	};
 
 	var authenticateCallback = function (network) {
 		return function (req, res, next) {
-			var iOSClient = /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(req.headers['user-agent']);
-
-			var authRedirect = !iOSClient ?
+			var authRedirect = !isIOSApp(req.headers) ?
 				// web client
 				{ successReturnToOrRedirect: '/setup', failureRedirect: '/login' } :
 
-				// on iphone client respond with user identifier
+				// iphone client
 				function (err, user) {
 					if (err) {
 						return next(err);
@@ -186,3 +194,8 @@ module.exports = function (app, passport) {
 	// mobile specials
 	app.get('/auth/mobile/user', getMobileUser);
 };
+
+// static
+function isIOSApp(headers) {
+	return (/(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i).test(headers['user-agent']);
+}
