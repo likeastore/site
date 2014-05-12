@@ -1,0 +1,51 @@
+{% extends './base_old.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="/css/share_app.css">
+{% endblock %}
+
+{% block bodyClass %}share-app-page{% endblock %}
+
+{% block content %}
+<div class="block-networks-overlay">
+	<div class="block-networks-content animated fadeIn">
+		<h1>Share with friends</h1>
+		<div class="block-message">
+			Please help and spread the word about us through social media. Share your ideas for future of the application at <a href="mailto:info@likeastore.com"><b>info@likeastore.com</b></a>
+		</div>
+		<div class="social-share">
+			<a href="#" class="btn fb-btn">
+				<i class="font-icon facebook-icon icon"></i>
+				Share on facebook
+			</a>
+			<a href="https://twitter.com/intent/tweet?text=Likeastore app helps to organize favorites and likes in one account - https://likeastore.com via @likeastore" class="btn tw-btn">
+				<i class="font-icon twitter-icon icon"></i>
+				Share on twitter
+			</a>
+		</div>
+
+		<div class="bottom-box">
+			<h1 class="logo">
+				<a href="/">likeastore.</a>
+			</h1>
+
+			<hr>
+
+			<ul class="footer-nav">
+				<li><a href="http://blog.likeastore.com">Blog</a></li>
+				<li><a href="https://facebook.com/likeastore">Facebook</a></li>
+				<li><a href="https://twitter.com/likeastore" class="twitter">@likeastore</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+$('.fb-btn').click(function (e) {
+	e.preventDefault();
+	window.open('http://www.facebook.com/share.php?u=https://likeastore.com', 'Share', 'width=600,height=400,resizable=yes');
+});
+</script>
+{% endblock %}

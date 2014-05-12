@@ -154,6 +154,10 @@ module.exports = function (app) {
 		});
 	};
 
+	var sharePage = function (req, res, next) {
+		res.render('share_app', { title: 'Likeastore • Spread the word'});
+	};
+
 	var pulsePage = function (req, res, next) {
 		var age = req.params.age || 'week';
 
@@ -240,6 +244,7 @@ module.exports = function (app) {
 	app.get('/geeks', serveDevelopersLanding);
 	app.get('/developers', serveDevelopersLanding);
 	app.get('/pay', payForService);
+	app.get('/share', sharePage);
 
 	app.get('/blank.html', blank);
 };
