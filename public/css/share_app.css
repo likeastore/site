@@ -154,3 +154,9 @@ hr {
 	text-decoration: none;
 	border-bottom: 1px solid;
 }
+
+@media (max-width: 470px) {
+	.block-networks-overlay .btn.fb-btn {
+		margin-bottom: 15px;
+	}
+}
