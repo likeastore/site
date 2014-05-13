@@ -8,7 +8,7 @@ var subscribers = require('./models/subscribers');
 var networks = require('./models/networks');
 var schemas = require('./schemas');
 
-var userFields = ['_id', 'email', 'apiToken', 'username', 'name', 'firstTimeUser'];
+var userFields = ['_id', 'email', 'apiToken', 'username', 'provider', 'name', 'avatar', 'firstTimeUser'];
 
 module.exports = function (app, passport) {
 
@@ -48,20 +48,23 @@ module.exports = function (app, passport) {
 	};
 
 	var setupUser = function (req, res) {
-		users.finishUserSetup(req.user._id, req.body, function (err) {
+		var userId = req.user ? req.user._id : req.body.userId;
+		var userData = _(req.body).omit('userId');
+
+		users.finishUserSetup(userId, userData, function (err, user) {
 			if (err) {
 				return res.json(500, err);
 			}
 
-			var email = req.body.email || req.user.email;
-			var appRedirectUrl = config.applicationUrl + '?email=' + email + '&apiToken=' + req.user.apiToken;
+			var email = req.body.email || user.email;
+			var appRedirectUrl = config.applicationUrl + '?email=' + email + '&apiToken=' + user.apiToken;
 
-			if (req.user.provider === 'local') {
+			if (user.provider === 'local') {
 				delete req.session.localUser;
 				return res.json({ applicationUrl: appRedirectUrl });
 			}
 
-			networks.save(email, req.user, function (err, net) {
+			networks.save(email, user, function (err, net) {
 				if (err) {
 					return res.json(500, err);
 				}
@@ -197,5 +200,5 @@ module.exports = function (app, passport) {
 
 // static
 function isIOSApp(headers) {
-	return (/(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i).test(headers['user-agent']);
+	return (/((iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)|Likeastore.*iOS)/i).test(headers['user-agent']);
 }

@@ -225,7 +225,7 @@ function finishUserSetup(userId, data, callback) {
 					notifier('user registered', user, null, logWarning);
 					ga.trackEvent('account', 'setup', 'users', {name: updateQuery.name, email: updateQuery.email}, logWarning);
 
-					callback(null);
+					callback(null, user);
 				});
 		}
 	});

@@ -44,6 +44,11 @@ exports.schemas = {
 				pattern: emailRegex,
 				example: 'john.doe@email.com'
 			},
+			userId: {
+				type: ['null','string'],
+				pattern: /^[a-fA-F0-9]{24}$/,
+				example: '123456'
+			},
 			username: {
 				type: 'string',
 				required: true,
