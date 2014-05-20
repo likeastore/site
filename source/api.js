@@ -53,7 +53,7 @@ module.exports = function (app, passport) {
 
 		users.finishUserSetup(userId, userData, function (err, user) {
 			if (err) {
-				return res.json(500, err);
+				return res.json((err.status || 500), err);
 			}
 
 			var email = req.body.email || user.email;

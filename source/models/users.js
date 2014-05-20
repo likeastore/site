@@ -189,7 +189,7 @@ function finishUserSetup(userId, data, callback) {
 		}
 
 		if (user && user.name === data.username) {
-			return callback({ field: 'username', message: 'User with such username already exists.' });
+			return callback({ field: 'username', message: 'User with such username already exists.', status: 409 });
 		}
 
 		if (data.email) {
@@ -199,7 +199,7 @@ function finishUserSetup(userId, data, callback) {
 				}
 
 				if (user && user.email === data.email) {
-					return callback({ field: 'email', message: 'User with such email already exists.', user: user });
+					return callback({ field: 'email', message: 'User with such email already exists.', user: user, status: 409 });
 				}
 
 				saveUser();
