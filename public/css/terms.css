@@ -31,3 +31,13 @@
 .long-text-wrapper h3 {
 	margin: 25px auto 10px;
 }
+
+@media only screen and (min-device-width : 320px) and (orientation : portrait) {
+	.long-text-wrapper {
+		width: 90%;
+	}
+
+	.long-text-wrapper h3 {
+		font-size: 24px;
+	}
+}
