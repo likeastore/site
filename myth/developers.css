@@ -445,6 +445,13 @@ body {
 	text-decoration: none;
 }
 
+/* Video */
+.video-dialog.lsd-theme .vex-content {
+	width: 640px;
+	height: 400px;
+	padding: 0;
+}
+
 @media (max-width: 960px) {
 	.cont, .nav {
 		width: 95%;
@@ -530,6 +537,12 @@ body {
 
 	.free .sign-up {
 		margin: 0 0 30px!important;
+	}
+
+	.video-dialog.lsd-theme .vex-content {
+		width: 90%;
+		height: 90%;
+		padding: 0;
 	}
 }
 

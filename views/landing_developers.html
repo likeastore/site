@@ -34,7 +34,7 @@
 			</div>
 		</div>
 
-		<div class="browser">
+		<div class="browser" v-on="click: playVideo">
 			<div class="browser-ctrl one"></div>
 			<div class="browser-ctrl two"></div>
 			<div class="browser-ctrl three"></div>
@@ -144,6 +144,7 @@
 {% endblock %}
 
 {% block scripts %}
+	<script src="/js/pages/landing.js"></script>
 	<script>mixpanel.track('landing page');</script>
 	<script>mixpanel.track('geeks landing');</script>
 	<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
