@@ -441,15 +441,19 @@ body {
 
 /* Video */
 
+.video-dialog.lsd-theme {
+  padding: 10px !important;
+}
+
 .video-dialog.lsd-theme .vex-content {
-  width: 640px;
-  height: 380px;
+  width: 90%;
+  height: 100%;
   padding: 0;
 }
 
 .play-button {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   background: #fff;
   border-radius: 100%;
   position: absolute;
@@ -458,9 +462,11 @@ body {
   -webkit-background-size: contain;
   background-size: contain;
   left: 50%;
-  margin-left: -60px;
+  margin-left: -50px;
   top: 15%;
-  opacity: .5;
+  opacity: .8;
+  -webkit-transition: opacity .3s ease-in;
+  transition: opacity .3s ease-in;
 }
 
 .index .browser:hover .play-button {
