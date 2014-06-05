@@ -176,15 +176,16 @@ body {
 }
 
 .index .browser {
-  background: url('../img/feed-box.png') top center no-repeat;
+  background: url('/img/big-screen-favorites.png') center top no-repeat;
   -webkit-background-size: 100%;
   background-size: 100%;
   margin: 45px 0 0;
   width: 550px;
-  height: 590px;
+  height: 640px;
   position: absolute;
   right: 0;
-  opacity: .9;
+  opacity: .98;
+  cursor: pointer;
   -webkit-box-shadow: -1px -25px 16px 5px rgba(255,255,255,0.2);
   box-shadow: -1px -25px 16px 5px rgba(255,255,255,0.2);
 }
@@ -227,7 +228,7 @@ body {
   bottom: 75px;
   right: -40px;
   margin: 0 auto;
-  opacity: .96;
+  opacity: .98;
   -webkit-transition: all .3s;
   transition: all .3s;
 }
@@ -444,6 +445,26 @@ body {
   width: 640px;
   height: 400px;
   padding: 0;
+}
+
+.play-button {
+  width: 120px;
+  height: 120px;
+  background: #fff;
+  border-radius: 100%;
+  position: absolute;
+  z-index: 10;
+  background: url('/img/play.png') no-repeat center;
+  -webkit-background-size: contain;
+  background-size: contain;
+  left: 50%;
+  margin-left: -60px;
+  top: 15%;
+  opacity: .5;
+}
+
+.index .browser:hover .play-button {
+  opacity: .7;
 }
 
 @media (max-width: 960px) {
