@@ -99,7 +99,8 @@ function findOrCreateByService(token, tokenSecret, profile, callback) {
 			registered: new Date(),
 			loginLastDate: new Date(),
 			apiToken: tokens.generateApiToken(meta.username),
-			firstTimeUser: true
+			firstTimeUser: true,
+			verified: false
 		});
 
 		db.users.save(record, function (err, saved) {
@@ -303,6 +304,14 @@ function unsubscribe(id, callback) {
 	}, callback);
 }
 
+function verify(id, callback) {
+	db.users.findAndModify({
+		query: {_id: new ObjectId(id)},
+		update: {$set: {verified: true}},
+		'new': true,
+	}, callback);
+}
+
 module.exports = {
 	findOrCreateByService: findOrCreateByService,
 	findOrCreateLocal: findOrCreateLocal,
@@ -312,5 +321,6 @@ module.exports = {
 	findByName: findByName,
 	findByEmail: findByEmail,
 	changePassword: changePassword,
-	unsubscribe: unsubscribe
+	unsubscribe: unsubscribe,
+	verify: verify
 };

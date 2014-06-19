@@ -225,6 +225,19 @@ module.exports = function (app) {
 		});
 	};
 
+	var verifyPage = function (req, res, next) {
+		if (!req.query.u) {
+			return res.redirect(config.siteUrl);
+		}
+
+		users.verify(req.query.u, function (err) {
+			if (err) {
+				return res.redirect(config.siteUrl);
+			}
+			res.render('verified',  { title: 'Likeastore • Email Verified', app: config.applicationUrl });
+		});
+	};
+
 	app.get('/', index);
 	app.get('/join', register);
 	app.get('/register', register);
@@ -245,6 +258,7 @@ module.exports = function (app) {
 	app.get('/developers', serveDevelopersLanding);
 	app.get('/pay', payForService);
 	app.get('/share', sharePage);
+	app.get('/verify', verifyPage);
 
 	app.get('/blank.html', blank);
 };
