@@ -301,7 +301,10 @@ function unsubscribe(id, callback) {
 		query: {_id: new ObjectId(id)},
 		update: {$set: {unsubscribed: true}},
 		'new': true,
-	}, callback);
+	}, function (err, user) {
+		analytics('user unsubscribed', logWarning);
+		callback(err, user);
+	});
 }
 
 function verify(id, callback) {
@@ -309,7 +312,10 @@ function verify(id, callback) {
 		query: {_id: new ObjectId(id)},
 		update: {$set: {verified: true}},
 		'new': true,
-	}, callback);
+	}, function (err, user) {
+		analytics('user verified', logWarning);
+		callback(err, user);
+	});
 }
 
 module.exports = {
