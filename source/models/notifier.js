@@ -8,6 +8,11 @@ function notifierRequestUrl() {
 }
 
 function notifier(e, user, data, callback) {
+	if (!user) {
+		logger.error({message: 'notifier: user is not initialized'});
+		return callback && callback({message: 'notifier: user is not initialized'});
+	}
+
 	var url = notifierRequestUrl();
 	var event = _.extend({event: e.replace(' ', '-')}, {user: user.email}, {data: data});
 
