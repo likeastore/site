@@ -60,12 +60,23 @@ body {
 	text-decoration: none;
 }
 
+.announce {
+	height: 35px;
+	text-align: center;
+	background: #272a33;
+	line-height: 35px;
+}
+
+.announce a {
+	color: #fff;
+}
+
 .nav {
 	padding-top: 32px;
 	margin: 0 auto;
 	width: 960px;
 	position: absolute;
-	top: 0;
+	top: 25px;
 	left: 0;
 	right: 0;
 	z-index: 100;
