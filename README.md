@@ -1,4 +1,4 @@
-#likeastore marketing site
+# Likeastore marketing site
 
 - registration
 - login
